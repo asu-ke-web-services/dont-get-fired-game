@@ -1,0 +1,32 @@
+{
+  "name": "sustainability-game",
+  "version": "0.0.1",
+  "description": "Browser based game to teach sustainability concepts",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gios-asu/sustainability-game.git"
+  },
+  "keywords": [
+    "javascript",
+    "npm",
+    "sustainability"
+  ],
+  "author": "GIOS <giosweb@asu.edu> (https://github.com/gios-asu)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gios-asu/sustainability-game/issues"
+  },
+  "homepage": "https://github.com/gios-asu/sustainability-game#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-jasmine": "^2.0.1",
+    "gulp-coverage": "^0.3.36"
+  }
+}
