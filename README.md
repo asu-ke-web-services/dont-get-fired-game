@@ -17,4 +17,4 @@ Tests use [Jasmine](http://jasmine.github.io/), running on [Gulp-Jasmine](https:
 
 # Documentation
 
-Please see the [Wiki](wiki) for documentation on the development process, links to developer resources, and meeting notes.
+Please see the [Wiki](https://github.com/gios-asu/sustainability-game/wiki) for documentation on the development process, links to developer resources, and meeting notes.
