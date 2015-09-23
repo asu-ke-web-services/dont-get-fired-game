@@ -20,7 +20,7 @@ var options = {
       'tests/integration/**/*.js',
     ]
   },
-  filePaths : [
+  filePaths : {
     core : [
       'src/core/*.js',
       'src/core/**/*.js'
@@ -29,7 +29,7 @@ var options = {
       'src/framework/*.js',
       'src/framework/**/*.js'
     ],
-  ],
+  },
   jasmine : {
     includeStackTrace : true,
     verbose: true
