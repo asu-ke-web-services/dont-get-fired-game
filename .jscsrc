@@ -1,0 +1,4 @@
+{
+    "preset": "jquery",
+    "validateQuoteMarks" : { "mark" : "'", "escape" : true }
+}

@@ -1,3 +1,3 @@
-+function () {
-  // Do nothing
-}();
+module.exports = function Test() {
+  this.test = true;
+};
