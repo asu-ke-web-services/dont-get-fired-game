@@ -29,5 +29,6 @@
     "gulp-jasmine": "^2.0.1",
     "gulp-coverage": "^0.3.36",
     "gulp-coveralls": "^0.1.4",
+    "run-sequence": "^1.1.2"
   }
 }
