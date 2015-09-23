@@ -2,7 +2,8 @@ Sustainability Game
 ===================
 
 [![Build Status](https://travis-ci.org/gios-asu/sustainability-game.svg)](https://travis-ci.org/gios-asu/sustainability-game)
-
+[![Coverage Status](https://coveralls.io/repos/gios-asu/sustainability-game/badge.svg?branch=develop&service=github)](https://coveralls.io/github/gios-asu/sustainability-game?branch=develop)
+[![Code Climate](https://codeclimate.com/github/gios-asu/sustainability-game/badges/gpa.svg)](https://codeclimate.com/github/gios-asu/sustainability-game)
 # Tests
 
 Run tests using Gulp:
