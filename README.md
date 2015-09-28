@@ -12,7 +12,6 @@ You will need:
 * NPM
 * Gulp
 * Browserify
-* [PhantomJS](http://phantomjs.org/download.html)
 
 # Tests
 
@@ -27,7 +26,7 @@ gulp
 
 Spec tests use [Jasmine](http://jasmine.github.io/), running on [Gulp-Jasmine](https://www.npmjs.com/package/gulp-jasmine).
 
-Unit tests use [Qunit](http://qunitjs.com), running on [PhantomJS](http://phantomjs.org/download.html).
+Unit tests use [Qunit](http://qunitjs.com), running on [PhantomJS](http://phantomjs.org/download.html). PhantomJS is automatically downloaded for you when you do `npm install`.
 
 # Documentation
 
