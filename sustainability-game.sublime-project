@@ -1,0 +1,21 @@
+{
+    "folders":
+    [
+        {
+            "path": ".",
+            "folder_exclude_patterns": [".coverdata", "coverage", "debug"],
+            "file_exclude_patterns": [".coverrun", "npm-debug.log"]
+        }
+    ],
+    "settings":
+    {
+        "tab_size": 2
+    },
+    "build_systems":
+    [
+        {
+            "name": "Build",
+            "shell_cmd": "gulp"
+        }
+    ]
+}
