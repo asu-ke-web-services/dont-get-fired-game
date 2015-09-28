@@ -1,12 +1,22 @@
+// Core
 var gulp        = require( 'gulp' );
-var runSequence = require( 'run-sequence' );
+var rename      = require( 'gulp-rename' );
+var runSequence = require( 'run-sequence' ).use( gulp );
 
+// Test
 var jasmine   = require( 'gulp-jasmine' );
 var cover     = require( 'gulp-coverage' );
 var coveralls = require( 'gulp-coveralls' );
+var qunit     = require( 'gulp-qunit' );
 
+// Lint
 var jscs = require( 'gulp-jscs' );
 
+// Build
+var browserify = require( 'gulp-browserify' );
+var minify     = require( 'gulp-minify' );
+
+// Options and settings
 var options = {
   testPaths: {
     unit: [
@@ -38,26 +48,34 @@ var options = {
     '!.coverdata/**',
     '!coverage/**',
     '!debug/**',
-    '!node_modules/**'
+    '!node_modules/**',
+    '!dist/**'
   ],
   jasmine: {
     includeStackTrace: true,
     verbose: true
   },
-  entryPoint: './index.js'
+  entryPoint: './index.js',
+  buildPath: 'dist/js/'
 };
 
-gulp.task( 'test', function() {
-    var temp = gulp.src( [ options.entryPoint ].concat( options.testPaths.spec ) )
-          .pipe( cover.instrument( {
-            pattern: options.filePaths.core,
-            debugDirectory: 'debug'
-          } ) )
-          .pipe( jasmine( options.jasmine ) )
-          .pipe( cover.gather() )
-          .pipe( cover.format( {
-            reporter: 'lcov'
-          } ) );
+// Tasks
+gulp.task( 'unit-test', function() {
+  return gulp.src( 'tests/unit/fixtures/test-runner.html' )
+    .pipe( qunit() );
+} );
+
+gulp.task( 'spec-test', function() {
+  var temp = gulp.src( [ options.entryPoint ].concat( options.testPaths.spec ) )
+    .pipe( cover.instrument( {
+      pattern: options.filePaths.core,
+      debugDirectory: 'debug'
+    } ) )
+    .pipe( jasmine( options.jasmine ) )
+    .pipe( cover.gather() )
+    .pipe( cover.format( {
+      reporter: 'lcov'
+    } ) );
 
   if ( process.env.CI ) {
     temp = temp.pipe( coveralls() );
@@ -68,12 +86,35 @@ gulp.task( 'test', function() {
   return temp;
 } );
 
+// TODO merge coverage results of tests
+gulp.task( 'test', [ 'unit-test', 'spec-test' ] );
+
 gulp.task( 'lint', function() {
   return gulp.src( options.allPaths )
-        .pipe( jscs() )
-        .pipe( jscs.reporter() );
+    .pipe( jscs() )
+    .pipe( jscs.reporter() )
+    .pipe( jscs.reporter( 'fail' ) );
+} );
+
+gulp.task( 'compile', function() {
+  return gulp.src( options.entryPoint + '.js' )
+    .pipe( browserify( {
+      insertGlobals: true
+    } ) )
+    .pipe( gulp.dest( options.buildPath ) );
+} );
+
+gulp.task( 'minify', function() {
+  return gulp.src( options.buildPath + options.entryPoint + '.js' )
+    .pipe( minify( {} ) )
+    .pipe( rename( options.entryPoint + '.min.js' ) )
+    .pipe( gulp.dest( options.buildPath ) );
+} );
+
+gulp.task( 'build', function( cb ) {
+  runSequence( 'compile', 'minify', cb );
 } );
 
 gulp.task( 'default', function( cb ) {
-  runSequence( [ 'test', 'lint' ], cb );
+  runSequence( [ 'test', 'lint' ], 'build', cb );
 } );

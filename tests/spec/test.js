@@ -1,4 +1,4 @@
-var Test = require( __base + 'src/core/delete-me-in-the-future' );
+var Test = require( __core + 'delete-me-in-the-future' );
 
 describe( 'Tests', function() {
   it( 'contains spec with an expectation', function() {
