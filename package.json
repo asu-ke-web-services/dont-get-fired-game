@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/gios-asu/sustainability-game#readme",
   "devDependencies": {
+    "browser-sync": "^2.9.11",
     "gulp": "^3.9.0",
     "gulp-browserify": "^0.5.1",
     "gulp-coverage": "^0.3.36",
@@ -36,6 +37,9 @@
     "gulp-rename": "^1.2.2",
     "jscs": "^2.1.1",
     "lodash": "^3.10.1",
-    "run-sequence": "^1.1.2"
+    "run-sequence": "^1.1.2",
+    "underscore": "^1.8.3",
+    "webpack": "^1.12.2",
+    "webpack-stream": "^2.1.1"
   }
 }

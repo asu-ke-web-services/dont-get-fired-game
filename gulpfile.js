@@ -1,7 +1,18 @@
+/*
+ |----------------------------------------------
+ | Gulp
+ |----------------------------------------------
+ |
+ | Add any compile steps here. Always use gulp
+ | to make a build
+ |
+ */
+
 // Core
 var gulp        = require( 'gulp' );
 var rename      = require( 'gulp-rename' );
 var runSequence = require( 'run-sequence' ).use( gulp );
+var browserSync = require( 'browser-sync' ).create();
 
 // Test
 var jasmine   = require( 'gulp-jasmine' );
@@ -13,10 +24,18 @@ var qunit     = require( 'gulp-qunit' );
 var jscs = require( 'gulp-jscs' );
 
 // Build
-var browserify = require( 'gulp-browserify' );
-var minify     = require( 'gulp-minify' );
+var webpack = require( 'webpack' );
+var stream  = require( 'webpack-stream' );
+var minify  = require( 'gulp-minify' );
 
-// Options and settings
+/*
+ |----------------------------------------------
+ | Options
+ |----------------------------------------------
+ |
+ | Paths, names, etc used throughout the build
+ |
+ */
 var options = {
   testPaths: {
     unit: [
@@ -56,17 +75,46 @@ var options = {
     verbose: true
   },
   entryPoint: './index.js',
-  buildPath: 'dist/js/'
+  buildPath: 'dist/js/',
+  servePath: 'dist/'
 };
 
-// Tasks
+/*
+ |----------------------------------------------
+ | Tasks
+ |----------------------------------------------
+ |
+ | Gulp tasks can be run through the command
+ | line using `gulp`. Use `gulp serve` for
+ | continuous compiling and testing.
+ |
+ */
+
+gulp.task( 'serve', [ 'default' ], function() {
+  browserSync.init( {
+    server: {
+      baseDir: './' + options.servePath
+    }
+  } );
+
+  var paths = [].concat( options.filePaths.root )
+    .concat( options.filePaths.core )
+    .concat( options.filePaths.framework )
+    .concat( options.filePaths.game );
+
+  gulp.watch( paths, [ 'build' ] );
+} );
+
 gulp.task( 'unit-test', function() {
   return gulp.src( 'tests/unit/fixtures/test-runner.html' )
     .pipe( qunit() );
 } );
 
 gulp.task( 'spec-test', function() {
-  var temp = gulp.src( [ options.entryPoint ].concat( options.testPaths.spec ) )
+  var src = [ 'tests/spec-loader.js' ]
+    .concat( options.testPaths.spec )
+    .concat( options.entryPoint );
+  var temp = gulp.src( src )
     .pipe( cover.instrument( {
       pattern: options.filePaths.core,
       debugDirectory: 'debug'
@@ -98,10 +146,18 @@ gulp.task( 'lint', function() {
 
 gulp.task( 'compile', function() {
   return gulp.src( options.entryPoint + '.js' )
-    .pipe( browserify( {
-      insertGlobals: true
+    .pipe( stream( {
+      entry: __dirname + '/' + options.entryPoint + '.js',
+      output: {
+        path: __dirname + '/' + options.buildPath,
+        filename: options.entryPoint + '.js'
+      },
+      resolve: {
+        root: __dirname + '/' + 'src'
+      }
     } ) )
-    .pipe( gulp.dest( options.buildPath ) );
+    .pipe( gulp.dest( options.buildPath ) )
+    .pipe( browserSync.stream() );
 } );
 
 gulp.task( 'minify', function() {
