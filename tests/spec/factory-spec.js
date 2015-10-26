@@ -8,7 +8,7 @@ describe( 'a factory', function() {
     factory = new Factory( {
       name: 'Toy Factory'
     } );
-    
+
     factoryNoOptions = new Factory();
   } );
 
