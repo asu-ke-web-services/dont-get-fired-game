@@ -6,7 +6,7 @@ describe( 'a factory', function() {
 
   beforeEach( function() {
     factory = new Factory( {
-      name: 'Toy - Factory'
+      name: 'Toy Factory'
     } );
   } );
 
