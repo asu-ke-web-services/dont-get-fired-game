@@ -122,7 +122,7 @@ gulp.task( 'spec-test', function() {
   .pipe( jasmine( options.jasmine ) )
   .pipe( cover.gather() )
   .pipe( cover.format( {
-   reporter: 'lcov'
+    reporter: 'lcov'
   } ) );
 
   if ( process.env.CI ) {
