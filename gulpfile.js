@@ -119,7 +119,7 @@ gulp.task( 'spec-test', function() {
      pattern: options.filePaths.core,
      debugDirectory: 'debug'
    } ) )
-  .pipe( jasmine( options.jasmine ) );
+  .pipe( jasmine( options.jasmine ) )
   .pipe( cover.gather() )
   .pipe( cover.format( {
    reporter: 'lcov'
