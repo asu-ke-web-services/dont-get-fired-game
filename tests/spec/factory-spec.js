@@ -18,7 +18,7 @@ describe( 'a factory', function() {
   } );
   
   it( 'does not require options', function() {
-    expect( factoryNoOptions ).toBeUndefined();
+    expect( factoryNoOptions.name ).toBeUndefined();
   } );
 } );
 
