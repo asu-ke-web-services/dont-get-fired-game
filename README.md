@@ -19,7 +19,6 @@ Run tests using Gulp:
 
 ```
 npm install -g gulp
-npm install -g browserify
 npm install
 gulp
 ```
