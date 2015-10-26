@@ -115,15 +115,15 @@ gulp.task( 'spec-test', function() {
     .concat( options.testPaths.spec )
     .concat( options.entryPoint );
   var temp = gulp.src( src )
-    .pipe( cover.instrument( {
-      pattern: options.filePaths.core,
-      debugDirectory: 'debug'
-    } ) )
-    .pipe( jasmine( options.jasmine ) )
-    .pipe( cover.gather() )
-    .pipe( cover.format( {
-      reporter: 'lcov'
-    } ) );
+   .pipe( cover.instrument( {
+     pattern: options.filePaths.core,
+     debugDirectory: 'debug'
+   } ) )
+  .pipe( jasmine( options.jasmine ) )
+  .pipe( cover.gather() )
+  .pipe( cover.format( {
+    reporter: 'lcov'
+  } ) );
 
   if ( process.env.CI ) {
     temp = temp.pipe( coveralls() );
