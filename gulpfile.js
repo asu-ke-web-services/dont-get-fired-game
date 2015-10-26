@@ -74,7 +74,7 @@ var options = {
     includeStackTrace: true,
     verbose: true
   },
-  entryPoint: './index.js',
+  entryPoint: 'index.js',
   buildPath: 'dist/js/',
   servePath: 'dist/'
 };
@@ -147,7 +147,7 @@ gulp.task( 'lint', function() {
 gulp.task( 'compile', function() {
   return gulp.src( options.entryPoint + '.js' )
     .pipe( stream( {
-      entry: __dirname + '/' + options.entryPoint + '.js',
+      entry: __dirname + '/' + options.entryPoint,
       output: {
         path: __dirname + '/' + options.buildPath,
         filename: options.entryPoint + '.js'

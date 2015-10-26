@@ -1,4 +1,3 @@
-
 var Achievement = require( __core + 'entities/achievement' );
 
 describe( 'an achievement', function() {
