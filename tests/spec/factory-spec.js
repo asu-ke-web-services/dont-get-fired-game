@@ -16,7 +16,7 @@ describe( 'a factory', function() {
     expect( factory.name ).toBeDefined();
     expect( factory.name ).toBe( 'Toy Factory' );
   } );
-  
+
   it( 'does not require options', function() {
     expect( factoryNoOptions.name ).toBeUndefined();
   } );
