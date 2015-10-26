@@ -5,7 +5,7 @@ describe( 'a factory', function() {
   var factory;
 
   beforeEach( function() {
-    factory = new Achievement( {
+    factory = new Factory( {
       name: 'Toy Factory'
     } );
   } );
