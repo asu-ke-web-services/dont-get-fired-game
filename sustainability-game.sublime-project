@@ -17,5 +17,6 @@
             "name": "Build",
             "shell_cmd": "gulp"
         }
-    ]
+    ],
+    "default_line_ending": "unix",
 }
