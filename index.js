@@ -4,7 +4,8 @@
 if ( console && console.log ) {
   console.log(
     'The Julie Ann Wrigley Global Institute of Sustainability\n' +
-    'Copyright Arizona State University 2015\n'
+    'Copyright Arizona State University 2015\n' +
+    'Made by Capstone++\n'
   );
 }
 
