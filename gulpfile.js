@@ -59,6 +59,13 @@ var options = {
     framework: [
       'src/framework/*.js',
       'src/framework/**/*.js'
+    ],
+    game: [
+      'src/game/*.js',
+      'src/game/**/*.js'
+    ],
+    root: [
+      'src/*.js'
     ]
   },
   allPaths: [
@@ -74,7 +81,7 @@ var options = {
     includeStackTrace: true,
     verbose: true
   },
-  entryPoint: 'index.js',
+  entryPoint: 'index',
   buildPath: 'dist/js/',
   servePath: 'dist/'
 };
@@ -102,6 +109,7 @@ gulp.task( 'serve', [ 'default' ], function() {
     .concat( options.filePaths.framework )
     .concat( options.filePaths.game );
 
+  console.log( paths );
   gulp.watch( paths, [ 'build' ] );
 } );
 
@@ -147,7 +155,7 @@ gulp.task( 'lint', function() {
 gulp.task( 'compile', function() {
   return gulp.src( options.entryPoint + '.js' )
     .pipe( stream( {
-      entry: __dirname + '/' + options.entryPoint,
+      entry: __dirname + '/' + options.entryPoint + '.js',
       output: {
         path: __dirname + '/' + options.buildPath,
         filename: options.entryPoint + '.js'
