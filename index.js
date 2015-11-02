@@ -10,6 +10,6 @@ if ( console && console.log ) {
 }
 
 var game = require( './src/game/init' );
-var setup = require( './src/scaffolding/ui_prototype' );
+var setup = require( './src/scaffolding/ui-prototype' );
 setup();
 game();
