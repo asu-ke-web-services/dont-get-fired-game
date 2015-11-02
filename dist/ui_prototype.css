@@ -1,0 +1,11 @@
+.factory_entity{
+    background-color:orange;
+    color:white;
+    text-align: center;
+    width:200px;
+    font-size:20px;
+    vertical-align: middle;
+    display:table-cell;
+    height:200px;
+    border-radius:100px;
+}
