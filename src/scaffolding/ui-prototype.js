@@ -1,6 +1,3 @@
-/**
- * Created by David on 11/2/2015.
- */
 var $gameContainer = $( '#game-container' );
 var $factoryEntity = $( '<div />',
     {
@@ -16,4 +13,3 @@ var $funds = '<div>Funds $000000 - 0000 / Quarter</div>';
 var $perception = '<div>Perception 00</div>';
 var $goals = '<div>Goals: </div>';
 $gameContainer.append( $factoryEntity, '<hr>', $quarterYear, $funds, $perception );
-
