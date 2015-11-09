@@ -1,6 +1,6 @@
 /**
  * An Achievement
- */
+ **/
 var Achievement = function( options ) {
   options = options || {};
 
