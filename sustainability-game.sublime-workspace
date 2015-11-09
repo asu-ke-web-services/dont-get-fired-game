@@ -1,0 +1,395 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"bui",
+				"buildInitialWeapons"
+			],
+			[
+				"damage",
+				"damageThrottleFrames"
+			],
+			[
+				"fra",
+				"damageThrottleFrames"
+			],
+			[
+				"_un",
+				"_unitTestsResults"
+			],
+			[
+				"_",
+				"_unitTestsMessages"
+			],
+			[
+				"testOrGate",
+				"testOrGateReturnsTrue"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 109.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2deb499853c4371624f5a07e27c334aa' + 'bf8c4e67d14fb0525ba4f89698a6d7e1'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/ivanmontiel/Desktop/repos/sustainability-game/src",
+		"/Users/ivanmontiel/Desktop/repos/sustainability-game/src/core",
+		"/Users/ivanmontiel/Desktop/repos/sustainability-game/src/core/entities",
+		"/Users/ivanmontiel/Desktop/repos/sustainability-game/tests",
+		"/Users/ivanmontiel/Desktop/repos/sustainability-game/tests/spec",
+		"/Users/ivanmontiel/Desktop/repos/sustainability-game/tests/unit"
+	],
+	"file_history":
+	[
+		"/Users/ivanmontiel/Desktop/repos/sustainability-game/src/core/entities/achievement.js",
+		"/Users/ivanmontiel/Desktop/repos/sustainability-game/gulpfile.js",
+		"/Users/ivanmontiel/Desktop/repos/sustainability-game/index.js",
+		"/Users/ivanmontiel/Desktop/repos/sustainability-game/tests/spec/achievement-spec.js",
+		"/Users/ivanmontiel/Desktop/repos/sustainability-game/package.json",
+		"/Users/ivanmontiel/Desktop/repos/sustainability-game/src/core/delete-me-in-the-future.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-pack-circuits/tests/spec/specifications/specification-test.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-pack-circuits/package.json",
+		"/Users/ivanmontiel/Desktop/repos/paugme-pack-circuits/tests/game/level-test.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-pack-circuits/src/game/level.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-pack-circuits/src/game/weapons/phaser-weapon.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-pack-circuits/framework/exceptions/not-implemented-exception.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-pack-circuits/tests/game/inventory-test.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-pack-circuits/tests/game/player-test.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-pack-circuits/src/game/inventory.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-pack-circuits/src/game/weapon.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-pack-circuits/src/game/player.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-pack-circuits/point.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-pack-circuits/tests/graph/vector-test.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-pack-circuits/framework/graph/vector.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-pack-circuits/framework/graph/direction.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-pack-circuits/tests/graph/point-test.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-pack-circuits/src/specifications/circuit-specification.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-pack-circuits/src/specifications/circuit-specification-tick-test.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-pack-circuits/src/specifications/circuit-specification-test.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-packs/paugme-pack-circuits/src/circuit-components/one-terminal-voltage-source.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-packs/paugme-pack-circuits/tests/components/not-gate-tests.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-packs/paugme-pack-circuits/tests/components/ground-tests.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-packs/paugme-pack-circuits/src/circuit-components/ground.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-packs/paugme-pack-circuits/tests/components/or-gate-tests.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-packs/paugme-pack-circuits/tests/components/and-gate-tests.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-packs/paugme-pack-circuits/tests/components/one-terminal-voltage-source-test.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-packs/paugme-pack-circuits/framework/tests/unit-test.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-packs/paugme-pack-circuits/tests/handlers/logic-handler-tests.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-packs/paugme-pack-circuits/src/handlers/logic-handler.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-packs/paugme-pack-circuits/src/circuit-components/or-gate.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-packs/paugme-pack-circuits/src/circuit-components/and-gate.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-packs/paugme-pack-circuits/framework/class/class.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-packs/paugme-pack-circuits/framework/exceptions/not-implemented-exception.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-packs/paugme-pack-circuits/framework/handlers/logic-handler.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-packs/paugme-pack-circuits/tests/mocks/mock-inputs.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-packs/paugme-pack-circuits/src/circuit-components/not-gate.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-packs/paugme-pack-circuits/framework/components/component.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-packs/paugme-pack-circuits/framework/components/gate.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-packs/paugme-pack-circuits/framework/handlers/handler.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-packs/paugme-pack-circuits/framework/builders/options-builder.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme-packs/paugme-pack-circuits/framework/class/and-gate.js",
+		"/Users/ivanmontiel/Desktop/repos/discover-what-rocks-facebook/.meteor/versions",
+		"/Users/ivanmontiel/Desktop/repos/discover-what-rocks-facebook/discover-what-rocks.html",
+		"/Users/ivanmontiel/Desktop/repos/discover-what-rocks-facebook/client/template-helpers/meetup-create-template.js",
+		"/Users/ivanmontiel/Desktop/repos/discover-what-rocks-facebook/.meteor/packages",
+		"/Users/ivanmontiel/Desktop/repos/discover-what-rocks-facebook/client/template-helpers/global-template-helpers.js",
+		"/Users/ivanmontiel/Desktop/repos/discover-what-rocks-facebook/lib/routes/home-routes.js",
+		"/Users/ivanmontiel/Desktop/repos/discover-what-rocks-facebook/client/templates/navigation-template.html",
+		"/Users/ivanmontiel/Desktop/repos/discover-what-rocks-facebook/client/templates/meetup-create-template.html",
+		"/Users/ivanmontiel/Desktop/repos/discover-what-rocks-facebook/client/templates/home-template.html",
+		"/Users/ivanmontiel/Desktop/repos/discover-what-rocks-facebook/client/templates/footer-template.html",
+		"/Users/ivanmontiel/Desktop/repos/discover-what-rocks-facebook/discover-what-rocks.js",
+		"/Users/ivanmontiel/Desktop/repos/discover-what-rocks-facebook/lib/routes/meetup-routes.js",
+		"/Users/ivanmontiel/Desktop/repos/discover-what-rocks-facebook/lib/routes/profile-routes.js",
+		"/Users/ivanmontiel/Desktop/repos/discover-what-rocks-facebook/client/templates/profile-template.html",
+		"/Users/ivanmontiel/Desktop/repos/discover-what-rocks-facebook/client/routes/meetup-routes.js",
+		"/Users/ivanmontiel/Desktop/repos/discover-what-rocks-facebook/client/routes/profile-routes.js",
+		"/Users/ivanmontiel/Desktop/repos/discover-what-rocks-facebook/client/template-helpers/home-template-helper.js",
+		"/Users/ivanmontiel/Desktop/repos/discover-what-rocks-facebook/lib/routes/configuration.js",
+		"/Users/ivanmontiel/Desktop/repos/discover-what-rocks-facebook/lib/velociratchet/configuration.js",
+		"/Users/ivanmontiel/Desktop/repos/discover-what-rocks-facebook/client/routes/configuration.js",
+		"/Users/ivanmontiel/Desktop/repos/discover-what-rocks-facebook/client/styles/scss/_home.scss",
+		"/Users/ivanmontiel/Desktop/repos/discover-what-rocks-facebook/client/routes/home-routes.js",
+		"/Users/ivanmontiel/Desktop/repos/discover-what-rocks-facebook/client/styles/scss/_scaffolding.scss",
+		"/Users/ivanmontiel/Desktop/repos/discover-what-rocks-facebook/client/styles/scss/_variables.scss",
+		"/Users/ivanmontiel/Desktop/repos/discover-what-rocks-facebook/server/configuration/accounts.js",
+		"/Users/ivanmontiel/Desktop/repos/discover-what-rocks-facebook/.old-lib/utils/date-format.js",
+		"/Users/ivanmontiel/Desktop/repos/discover-what-rocks-facebook/.old-client/template-helpers/meetups-add-form-template-helper.js",
+		"/Users/ivanmontiel/Desktop/repos/discover-what-rocks-facebook/client/styles/scss/discover-what-rocks.scss",
+		"/Users/ivanmontiel/Desktop/repos/discover-what-rocks-facebook/discover-what-rocks.css",
+		"/Users/ivanmontiel/Desktop/repos/tem100-seminar-in-entrepreneurship/week-2-business-model-generation-discussion-post.markdown",
+		"/Users/ivanmontiel/Desktop/repos/tem100-seminar-in-entrepreneurship/speaker-paper-3.markdown",
+		"/Users/ivanmontiel/Desktop/repos/tem100-seminar-in-entrepreneurship/speaker-paper-2.markdown",
+		"/Users/ivanmontiel/Desktop/repos/tem100-seminar-in-entrepreneurship/speaker-paper-1.markdown",
+		"/Users/ivanmontiel/Desktop/repos/tem100-seminar-in-entrepreneurship/business-model-generation.markdown",
+		"/Users/ivanmontiel/Desktop/repos/tem100-seminar-in-entrepreneurship/week-1-businessmodelgeneration-chapter-1.pdf",
+		"/Users/ivanmontiel/Desktop/repos/paugme/client/styles/sass/_prototyping.scss",
+		"/Users/ivanmontiel/Desktop/repos/paugme/client/templates/signup-template.html",
+		"/Users/ivanmontiel/Desktop/repos/paugme/client/templates/signin-template.html",
+		"/Users/ivanmontiel/Desktop/repos/paugme/client/templates/navigation.html",
+		"/Users/ivanmontiel/Desktop/repos/paugme/.meteor/packages",
+		"/Users/ivanmontiel/Desktop/repos/paugme/server/configuration/accounts.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme/server/configuration/emails.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme/client/templates/loading.html",
+		"/Users/ivanmontiel/Desktop/repos/paugme/client/templates/home-template.html",
+		"/Users/ivanmontiel/Desktop/repos/paugme/paugme.html",
+		"/Users/ivanmontiel/Desktop/repos/paugme/client/styles/sass/_variables.scss",
+		"/Users/ivanmontiel/Desktop/repos/paugme/client/styles/sass/_home.scss",
+		"/Users/ivanmontiel/Desktop/repos/paugme/client/styles/css/intagram-filters.css",
+		"/Users/ivanmontiel/Desktop/repos/paugme/.gitignore",
+		"/Users/ivanmontiel/Desktop/repos/paugme/client/styles/sass/paugme.scss",
+		"/Users/ivanmontiel/Desktop/repos/paugme/client/styles/sass/_scaffolding.scss",
+		"/Users/ivanmontiel/Desktop/repos/paugme/client/styles/sass/_instagram-filters.scss",
+		"/Users/ivanmontiel/Desktop/repos/paugme/client/styles/sass/_fonts.scss",
+		"/Users/ivanmontiel/Desktop/repos/paugme/paugme.js",
+		"/Users/ivanmontiel/Desktop/repos/paugme/client/templates/spacebars.html",
+		"/Users/ivanmontiel/Desktop/repos/Discover-What-Rocks/client/router/router.js",
+		"/Users/ivanmontiel/Desktop/repos/Discover-What-Rocks/client/template-helpers/breadcrumbs-template-helper.js",
+		"/Users/ivanmontiel/Desktop/repos/Discover-What-Rocks/server/methods/meetup-methods.js",
+		"/Users/ivanmontiel/Desktop/repos/Discover-What-Rocks/client/template-helpers/meetup-template-helper.js",
+		"/Users/ivanmontiel/Desktop/repos/Discover-What-Rocks/client/templates/breadcrumbs.html",
+		"/Users/ivanmontiel/Desktop/repos/Discover-What-Rocks/client/templates/navigation.html",
+		"/Users/ivanmontiel/Desktop/repos/Discover-What-Rocks/client/styles/scss/_variables-colors.scss",
+		"/Users/ivanmontiel/Desktop/repos/Discover-What-Rocks/client/template-helpers/circles-add-form-template-helper.js",
+		"/Users/ivanmontiel/Desktop/repos/Discover-What-Rocks/client/template-helpers/navigation-template-helper.js",
+		"/Users/ivanmontiel/Desktop/repos/Discover-What-Rocks/client/styles/scss/_footer.scss",
+		"/Users/ivanmontiel/Desktop/repos/Discover-What-Rocks/server/kadira.js",
+		"/Users/ivanmontiel/Desktop/repos/Discover-What-Rocks/README.md",
+		"/Users/ivanmontiel/Desktop/repos/Discover-What-Rocks/client/templates/meetup.html",
+		"/Users/ivanmontiel/Desktop/repos/Discover-What-Rocks/.meteor/local/build/programs/server/app/server/kadira.js",
+		"/Users/ivanmontiel/Desktop/repos/tem100-seminar-in-entrepreneurship/github.pub",
+		"/Users/ivanmontiel/Desktop/repos/tem100-seminar-in-entrepreneurship/github",
+		"/Users/ivanmontiel/Desktop/repos/b54716b99ff5f5345234/glitch.html",
+		"/Users/ivanmontiel/Desktop/repos/migrations/.standards/package.json",
+		"/Users/ivanmontiel/Desktop/repos/Octolot/OctolotMain.js",
+		"/Users/ivanmontiel/Desktop/repos/Simple-Meteor-RPG/client/Game.js",
+		"/Users/ivanmontiel/Desktop/repos/Simple-Meteor-RPG/Model.js",
+		"/Users/ivanmontiel/Desktop/repos/Simple-Meteor-RPG/TODO.md",
+		"/Users/ivanmontiel/Desktop/repos/Simple-Meteor-RPG/src/model/Player.js",
+		"/Users/ivanmontiel/Desktop/repos/Simple-Meteor-RPG/src/model/GameObject.js",
+		"/Users/ivanmontiel/Desktop/repos/Simple-Meteor-RPG/src/model/Flingy.js",
+		"/Users/ivanmontiel/Desktop/repos/Simple-Meteor-RPG/src/model/Enemy.js"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"getPosition()",
+			"toBe",
+			"player-constants",
+			"../src/game/player",
+			"../src/player",
+			"maths",
+			"ground.reset();",
+			"this.ground",
+			"andGate",
+			"toBoolean",
+			"data",
+			"andGate",
+			"AndGate",
+			"andGate",
+			"AndGate",
+			"andGate",
+			"AndGate",
+			"andGate",
+			"trueMock",
+			"The and gate should return false",
+			"addMessage",
+			"addResult",
+			"_unitTestWriter",
+			"addresult",
+			";\n",
+			"link",
+			"currentUser",
+			"parseDate",
+			"meetupsAddForm",
+			"meetupsAddFormErrors",
+			"fluid",
+			"isActive",
+			"  ",
+			" ",
+			"  ",
+			"300x150",
+			"col-md",
+			"fluid",
+			"url('",
+			"['privacyPolicy']",
+			"['about']",
+			"['home']",
+			"gravatar",
+			"Kadira",
+			"ping",
+			"Session",
+			"aiming",
+			"updateOtherPlayers",
+			"session_id",
+			".session_id",
+			"otherPl",
+			"playerData",
+			"directionState",
+			"state",
+			")],",
+			");\n",
+			"SimpleRPG = {}",
+			"margin"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			" \n"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "sustainability-game.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 203.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

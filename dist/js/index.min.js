@@ -50,11 +50,14 @@
 	if ( console && console.log ) {
 	  console.log(
 	    'The Julie Ann Wrigley Global Institute of Sustainability\n' +
-	    'Copyright Arizona State University 2015\n'
+	    'Copyright Arizona State University 2015\n' +
+	    'Made by Capstone++\n'
 	  );
 	}
 
 	var game = __webpack_require__( 1 );
+	var setup = __webpack_require__( 2 );
+	setup();
 	game();
 
 
@@ -68,6 +71,23 @@
 
 	  // TODO Game init
 	};
+
+
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
+	/**
+	 * Created by David on 11/2/2015.
+	 */
+	var $gameContainer = $( '#game-container' );
+	var $factoryEntity = $( '<div />',
+	    {
+	      class: 'factory_entity',
+	      html: 'Factory'
+	    } );
+	$gameContainer.append( $factoryEntity );
+
 
 
 /***/ }
