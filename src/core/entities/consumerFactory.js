@@ -8,8 +8,8 @@ var Consumer = function( name, regProduct, incomePerItem, wastePerItem, baseBuyR
   this.name = name;
   this.regProduct = regProduct;
   this.incomePerItem = incomePerItem ;
-  this.incomePerItem = wastePerItem ;
-  this.incomePerItem = baseBuyRate ;
+  this.wastePerItem = wastePerItem ;
+  this.baseBuyRate = baseBuyRate ;
   this.id = 'Consumer' + count;
 };
 module.exports = ConsumerFactory;

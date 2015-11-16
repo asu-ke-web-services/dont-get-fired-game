@@ -3,12 +3,12 @@
  */
 var Game = function( options ) {
   options = options || {};
-  this.quartersPast = options.quartersPast ? options.quartersPast : 0;
-  this.user = options.user ? options.user : null;
+  this.quartersPast = options.quartersPast != undefined ? options.quartersPast : 0;
+  this.user = options.user != undefined ? options.user : null;
   this.products = null;
   this.materials = null;
   this.consumers = null;
-  this.interval = options.interval ? options.interval : null;
+  this.interval = options.interval != undefined ? options.interval : 0;
 
   // Sections: If possible, we want to split out each of these into there own files or systems
   // This way we can split up the work, with out steping on each others toes.
@@ -129,4 +129,4 @@ var Game = function( options ) {
 
 };
 
-module.exports = Game;
+module.exports = GameFactory;
