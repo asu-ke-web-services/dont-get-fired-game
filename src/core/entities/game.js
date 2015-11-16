@@ -12,6 +12,7 @@ var Game = function( options )
   this.interval;
 
   this.createGame = function() {
+
     //loadJson
     //Any start values, such as user income
     //call UIInterface SetupUI
@@ -23,20 +24,24 @@ var Game = function( options )
   };
 
   this.endTraining = function() {
+
     //runQuarter()
     //Trigger intervalRun to run once every Second
   };
 
   this.setupTraining = function() {
+
     //Give user a single factory
     //UIInterface.SetupTraining
   };
 
   this.getPerception = function() {
+
     //Calculate Perception
   };
 
-  this.addMaterial = function(material,factory, fromUI) {
+  this.addMaterial = function( material, factory, fromUI ) {
+
     //Add material to factory
     //factory.material = material;
     //if(fromUI == false)
@@ -44,7 +49,8 @@ var Game = function( options )
     //return true
   };
 
-  this.addProduct = function(product,factory, fromUI) {
+  this.addProduct = function( product, factory, fromUI ) {
+
     // if(user.income >= product.setupCost)
     //{
     //   user.income = user.income - product.setupCost
@@ -58,7 +64,8 @@ var Game = function( options )
     //  return false;
   };
 
-  this.addConsumer = function(consumer,factory, fromUI) {
+  this.addConsumer = function( consumer, factory, fromUI ) {
+
     // if(user.income >= product.setupCost)
     //{
     //   user.income = user.income - product.setupCost
@@ -68,7 +75,8 @@ var Game = function( options )
     //}
   };
 
-  this.addFactory = function(fromUI) {
+  this.addFactory = function( fromUI ) {
+
     // if(user.income >= factory.setupCost) //???
     //{
     //   user.income = user.income - product.setupCost
@@ -79,30 +87,35 @@ var Game = function( options )
   };
 
   this.runQuarter = function() {
-    //This is used for consumer, and it needs a snap shot before anything in this quarter happens.
+
+    //This is used for consumer, and it needs a snap shot
+    // before anything in this quarter happens.
     //currentPerception = getPerception()
 
-      //loop though all factories
+    //loop though all factories
 
-        //Generate Products
-            //factory asks consumer, for need
-            //consumer tells factory how many products it needs ( consumers.baseByRate * currentPerception)
-            //factory checks its inventory and if doesnt have enoufe to meet the need attempts to create more
-              //factory does a cost analysis by looking at material, and product to determine if it can make more goods
-                //If it can it makes a full set of goods
-                //If it cant it makes no goods
-        //Consumers sale as many product as possible
+    //Generate Products
+    //factory asks consumer, for need
+    //consumer tells factory how many products it needs
+    // ( consumers.baseByRate * currentPerception)
+    //factory checks its inventory and if doesnt have enoufe
+    // to meet the need attempts to create more
+    //factory does a cost analysis by looking at material, and
+    // product to determine if it can make more goods
+    //If it can it makes a full set of goods
+    //If it cant it makes no goods
+    //Consumers sale as many product as possible
 
     //QuarterLog
-      //Geneartes quarterLog and saves to user
+    //Geneartes quarterLog and saves to user
 
     //UIInterface
-      // Update After Quarter
+    // Update After Quarter
   };
 
   this.intervalRun = function() {
-    //interval++;
 
+    //interval++;
     //If (interval == 180)
     //{
     //  //Run Quarter
