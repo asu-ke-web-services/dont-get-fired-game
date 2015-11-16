@@ -11,6 +11,10 @@ var Game = function( options )
   this.consumers;
   this.interval;
 
+  // Sections: If possible, we want to split out each of these into there own files or systems
+  // This way we can split up the work, with out steping on each others toes.
+
+  //Setup
   this.createGame = function() {
 
     //loadJson
@@ -18,28 +22,27 @@ var Game = function( options )
     //call UIInterface SetupUI
     //setupTraining
   };
-
   this.loadJson = function() {
 
   };
+  this.setupTraining = function() {
 
+    //Give user a single factory
+    //UIInterface.SetupTraining
+  };
   this.endTraining = function() {
 
     //runQuarter()
     //Trigger intervalRun to run once every Second
   };
 
-  this.setupTraining = function() {
-
-    //Give user a single factory
-    //UIInterface.SetupTraining
-  };
-
+  //Perception
   this.getPerception = function() {
 
     //Calculate Perception
   };
 
+  //Add
   this.addMaterial = function( material, factory, fromUI ) {
 
     //Add material to factory
@@ -48,7 +51,6 @@ var Game = function( options )
     //  call UIInterface AddMaterial
     //return true
   };
-
   this.addProduct = function( product, factory, fromUI ) {
 
     // if(user.income >= product.setupCost)
@@ -63,7 +65,6 @@ var Game = function( options )
     // else
     //  return false;
   };
-
   this.addConsumer = function( consumer, factory, fromUI ) {
 
     // if(user.income >= product.setupCost)
@@ -74,7 +75,6 @@ var Game = function( options )
     //     call UIInterface AddMaterial
     //}
   };
-
   this.addFactory = function( fromUI ) {
 
     // if(user.income >= factory.setupCost) //???
@@ -86,6 +86,7 @@ var Game = function( options )
     //}
   };
 
+  //Quarter And Interval
   this.runQuarter = function() {
 
     //This is used for consumer, and it needs a snap shot
@@ -112,7 +113,6 @@ var Game = function( options )
     //UIInterface
     // Update After Quarter
   };
-
   this.intervalRun = function() {
 
     //interval++;
