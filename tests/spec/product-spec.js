@@ -4,11 +4,11 @@ describe( 'a product', function() {
   var product;
   beforeEach( function() {
     product = new Product( {
-      name: 'Soda Can'
+      productName: 'Soda Can'
     } );
   } );
   it( 'has a name', function() {
-    expect( product.name ).toBeDefined();
-    expect( product.name ).toBe( 'Soda Can' );
+    expect( product.productName ).toBeDefined();
+    expect( product.productName ).toBe( 'Soda Can' );
   } );
 } );
