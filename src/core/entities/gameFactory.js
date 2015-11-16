@@ -129,4 +129,4 @@ var Game = function( options ) {
 
 };
 
-module.exports = GameFactory;
+module.exports = Game;

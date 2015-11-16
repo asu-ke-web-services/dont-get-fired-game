@@ -3,7 +3,7 @@ var Consumer = require( __core + 'entities/consumerFactory' );
 describe( 'an consumer', function() {
   var consumer;
   beforeEach( function() {
-    consumer = new Consumer( 'A', null, '100', '10', '25' );
+    consumer = new Consumer( 'A', null, 100, 10, 25 );
   } );
 
   it( 'has name', function() {
@@ -22,7 +22,7 @@ describe( 'an consumer', function() {
 
   it( 'has wastePerItem', function() {
     expect( consumer.wastePerItem ).toBeDefined();
-    expect( consumer.wastePerItem ).toBe( 110 );
+    expect( consumer.wastePerItem ).toBe( 10 );
   } );
 
   it( 'has baseBuyRate', function() {
@@ -32,7 +32,6 @@ describe( 'an consumer', function() {
 
   it( 'has id', function() {
     expect( consumer.id ).toBeDefined();
-    expect( consumer.id ).toBe( 'Consumer1' );
   } );
 
 } );

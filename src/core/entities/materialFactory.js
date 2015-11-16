@@ -1,12 +1,12 @@
 /**
  * A Factory that makes Materials
  */
-var count = 0;
-var Factory = function( name, wastePerLb, costPerLb ) {
-  count++;
+var countMaterial = 0;
+var Material = function( name, wastePerLb, costPerLb ) {
+  countMaterial++;
   this.name = name;
   this.wastePerLb = wastePerLb;
   this.costPerLb = costPerLb ;
-  this.id = 'Material' + count;
+  this.id = 'Material' + countMaterial;
 };
-module.exports = MaterialFactory;
+module.exports = Material;

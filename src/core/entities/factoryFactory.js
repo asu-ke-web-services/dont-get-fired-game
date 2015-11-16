@@ -1,15 +1,15 @@
 /**
  * A Factory that makes Factories
  */
-var count = 0;
-var Factory = function( options )
+var countFactory = 0;
+var Factory = function( name, options )
 {
-  count++;
+  countFactory++;
   this.name = name;
   this.product =  options.product ? options.product : null;
   this.material =  options.material ? options.material : null;
   this.consumer =  options.consumer ? options.consumer : null;
   this.totalInventory =  options.totalInventory ? options.material : 0;
-  this.id = 'Factory' + count;
+  this.id = 'Factory' + countFactory;
 };
-module.exports = FactoryFactory;
+module.exports = Factory;

@@ -1,15 +1,16 @@
 /**
  * A Factory that makes consumers
  */
-var count = 0;
+var countConsumer = 0;
 var Consumer = function( name, regProduct, incomePerItem, wastePerItem, baseBuyRate )
 {
-  count++;
+  countConsumer++;
   this.name = name;
   this.regProduct = regProduct;
   this.incomePerItem = incomePerItem ;
   this.wastePerItem = wastePerItem ;
   this.baseBuyRate = baseBuyRate ;
-  this.id = 'Consumer' + count;
+  this.id = 'Consumer' + countConsumer;
 };
-module.exports = ConsumerFactory;
+module.exports = Consumer;
+

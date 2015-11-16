@@ -10,4 +10,4 @@ var User = function( name, options ) {
   this.totalIncome = options.totalIncome ? options.totalIncome : 0;
   this.totalWaste = options.totalWaste ? options.totalWaste : 0;
 };
-module.exports = UserFactory;
+module.exports = User;

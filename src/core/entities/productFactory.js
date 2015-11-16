@@ -1,14 +1,14 @@
 /**
  * A Factory that makes Products
  */
-var count = 0;
+var countProduct = 0;
 var Product = function( name, setupCost, regMaterialTypes, totalMaterialsNeeded, totalOuput ) {
-  count++;
+  countProduct++;
   this.name = name;
   this.setupCost =  setupCost;
   this.regMaterialTypes =  regMaterialTypes;
   this.totalMaterialsNeeded =  totalMaterialsNeeded;
   this.totalOuput =  totalOuput;
-  this.id = 'Product' + count;
+  this.id = 'Product' + countProduct;
 };
-module.exports = ProductFactory;
+module.exports = Product;

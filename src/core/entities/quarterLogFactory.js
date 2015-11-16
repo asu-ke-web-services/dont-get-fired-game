@@ -1,12 +1,13 @@
 /**
  * A Factory that makes QuarterLogs
  */
-var count = 0;
+var countQuarterLog = 0;
 var QuarterLog = function( totalItemsSold, totalConsumerPaid, totalWaste, totalIncome ) {
+  countQuarterLog++;
   this.totalItemsSold = totalItemsSold;
   this.totalConsumerPaid = totalConsumerPaid;
   this.totalWaste = totalWaste;
   this.totalIncome = totalIncome;
-  this.id = 'QuarterLog' + count;
+  this.id = 'QuarterLog' + countQuarterLog;
 };
-module.exports = QuarterLogFactory;
+module.exports = QuarterLog;
