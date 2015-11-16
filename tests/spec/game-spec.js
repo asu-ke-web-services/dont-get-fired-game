@@ -1,4 +1,4 @@
-var Game = require( __core + 'entities/game' );
+var Game = require( __core + 'entities/gameFactory' );
 
 describe( 'an game', function() {
   var game;

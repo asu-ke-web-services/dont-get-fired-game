@@ -1,8 +1,7 @@
 /**
- * A Game
+ * A Factory that makes Games
  */
-var Game = function( options )
-{
+var Game = function( options ) {
   options = options || {};
   this.quartersPast = 0;
   this.user;
