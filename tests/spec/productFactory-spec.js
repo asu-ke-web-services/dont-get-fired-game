@@ -1,6 +1,6 @@
 var Product = require( __core + 'entities/productFactory' );
 
-describe( 'an material', function() {
+describe( 'an product', function() {
   var product;
   beforeEach( function() {
     product = new Product( 'A', 100, null, null, 50 );

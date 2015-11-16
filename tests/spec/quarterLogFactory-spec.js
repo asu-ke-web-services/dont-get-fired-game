@@ -1,6 +1,6 @@
 var QuarterLog = require( __core + 'entities/quarterLogFactory' );
 
-describe( 'an material', function() {
+describe( 'an quarterLog', function() {
   var quarterLog;
   beforeEach( function() {
     quarterLog = new QuarterLog( 10, 500, 29, 250 );
