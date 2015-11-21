@@ -7,10 +7,7 @@ describe( 'an game', function() {
       quartersPast: 1,
       interval: 1
     } );
-    gameDefault = new Game( {
-      quartersPast: 0,
-      interval: 0
-    } );
+    gameDefault = new Game( );
   } );
 
   it( 'has data', function() {

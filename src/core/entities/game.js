@@ -1,17 +1,10 @@
 /**
- * A Factory that makes Games
+ * A Game
  */
 var Game = function( options ) {
   options = options || {};
   this.quartersPast = options.quartersPast != undefined ? options.quartersPast : 0;
   this.user = options.user != undefined ? options.user : null;
-  this.products = null;
-  this.materials = null;
-  this.consumers = null;
-  this.interval = options.interval != undefined ? options.interval : 0;
-
-  // Sections: If possible, we want to split out each of these into there own files or systems
-  // This way we can split up the work, with out steping on each others toes.
 
   //Setup
   this.createGame = function() {
@@ -23,16 +16,6 @@ var Game = function( options ) {
   };
   this.loadJson = function() {
 
-  };
-  this.setupTraining = function() {
-
-    //Give user a single factory
-    //UIInterface.SetupTraining
-  };
-  this.endTraining = function() {
-
-    //runQuarter()
-    //Trigger intervalRun to run once every Second
   };
 
   //Perception
@@ -64,7 +47,7 @@ var Game = function( options ) {
     // else
     //  return false;
   };
-  this.addConsumer = function( consumer, factory, fromUI ) {
+  this.addStore = function( store, factory, fromUI ) {
 
     // if(user.income >= product.setupCost)
     //{
@@ -111,20 +94,6 @@ var Game = function( options ) {
 
     //UIInterface
     // Update After Quarter
-  };
-  this.intervalRun = function() {
-
-    //interval++;
-    //If (interval == 180)
-    //{
-    //  //Run Quarter
-    //  interval = 0;
-    //
-    //}
-    //else
-    //{
-    //  UIInterface.IntervalUpdate()
-    //}
   };
 
 };

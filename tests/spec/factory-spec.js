@@ -13,7 +13,7 @@ describe( 'an factory', function() {
 
     //expect( factory.product ).toBe( null );
     //expect( factory.material ).toBe( null );
-    //expect( factory.consumer ).toBe( null );
+    //expect( factory.store ).toBe( null );
     expect( factory.totalInventory ).toBe( 1 );
   } );
 
@@ -22,7 +22,7 @@ describe( 'an factory', function() {
 
     //expect( factory.product ).toBe( null );
     //expect( factory.material ).toBe( null );
-    //expect( factory.consumer ).toBe( null );
+    //expect( factory.store ).toBe( null );
     expect( factoryWithMinInput.totalInventory ).toBe( 0 );
   } );
 

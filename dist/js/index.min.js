@@ -56,25 +56,42 @@
 	}
 
 	var game = __webpack_require__( 1 );
-	var setup = __webpack_require__( 2 );
+	var setup = __webpack_require__( 3 );
 	setup();
 	game();
 
 
 /***/ },
 /* 1 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
+
+	var Game = !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
 	var gameStates = {};
 
+	var sustainabilityGame;
 	module.exports = function game() {
-
-	  // TODO Game init
+	  sustainabilityGame = new Game( );
+	  sustainabilityGame.createGame();
+	  sustainabilityGame.createGame();
 	};
 
 
 /***/ },
 /* 2 */
+/***/ function(module, exports) {
+
+	function webpackContext(req) {
+		throw new Error("Cannot find module '" + req + "'.");
+	}
+	webpackContext.keys = function() { return []; };
+	webpackContext.resolve = webpackContext;
+	module.exports = webpackContext;
+	webpackContext.id = 2;
+
+
+/***/ },
+/* 3 */
 /***/ function(module, exports) {
 
 	var $gameContainer = $( '#game-container' );
