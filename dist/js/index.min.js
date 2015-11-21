@@ -50,11 +50,14 @@
 	if ( console && console.log ) {
 	  console.log(
 	    'The Julie Ann Wrigley Global Institute of Sustainability\n' +
-	    'Copyright Arizona State University 2015\n'
+	    'Copyright Arizona State University 2015\n' +
+	    'Made by Capstone++\n'
 	  );
 	}
 
 	var game = __webpack_require__( 1 );
+	var setup = __webpack_require__( 2 );
+	setup();
 	game();
 
 
@@ -68,6 +71,27 @@
 
 	  // TODO Game init
 	};
+
+
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
+	var $gameContainer = $( '#game-container' );
+	var $factoryEntity = $( '<div />',
+	    {
+	      class: 'factory_entity',
+	      html: 'Factory'
+	    } );
+
+	var $quarterYear = '<div>Quarter <span id="quarterValue">1</span> / ' +
+	    'Year <span id="yearValue">0</span> ' +
+	    '[<span id="timeProgressValue">1</span>]</div>';
+	var $funds = '<div>Funds $<span id="totalFundsValue">000000</span> - ' +
+	    '<span id="fundsLostPerQuarterValue">0000</span> / Quarter</div>';
+	var $perception = '<div>Perception <span id="perceptionValue">1</span>00</div>';
+	var $goals = '<div>Goals: <span id="goalsValue">1</span></div>';
+	$gameContainer.append( $factoryEntity, '<hr>', $quarterYear, $funds, $perception, $goals );
 
 
 /***/ }
