@@ -24,9 +24,10 @@ var Game = function( options ) {
     //Calculate Perception
   };
 
-  //Add
+  //Add [Contains Game Logic]
   this.addMaterial = function( material, factory, fromUI ) {
 
+    //get from Manager
     //Add material to factory
     //factory.material = material;
     //if(fromUI == false)
@@ -35,6 +36,7 @@ var Game = function( options ) {
   };
   this.addProduct = function( product, factory, fromUI ) {
 
+    //get from Manager
     // if(user.income >= product.setupCost)
     //{
     //   user.income = user.income - product.setupCost
@@ -49,6 +51,7 @@ var Game = function( options ) {
   };
   this.addStore = function( store, factory, fromUI ) {
 
+    //get from Manager
     // if(user.income >= product.setupCost)
     //{
     //   user.income = user.income - product.setupCost
@@ -59,6 +62,7 @@ var Game = function( options ) {
   };
   this.addFactory = function( fromUI ) {
 
+    //get from Manager
     // if(user.income >= factory.setupCost) //???
     //{
     //   user.income = user.income - product.setupCost
