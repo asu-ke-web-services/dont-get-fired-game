@@ -8,13 +8,16 @@ describe( 'store', function() {
 
   it( 'has data', function() {
     expect( store.name ).toBe( 'A' );
-    expect( store.product ).toBe( null );
-    expect( store.incomePerItem ).toBe( 100 );
-    expect( store.wastePerItem ).toBe( 10 );
-    expect( store.baseBuyRate ).toBe( 25 );
+
+    //expect( store.product ).toBe( null );
+    expect( store.pricePerProduct ).toBe( 100 );
+    expect( store.wastePerProduct ).toBe( 10 );
+    expect( store.baseBuyRateForProducts ).toBe( 25 );
   } );
-  
-  it( 'does not allow no default values', function () {
+
+  it( 'does not allow no default values', function() {
+
     // TODO
-  });
+  } );
+
 } );

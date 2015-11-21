@@ -9,11 +9,10 @@ describe( 'an product', function() {
   it( 'has data', function() {
     expect( product.name ).toBe( 'A' );
     expect( product.setupCost ).toBe( 100 );
-    expect( product.regMaterialTypes ).toBe( null );
-    expect( product.totalMaterialsNeeded ).toBe( null );
-    expect( product.totalOuput ).toBe( 50 );
-    expect( product.id ).toBeDefined();
-  } );
 
+    // expect( product.regMaterialTypes ).toBe( null );
+    // expect( product.totalMaterialsNeeded ).toBe( null );
+    expect( product.totalOuput ).toBe( 50 );
+  } );
 
 } );

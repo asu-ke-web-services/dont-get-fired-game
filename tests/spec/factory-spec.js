@@ -10,44 +10,20 @@ describe( 'an factory', function() {
 
   it( 'has data', function() {
     expect( factory.name ).toBe( 'A' );
-    expect( factory.product ).toBe( null );
-    expect( factory.material ).toBe( null );
-    expect( factory.consumer ).toBe( null );
+
+    //expect( factory.product ).toBe( null );
+    //expect( factory.material ).toBe( null );
+    //expect( factory.consumer ).toBe( null );
     expect( factory.totalInventory ).toBe( 1 );
   } );
 
-  it( 'has data, min input vars', function () {
-    expect( factory.name ).toBe( 'A' );
-    expect( factory.product ).toBe( null );
-    expect( factory.material ).toBe( null );
-    expect( factory.consumer ).toBe( null );
-    expect( factory.totalInventory ).toBe( 0 );
-  });
+  it( 'min input vars, has data', function() {
+    expect( factoryWithMinInput.name ).toBe( 'A' );
 
-} );
-
-
-var Factory = require( __core + 'entities/factory' );
-
-describe( 'an factory', function() {
-  var factory;
-  beforeEach( function() {
-    store = new Store( 'A', null, 100, 10, 25 );
+    //expect( factory.product ).toBe( null );
+    //expect( factory.material ).toBe( null );
+    //expect( factory.consumer ).toBe( null );
+    expect( factoryWithMinInput.totalInventory ).toBe( 0 );
   } );
 
-  it( 'has data', function() {
-    expect( consumer.name ).toBe( 'A' );
-    expect( consumer.product ).toBe( null );
-    expect( consumer.incomePerItem ).toBe( 100 );
-    expect( consumer.wastePerItem ).toBe( 10 );
-    expect( consumer.baseBuyRate ).toBe( 25 );
-  } );
-
-  it( 'has data, min input', function () {
-    expect( consumer.name ).toBe( 'A' );
-    expect( consumer.product ).toBe( null );
-    expect( consumer.incomePerItem ).toBe( 100 );
-    expect( consumer.wastePerItem ).toBe( 10 );
-    expect( consumer.baseBuyRate ).toBe( 25 );
-  });
 } );

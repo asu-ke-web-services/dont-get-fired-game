@@ -12,5 +12,4 @@ describe( 'an material', function() {
     expect( material.costPerLb ).toBe( 1 );
   } );
 
-
 } );

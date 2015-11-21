@@ -7,6 +7,10 @@ describe( 'an game', function() {
       quartersPast: 1,
       interval: 1
     } );
+    gameDefault = new Game( {
+      quartersPast: 0,
+      interval: 0
+    } );
   } );
 
   it( 'has data', function() {
@@ -14,9 +18,9 @@ describe( 'an game', function() {
     expect( game.interval ).toBe( 1 );
   } );
 
-  it( 'default - has data', function () {
-    expect( game.quartersPast ).toBe( 0 );
-    expect( game.interval ).toBe( 0 );
-  });
+  it( 'default, has data', function() {
+    expect( gameDefault.quartersPast ).toBe( 0 );
+    expect( gameDefault.interval ).toBe( 0 );
+  } );
 
 } );
