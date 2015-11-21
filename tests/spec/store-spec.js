@@ -7,11 +7,11 @@ describe( 'store', function() {
   } );
 
   it( 'has data', function() {
-    expect( consumer.name ).toBe( 'A' );
-    expect( consumer.product ).toBe( null );
-    expect( consumer.incomePerItem ).toBe( 100 );
-    expect( consumer.wastePerItem ).toBe( 10 );
-    expect( consumer.baseBuyRate ).toBe( 25 );
+    expect( store.name ).toBe( 'A' );
+    expect( store.product ).toBe( null );
+    expect( store.incomePerItem ).toBe( 100 );
+    expect( store.wastePerItem ).toBe( 10 );
+    expect( store.baseBuyRate ).toBe( 25 );
   } );
   
   it( 'does not allow no default values', function () {

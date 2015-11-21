@@ -1,6 +1,3 @@
-/**
- * A Factory that makes Users
- */
 var User = function( name, options ) {
   this.name = name;
   this.quarterLog = options.quarterLog ? options.quarterLog : [];
