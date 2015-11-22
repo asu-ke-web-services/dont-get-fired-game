@@ -6,6 +6,11 @@ var Game = function( options ) {
   this.quartersPast = options.quartersPast != undefined ? options.quartersPast : 0;
   this.user = options.user != undefined ? options.user : null;
 
+  this.factoryManager = null;
+  this.materialManager = null;
+  this.productManager = null;
+  this.storeManager = null;
+
   //Setup
   this.createGame = function() {
 
@@ -18,58 +23,82 @@ var Game = function( options ) {
 
   };
 
+  //Add [Contains Game Logic]
+  this.addMaterial = function( material, factory ) {
+    var mat = materialManager.getMaterial( material );
+    if ( mat == null )
+    {
+      return false;
+    } else
+    {
+      factory.material = material;
+      user.materials.push( material );
+
+      //Update UI
+
+      return true;
+    }
+  };
+  this.addProduct = function( product, factory ) {
+
+    var pro = productManager.getProduct( product );
+    if ( pro == null )
+    {
+      return false;
+    } else
+    {
+      if ( product.setupcost > user.totalIncome )
+      {
+        return false;
+      } else
+      {
+        user.totalIncome = user.totalIncome - product.setupcost;
+        factory.product = product;
+        user.products.push( product );
+
+        //Update UI
+
+        return true;
+      }
+    }
+  };
+  this.addStore = function( store, factory ) {
+
+    var sto = storeManager.getStore( store );
+    if ( sto == null )
+    {
+      return false;
+    } else
+    {
+      factory.store = store;
+      user.stores.push( store );
+
+      //Update UI
+
+      return true;
+    }
+  };
+  this.addFactory = function( ) {
+
+    if ( 10 > user.totalIncome )
+    {
+      return false;
+    } else
+    {
+      user.totalIncome = user.totalIncome - 10;
+      user.factories.push( new Factory() );
+
+      //Update UI
+
+      return true;
+    }
+
+  };
+
   //Perception
   this.getPerception = function() {
 
     //Calculate Perception
-  };
-
-  //Add [Contains Game Logic]
-  this.addMaterial = function( material, factory, fromUI ) {
-
-    //get from Manager
-    //Add material to factory
-    //factory.material = material;
-    //if(fromUI == false)
-    //  call UIInterface AddMaterial
-    //return true
-  };
-  this.addProduct = function( product, factory, fromUI ) {
-
-    //get from Manager
-    // if(user.income >= product.setupCost)
-    //{
-    //   user.income = user.income - product.setupCost
-    //   factory.product = product;
-    //   if(fromUI == false)
-    //     call UIInterface AddMaterial
-    //     return true;
-    //
-    //}
-    // else
-    //  return false;
-  };
-  this.addStore = function( store, factory, fromUI ) {
-
-    //get from Manager
-    // if(user.income >= product.setupCost)
-    //{
-    //   user.income = user.income - product.setupCost
-    //   factory.product = product;
-    //   if(fromUI == false)
-    //     call UIInterface AddMaterial
-    //}
-  };
-  this.addFactory = function( fromUI ) {
-
-    //get from Manager
-    // if(user.income >= factory.setupCost) //???
-    //{
-    //   user.income = user.income - product.setupCost
-    //   user.factories Add new factory
-    //   if(fromUI == false)
-    //     call UIInterface AddMaterial
-    //}
   };
 
   //Quarter And Interval
