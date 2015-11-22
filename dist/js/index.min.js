@@ -56,25 +56,42 @@
 	}
 
 	var game = __webpack_require__( 1 );
-	var setup = __webpack_require__( 2 );
+	var setup = __webpack_require__( 3 );
 	setup();
 	game();
 
 
 /***/ },
 /* 1 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
+
+	var Game = !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
 	var gameStates = {};
 
+	var sustainabilityGame;
 	module.exports = function game() {
-
-	  // TODO Game init
+	  sustainabilityGame = new Game( );
+	  sustainabilityGame.createGame();
+	  sustainabilityGame.createGame();
 	};
 
 
 /***/ },
 /* 2 */
+/***/ function(module, exports) {
+
+	function webpackContext(req) {
+		throw new Error("Cannot find module '" + req + "'.");
+	}
+	webpackContext.keys = function() { return []; };
+	webpackContext.resolve = webpackContext;
+	module.exports = webpackContext;
+	webpackContext.id = 2;
+
+
+/***/ },
+/* 3 */
 /***/ function(module, exports) {
 
 	var $gameContainer = $( '#game-container' );
@@ -87,10 +104,14 @@
 	var $quarterYear = '<div>Quarter <span id="quarterValue">1</span> / ' +
 	    'Year <span id="yearValue">0</span> ' +
 	    '[<span id="timeProgressValue">1</span>]</div>';
+
 	var $funds = '<div>Funds $<span id="totalFundsValue">000000</span> - ' +
 	    '<span id="fundsLostPerQuarterValue">0000</span> / Quarter</div>';
+
 	var $perception = '<div>Perception <span id="perceptionValue">1</span>00</div>';
-	var $goals = '<div>Goals: <span id="goalsValue">1</span></div>';
+
+	var $goals = '<div>Goals: <span id="goalsValue">none</span></div>';
+
 	$gameContainer.append( $factoryEntity, '<hr>', $quarterYear, $funds, $perception, $goals );
 
 
