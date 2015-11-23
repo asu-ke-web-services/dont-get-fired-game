@@ -1,13 +1,11 @@
 /**
- * Product
+ * A product
  */
-var Product = function( options ) {
-  options = options || {};
-  this.productName = options.productName ? options.productName : '';
-  this.setupCost = options.setupCost ? options.setupCost : '';
-  this.requiredMaterials = options.requiredMaterials ? options.requiredMaterials : '';
-  this.totalWastes = options.totalWastes ? options.totalWastes : '';
-  this.totalOutput = options.totalOutput ? options.totalOutput : '';
+var Product = function( name, setupCost, regMaterialTypes, totalMaterialsNeeded, totalOutput ) {
+  this.name = name;
+  this.setupCost = setupCost;
+  this.regMaterialTypes =  regMaterialTypes;
+  this.totalMaterialsNeeded =  totalMaterialsNeeded;
+  this.totalOutput =  totalOutput;
 };
 module.exports = Product;
-

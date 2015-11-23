@@ -1,14 +1,14 @@
 var Product = require( __core + 'entities/product' );
 
-describe( 'a product', function() {
+describe( 'an product', function() {
   var product;
   beforeEach( function() {
-    product = new Product( {
-      productName: 'Soda Can'
-    } );
+    product = new Product( 'A', 100, null, null, 50 );
   } );
-  it( 'has a name', function() {
-    expect( product.productName ).toBeDefined();
-    expect( product.productName ).toBe( 'Soda Can' );
+  it( 'has data', function() {
+    expect( product.name ).toBe( 'A' );
+    expect( product.setupCost ).toBe( 100 );
+    expect( product.totalOutput ).toBe( 50 );
   } );
 } );
+

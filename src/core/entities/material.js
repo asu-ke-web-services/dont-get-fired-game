@@ -1,11 +1,10 @@
 /**
- * Materials
+ * A Material
  */
-var Material = function( options ) {
-  options = options || {};
-  this.materialName = options.materialName ? options.materialName : '';
-  this.cost = options.cost ? options.cost : '';
-  this.wastes = options.wastes ? options.wastes : '';
+var Material = function( name, wastePerLb, costPerLb ) {
+	this.name = name;
+	this.wastePerLb = wastePerLb;
+	this.costPerLb = costPerLb ;
 };
 module.exports = Material;
 

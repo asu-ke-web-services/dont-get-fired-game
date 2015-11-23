@@ -1,14 +1,14 @@
 var Material = require( __core + 'entities/material' );
 
-describe( 'a material', function() {
+describe( 'an material', function() {
   var material;
   beforeEach( function() {
-    material = new Material( {
-      materialName: 'Aluminium'
-    } );
+    material = new Material( 'A', 2, 1 );
   } );
-  it( 'has a name', function() {
-    expect( material.materialName ).toBeDefined();
-    expect( material.materialName ).toBe( 'Aluminium' );
+  it( 'has data', function() {
+    expect( material.name ).toBe( 'A' );
+    expect( material.wastePerLb ).toBe( 2 );
+    expect( material.costPerLb ).toBe( 1 );
   } );
 } );
+
