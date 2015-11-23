@@ -1,10 +1,11 @@
 /**
  * A Material
  */
-var Material = function( name, wastePerLb, costPerLb ) {
+var Material = function( name, wastePerPound, costPerPound ) {
   this.name = name;
-  this.wastePerLb = wastePerLb;
-  this.costPerLb = costPerLb;
+  this.wastePerPound = wastePerPound;
+  this.costPerPound = costPerPound;
 };
+
 module.exports = Material;
 
