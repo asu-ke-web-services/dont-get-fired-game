@@ -1,3 +1,5 @@
+var UiInterface = require( '../ui/ui-interface' );
+
 /**
  * A Game
  */
@@ -11,6 +13,8 @@ var Game = function( options ) {
   this.productManager = null;
   this.storeManager = null;
 
+  UiInterface.setGame( this );
+
   //Setup
   this.createGame = function() {
 
@@ -20,7 +24,7 @@ var Game = function( options ) {
     //setupTraining
   };
   this.loadJson = function() {
-    $.getJSON( 'game/data.json', function( data ) {
+    $.getJSON( 'data/data.json', function( data ) {
       this.materialManager = new materialManager( data.Materials );
       this.productManager = new productManager( data.Products );
       this.storeManager = new storeManager( data.Stores );

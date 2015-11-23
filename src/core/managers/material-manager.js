@@ -25,13 +25,13 @@ var MaterialManager = function( materials ) {
     return false;
   };
 
-  var getAvailableMaterials = function () {
+  var getAvailableMaterials = function() {
     return _availableMaterials;
   };
 
   return {
     reserveMaterial: reserveMaterial,
-    getAvailableMaterials: getMaterialIfAvailable
+    getAvailableMaterials: getAvailableMaterials
   };
 };
 

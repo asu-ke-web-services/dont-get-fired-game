@@ -1,4 +1,4 @@
-var MaterialManager = require( __core + 'entities/materialManager' );
+var MaterialManager = require( __core + 'managers/material-manager' );
 
 describe( 'an materialManager', function() {
   var materialManager;

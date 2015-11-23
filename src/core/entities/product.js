@@ -4,7 +4,7 @@
 var Product = function( name, setupCost, materialDependencies, totalOutput ) {
   this.name = name;
   this.setupCost = setupCost;
-  this.materialDependencies = requiredMaterialTypes || [];
+  this.materialDependencies = materialDependencies || [];
   this.totalOutput = totalOutput;
 };
 

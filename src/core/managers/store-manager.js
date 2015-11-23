@@ -19,14 +19,13 @@ var StoreManager = function( stores ) {
     return false;
   };
 
-  var getAvailableStores = function () {
+  var getAvailableStores = function() {
     return _availableStores;
   };
 
   return {
     reserveStore: reserveStore,
     getAvailableStores: getAvailableStores
-
-  }
+  };
 };
 module.exports = StoreManager;

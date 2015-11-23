@@ -1,4 +1,4 @@
-var ProductManager = require( __core + 'entities/productManager' );
+var ProductManager = require( __core + 'managers/product-manager' );
 
 describe( 'an productManager', function() {
   var productManager;

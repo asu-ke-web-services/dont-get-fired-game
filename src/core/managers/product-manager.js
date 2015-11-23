@@ -19,14 +19,14 @@ var ProductManager = function( products ) {
     return false;
   };
 
-  var getAvailableProducts = function () {
+  var getAvailableProducts = function() {
     return _availableProducts;
   };
 
   return {
     reserveProduct: reserveProduct,
     getAvailableProducts: getAvailableProducts
-  }
+  };
 };
 
 module.exports = ProductManager;
