@@ -20,17 +20,19 @@ var Game = function( options ) {
     //setupTraining
   };
   this.loadJson = function() {
-
+    $.getJSON( 'game/data.json', function( data ) {
+      this.materialManager = new materialManager( data.Materials );
+      this.productManager = new productManager( data.Products );
+      this.storeManager = new storeManager( data.Stores );
+    } );
   };
 
   //Add [Contains Game Logic]
   this.addMaterial = function( material, factory ) {
     var mat = materialManager.getMaterial( material );
-    if ( mat == null )
-    {
+    if ( mat == null ) {
       return false;
-    } else
-    {
+    } else {
       factory.material = material;
       user.materials.push( material );
 
@@ -42,11 +44,9 @@ var Game = function( options ) {
   this.addProduct = function( product, factory ) {
 
     var pro = productManager.getProduct( product );
-    if ( pro == null )
-    {
+    if ( pro == null ) {
       return false;
-    } else
-    {
+    } else {
       if ( product.setupcost > user.totalIncome )
       {
         return false;
@@ -65,11 +65,9 @@ var Game = function( options ) {
   this.addStore = function( store, factory ) {
 
     var sto = storeManager.getStore( store );
-    if ( sto == null )
-    {
+    if ( sto == null ) {
       return false;
-    } else
-    {
+    } else {
       factory.store = store;
       user.stores.push( store );
 
@@ -80,11 +78,9 @@ var Game = function( options ) {
   };
   this.addFactory = function( ) {
 
-    if ( 10 > user.totalIncome )
-    {
+    if ( 10 > user.totalIncome ) {
       return false;
-    } else
-    {
+    } else {
       user.totalIncome = user.totalIncome - 10;
       user.factories.push( new Factory() );
 
@@ -92,7 +88,6 @@ var Game = function( options ) {
 
       return true;
     }
-
   };
 
   //Perception
