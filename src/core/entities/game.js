@@ -20,7 +20,11 @@ var Game = function( options ) {
     //setupTraining
   };
   this.loadJson = function() {
-
+      $.getJSON( "game/data.json", function( data ) {
+                this.materialManager = new materialManager(data.Materials);
+                this.productManager = new productManager(data.Products);
+                this.storeManager = new storeManager(data.Stores);
+                });
   };
 
   //Add [Contains Game Logic]
