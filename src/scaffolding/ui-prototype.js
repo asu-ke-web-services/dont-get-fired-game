@@ -1,9 +1,15 @@
+var uiInterface = require( 'core/ui-interface' );
 var $gameContainer = $( '#game-container' );
 var $factoryEntity = $( '<div />',
     {
       class: 'factory_entity',
-      html: 'Factory'
+      html: 'Factory',
+      id: 'initialFactory'
     } );
+
+$factoryEntity.click( function() {
+  var menuItemList = getMenuItemList( this.id );
+} );
 
 var $quarterYear = '<div>Quarter <span id="quarterValue">1</span> / ' +
     'Year <span id="yearValue">0</span> ' +
@@ -14,6 +20,8 @@ var $funds = '<div>Funds $<span id="totalFundsValue">000000</span> - ' +
 
 var $perception = '<div>Perception <span id="perceptionValue">1</span>00</div>';
 
-var $goals = '<div>Goals: <span id="goalsValue">none</span></div>';
+var $goals = '<div>Goals: <div id="goalsValue">none</div></div>';
 
 $gameContainer.append( $factoryEntity, '<hr>', $quarterYear, $funds, $perception, $goals );
+uiInterface.addGoal( 'Goal 1' );
+uiInterface.addGoal( 'Goal 2' );
