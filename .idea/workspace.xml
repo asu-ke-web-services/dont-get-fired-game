@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2789e587-575e-4f50-8efb-2103d2291ad6" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/entities/factoryManager.js" afterPath="$PROJECT_DIR$/src/core/entities/factoryManager.js" />
     </list>
     <ignored path="sustainability-game.iws" />
