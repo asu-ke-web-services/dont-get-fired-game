@@ -8,7 +8,7 @@ var FactoryManager = function( factories ) {
   this.availableFactories = factories;
 
   this.getFactory = function( factory )
-  {//if factory exist in availableFactories
+  { //if factory exist in availableFactories
     //  remove the material from availableFactories
     // else
     //  return null (this means its not available)

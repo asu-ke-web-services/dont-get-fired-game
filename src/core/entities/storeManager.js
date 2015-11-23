@@ -8,8 +8,7 @@ var StoreManager = function( stores ) {
   this.availablestores = stores;
 
   this.getProduct = function( store )
-  {
-    //if store exist in availablestores
+  { //if store exist in availablestores
     //  remove the product from availablestores
     //else
     //  return null (this means its not available)

@@ -8,8 +8,7 @@ var ProductManager = function( products ) {
   this.availableProducts = products;
 
   this.getProduct = function( product )
-  {
-    //if factory exist in availableProducts
+  { //if factory exist in availableProducts
     //  remove the product from availableProducts
     //else
     //  return null (this means its not available)
