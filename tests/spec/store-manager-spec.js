@@ -1,4 +1,4 @@
-var StoreManager = require( __core + 'entities/storeManager' );
+var StoreManager = require( __core + 'managers/store-manager' );
 
 describe( 'an storeManager', function() {
   var storeManager;

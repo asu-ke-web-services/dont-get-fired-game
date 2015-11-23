@@ -1,11 +1,11 @@
 /**
  * A product
  */
-var Product = function( name, setupCost, regMaterialTypes, totalMaterialsNeeded, totalOutput ) {
+var Product = function( name, setupCost, materialDependencies, totalOutput ) {
   this.name = name;
   this.setupCost = setupCost;
-  this.regMaterialTypes =  regMaterialTypes;
-  this.totalMaterialsNeeded =  totalMaterialsNeeded;
-  this.totalOutput =  totalOutput;
+  this.materialDependencies = materialDependencies || [];
+  this.totalOutput = totalOutput;
 };
+
 module.exports = Product;
