@@ -5,11 +5,10 @@ describe( 'an material', function() {
   beforeEach( function() {
     material = new Material( 'A', 2, 1 );
   } );
-
   it( 'has data', function() {
     expect( material.name ).toBe( 'A' );
     expect( material.wastePerLb ).toBe( 2 );
     expect( material.costPerLb ).toBe( 1 );
   } );
-
 } );
+
