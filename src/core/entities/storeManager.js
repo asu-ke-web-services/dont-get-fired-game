@@ -7,20 +7,14 @@ var StoreManager = function( stores ) {
   this.stores = stores;
   this.availablestores = stores;
 
-  this.getProduct = function( store )
-  { //if store exist in availablestores
-    //  remove the product from availablestores
-    //else
-    //  return null (this means its not available)
-    if ( this.availablestores  != null )
-    {
+  this.getStore = function( store ) {
+    if ( this.availablestores  != null ) {
       for ( var index = 0; index < this.availablestores.length; index++ ) {
         if ( this.availablestores[ index ] === store ) {
           this.availablestores.splice( index, 1 );
         }
       }
-    }else
-    {
+    }else {
       return false;
     }
   };
