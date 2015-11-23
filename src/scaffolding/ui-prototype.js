@@ -1,4 +1,4 @@
-var uiInterface = require( './src/core/ui-interface.js' );
+var uiInterface = require( '../core/ui-interface' );
 var $gameContainer = $( '#game-container' );
 var $factoryEntity = $( '<div />',
     {
@@ -20,8 +20,23 @@ var $funds = '<div>Funds $<span id="totalFundsValue">000000</span> - ' +
 
 var $perception = '<div>Perception <span id="perceptionValue">1</span>00</div>';
 
-var $goals = '<div>Goals: <div id="goalsValue">none</div></div>';
+var $goals = '<div id="goalsValue">Goals: <div>none</div></div>';
+
+var $nextTick = $( '<button />',
+    {
+      text: 'Next Tick'
+    } );
+$nextTick.click( function() {
+  uiInterface.nextTick();
+} );
+
+var $nextQuarter = $( '<button />',
+    {
+      text: 'Next Quarter'
+    } );
+$nextQuarter.click( function() {
+  uiInterface.nextQuarter();
+} );
 
 $gameContainer.append( $factoryEntity, '<hr>', $quarterYear, $funds, $perception, $goals );
-uiInterface.addGoal( 'Goal 1' );
-uiInterface.addGoal( 'Goal 2' );
+$gameContainer.append( $nextTick, $nextQuarter );

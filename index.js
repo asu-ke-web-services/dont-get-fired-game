@@ -11,8 +11,6 @@ if ( console && console.log ) {
 
 var game = require( './src/game/init' );
 var setup = require( './src/scaffolding/ui-prototype' );
-var uiInterface = require( './src/core/ui-interface' );
-uiInterface();
 setup();
 game();
 
