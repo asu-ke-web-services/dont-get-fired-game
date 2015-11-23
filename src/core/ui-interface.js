@@ -1,4 +1,4 @@
-var uiInterface = {
+var UIInterface = {
 
   //todo: get the factory by it's id and get appropriate menu items
   getMenuItemList: function( factoryId )
@@ -56,4 +56,4 @@ var uiInterface = {
   }
 };
 
-module.exports = uiInterface;
+module.exports = UIInterface;
