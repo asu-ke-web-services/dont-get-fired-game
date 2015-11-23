@@ -1,4 +1,4 @@
-var uiInterface = require( '../core/ui-interface' );
+var uiInterface = require( 'core/ui-interface' );
 var $gameContainer = $( '#game-container' );
 var $factoryEntity = $( '<div />',
     {
