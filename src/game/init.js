@@ -4,7 +4,8 @@ var gameStates = {};
 
 var sustainabilityGame;
 module.exports = function game() {
-  sustainabilityGame = new Game( );
-  sustainabilityGame.createGame();
+
+  // TODO Game init
+  sustainabilityGame = new Game();
   sustainabilityGame.createGame();
 };

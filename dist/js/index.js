@@ -57,8 +57,6 @@
 
 	var game = __webpack_require__( 1 );
 	var setup = __webpack_require__( 3 );
-	var uiInterface = __webpack_require__( 5 );
-	uiInterface();
 	setup();
 	game();
 
@@ -74,8 +72,9 @@
 
 	var sustainabilityGame;
 	module.exports = function game() {
-	  sustainabilityGame = new Game( );
-	  sustainabilityGame.createGame();
+
+	  // TODO Game init
+	  sustainabilityGame = new Game();
 	  sustainabilityGame.createGame();
 	};
 
@@ -241,18 +240,33 @@
 
 	var $perception = '<div>Perception <span id="perceptionValue">1</span>00</div>';
 
-	var $goals = '<div>Goals: <div id="goalsValue">none</div></div>';
+	var $goals = '<div id="goalsValue">Goals: <div>none</div></div>';
+
+	var $nextTick = $( '<button />',
+	    {
+	      text: 'Next Tick'
+	    } );
+	$nextTick.click( function() {
+	  uiInterface.nextTick();
+	} );
+
+	var $nextQuarter = $( '<button />',
+	    {
+	      text: 'Next Quarter'
+	    } );
+	$nextQuarter.click( function() {
+	  uiInterface.nextQuarter();
+	} );
 
 	$gameContainer.append( $factoryEntity, '<hr>', $quarterYear, $funds, $perception, $goals );
-	uiInterface.addGoal( 'Goal 1' );
-	uiInterface.addGoal( 'Goal 2' );
+	$gameContainer.append( $nextTick, $nextQuarter );
 
 
 /***/ },
 /* 4 */
 /***/ function(module, exports) {
 
-	module.exports = {
+	var uiInterface = {
 
 	  //todo: get the factory by it's id and get appropriate menu items
 	  getMenuItemList: function( factoryId )
@@ -262,13 +276,24 @@
 
 	  },
 
+	  rePaint: function() {
+
+	    //var currentGameState = game;
+	    this.setQuarterValue( currentGameState.quartersPast );
+	    this.setYearValue( currentGameState.quartersPast );
+	    this.setPerceptionValue( currentGameState.getPerception() );
+	    this.setGoals( currentGameState.getGoals() );
+	  },
+
 	  //Sets the Quarter value in the UI
 	  setQuarterValue: function( quarter ) {
+	    quarter++;
 	    $( '#quarterValue' ).text( quarter );
 	  },
 
 	  //Sets the Year value in the UI
-	  setYearValue: function( year ) {
+	  setYearValue: function( quarters ) {
+	    var year = quarters / 4;
 	    $( '#yearValue' ).text( year );
 	  },
 
@@ -282,50 +307,24 @@
 	    $( '#perceptionValue' ).text( perception );
 	  },
 
-	  addGoal: function( goal ) {
-	    $( '#goalsValue' ).append( goal + '<br>' );
+	  setGoals: function( goals ) {
+	    goals.forEach( function( goal ) {
+	      $( '#goalsValue' ).append( '<div>' + goal + '</div>' );
+	    } );
+	  },
+
+	  nextTick: function() {
+
+	    //call next Tick;
+	  },
+
+	  nextQuarter: function() {
+
+	    //game.runQuarter();
 	  }
 	};
 
-
-/***/ },
-/* 5 */
-/***/ function(module, exports) {
-
-	module.exports = {
-
-	  //todo: get the factory by it's id and get appropriate menu items
-	  getMenuItemList: function( factoryId )
-	  {
-	    var mFactory = getFactoryById( factoryId );
-	    return itemsArray;
-
-	  },
-
-	  //Sets the Quarter value in the UI
-	  setQuarterValue: function( quarter ) {
-	    $( '#quarterValue' ).text( quarter );
-	  },
-
-	  //Sets the Year value in the UI
-	  setYearValue: function( year ) {
-	    $( '#yearValue' ).text( year );
-	  },
-
-	  //Sets the "Bar Graph" value in the UI. Currently treated as a percentage
-	  setTimeProgressValue: function( percent ) {
-	    $( '#timeProgressValue' ).text( percent );
-	  },
-
-	  //Sets the "Bar Graph" value in the UI. Currently treated as a percentage
-	  setPerceptionValue: function( perception ) {
-	    $( '#perceptionValue' ).text( perception );
-	  },
-
-	  addGoal: function( goal ) {
-	    $( '#goalsValue' ).append( goal + '<br>' );
-	  }
-	};
+	module.exports = uiInterface;
 
 
 /***/ }

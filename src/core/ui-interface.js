@@ -1,4 +1,4 @@
-module.exports = {
+var UIInterface = {
 
   //todo: get the factory by it's id and get appropriate menu items
   getMenuItemList: function( factoryId )
@@ -8,13 +8,24 @@ module.exports = {
 
   },
 
+  rePaint: function() {
+
+    //var currentGameState = game;
+    this.setQuarterValue( currentGameState.quartersPast );
+    this.setYearValue( currentGameState.quartersPast );
+    this.setPerceptionValue( currentGameState.getPerception() );
+    this.setGoals( currentGameState.getGoals() );
+  },
+
   //Sets the Quarter value in the UI
   setQuarterValue: function( quarter ) {
+    quarter++;
     $( '#quarterValue' ).text( quarter );
   },
 
   //Sets the Year value in the UI
-  setYearValue: function( year ) {
+  setYearValue: function( quarters ) {
+    var year = quarters / 4;
     $( '#yearValue' ).text( year );
   },
 
@@ -28,7 +39,21 @@ module.exports = {
     $( '#perceptionValue' ).text( perception );
   },
 
-  addGoal: function( goal ) {
-    $( '#goalsValue' ).append( goal + '<br>' );
+  setGoals: function( goals ) {
+    goals.forEach( function( goal ) {
+      $( '#goalsValue' ).append( '<div>' + goal + '</div>' );
+    } );
+  },
+
+  nextTick: function() {
+
+    //call next Tick;
+  },
+
+  nextQuarter: function() {
+
+    //game.runQuarter();
   }
 };
+
+module.exports = UIInterface;
