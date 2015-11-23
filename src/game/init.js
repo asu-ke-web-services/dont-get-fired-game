@@ -1,10 +1,9 @@
 var Game = require( 'core/entities/game' );
 
-var gameStates = {};
+var init = function () {
+  var game = new Game();
+  console.log(game);
+  game.createGame();
+}
 
-var sustainabilityGame;
-module.exports = function game() {
-  sustainabilityGame = new Game( );
-  sustainabilityGame.createGame();
-  sustainabilityGame.createGame();
-};
+module.exports = init;
