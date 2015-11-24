@@ -17,11 +17,7 @@ var Game = function( options ) {
 
   //Setup
   this.createGame = function() {
-
-    //loadJson
-    //Any start values, such as user income
-    //call UIInterface SetupUI
-    //setupTraining
+    loadJson();
   };
   this.loadJson = function() {
     $.getJSON( 'data/data.json', function( data ) {
