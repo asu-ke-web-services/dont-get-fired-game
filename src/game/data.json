@@ -20,22 +20,32 @@
       {
          "name":"Coke",
          "setupCost":2000,
-         "regMaterialTypes":"Alminum",
-         "totalMaterialNeeded":200,
-         "totalOutput":30
+	 "materialDependencies":[{
+				"name":"Aluminum",
+				"Amount": 20
+				 }],
+	"totalOutput":30
       },
       {
          "name":"Fanta",
          "setupCost":2000,
-         "regMaterialTypes":"Glass",
-         "totalMaterialNeeded":230,
+         "materialDependencies":[{
+				"name":"Glass",
+				"Amount": 30
+				 }],
          "totalOutput":32
       },
       {
          "name":"Pepsi",
          "setupCost":1900,
-         "regMaterialTypes":"Alminum",
-         "totalMaterialNeeded":210,
+         "materialDependencies":[{
+				"name":"Plastic",
+				"Amount": 35
+				 },
+				{
+				"name":"Paper",
+				"Amount": 35
+				  }],
          "totalOutput":20
       }
    ],
