@@ -56,7 +56,7 @@
 	}
 
 	var game  = __webpack_require__( 1 );
-	var setup = __webpack_require__( 4 );
+	var setup = __webpack_require__( 9 );
 
 	setup();
 	game();
@@ -82,7 +82,11 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var UiInterface = __webpack_require__( 3 );
-
+	var MaterialManager = !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+	var ProductManager = !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+	var StoreManager = !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+	var Factory = !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+	var QuarterLog = !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 	/**
 	 * A Game
 	 */
@@ -110,12 +114,9 @@
 	    } );
 	  };
 
-	  //Add [Contains Game Logic]
+	  //Add
 	  this.addMaterial = function( material, factory ) {
-	    var mat = materialManager.getMaterial( material );
-	    if ( mat == null ) {
-	      return false;
-	    } else {
+	    if ( materialManager.reserveMaterial( material ) ) {
 	      factory.material = material;
 	      user.materials.push( material );
 
@@ -125,32 +126,23 @@
 	    }
 	  };
 	  this.addProduct = function( product, factory ) {
-
-	    var pro = productManager.getProduct( product );
-	    if ( pro == null ) {
+	    if ( product.setupcost > user.totalIncome ) {
 	      return false;
-	    } else {
-	      if ( product.setupcost > user.totalIncome )
-	      {
-	        return false;
-	      } else
-	      {
-	        user.totalIncome = user.totalIncome - product.setupcost;
-	        factory.product = product;
-	        user.products.push( product );
-
-	        //Update UI
-
-	        return true;
-	      }
 	    }
+
+	    if ( productManager.reserveProduct( material ) ) {
+	      user.totalIncome -= product.setupcost;
+	      factory.product = product;
+	      user.products.push( product );
+
+	      //Update UI
+
+	      return true;
+	    }
+
 	  };
 	  this.addStore = function( store, factory ) {
-
-	    var sto = storeManager.getStore( store );
-	    if ( sto == null ) {
-	      return false;
-	    } else {
+	    if ( storeManager.reserveStore( material ) ) {
 	      factory.store = store;
 	      user.stores.push( store );
 
@@ -176,35 +168,59 @@
 	  //Perception
 	  this.getPerception = function() {
 
-	    //Calculate Perception
+	    return 1;
 	  };
 
-	  //Quarter And Interval
+	  //Quarter
 	  this.runQuarter = function() {
 
-	    //This is used for consumer, and it needs a snap shot
-	    // before anything in this quarter happens.
-	    //currentPerception = getPerception()
+	    var currentPerception = getPerception();
+	    var totalIncome = 0;
+	    var totalWaste = 0;
+	    var totalItemsSold = 0;
+	    var totalConsumerPaid = 0;
 
 	    //loop though all factories
+	    for ( var i = 0; index < this.user.factories.length; i++ ) {
 
-	    //Generate Products
-	    //factory asks consumer, for need
-	    //consumer tells factory how many products it needs
-	    // ( consumers.baseByRate * currentPerception)
-	    //factory checks its inventory and if doesnt have enoufe
-	    // to meet the need attempts to create more
-	    //factory does a cost analysis by looking at material, and
-	    // product to determine if it can make more goods
-	    //If it can it makes a full set of goods
-	    //If it cant it makes no goods
-	    //Consumers sale as many product as possible
+	      //Requested From Store
+	      var totalRequested =
+	          this.user.factories[ i ].store.baseBuyRateForProducts * currentPerception;
 
-	    //QuarterLog
-	    //Geneartes quarterLog and saves to user
+	      //Make Products
+	      var costPerProduct =
+	          factory.material.costPerPound * factory.product.materialDependency.amount;
+	      while ( this.user.factories[ i ].totalInventory < totalRequested &&
+	      costPerProduct <= user.totalIncome ) {
+	        user.totalIncome -= costPerProduct;
+	        totalWaste += factory.material.wastePerPound * factory.product.materialDependency.amount;
+	        totalIncome -= costPerProduct;
+	        factory.totalInventory++;
+	      }
 
-	    //UIInterface
-	    // Update After Quarter
+	      //Sell To Store
+	      var amount = 0;
+	      if ( this.user.factories[ i ].totalInventory > totalRequested ) {
+	        amount = totalRequested;
+	      } else {
+	        totalRequested = this.user.factories[ i ].totalInventory;
+	      }
+	      factory.totalInventory +=  amount;
+	      totalIncome += store.pricePerProduct * amount;
+	      totalItemsSold += amount;
+	      totalConsumerPaid += store.pricePerProduct * amount;
+	      totalWaste += store.wastePerProduct * amount;
+	      this.user.factories[ i ].totalInventory -= amount;
+	    }
+
+	    //Generate Quarter Log
+	    var quarterLog = new QuarterLog( totalItemsSold, totalConsumerPaid, totalWaste, totalIncome );
+	    user.quarterLog.push( quarterLog );
+
+	    //Quarters Past
+	    this.quartersPast++;
+
+	    //Update UI
 	  };
 
 	};
@@ -296,6 +312,71 @@
 
 /***/ },
 /* 4 */
+/***/ function(module, exports) {
+
+	function webpackContext(req) {
+		throw new Error("Cannot find module '" + req + "'.");
+	}
+	webpackContext.keys = function() { return []; };
+	webpackContext.resolve = webpackContext;
+	module.exports = webpackContext;
+	webpackContext.id = 4;
+
+
+/***/ },
+/* 5 */
+/***/ function(module, exports) {
+
+	function webpackContext(req) {
+		throw new Error("Cannot find module '" + req + "'.");
+	}
+	webpackContext.keys = function() { return []; };
+	webpackContext.resolve = webpackContext;
+	module.exports = webpackContext;
+	webpackContext.id = 5;
+
+
+/***/ },
+/* 6 */
+/***/ function(module, exports) {
+
+	function webpackContext(req) {
+		throw new Error("Cannot find module '" + req + "'.");
+	}
+	webpackContext.keys = function() { return []; };
+	webpackContext.resolve = webpackContext;
+	module.exports = webpackContext;
+	webpackContext.id = 6;
+
+
+/***/ },
+/* 7 */
+/***/ function(module, exports) {
+
+	function webpackContext(req) {
+		throw new Error("Cannot find module '" + req + "'.");
+	}
+	webpackContext.keys = function() { return []; };
+	webpackContext.resolve = webpackContext;
+	module.exports = webpackContext;
+	webpackContext.id = 7;
+
+
+/***/ },
+/* 8 */
+/***/ function(module, exports) {
+
+	function webpackContext(req) {
+		throw new Error("Cannot find module '" + req + "'.");
+	}
+	webpackContext.keys = function() { return []; };
+	webpackContext.resolve = webpackContext;
+	module.exports = webpackContext;
+	webpackContext.id = 8;
+
+
+/***/ },
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var UiInterface = __webpack_require__( 3 );
