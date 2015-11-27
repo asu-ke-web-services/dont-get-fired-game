@@ -56,7 +56,7 @@
 	}
 
 	var game  = __webpack_require__( 1 );
-	var setup = __webpack_require__( 9 );
+	var setup = __webpack_require__( 10 );
 
 	setup();
 	game();
@@ -82,18 +82,20 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var UiInterface = __webpack_require__( 3 );
-	var MaterialManager = !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-	var ProductManager = !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-	var StoreManager = !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-	var Factory = !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-	var QuarterLog = !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+	var MaterialManager = __webpack_require__( 4 );
+	var ProductManager = __webpack_require__( 5 );
+	var StoreManager = __webpack_require__( 6 );
+	var Factory = __webpack_require__( 7 );
+	var QuarterLog = __webpack_require__( 8 );
+	var User = __webpack_require__( 9 );
 	/**
 	 * A Game
 	 */
 	var Game = function( options ) {
 	  options = options || {};
 	  this.quartersPast = options.quartersPast != undefined ? options.quartersPast : 0;
-	  this.user = options.user != undefined ? options.user : null;
+	  this.user = options.user != undefined ?
+	      options.user :  new User( 'Tester', { totalIncome:20000 } );
 
 	  this.factoryManager = null;
 	  this.materialManager = null;
@@ -104,14 +106,20 @@
 
 	  //Setup
 	  this.createGame = function() {
+	    this.user.factories.push( new Factory( 'Start Factory' ) );
 	    this.loadJson();
 	  };
 	  this.loadJson = function() {
+	    var game = this;
 	    $.getJSON( 'data/data.json', function( data ) {
-	      this.materialManager = new materialManager( data.Materials );
-	      this.productManager = new productManager( data.Products );
-	      this.storeManager = new storeManager( data.Stores );
-	    } );
+	      game.materialManager = new MaterialManager( data.Materials );
+	      game.productManager = new ProductManager( data.Products );
+	      game.storeManager = new StoreManager( data.Stores );
+	    } ).then( function( data ) {
+	      game.runTest();
+	    }
+	    );
+
 	  };
 
 	  //Add
@@ -142,9 +150,9 @@
 
 	  };
 	  this.addStore = function( store, factory ) {
-	    if ( storeManager.reserveStore( material ) ) {
+	    if ( this.storeManager.reserveStore( store ) ) {
 	      factory.store = store;
-	      user.stores.push( store );
+	      this.user.stores.push( store );
 
 	      //Update UI
 
@@ -174,7 +182,7 @@
 	  //Quarter
 	  this.runQuarter = function() {
 
-	    var currentPerception = getPerception();
+	    var currentPerception = this.getPerception();
 	    var totalIncome = 0;
 	    var totalWaste = 0;
 	    var totalItemsSold = 0;
@@ -192,7 +200,7 @@
 	          factory.material.costPerPound * factory.product.materialDependency.amount;
 	      while ( this.user.factories[ i ].totalInventory < totalRequested &&
 	      costPerProduct <= user.totalIncome ) {
-	        user.totalIncome -= costPerProduct;
+	        this.user.totalIncome -= costPerProduct;
 	        totalWaste += factory.material.wastePerPound * factory.product.materialDependency.amount;
 	        totalIncome -= costPerProduct;
 	        factory.totalInventory++;
@@ -223,6 +231,271 @@
 	    //Update UI
 	  };
 
+	  //Add
+	  this.addMaterial = function( material, factory ) {
+	    if ( this.materialManager.reserveMaterial( material ) ) {
+	      factory.material = material;
+	      this.user.materials.push( material );
+
+	      //Update UI
+
+	      return true;
+	    }
+	  };
+	  this.addProduct = function( product, factory ) {
+	    if ( product.setupCost > this.user.totalIncome ) {
+	      return false;
+	    }
+
+	    if ( this.productManager.reserveProduct( product ) ) {
+	      this.user.totalIncome -= product.setupCost;
+	      factory.product = product;
+
+	      //Update UI
+
+	      return true;
+	    }
+
+	  };
+	  this.addStore = function( store, factory ) {
+	    if ( this.storeManager.reserveStore( store ) ) {
+	      factory.store = store;
+	      this.user.stores.push( store );
+
+	      //Update UI
+
+	      return true;
+	    }
+	  };
+	  this.addFactory = function( ) {
+
+	    if ( 10 > this.user.totalIncome ) {
+	      return false;
+	    } else {
+	      this.user.totalIncome = this.user.totalIncome - 10;
+	      this.user.factories.push( new Factory() );
+
+	      //Update UI
+
+	      return true;
+	    }
+	  };
+
+	  //Perception
+	  this.getPerception = function() {
+
+	    return 1;
+	  };
+
+	  //Quarter
+	  this.runQuarter = function() {
+	    console.log( 'Run Start' );
+	    var currentPerception = this.getPerception();
+	    var totalIncome = 0;
+	    var totalWaste = 0;
+	    var totalItemsSold = 0;
+	    var totalConsumerPaid = 0;
+
+	    //loop though all factories
+	    for ( var i = 0; i < this.user.factories.length; i++ ) {
+
+	      var factory = this.user.factories[ i ];
+	      console.log( 'Factory:' + factory );
+
+	      if ( factory.store != null ) {
+
+	        //Requested From Store
+	        console.log( 'BaseBuyRateForProducts:' + factory.store.baseBuyRateForProducts );
+	        console.log( 'currentPerception:' + currentPerception );
+
+	        var totalRequested = Math.floor( factory.store.baseBuyRateForProducts * currentPerception );
+	        console.log( 'TotalRequested:' + totalRequested );
+
+	        //Make Products
+	        var costPerProduct =
+	            factory.material.costPerPound * factory.product.materialDependency.amount;
+
+	        console.log( 'Cost Per Product:' + costPerProduct );
+
+	        while ( factory.totalInventory < totalRequested &&
+	        costPerProduct <= this.user.totalIncome ) {
+	          this.user.totalIncome -= costPerProduct;
+	          totalWaste += factory.material.wastePerPound * factory.product.materialDependency.amount;
+	          totalIncome -= costPerProduct;
+	          factory.totalInventory++;
+
+	        }
+	        console.log( 'TotalInventory:' + factory.totalInventory );
+
+	        //Sell To Store
+	        var amount = 0;
+
+	        if ( factory.totalInventory > totalRequested ) {
+	          amount = totalRequested;
+	        } else {
+	          amount = factory.totalInventory;
+	        }
+	        console.log( 'Amount:' + amount );
+
+	        factory.totalInventory +=  amount;
+	        totalIncome += factory.store.pricePerProduct * amount;
+	        totalItemsSold += amount;
+	        totalConsumerPaid += factory.store.pricePerProduct * amount;
+	        totalWaste += factory.store.wastePerProduct * amount;
+	        this.user.factories[ i ].totalInventory -= amount;
+	      } else {
+	        console.log( 'No Store ' );
+	      }
+	      console.log( '' );
+	    }
+
+	    //Generate Quarter Log
+	    var quarterLog = new QuarterLog( totalItemsSold, totalConsumerPaid, totalWaste, totalIncome );
+	    this.user.quarterLog.push( quarterLog );
+
+	    //Quarters Past
+	    this.quartersPast++;
+
+	    //Update UI
+
+	    console.log( 'Run End' );
+	  };
+
+	  //Tests
+	  this.runTest = function() {
+	    this.showGameObject();
+	    this.checkSetup();
+	    this.checkLoadJson();
+	    this.checkAddMaterial();
+	    this.checkAddProduct();
+	    this.checkAddStore();
+	    this.checkAddFactory();
+	    this.checkRunQuarter();
+	    this.checkRunQuarter();
+	    this.checkRunQuarter();
+	    this.checkRunQuarter();
+	    this.checkRunQuarter();
+	  };
+
+	  this.showGameObject = function() {
+	    console.log( 'Game' );
+	    console.log( '---------' );
+	    console.log( this );
+	    console.log( '' );
+	  };
+
+	  this.checkSetup = function() {
+	    console.log( 'Setup ' );
+	    console.log( '---------' );
+	    console.log( 'User' );
+	    var userCurrent = jQuery.extend( true, {}, this.user );
+	    console.log( userCurrent );
+	    console.log( '' );
+	  };
+	  this.checkLoadJson = function() {
+
+	    var getAvailableMaterialsCurrent = jQuery.extend( true, {},
+	        this.materialManager.getAvailableMaterials()  );
+	    var getAvailableProductsCurrent = jQuery.extend( true, {},
+	        this.productManager.getAvailableProducts()  );
+	    var getAvailableStoresCurrent = jQuery.extend( true, {},
+	        this.storeManager.getAvailableStores()  );
+
+	    console.log( 'Load Json' );
+	    console.log( '---------' );
+	    console.log( 'Materials' );
+	    console.log( getAvailableMaterialsCurrent );
+	    console.log( 'Products' );
+	    console.log( getAvailableProductsCurrent );
+	    console.log( 'Stores' );
+	    console.log( getAvailableStoresCurrent );
+	    console.log( '' );
+	  };
+	  this.checkAddMaterial = function() {
+	    console.log( 'Add Material' );
+	    console.log( '---------' );
+	    console.log( 'Material' );
+	    console.log(  this.materialManager.getAvailableMaterials()[ 0 ] );
+	    console.log( 'Factory' );
+	    console.log(  this.user.factories[ 0 ] );
+	    console.log( 'AddMaterial()' );
+	    this.addMaterial( this.materialManager.getAvailableMaterials()[ 0 ],
+	        this.user.factories[ 0 ] );
+	    console.log( 'Available Materials' );
+	    var getAvailableMaterialsCurrent = jQuery.extend( true, {},
+	        this.materialManager.getAvailableMaterials() );
+	    console.log( getAvailableMaterialsCurrent );
+	    console.log( 'User' );
+	    var userCurrent = jQuery.extend( true, {}, this.user );
+	    console.log( userCurrent );
+	    console.log( '' );
+	  };
+	  this.checkAddProduct = function() {
+	    console.log( 'Add Product' );
+	    console.log( '---------' );
+	    console.log( 'Product' );
+	    console.log(  this.productManager.getAvailableProducts()[ 0 ] );
+	    console.log( 'Factory' );
+	    console.log(  this.user.factories[ 0 ] );
+	    console.log( 'AddProduct()' );
+	    this.addProduct( this.productManager.getAvailableProducts()[ 0 ],
+	        this.user.factories[ 0 ] );
+	    console.log( 'Available Products' );
+	    var getAvailableProductsCurrent = jQuery.extend( true, {},
+	        this.productManager.getAvailableProducts() );
+	    console.log( getAvailableProductsCurrent );
+	    console.log( 'User' );
+	    var userCurrent = jQuery.extend( true, {}, this.user );
+	    console.log( userCurrent );
+	    console.log( '' );
+	  };
+	  this.checkAddStore = function() {
+	    console.log( 'Add Store' );
+	    console.log( '---------' );
+	    console.log( 'Store' );
+	    console.log(  this.storeManager.getAvailableStores()[ 0 ] );
+	    console.log( 'Factory' );
+	    console.log(  this.user.factories[ 0 ] );
+	    console.log( 'AddStore()' );
+	    this.addStore( this.storeManager.getAvailableStores()[ 0 ],
+	        this.user.factories[ 0 ] );
+	    console.log( 'Available Stores' );
+	    var getAvailableStoresCurrent = jQuery.extend( true, {},
+	        this.storeManager.getAvailableStores() );
+	    console.log( getAvailableStoresCurrent );
+	    console.log( 'User' );
+	    var userCurrent = jQuery.extend( true, {}, this.user );
+	    console.log( userCurrent );
+	    console.log( '' );
+	  };
+	  this.checkAddFactory = function() {
+	    console.log( 'Add Factory' );
+	    console.log( '---------' );
+	    console.log( 'User' );
+	    var userCurrentBefore = jQuery.extend( true, {}, this.user );
+	    console.log( userCurrentBefore );
+	    console.log( 'AddFactory()' );
+	    this.addFactory();
+	    console.log( 'User' );
+	    var userCurrentAfter = jQuery.extend( true, {}, this.user );
+	    console.log( userCurrentAfter );
+	    console.log( '' );
+	  };
+	  this.checkRunQuarter = function() {
+	    console.log( 'Run Quarter' );
+	    console.log( '---------' );
+	    var userCurrent = jQuery.extend( true, {}, this.user );
+	    console.log( 'User' );
+	    console.log(  userCurrent );
+	    console.log( 'RunQuaterLog' );
+	    this.runQuarter();
+	    console.log( 'User' );
+	    var userCurrentAfter = jQuery.extend( true, {}, this.user );
+	    console.log( userCurrentAfter );
+	    console.log( 'QuaterLog' );
+	    console.log( this.user.quarterLog[ this.user.quarterLog.length - 1 ] );
+	    console.log( '' );
+	  };
 	};
 
 	module.exports = Game;
@@ -314,69 +587,176 @@
 /* 4 */
 /***/ function(module, exports) {
 
-	function webpackContext(req) {
-		throw new Error("Cannot find module '" + req + "'.");
-	}
-	webpackContext.keys = function() { return []; };
-	webpackContext.resolve = webpackContext;
-	module.exports = webpackContext;
-	webpackContext.id = 4;
+	/**
+	 * A Material Manager
+	 */
+	var MaterialManager = function( materials ) {
+	  var _materials = materials;
+	  var _availableMaterials = materials;
+
+	  /**
+	   * If the material is available, returns true and
+	   * removes the function from the available materials
+	   *
+	   * Otherwise, return false.
+	   */
+	  var reserveMaterial = function( material ) {
+	    if ( _availableMaterials != null ) {
+	      for ( var index = 0; index < _availableMaterials.length; index++ ) {
+	        if ( _availableMaterials[ index ] === material ) {
+	          _availableMaterials.splice( index, 1 );
+
+	          return true;
+	        }
+	      }
+	    }
+
+	    return false;
+	  };
+
+	  var getAvailableMaterials = function() {
+	    return _availableMaterials;
+	  };
+
+	  return {
+	    reserveMaterial: reserveMaterial,
+	    getAvailableMaterials: getAvailableMaterials
+	  };
+	};
+
+	module.exports = MaterialManager;
+
 
 
 /***/ },
 /* 5 */
 /***/ function(module, exports) {
 
-	function webpackContext(req) {
-		throw new Error("Cannot find module '" + req + "'.");
-	}
-	webpackContext.keys = function() { return []; };
-	webpackContext.resolve = webpackContext;
-	module.exports = webpackContext;
-	webpackContext.id = 5;
+	/**
+	 * A Product Manager
+	 */
+	var ProductManager = function( products ) {
+	  var _products = products;
+	  var _availableProducts = products;
+
+	  var reserveProduct = function( product ) {
+	    if ( _availableProducts  != null ) {
+	      for ( var index = 0; index < _availableProducts.length; index++ ) {
+	        if ( _availableProducts[ index ] === product ) {
+	          _availableProducts.splice( index, 1 );
+
+	          return true;
+	        }
+	      }
+	    }
+
+	    return false;
+	  };
+
+	  var getAvailableProducts = function() {
+	    return _availableProducts;
+	  };
+
+	  return {
+	    reserveProduct: reserveProduct,
+	    getAvailableProducts: getAvailableProducts
+	  };
+	};
+
+	module.exports = ProductManager;
 
 
 /***/ },
 /* 6 */
 /***/ function(module, exports) {
 
-	function webpackContext(req) {
-		throw new Error("Cannot find module '" + req + "'.");
-	}
-	webpackContext.keys = function() { return []; };
-	webpackContext.resolve = webpackContext;
-	module.exports = webpackContext;
-	webpackContext.id = 6;
+	/**
+	 * A Store Manager
+	 */
+	var StoreManager = function( stores ) {
+	  var _stores = stores;
+	  var _availableStores = stores;
+
+	  var reserveStore = function( store ) {
+	    if ( _availableStores  != null ) {
+	      for ( var index = 0; index < _availableStores.length; index++ ) {
+	        if ( _availableStores[ index ] === store ) {
+	          _availableStores.splice( index, 1 );
+
+	          return true;
+	        }
+	      }
+	    }
+
+	    return false;
+	  };
+
+	  var getAvailableStores = function() {
+	    return _availableStores;
+	  };
+
+	  return {
+	    reserveStore: reserveStore,
+	    getAvailableStores: getAvailableStores
+	  };
+	};
+	module.exports = StoreManager;
 
 
 /***/ },
 /* 7 */
 /***/ function(module, exports) {
 
-	function webpackContext(req) {
-		throw new Error("Cannot find module '" + req + "'.");
-	}
-	webpackContext.keys = function() { return []; };
-	webpackContext.resolve = webpackContext;
-	module.exports = webpackContext;
-	webpackContext.id = 7;
+	/**
+	 * A Factory
+	 */
+	var Factory = function( name, options ) {
+	  options = options || {};
+
+	  this.name = name;
+	  this.product = options.product || null;
+	  this.material = options.material || null;
+	  this.store = options.store || null;
+	  this.totalInventory = options.totalInventory || 0;
+	};
+
+	module.exports = Factory;
 
 
 /***/ },
 /* 8 */
 /***/ function(module, exports) {
 
-	function webpackContext(req) {
-		throw new Error("Cannot find module '" + req + "'.");
-	}
-	webpackContext.keys = function() { return []; };
-	webpackContext.resolve = webpackContext;
-	module.exports = webpackContext;
-	webpackContext.id = 8;
+	var QuarterLog = function( totalItemsSold, totalConsumerPaid, totalWaste, totalIncome ) {
+	  this.totalItemsSold = totalItemsSold;
+	  this.totalConsumerPaid = totalConsumerPaid;
+	  this.totalWaste = totalWaste;
+	  this.totalIncome = totalIncome;
+	};
+	module.exports = QuarterLog;
 
 
 /***/ },
 /* 9 */
+/***/ function(module, exports) {
+
+	var User = function( name, options ) {
+	  options = options || {};
+
+	  this.name = name;
+	  this.quarterLog = options.quarterLog || [];
+	  this.factories = options.factories || [];
+	  this.materials = options.materials || [];
+	  this.stores = options.stores || [];
+	  this.totalIncome = options.totalIncome || 0;
+	  this.totalWaste = options.totalWaste || 0;
+	};
+
+	module.exports = User;
+
+
+/***/ },
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var UiInterface = __webpack_require__( 3 );

@@ -12,7 +12,7 @@ describe( 'an user', function() {
     expect( user.quarterLog ).toBeDefined();
     expect( user.factories ).toBeDefined();
     expect( user.materials ).toBeDefined();
-    expect( user.consumers ).toBeDefined();
+    expect( user.stores ).toBeDefined();
     expect( user.totalIncome ).toBe( 100 );
     expect( user.totalWaste ).toBe( 10 );
   } );
@@ -22,7 +22,7 @@ describe( 'an user', function() {
     expect( userMinInputVars.quarterLog ).toBeDefined();
     expect( userMinInputVars.factories ).toBeDefined();
     expect( userMinInputVars.materials ).toBeDefined();
-    expect( userMinInputVars.consumers ).toBeDefined();
+    expect( userMinInputVars.stores ).toBeDefined();
     expect( userMinInputVars.totalIncome ).toBe( 0 );
     expect( userMinInputVars.totalWaste ).toBe( 0 );
   } );

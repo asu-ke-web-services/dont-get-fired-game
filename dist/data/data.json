@@ -2,18 +2,18 @@
    "Materials":[
       {
          "name":"Alminum",
-         "wasterPerlb":0.3,
-         "costPerLb":20
+         "wastePerPound":0.3,
+         "costPerPound":0.3
       },
       {
          "name":"Glass",
-         "wasterPerlb":0.1,
-         "costPerLb":21
+         "wastePerPound":0.1,
+         "costPerPound":2.0
       },
       {
          "name":"Plastic",
-         "wasterPerlb":0.4,
-         "costPerLb":32
+         "wastePerPound":0.4,
+         "costPerPound":32
       }
    ],
    "Products":[
@@ -51,21 +51,21 @@
          "product":"coke",
          "pricePerProduct":20,
          "wastePerProduct":1,
-         "baseBuyRateForProducts":0.01
+         "baseBuyRateForProducts":16
       },
       {
          "name":"health store",
          "product":"Pepsi",
          "pricePerProduct":21,
          "wastePerProduct":2,
-         "baseBuyRateForProducts":0.02
+         "baseBuyRateForProducts":26
       },
       {
          "name":"super Fanta",
          "product":"Fanta",
          "pricePerProduct":19,
          "wastePerProduct":2,
-         "baseBuyRateForProducts":0.05
+         "baseBuyRateForProducts":42
       }
    ]
 }
