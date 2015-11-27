@@ -14,7 +14,6 @@ var Game = function( options ) {
   this.user = options.user != undefined ?
       options.user :  new User( 'Tester', { totalIncome:20000 } );
 
-  this.factoryManager = null;
   this.materialManager = null;
   this.productManager = null;
   this.storeManager = null;
@@ -48,6 +47,8 @@ var Game = function( options ) {
       //Update UI
 
       return true;
+    } else {
+      return false;
     }
   };
   this.addProduct = function( product, factory ) {
@@ -63,6 +64,8 @@ var Game = function( options ) {
       //Update UI
 
       return true;
+    } else {
+      return false;
     }
 
   };
@@ -74,6 +77,9 @@ var Game = function( options ) {
       //Update UI
 
       return true;
+    } else
+    {
+      return false;
     }
   };
   this.addFactory = function( ) {
@@ -81,7 +87,7 @@ var Game = function( options ) {
     if ( 10 > user.totalIncome ) {
       return false;
     } else {
-      user.totalIncome = user.totalIncome - 10;
+      user.totalIncome -= 10;
       user.factories.push( new Factory() );
 
       //Update UI
@@ -107,35 +113,41 @@ var Game = function( options ) {
 
     //loop though all factories
     for ( var i = 0; index < this.user.factories.length; i++ ) {
+      var factory  = this.user.factories[ i ];
 
-      //Requested From Store
-      var totalRequested =
-          this.user.factories[ i ].store.baseBuyRateForProducts * currentPerception;
+      if ( factory.store != null )
+      {
 
-      //Make Products
-      var costPerProduct =
-          factory.material.costPerPound * factory.product.materialDependency.amount;
-      while ( this.user.factories[ i ].totalInventory < totalRequested &&
-      costPerProduct <= user.totalIncome ) {
-        this.user.totalIncome -= costPerProduct;
-        totalWaste += factory.material.wastePerPound * factory.product.materialDependency.amount;
-        totalIncome -= costPerProduct;
-        factory.totalInventory++;
+        //Requested From Store
+        var totalRequested =
+            factory.store.baseBuyRateForProducts * currentPerception;
+
+        //Make Products
+        var costPerProduct =
+            factory.material.costPerPound * factory.product.materialDependency.amount;
+        while ( factory.totalInventory < totalRequested &&
+        costPerProduct <= this.user.totalIncome ) {
+          this.user.totalIncome -= costPerProduct;
+          totalWaste += factory.material.wastePerPound * factory.product.materialDependency.amount;
+          totalIncome -= costPerProduct;
+          factory.totalInventory++;
+        }
+
+        //Sell To Store
+        var amount = 0;
+        if ( factory.totalInventory > totalRequested ) {
+          amount = totalRequested;
+        } else {
+          totalRequested = this.user.factories[ i ].totalInventory;
+        }
+        factory.totalInventory +=  amount;
+        totalIncome += store.pricePerProduct * amount;
+        totalItemsSold += amount;
+        totalConsumerPaid += store.pricePerProduct * amount;
+        totalWaste += store.wastePerProduct * amount;
+        factory.totalInventory -= amount;
       }
 
-      //Sell To Store
-      var amount = 0;
-      if ( this.user.factories[ i ].totalInventory > totalRequested ) {
-        amount = totalRequested;
-      } else {
-        totalRequested = this.user.factories[ i ].totalInventory;
-      }
-      factory.totalInventory +=  amount;
-      totalIncome += store.pricePerProduct * amount;
-      totalItemsSold += amount;
-      totalConsumerPaid += store.pricePerProduct * amount;
-      totalWaste += store.wastePerProduct * amount;
-      this.user.factories[ i ].totalInventory -= amount;
     }
 
     //Generate Quarter Log
