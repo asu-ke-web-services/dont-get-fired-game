@@ -100,11 +100,7 @@
 
 	  //Setup
 	  this.createGame = function() {
-
-	    //loadJson
-	    //Any start values, such as user income
-	    //call UIInterface SetupUI
-	    //setupTraining
+	    this.loadJson();
 	  };
 	  this.loadJson = function() {
 	    $.getJSON( 'data/data.json', function( data ) {
