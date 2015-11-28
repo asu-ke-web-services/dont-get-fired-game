@@ -99,7 +99,7 @@ var Game = function( options ) {
   //Perception
   this.getPerception = function() {
 
-    return 1;
+    return 5;
   };
 
   //Quarter
@@ -140,7 +140,6 @@ var Game = function( options ) {
         } else {
           totalRequested = this.user.factories[ i ].totalInventory;
         }
-        factory.totalInventory +=  amount;
         totalIncome += store.pricePerProduct * amount;
         totalItemsSold += amount;
         totalConsumerPaid += store.pricePerProduct * amount;
@@ -152,7 +151,7 @@ var Game = function( options ) {
 
     //Generate Quarter Log
     var quarterLog = new QuarterLog( totalItemsSold, totalConsumerPaid, totalWaste, totalIncome );
-    user.quarterLog.push( quarterLog );
+    this.user.quarterLog.push( quarterLog );
 
     //Quarters Past
     this.quartersPast++;
@@ -169,6 +168,8 @@ var Game = function( options ) {
       //Update UI
 
       return true;
+    } else {
+
     }
   };
   this.addProduct = function( product, factory ) {
@@ -183,6 +184,8 @@ var Game = function( options ) {
       //Update UI
 
       return true;
+    } else {
+      return false;
     }
 
   };
@@ -194,14 +197,16 @@ var Game = function( options ) {
       //Update UI
 
       return true;
+    } else {
+      return false;
     }
   };
   this.addFactory = function( ) {
 
-    if ( 10 > this.user.totalIncome ) {
+    if ( 10000 > this.user.totalIncome ) {
       return false;
     } else {
-      this.user.totalIncome = this.user.totalIncome - 10;
+      this.user.totalIncome -= 10000;
       this.user.factories.push( new Factory() );
 
       //Update UI
@@ -213,7 +218,7 @@ var Game = function( options ) {
   //Perception
   this.getPerception = function() {
 
-    return 1;
+    return 5;
   };
 
   //Quarter
@@ -237,7 +242,8 @@ var Game = function( options ) {
         console.log( 'BaseBuyRateForProducts:' + factory.store.baseBuyRateForProducts );
         console.log( 'currentPerception:' + currentPerception );
 
-        var totalRequested = Math.floor( factory.store.baseBuyRateForProducts * currentPerception );
+        var totalRequested = Math.floor(
+            factory.store.baseBuyRateForProducts *  ( currentPerception / 5 ) );
         console.log( 'TotalRequested:' + totalRequested );
 
         //Make Products
@@ -266,14 +272,13 @@ var Game = function( options ) {
         }
         console.log( 'Amount:' + amount );
 
-        factory.totalInventory +=  amount;
         totalIncome += factory.store.pricePerProduct * amount;
         totalItemsSold += amount;
         totalConsumerPaid += factory.store.pricePerProduct * amount;
         totalWaste += factory.store.wastePerProduct * amount;
-        this.user.factories[ i ].totalInventory -= amount;
+        factory.totalInventory -= amount;
       } else {
-        console.log( 'No Store ' );
+        console.log( 'No Store' );
       }
       console.log( '' );
     }
