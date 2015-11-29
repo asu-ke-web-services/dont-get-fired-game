@@ -92,8 +92,12 @@ var Game = function( options ) {
       this.user.totalIncome -= 10000;
       this.user.factories.push( new Factory() );
 
+<<<<<<< HEAD
       //UiInterface.rePaint();
 
+=======
+      UiInterface.rePaint();
+>>>>>>> d876386ed6b6e7429edf8ce8c37b2d8e7ecefc7c
       return true;
     }
   };
@@ -152,7 +156,17 @@ var Game = function( options ) {
       }
 
     } else {
+<<<<<<< HEAD
       return 5;
+=======
+      this.user.totalIncome -= 10000;
+      this.user.factories.push( new Factory() );
+
+      //Update UI
+
+      UiInterface.rePaint();
+      return true;
+>>>>>>> d876386ed6b6e7429edf8ce8c37b2d8e7ecefc7c
     }
   };
 
