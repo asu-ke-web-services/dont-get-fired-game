@@ -223,7 +223,7 @@ var Game = function( options ) {
         console.log( 'Requested: ' + totalRequested );
         console.log( 'Start Inventory: ' + factoryStartInventory );
         console.log( 'User.totalIncome: ' + startIncome );
-        console.log( 'Items Per Set: ' + startIncome );
+        console.log( 'Items Per Set: ' + factory.product.totalOutput );
         console.log( 'Cost Per Product Set: ' + costPerProductSet );
         console.log( 'Items Made: ' + totalItemsMade );
         console.log( 'Paid: ' + totalItemsMade );
@@ -269,7 +269,6 @@ var Game = function( options ) {
     this.checkRunQuarter();
     this.checkRunQuarter();
     this.checkRunQuarter();
-    
   };
 
   this.showGameObject = function() {
