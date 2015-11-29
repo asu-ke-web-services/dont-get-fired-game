@@ -352,6 +352,7 @@
 	    this.checkRunQuarter();
 	    this.checkRunQuarter();
 	    this.checkRunQuarter();
+	    
 	  };
 
 	  this.showGameObject = function() {

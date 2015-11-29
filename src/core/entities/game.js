@@ -269,6 +269,7 @@ var Game = function( options ) {
     this.checkRunQuarter();
     this.checkRunQuarter();
     this.checkRunQuarter();
+    
   };
 
   this.showGameObject = function() {
