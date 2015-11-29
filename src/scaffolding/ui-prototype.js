@@ -2,17 +2,6 @@ var UiInterface = require( 'core/ui/ui-interface' );
 
 var setup = function() {
   var $gameContainer = $( '#game-container' );
-  var $factoryEntity = $( '<div />',
-      {
-        class: 'factory_entity',
-        html: 'Factory',
-        id: 'initialFactory'
-      } );
-
-  $factoryEntity.click( function() {
-    var menuItemList = getMenuItemList( this.id );
-  } );
-
   var $quarterYear = '<div>Quarter <span id="quarterValue">1</span> / ' +
       'Year <span id="yearValue">0</span> ' +
       '[<span id="timeProgressValue">1</span>]</div>';
@@ -40,7 +29,8 @@ var setup = function() {
     UiInterface.nextQuarter();
   } );
 
-  $gameContainer.append( $factoryEntity, '<hr>', $quarterYear, $funds, $perception, $goals );
+  $gameContainer.append( '<div id="factoryContainer"></div>' );
+  $gameContainer.append( '<hr>', $quarterYear, $funds, $perception, $goals );
   $gameContainer.append( $nextTick, $nextQuarter );
 };
 

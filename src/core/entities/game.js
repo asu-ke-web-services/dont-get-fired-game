@@ -90,8 +90,7 @@ var Game = function( options ) {
       user.totalIncome -= 10;
       user.factories.push( new Factory() );
 
-      //Update UI
-
+      UiInterface.rePaint();
       return true;
     }
   };
@@ -211,6 +210,7 @@ var Game = function( options ) {
 
       //Update UI
 
+      UiInterface.rePaint();
       return true;
     }
   };
