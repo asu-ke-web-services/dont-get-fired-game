@@ -34,7 +34,7 @@ var Game = function( options ) {
       game.storeManager = new StoreManager( data.Stores );
     } ).then( function( data ) {
 
-      //UiInterface.rePaint();
+      UiInterface.rePaint();
       game.runTest();
     }
     );
@@ -47,7 +47,7 @@ var Game = function( options ) {
       factory.material = material;
       this.user.materials.push( material );
 
-      //UiInterface.rePaint();
+      UiInterface.rePaint();
 
       return true;
     } else {
@@ -63,7 +63,7 @@ var Game = function( options ) {
       this.user.totalIncome -= product.setupCost;
       factory.product = product;
 
-      //UiInterface.rePaint();
+      UiInterface.rePaint();
 
       return true;
     } else {
@@ -76,7 +76,7 @@ var Game = function( options ) {
       factory.store = store;
       this.user.stores.push( store );
 
-      //UiInterface.rePaint();
+      UiInterface.rePaint();
 
       return true;
     } else
@@ -92,7 +92,7 @@ var Game = function( options ) {
       this.user.totalIncome -= 10000;
       this.user.factories.push( new Factory() );
 
-      //UiInterface.rePaint();
+      UiInterface.rePaint();
 
       return true;
     }
@@ -254,7 +254,7 @@ var Game = function( options ) {
     //Quarters Past
     this.quartersPast++;
 
-    //UiInterface.rePaint();
+    UiInterface.rePaint();
   };
 
   //Tests
