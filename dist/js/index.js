@@ -93,9 +93,9 @@
 	 */
 	var Game = function( options ) {
 	  options = options || {};
-	  this.quartersPast = options.quartersPast != undefined ? options.quartersPast : 0;
-	  this.user = options.user != undefined ?
-	      options.user :  new User( 'Tester', { totalIncome:20000 } );
+
+	  this.quartersPast = options.quartersPast || 0;
+	  this.user = options.user || new User( 'Tester', { totalIncome:20000 } );
 
 	  this.materialManager = null;
 	  this.productManager = null;
@@ -103,26 +103,31 @@
 
 	  UiInterface.setGame( this );
 
-	  //Setup
+	  /**
+	   * Set the game up by creating a new factory and loading
+	   * all of the assets
+	   */
 	  this.createGame = function() {
 	    this.user.factories.push( new Factory( 'Start Factory' ) );
-	    this.loadJson();
-
+	    this.setupManagers();
 	  };
-	  this.loadJson = function() {
-	    var game = this;
-	    $.getJSON( 'data/data.json', function( data ) {
-	      game.materialManager = new MaterialManager( data.Materials );
-	      game.productManager = new ProductManager( data.Products );
-	      game.storeManager = new StoreManager( data.Stores );
-	    } ).then( function( data ) {
+
+	  /**
+	   * Setup the material, product, and store managers. This will
+	   * require loading in JSON data. Note, the loaded data is
+	   * asynchronously loaded, with the manager setup occuring
+	   * after data is already loaded
+	   */
+	  this.setupManagers = function() {
+	    $.getJSON( 'data/data.json' ).then( function( data ) {
+	      this.materialManager = new MaterialManager( data.Materials );
+	      this.productManager = new ProductManager( data.Products );
+	      this.storeManager = new StoreManager( data.Stores );
 
 	      UiInterface.rePaint();
 
-	      //game.runTest();
-	    }
-	    );
-
+	      //this.runTest();
+	    }.bind( this ) );
 	  };
 
 	  //Add
@@ -186,27 +191,34 @@
 	  this.between = function( wasteRate, min, max ) {
 	    return wasteRate >= min && wasteRate <= max;
 	  };
-	  this.getPerception = function() {
 
-	    if ( this.user.quarterLog.length != 0 )
-	    {
+	  /**
+	   * Get the perception that society has on the user. Starts at 5.
+	   *
+	   * @return Number The number [1-10] that describes the user perception
+	   */
+	  this.getPerception = function() {
+	    var isFirstQuarter = this.user.quarterLog.length === 0;
+
+	    if ( isFirstQuarter ) {
+	      return 5;
+	    } else {
 	      var lastQuarterLog = this.user.quarterLog[ this.user.quarterLog.length - 1 ];
 	      var wasteRate = .5;
 	      var factoryRate = 0;
 	      var storeRate = 0;
 	      var totalRates = 0;
-	      if ( lastQuarterLog.itemsMade != 0 )
-	      {
+	      if ( lastQuarterLog.itemsMade != 0 ) {
 	        factoryRate = ( lastQuarterLog.factoryWaste /  lastQuarterLog.itemsMade );
 	        totalRates++;
 	      }
-	      if ( lastQuarterLog.itemsSold != 0 )
-	      {
+
+	      if ( lastQuarterLog.itemsSold != 0 ) {
 	        storeRate = ( lastQuarterLog.storeWaste /  lastQuarterLog.itemsSold );
 	        totalRates++;
 	      }
-	      if ( totalRates != 0 )
-	      {
+
+	      if ( totalRates != 0 ) {
 	        wasteRate = ( factoryRate + storeRate ) / 2;
 	      }
 
@@ -234,9 +246,6 @@
 	      } else {
 	        return 1;
 	      }
-
-	    } else {
-	      return 5;
 	    }
 	  };
 
@@ -897,7 +906,16 @@
 /***/ function(module, exports) {
 
 	/**
-	 * A Factory
+	 * A Factory game entity, not an algorithm structure
+	 * Contains data for Factory game entities. Only
+	 * the name is required
+	 *
+	 * @param name String
+	 * @param options Object Optional
+	 * - product
+	 * - material
+	 * - store
+	 * - totalInventory
 	 */
 	var Factory = function( name, options ) {
 	  options = options || {};
