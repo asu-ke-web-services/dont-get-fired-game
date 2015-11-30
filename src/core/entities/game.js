@@ -244,6 +244,7 @@ var Game = function( options ) {
 
     }
     console.log( '' );
+    this.user.totalWaste += totalstoreWaste + totalfactoryWaste;
 
     //Generate Quarter Log
     var quarterLog = new QuarterLog( totalPaid, totalItemsMade,
