@@ -1,13 +1,13 @@
 {
    "Materials":[
       {
-         "name":"Alminum",
+         "name":"Aluminum",
          "wastePerPound":0.3,
          "costPerPound":0.3
       },
       {
          "name":"Glass",
-         "wastePerPound":0.1,
+         "wastePerPound":0.6,
          "costPerPound":0.35
       },
       {
@@ -48,23 +48,23 @@
    "Stores":[
       {
          "name":"coke liker",
-         "product":"coke",
+         "product":"Coke",
          "pricePerProduct":20,
-         "wastePerProduct":1,
+         "wastePerProduct":0.5,
          "baseBuyRateForProducts":16
       },
       {
          "name":"health store",
          "product":"Pepsi",
          "pricePerProduct":21,
-         "wastePerProduct":2,
+         "wastePerProduct":0.4,
          "baseBuyRateForProducts":26
       },
       {
          "name":"super Fanta",
          "product":"Fanta",
          "pricePerProduct":19,
-         "wastePerProduct":2,
+         "wastePerProduct":1,
          "baseBuyRateForProducts":42
       }
    ]
