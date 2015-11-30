@@ -41,7 +41,6 @@ var UIInterface = ( function() {
     setPerceptionValue( _game.getPerception() );
     setIncomeValue( _game.user.totalIncome );
     setWasteValue( _game.user.totalWaste );
-
   };
 
   var setWasteValue = function( totalWaste ) {
@@ -208,7 +207,8 @@ var UIInterface = ( function() {
               '\n\n Output: ' + product.totalOutput + ' units'
           ) ) {
         $( '#menu' ).remove();
-        if ( mFactory.material.name != product.materialDependency.name ) {
+        if ( mFactory.material == null ||
+            mFactory.material.name != product.materialDependency.name ) {
           alert( 'Error: This product can not be made without Material: ' +
               product.materialDependency.name + '.' );
           return;

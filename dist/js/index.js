@@ -327,6 +327,7 @@
 
 	    }
 	    console.log( '' );
+	    this.user.totalWaste += totalstoreWaste + totalfactoryWaste;
 
 	    //Generate Quarter Log
 	    var quarterLog = new QuarterLog( totalPaid, totalItemsMade,
@@ -538,7 +539,6 @@
 	    setPerceptionValue( _game.getPerception() );
 	    setIncomeValue( _game.user.totalIncome );
 	    setWasteValue( _game.user.totalWaste );
-
 	  };
 
 	  var setWasteValue = function( totalWaste ) {
@@ -705,7 +705,8 @@
 	              '\n\n Output: ' + product.totalOutput + ' units'
 	          ) ) {
 	        $( '#menu' ).remove();
-	        if ( mFactory.material.name != product.materialDependency.name ) {
+	        if ( mFactory.material == null ||
+	            mFactory.material.name != product.materialDependency.name ) {
 	          alert( 'Error: This product can not be made without Material: ' +
 	              product.materialDependency.name + '.' );
 	          return;
