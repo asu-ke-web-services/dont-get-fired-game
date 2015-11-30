@@ -35,7 +35,8 @@ var Game = function( options ) {
     } ).then( function( data ) {
 
       UiInterface.rePaint();
-      game.runTest();
+
+      //game.runTest();
     }
     );
 
