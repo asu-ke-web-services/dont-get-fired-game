@@ -8,12 +8,12 @@
       {
          "name":"Glass",
          "wastePerPound":0.1,
-         "costPerPound":2.0
+         "costPerPound":0.35
       },
       {
          "name":"Plastic",
-         "wastePerPound":0.4,
-         "costPerPound":32
+         "wastePerPound":0.3,
+         "costPerPound":0.4
       }
    ],
    "Products":[
@@ -24,7 +24,7 @@
 				"name":"Aluminum",
 				"amount": 20
 				 },
-	"totalOutput":30
+	"totalOutput":20
       },
       {
          "name":"Fanta",
@@ -33,16 +33,16 @@
 				"name":"Glass",
 				"amount": 30
 				 },
-         "totalOutput":32
+         "totalOutput":30
       },
       {
          "name":"Pepsi",
          "setupCost":1900,
          "materialDependency":{
 				"name":"Plastic",
-				"amount": 35
+				"amount": 25
 				 },
-         "totalOutput":20
+         "totalOutput":25
       }
    ],
    "Stores":[
