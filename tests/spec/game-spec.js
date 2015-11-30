@@ -2,6 +2,7 @@ var Game = require( __core + 'entities/game' );
 
 describe( 'an game', function() {
   var game;
+  var gameDefault;
   beforeEach( function() {
     game = new Game( {
       quartersPast: 1

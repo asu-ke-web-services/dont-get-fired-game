@@ -97,7 +97,6 @@
 	  this.user = options.user != undefined ?
 	      options.user :  new User( 'Tester', { totalIncome:20000 } );
 
-	  this.factoryManager = null;
 	  this.materialManager = null;
 	  this.productManager = null;
 	  this.storeManager = null;
@@ -108,6 +107,7 @@
 	  this.createGame = function() {
 	    this.user.factories.push( new Factory( 'Start Factory' ) );
 	    this.loadJson();
+
 	  };
 	  this.loadJson = function() {
 	    var game = this;
@@ -116,6 +116,8 @@
 	      game.productManager = new ProductManager( data.Products );
 	      game.storeManager = new StoreManager( data.Stores );
 	    } ).then( function( data ) {
+
+	      UiInterface.rePaint();
 	      game.runTest();
 	    }
 	    );
@@ -124,126 +126,19 @@
 
 	  //Add
 	  this.addMaterial = function( material, factory ) {
-	    if ( materialManager.reserveMaterial( material ) ) {
-	      factory.material = material;
-	      user.materials.push( material );
-
-	      //Update UI
-
-	      return true;
-	    }
-	  };
-	  this.addProduct = function( product, factory ) {
-	    if ( product.setupcost > user.totalIncome ) {
-	      return false;
-	    }
-
-	    if ( productManager.reserveProduct( material ) ) {
-	      user.totalIncome -= product.setupcost;
-	      factory.product = product;
-	      user.products.push( product );
-
-	      //Update UI
-
-	      return true;
-	    }
-
-	  };
-	  this.addStore = function( store, factory ) {
-	    if ( this.storeManager.reserveStore( store ) ) {
-	      factory.store = store;
-	      this.user.stores.push( store );
-
-	      //Update UI
-
-	      return true;
-	    }
-	  };
-	  this.addFactory = function( ) {
-
-	    if ( 10 > user.totalIncome ) {
-	      return false;
-	    } else {
-	      user.totalIncome = user.totalIncome - 10;
-	      user.factories.push( new Factory() );
-
-	      //Update UI
-
-	      return true;
-	    }
-	  };
-
-	  //Perception
-	  this.getPerception = function() {
-
-	    return 1;
-	  };
-
-	  //Quarter
-	  this.runQuarter = function() {
-
-	    var currentPerception = this.getPerception();
-	    var totalIncome = 0;
-	    var totalWaste = 0;
-	    var totalItemsSold = 0;
-	    var totalConsumerPaid = 0;
-
-	    //loop though all factories
-	    for ( var i = 0; index < this.user.factories.length; i++ ) {
-
-	      //Requested From Store
-	      var totalRequested =
-	          this.user.factories[ i ].store.baseBuyRateForProducts * currentPerception;
-
-	      //Make Products
-	      var costPerProduct =
-	          factory.material.costPerPound * factory.product.materialDependency.amount;
-	      while ( this.user.factories[ i ].totalInventory < totalRequested &&
-	      costPerProduct <= user.totalIncome ) {
-	        this.user.totalIncome -= costPerProduct;
-	        totalWaste += factory.material.wastePerPound * factory.product.materialDependency.amount;
-	        totalIncome -= costPerProduct;
-	        factory.totalInventory++;
-	      }
-
-	      //Sell To Store
-	      var amount = 0;
-	      if ( this.user.factories[ i ].totalInventory > totalRequested ) {
-	        amount = totalRequested;
-	      } else {
-	        totalRequested = this.user.factories[ i ].totalInventory;
-	      }
-	      factory.totalInventory +=  amount;
-	      totalIncome += store.pricePerProduct * amount;
-	      totalItemsSold += amount;
-	      totalConsumerPaid += store.pricePerProduct * amount;
-	      totalWaste += store.wastePerProduct * amount;
-	      this.user.factories[ i ].totalInventory -= amount;
-	    }
-
-	    //Generate Quarter Log
-	    var quarterLog = new QuarterLog( totalItemsSold, totalConsumerPaid, totalWaste, totalIncome );
-	    user.quarterLog.push( quarterLog );
-
-	    //Quarters Past
-	    this.quartersPast++;
-
-	    //Update UI
-	  };
-
-	  //Add
-	  this.addMaterial = function( material, factory ) {
 	    if ( this.materialManager.reserveMaterial( material ) ) {
 	      factory.material = material;
 	      this.user.materials.push( material );
 
-	      //Update UI
+	      UiInterface.rePaint();
 
 	      return true;
+	    } else {
+	      return false;
 	    }
 	  };
 	  this.addProduct = function( product, factory ) {
-	    if ( product.setupCost > this.user.totalIncome ) {
+	    if ( product.setupcost > this.user.totalIncome ) {
 	      return false;
 	    }
 
@@ -251,9 +146,11 @@
 	      this.user.totalIncome -= product.setupCost;
 	      factory.product = product;
 
-	      //Update UI
+	      UiInterface.rePaint();
 
 	      return true;
+	    } else {
+	      return false;
 	    }
 
 	  };
@@ -262,103 +159,185 @@
 	      factory.store = store;
 	      this.user.stores.push( store );
 
-	      //Update UI
+	      UiInterface.rePaint();
 
 	      return true;
+	    } else
+	    {
+	      return false;
 	    }
 	  };
-	  this.addFactory = function( ) {
+	  this.addFactory = function() {
 
-	    if ( 10 > this.user.totalIncome ) {
+	    if ( 10000 > this.user.totalIncome ) {
 	      return false;
 	    } else {
-	      this.user.totalIncome = this.user.totalIncome - 10;
+	      this.user.totalIncome -= 10000;
 	      this.user.factories.push( new Factory() );
 
-	      //Update UI
+	      UiInterface.rePaint();
 
 	      return true;
 	    }
 	  };
 
 	  //Perception
+	  this.between = function( wasteRate, min, max ) {
+	    return wasteRate >= min && wasteRate <= max;
+	  };
 	  this.getPerception = function() {
 
-	    return 1;
+	    if ( this.user.quarterLog.length != 0 )
+	    {
+	      var lastQuarterLog = this.user.quarterLog[ this.user.quarterLog.length - 1 ];
+	      var wasteRate = .5;
+	      var factoryRate = 0;
+	      var storeRate = 0;
+	      var totalRates = 0;
+	      if ( lastQuarterLog.itemsMade != 0 )
+	      {
+	        factoryRate = ( lastQuarterLog.factoryWaste /  lastQuarterLog.itemsMade );
+	        totalRates++;
+	      }
+	      if ( lastQuarterLog.itemsSold != 0 )
+	      {
+	        storeRate = ( lastQuarterLog.storeWaste /  lastQuarterLog.itemsSold );
+	        totalRates++;
+	      }
+	      if ( totalRates != 0 )
+	      {
+	        wasteRate = ( factoryRate + storeRate ) / 2;
+	      }
+
+	      console.log( 'Waste Rate:' +  wasteRate );
+
+	      if ( wasteRate === 0 )
+	      {
+	        return 10;
+	      } else if ( this.between( wasteRate, 0.00001, 0.1 ) ) {
+	        return 9;
+	      } else if ( this.between( wasteRate, 0.1, 0.2 ) ) {
+	        return 8;
+	      } else if ( this.between( wasteRate, 0.2, 0.3 ) ) {
+	        return 7;
+	      } else if ( this.between( wasteRate, 0.3, 0.4 ) ) {
+	        return 6;
+	      } else if ( this.between( wasteRate, 0.4, 0.5 ) ) {
+	        return 5;
+	      } else if ( this.between( wasteRate, 0.5, 0.6 ) ) {
+	        return 4;
+	      } else if ( this.between( wasteRate, 0.6, 0.8 ) ) {
+	        return 3;
+	      } else if ( this.between( wasteRate, 0.8, 1 ) ) {
+	        return 2;
+	      } else {
+	        return 1;
+	      }
+
+	    } else {
+	      return 5;
+	    }
 	  };
 
 	  //Quarter
 	  this.runQuarter = function() {
-	    console.log( 'Run Start' );
+	    console.log( '' );
 	    var currentPerception = this.getPerception();
-	    var totalIncome = 0;
-	    var totalWaste = 0;
+	    var totalPaid = 0;
+	    var totalItemsMade = 0;
 	    var totalItemsSold = 0;
-	    var totalConsumerPaid = 0;
+	    var totalstorePaid = 0;
+	    var totalstoreWaste = 0;
+	    var totalfactoryWaste = 0;
 
 	    //loop though all factories
 	    for ( var i = 0; i < this.user.factories.length; i++ ) {
-
-	      var factory = this.user.factories[ i ];
-	      console.log( 'Factory:' + factory );
+	      var factory  = this.user.factories[ i ];
+	      var paid = 0;
+	      var itemsMade = 0;
+	      var itemsSold = 0;
+	      var storePaid = 0;
+	      var storeWaste = 0;
+	      var factoryWaste = 0;
+	      var factoryStartInventory = factory.totalInventory;
+	      var startIncome = this.user.totalIncome;
 
 	      if ( factory.store != null ) {
 
 	        //Requested From Store
-	        console.log( 'BaseBuyRateForProducts:' + factory.store.baseBuyRateForProducts );
-	        console.log( 'currentPerception:' + currentPerception );
-
-	        var totalRequested = Math.floor( factory.store.baseBuyRateForProducts * currentPerception );
-	        console.log( 'TotalRequested:' + totalRequested );
+	        var totalRequested =
+	            Math.floor( factory.store.baseBuyRateForProducts * ( currentPerception / 5 ) );
 
 	        //Make Products
-	        var costPerProduct =
-	            factory.material.costPerPound * factory.product.materialDependency.amount;
-
-	        console.log( 'Cost Per Product:' + costPerProduct );
+	        var costPerProductSet =
+	            factory.material.costPerPound * factory.product.materialDependency.amount *
+	            factory.product.totalOutput;
 
 	        while ( factory.totalInventory < totalRequested &&
-	        costPerProduct <= this.user.totalIncome ) {
-	          this.user.totalIncome -= costPerProduct;
-	          totalWaste += factory.material.wastePerPound * factory.product.materialDependency.amount;
-	          totalIncome -= costPerProduct;
-	          factory.totalInventory++;
+	        costPerProductSet <= this.user.totalIncome ) {
+	          this.user.totalIncome -= costPerProductSet;
+	          factory.totalInventory += factory.product.totalOutput;
 
+	          //Logging
+	          totalItemsMade += factory.product.totalOutput;
+	          paid += costPerProductSet;
+	          factoryWaste += factory.material.wastePerPound *
+	              factory.product.materialDependency.amount;
 	        }
-	        console.log( 'TotalInventory:' + factory.totalInventory );
 
 	        //Sell To Store
 	        var amount = 0;
-
 	        if ( factory.totalInventory > totalRequested ) {
 	          amount = totalRequested;
 	        } else {
-	          amount = factory.totalInventory;
+	          amount = this.user.factories[ i ].totalInventory;
 	        }
-	        console.log( 'Amount:' + amount );
+	        this.user.totalIncome += factory.store.pricePerProduct * amount;
+	        factory.totalInventory -= amount;
 
-	        factory.totalInventory +=  amount;
-	        totalIncome += factory.store.pricePerProduct * amount;
-	        totalItemsSold += amount;
-	        totalConsumerPaid += factory.store.pricePerProduct * amount;
-	        totalWaste += factory.store.wastePerProduct * amount;
-	        this.user.factories[ i ].totalInventory -= amount;
-	      } else {
-	        console.log( 'No Store ' );
+	        //Logging
+	        itemsSold += amount;
+	        storePaid += factory.store.pricePerProduct * amount;
+	        storeWaste += factory.store.wastePerProduct * amount;
+
+	        console.log( 'Total Quarter Logs: ' + this.user.quarterLog.length );
+	        console.log( 'Perception: ' + currentPerception );
+	        console.log( 'baseBuyRateForProducts: ' + factory.store.baseBuyRateForProducts );
+	        console.log( 'Requested: ' + totalRequested );
+	        console.log( 'Start Inventory: ' + factoryStartInventory );
+	        console.log( 'User.totalIncome: ' + startIncome );
+	        console.log( 'Items Per Set: ' + factory.product.totalOutput );
+	        console.log( 'Cost Per Product Set: ' + costPerProductSet );
+	        console.log( 'Items Made: ' + totalItemsMade );
+	        console.log( 'Paid: ' + totalItemsMade );
+	        console.log( 'Factory Waste: ' + factoryWaste );
+	        console.log( 'End Inventory: ' + factory.totalInventory );
+	        console.log( 'ItemsSold: ' + amount );
+	        console.log( 'Store Paid: ' + storePaid );
+	        console.log( 'Store Waste: ' + storeWaste );
+	        console.log( 'User.totalIncome: ' + this.user.totalIncome );
+	        totalPaid += paid;
+	        totalItemsMade += itemsMade;
+	        totalItemsSold += itemsSold;
+	        totalstorePaid += storePaid;
+	        totalstoreWaste += storeWaste;
+	        totalfactoryWaste += factoryWaste;
+
 	      }
-	      console.log( '' );
+
 	    }
+	    console.log( '' );
 
 	    //Generate Quarter Log
-	    var quarterLog = new QuarterLog( totalItemsSold, totalConsumerPaid, totalWaste, totalIncome );
+	    var quarterLog = new QuarterLog( totalPaid, totalItemsMade,
+	        totalItemsSold, totalstorePaid, totalstoreWaste, totalfactoryWaste );
+	    console.log( 'QuarterLog: ' + quarterLog );
 	    this.user.quarterLog.push( quarterLog );
 
 	    //Quarters Past
 	    this.quartersPast++;
 
-	    //Update UI
-
-	    console.log( 'Run End' );
+	    UiInterface.rePaint();
 	  };
 
 	  //Tests
@@ -373,17 +352,15 @@
 	    this.checkRunQuarter();
 	    this.checkRunQuarter();
 	    this.checkRunQuarter();
-	    this.checkRunQuarter();
-	    this.checkRunQuarter();
 	  };
 
 	  this.showGameObject = function() {
-	    console.log( 'Game' );
+	    console.log( 'Game [Live Pointer]' );
 	    console.log( '---------' );
+
 	    console.log( this );
 	    console.log( '' );
 	  };
-
 	  this.checkSetup = function() {
 	    console.log( 'Setup ' );
 	    console.log( '---------' );
@@ -415,9 +392,12 @@
 	    console.log( 'Add Material' );
 	    console.log( '---------' );
 	    console.log( 'Material' );
-	    console.log(  this.materialManager.getAvailableMaterials()[ 0 ] );
+	    var firstMaterial = jQuery.extend( true, {},
+	        this.materialManager.getAvailableMaterials()[ 0 ] );
+	    console.log( firstMaterial );
 	    console.log( 'Factory' );
-	    console.log(  this.user.factories[ 0 ] );
+	    var firstFactory = jQuery.extend( true, {}, this.user.factories[ 0 ] );
+	    console.log( firstFactory );
 	    console.log( 'AddMaterial()' );
 	    this.addMaterial( this.materialManager.getAvailableMaterials()[ 0 ],
 	        this.user.factories[ 0 ] );
@@ -434,9 +414,13 @@
 	    console.log( 'Add Product' );
 	    console.log( '---------' );
 	    console.log( 'Product' );
-	    console.log(  this.productManager.getAvailableProducts()[ 0 ] );
+	    var firstProduct = jQuery.extend( true, {},
+	        this.productManager.getAvailableProducts()[ 0 ] );
+	    console.log(  firstProduct );
 	    console.log( 'Factory' );
-	    console.log(  this.user.factories[ 0 ] );
+	    var firstFactory = jQuery.extend( true, {},
+	        this.user.factories[ 0 ] );
+	    console.log( firstFactory );
 	    console.log( 'AddProduct()' );
 	    this.addProduct( this.productManager.getAvailableProducts()[ 0 ],
 	        this.user.factories[ 0 ] );
@@ -453,9 +437,13 @@
 	    console.log( 'Add Store' );
 	    console.log( '---------' );
 	    console.log( 'Store' );
-	    console.log(  this.storeManager.getAvailableStores()[ 0 ] );
+	    var firstStore = jQuery.extend( true, {},
+	        this.storeManager.getAvailableStores()[ 0 ] );
+	    console.log( firstStore );
 	    console.log( 'Factory' );
-	    console.log(  this.user.factories[ 0 ] );
+	    var firstFactory = jQuery.extend( true, {},
+	        this.user.factories[ 0 ] );
+	    console.log( firstFactory );
 	    console.log( 'AddStore()' );
 	    this.addStore( this.storeManager.getAvailableStores()[ 0 ],
 	        this.user.factories[ 0 ] );
@@ -493,7 +481,9 @@
 	    var userCurrentAfter = jQuery.extend( true, {}, this.user );
 	    console.log( userCurrentAfter );
 	    console.log( 'QuaterLog' );
-	    console.log( this.user.quarterLog[ this.user.quarterLog.length - 1 ] );
+	    var quarterLog = jQuery.extend( true, {},
+	        this.user.quarterLog[ this.user.quarterLog.length - 1 ] );
+	    console.log( quarterLog );
 	    console.log( '' );
 	  };
 	};
@@ -505,27 +495,58 @@
 /* 3 */
 /***/ function(module, exports) {
 
+	
 	var UIInterface = ( function() {
 	  var _game = null;
+	  var _user = null;
+	  var $menu = '<div id="menu">' +
+	      '<div id="redSquare"></div>' +
+	      '<button id="closeButton">X</button>' +
+	      '<ul id="topMenu"></ul>' +
+	      '</div>';
 
 	  var setGame = function( game ) {
 	    _game = game;
+	    _user = game.User;
 	  };
 
 	  // TODO get the factory by it's id and get appropriate menu items
 	  var getMenuItemList = function( factoryId ) {
-	    var mFactory = getFactoryById( factoryId );
+	    var mFactory = _game.user.factories[ factoryId ];
+	    var itemsArray = [];
+	    if ( mFactory.material == null ) {
+	      itemsArray.push( 'Material Sources' );
+	    }
+	    if ( mFactory.product == null ) {
+	      itemsArray.push( 'Products' );
+	    }
+	    if ( mFactory.store == null ) {
+	      itemsArray.push( 'Distribution Channels' );
+	    }
+	    if ( itemsArray.length == 0 ) {
+	      itemsArray.push( 'No Options Available' );
+	    }
+
 	    return itemsArray;
 
 	  };
 
 	  var rePaint = function() {
+	    drawFactories();
+	    setQuarterValue( _game.quartersPast );
+	    setYearValue( _game.quartersPast );
+	    setPerceptionValue( _game.getPerception() );
+	    setIncomeValue( _game.user.totalIncome );
+	    setWasteValue( _game.user.totalWaste );
 
-	    // var currentGameState = game;
-	    this.setQuarterValue( currentGameState.quartersPast );
-	    this.setYearValue( currentGameState.quartersPast );
-	    this.setPerceptionValue( currentGameState.getPerception() );
-	    this.setGoals( currentGameState.getGoals() );
+	  };
+
+	  var setWasteValue = function( totalWaste ) {
+	    $( '#wasteValue' ).text( totalWaste );
+	  };
+
+	  var setIncomeValue = function( income ) {
+	    $( '#totalFundsValue' ).text( income );
 	  };
 
 	  // Sets the Quarter value in the UI
@@ -536,7 +557,7 @@
 
 	  // Sets the Year value in the UI
 	  var setYearValue = function( quarters ) {
-	    var year = quarters / 4;
+	    var year = Math.ceil( quarters / 4 );
 	    $( '#yearValue' ).text( year );
 	  };
 
@@ -557,13 +578,178 @@
 	  };
 
 	  var nextTick = function() {
-
-	    // call next Tick;
 	  };
 
 	  var nextQuarter = function() {
+	    _game.runQuarter();
+	  };
 
-	    // game.runQuarter();
+	  var drawFactories = function() {
+	    $( '#factoryContainer' ).empty();
+	    console.log( 'UI Game Here' );
+	    console.log( _game );
+	    var factories = _game.user.factories;
+	    console.log( 'Game in UI' );
+	    var factoryIndex = 0;
+	    factories.forEach( function( factory ) {
+	      var factoryProduct = factory.product == null ? 'none' : factory.product.name;
+	      var factoryMaterial = factory.material == null ? 'none' : factory.material.name;
+	      var factoryStore = factory.store == null ? 'none' : factory.store.name;
+	      var $factoryEntity = $( '<div />',
+	          {
+	            class: 'factory_entity',
+	            html: '<span>Factory ' + factoryIndex + '</span>' +
+	            '<span><b>Product:</b> ' + factoryProduct + '</span><br>' +
+	            '<span><b>Material:</b> ' + factoryMaterial + '</span><br>' +
+	            '<span><b>Store:</b> ' + factoryStore + '</span><br>',
+	            id: factoryIndex
+	          } );
+	      factoryIndex++;
+	      $factoryEntity.click( function() {
+	        $( '#menu' ).remove();
+	        var currentFactoryID = this.id;
+	        var menuItemList = getMenuItemList( currentFactoryID );
+	        $factoryEntity.append( $menu );
+
+	        menuItemList.forEach( function( item ) {
+	          $( '#topMenu' ).append( '<li class="topMenuItem">' + item + '</li>' );
+	        } );
+
+	        $( '.topMenuItem' ).click( function( e ) {
+	          var item = e.currentTarget;
+	          $( '.topMenuItem' ).removeClass( 'selected' );
+	          $( item ).addClass( 'selected' );
+	          doSecondLevelMenu( $( item ).text(), currentFactoryID );
+	          e.stopPropagation();
+	        } );
+
+	        $( '#closeButton' ).click( function( e ) {
+	          $( '#menu' ).remove();
+	          e.stopPropagation();
+	        } );
+
+	      } );
+	      $( '#factoryContainer' ).append( $factoryEntity );
+	    } );
+
+	    var doSecondLevelMenu = function( name, currentFactoryID ) {
+	      $( '#secondMenu' ).remove();
+	      var $secondMenu = '<ul id="secondMenu">' +
+
+	          '</ul>';
+	      $( '#menu' ).append( $secondMenu );
+	      switch ( name ){
+	        case 'Material Sources' :
+	          var materials = _game.materialManager.getAvailableMaterials();
+	          materials.forEach( function( material, index ) {
+	            $( '#secondMenu' ).append( '<li class="secondMenuItem" data-index="' + index +
+	              '">' + material.name + '</li>' );
+	          } );
+	          $( '.secondMenuItem ' ).click( function( e ) {
+	            var index = $( e.currentTarget ).data( 'index' );
+	            doMaterialConfirmation( _game.materialManager.getAvailableMaterials()[ index ],
+	                currentFactoryID );
+	            e.stopPropagation();
+	          } );
+	          break;
+
+	        case 'Products' :
+	          var products = _game.productManager.getAvailableProducts();
+	          products.forEach( function( product, index ) {
+	            $( '#secondMenu' ).append( '<li class="secondMenuItem" data-index="' + index +
+	                '">' + product.name + '</li>' );
+	          } );
+	          $( '.secondMenuItem ' ).click( function( e ) {
+	            var index = $( e.currentTarget ).data( 'index' );
+	            doProductConfirmation( _game.productManager.getAvailableProducts()[ index ],
+	                currentFactoryID );
+	            e.stopPropagation();
+	          } );
+	          break;
+
+	        case 'Distribution Channels' :
+	          var stores = _game.storeManager.getAvailableStores();
+	          stores.forEach( function( store, index ) {
+	            $( '#secondMenu' ).append( '<li class="secondMenuItem" data-index="' + index +
+	                '">' + store.name + '</li>' );
+	          } );
+	          $( '.secondMenuItem ' ).click( function( e ) {
+	            var index = $( e.currentTarget ).data( 'index' );
+	            doStoreConfirmation( _game.storeManager.getAvailableStores()[ index ],
+	                currentFactoryID );
+	            e.stopPropagation();
+	          } );
+	          break;
+	      }
+	    };
+
+	    var doMaterialConfirmation = function( material, currentFactoryID ) {
+	      if ( confirm( 'Are you sure you would like to purchase ' +
+	              material.name + ' for your factory?' +
+	              '\n\n Cost Per Pound: $' + material.costPerPound +
+	              '\n\n Waste Per Pound: ' + material.wastePerPound
+	          ) ) {
+	        $( '#menu' ).remove();
+	        _game.addMaterial( material, _game.user.factories[ currentFactoryID ] );
+	        console.log( _game );
+	      }
+
+	    };
+
+	    var doProductConfirmation = function( product, currentFactoryID ) {
+	      var mFactory = _game.user.factories[ currentFactoryID ];
+	      if ( confirm( 'Are you sure you would like to purchase ' +
+	              product.name + ' for your factory?' +
+	              '\n\n Setup Cost: $' + product.setupCost +
+	              '\n\n Material Required: ' + product.materialDependency.name +
+	              '\n\n Output: ' + product.totalOutput + ' units'
+	          ) ) {
+	        $( '#menu' ).remove();
+	        if ( mFactory.material.name != product.materialDependency.name ) {
+	          alert( 'Error: This product can not be made without Material: ' +
+	              product.materialDependency.name + '.' );
+	          return;
+	        }
+
+	        if ( _game.addProduct( product, mFactory ) == false ) {
+	          alert( 'Error: You do not have enough money to setup this product' );
+	        }
+
+	        console.log( _game );
+	      }
+
+	    };
+
+	    var doStoreConfirmation = function( store, currentFactoryID ) {
+	      var mFactory = _game.user.factories[ currentFactoryID ];
+	      if ( confirm( 'Are you sure you would like to purchase ' +
+	              store.name + ' for your factory?' +
+	              '\n\n Product Required: ' + store.product +
+	              '\n\n Price per Product: $' + store.pricePerProduct +
+	              '\n\n Base Buy Rate: $' + store.baseBuyRateForProducts +
+	              '\n\n Waste per Product: ' + store.wastePerProduct
+	          ) ) {
+	        $( '#menu' ).remove();
+	        if ( mFactory.product == null || mFactory.product.name != store.product ) {
+	          alert( 'Error: This Store can not be contracted without Product: ' +
+	              store.product + '.' );
+	          return;
+	        }
+
+	        if ( _game.addStore( store, mFactory ) == false ) {
+	          alert( 'Error: You do not have enough money to setup this product' );
+	        }
+
+	        console.log( _game );
+	      }
+	      console.log( store );
+	    };
+	  };
+
+	  var addNewFactory = function() {
+	    if ( !_game.addFactory() ) {
+	      alert( 'Error: You do not have enough money to purcahse a new Factory.' );
+	    }
 	  };
 
 	  return {
@@ -576,7 +762,8 @@
 	    setGoals: setGoals,
 	    nextTick: nextTick,
 	    nextQuarter: nextQuarter,
-	    setGame: setGame
+	    setGame: setGame,
+	    addNewFactory: addNewFactory
 	  };
 	} )();
 
@@ -727,11 +914,15 @@
 /* 8 */
 /***/ function(module, exports) {
 
-	var QuarterLog = function( totalItemsSold, totalConsumerPaid, totalWaste, totalIncome ) {
-	  this.totalItemsSold = totalItemsSold;
-	  this.totalConsumerPaid = totalConsumerPaid;
-	  this.totalWaste = totalWaste;
-	  this.totalIncome = totalIncome;
+	var QuarterLog = function( paid, itemsMade, itemsSold,
+	                           storePaid, storeWaste, factoryWaste ) {
+	  this.paid = paid;
+	  this.itemsMade = itemsMade;
+	  this.itemsSold = itemsSold;
+	  this.storePaid = storePaid;
+	  this.storeWaste = storeWaste;
+	  this.factoryWaste = factoryWaste;
+
 	};
 	module.exports = QuarterLog;
 
@@ -763,46 +954,37 @@
 
 	var setup = function() {
 	  var $gameContainer = $( '#game-container' );
-	  var $factoryEntity = $( '<div />',
-	      {
-	        class: 'factory_entity',
-	        html: 'Factory',
-	        id: 'initialFactory'
-	      } );
-
-	  $factoryEntity.click( function() {
-	    var menuItemList = getMenuItemList( this.id );
-	  } );
-
 	  var $quarterYear = '<div>Quarter <span id="quarterValue">1</span> / ' +
-	      'Year <span id="yearValue">0</span> ' +
-	      '[<span id="timeProgressValue">1</span>]</div>';
+	      'Year <span id="yearValue">0</span> ';
 
-	  var $funds = '<div>Funds $<span id="totalFundsValue">000000</span> - ' +
-	      '<span id="fundsLostPerQuarterValue">0000</span> / Quarter</div>';
+	  var $funds = '<div>Funds $<span id="totalFundsValue">000000</span></div>';
 
-	  var $perception = '<div>Perception <span id="perceptionValue">1</span>00</div>';
+	  var $waste = '<div>Waste: <span id="wasteValue">0</span></div>';
 
-	  var $goals = '<div id="goalsValue">Goals: <div>none</div></div>';
+	  var $perception = '<div>Perception: <span id="perceptionValue">1</span></div>';
 
-	  var $nextTick = $( '<button />',
+	  // var $goals = '<div id="goalsValue">Goals: <div>none</div></div>';
+
+	  var $addFactory = $( '<button />',
 	      {
-	        text: 'Next Tick'
+	        text: 'Add Factory'
 	      } );
-	  $nextTick.click( function() {
-	    UiInterface.nextTick();
+	  $addFactory.click( function() {
+	    UiInterface.addNewFactory();
 	  } );
 
 	  var $nextQuarter = $( '<button />',
 	      {
 	        text: 'Next Quarter'
 	      } );
+
 	  $nextQuarter.click( function() {
 	    UiInterface.nextQuarter();
 	  } );
 
-	  $gameContainer.append( $factoryEntity, '<hr>', $quarterYear, $funds, $perception, $goals );
-	  $gameContainer.append( $nextTick, $nextQuarter );
+	  $gameContainer.append( '<div id="factoryContainer"></div>' );
+	  $gameContainer.append( '<hr>', $quarterYear, $funds, $waste, $perception );
+	  $gameContainer.append( $addFactory, $nextQuarter );
 	};
 
 	module.exports = setup;
