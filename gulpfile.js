@@ -8,6 +8,8 @@
  |
  */
 
+var path = require( 'path' );
+
 // Core
 var gulp        = require( 'gulp' );
 var rename      = require( 'gulp-rename' );
@@ -162,6 +164,14 @@ gulp.task( 'compile', function() {
       },
       resolve: {
         root: __dirname + '/' + 'src'
+      },
+      resolveLoader: {
+        root: path.join( __dirname, 'node_modules' )
+      },
+      module: {
+        loaders: [
+            { test: /\.json$/, loader: 'json' }
+        ]
       }
     } ) )
     .pipe( gulp.dest( options.buildPath ) )

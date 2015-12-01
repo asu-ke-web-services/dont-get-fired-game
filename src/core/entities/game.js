@@ -1,10 +1,17 @@
 var UiInterface = require( '../ui/ui-interface' );
+
 var MaterialManager = require( '../managers/material-manager' );
 var ProductManager = require( '../managers/product-manager' );
 var StoreManager = require( '../managers/store-manager' );
+
 var Factory = require( '../entities/factory' );
 var QuarterLog = require( '../entities/quarterLog' );
 var User = require( '../entities/user' );
+
+var productsData = require( '../../data/products.json' );
+var materialsData = require( '../../data/materials.json' );
+var storesData = require( '../../data/stores.json' );
+
 /**
  * A Game
  */
@@ -26,25 +33,12 @@ var Game = function( options ) {
    */
   this.createGame = function() {
     this.user.factories.push( new Factory( 'Start Factory' ) );
-    this.setupManagers();
-  };
 
-  /**
-   * Setup the material, product, and store managers. This will
-   * require loading in JSON data. Note, the loaded data is
-   * asynchronously loaded, with the manager setup occuring
-   * after data is already loaded
-   */
-  this.setupManagers = function() {
-    $.getJSON( 'data/data.json' ).then( function( data ) {
-      this.materialManager = new MaterialManager( data.Materials );
-      this.productManager = new ProductManager( data.Products );
-      this.storeManager = new StoreManager( data.Stores );
+    this.materialManager = new MaterialManager( materialsData );
+    this.productManager = new ProductManager( productsData );
+    this.storeManager = new StoreManager( storesData );
 
-      UiInterface.rePaint();
-
-      //this.runTest();
-    }.bind( this ) );
+    UiInterface.rePaint();
   };
 
   //Add

@@ -1,0 +1,19 @@
+{
+  "Materials": [
+    {
+       "name":"Aluminum",
+       "wastePerPound":0.3,
+       "costPerPound":0.3
+    },
+    {
+       "name":"Glass",
+       "wastePerPound":0.6,
+       "costPerPound":0.35
+    },
+    {
+       "name":"Plastic",
+       "wastePerPound":0.3,
+       "costPerPound":0.4
+    }
+  ]
+}

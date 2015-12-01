@@ -56,7 +56,7 @@
 	}
 
 	var game  = __webpack_require__( 1 );
-	var setup = __webpack_require__( 10 );
+	var setup = __webpack_require__( 13 );
 
 	setup();
 	game();
@@ -82,12 +82,19 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var UiInterface = __webpack_require__( 3 );
+
 	var MaterialManager = __webpack_require__( 4 );
 	var ProductManager = __webpack_require__( 5 );
 	var StoreManager = __webpack_require__( 6 );
+
 	var Factory = __webpack_require__( 7 );
 	var QuarterLog = __webpack_require__( 8 );
 	var User = __webpack_require__( 9 );
+
+	var productsData = __webpack_require__( 10 );
+	var materialsData = __webpack_require__( 11 );
+	var storesData = __webpack_require__( 12 );
+
 	/**
 	 * A Game
 	 */
@@ -109,25 +116,12 @@
 	   */
 	  this.createGame = function() {
 	    this.user.factories.push( new Factory( 'Start Factory' ) );
-	    this.setupManagers();
-	  };
 
-	  /**
-	   * Setup the material, product, and store managers. This will
-	   * require loading in JSON data. Note, the loaded data is
-	   * asynchronously loaded, with the manager setup occuring
-	   * after data is already loaded
-	   */
-	  this.setupManagers = function() {
-	    $.getJSON( 'data/data.json' ).then( function( data ) {
-	      this.materialManager = new MaterialManager( data.Materials );
-	      this.productManager = new ProductManager( data.Products );
-	      this.storeManager = new StoreManager( data.Stores );
+	    this.materialManager = new MaterialManager( materialsData );
+	    this.productManager = new ProductManager( productsData );
+	    this.storeManager = new StoreManager( storesData );
 
-	      UiInterface.rePaint();
-
-	      //this.runTest();
-	    }.bind( this ) );
+	    UiInterface.rePaint();
 	  };
 
 	  //Add
@@ -968,6 +962,96 @@
 
 /***/ },
 /* 10 */
+/***/ function(module, exports) {
+
+	module.exports = {
+		"Products": [
+			{
+				"name": "Coke",
+				"setupCost": 2000,
+				"materialDependency": {
+					"name": "Aluminum",
+					"amount": 20
+				},
+				"totalOutput": 20
+			},
+			{
+				"name": "Fanta",
+				"setupCost": 2000,
+				"materialDependency": {
+					"name": "Glass",
+					"amount": 30
+				},
+				"totalOutput": 30
+			},
+			{
+				"name": "Pepsi",
+				"setupCost": 1900,
+				"materialDependency": {
+					"name": "Plastic",
+					"amount": 25
+				},
+				"totalOutput": 25
+			}
+		]
+	};
+
+/***/ },
+/* 11 */
+/***/ function(module, exports) {
+
+	module.exports = {
+		"Materials": [
+			{
+				"name": "Aluminum",
+				"wastePerPound": 0.3,
+				"costPerPound": 0.3
+			},
+			{
+				"name": "Glass",
+				"wastePerPound": 0.6,
+				"costPerPound": 0.35
+			},
+			{
+				"name": "Plastic",
+				"wastePerPound": 0.3,
+				"costPerPound": 0.4
+			}
+		]
+	};
+
+/***/ },
+/* 12 */
+/***/ function(module, exports) {
+
+	module.exports = {
+		"Stores": [
+			{
+				"name": "coke liker",
+				"product": "Coke",
+				"pricePerProduct": 20,
+				"wastePerProduct": 0.5,
+				"baseBuyRateForProducts": 16
+			},
+			{
+				"name": "health store",
+				"product": "Pepsi",
+				"pricePerProduct": 21,
+				"wastePerProduct": 0.4,
+				"baseBuyRateForProducts": 26
+			},
+			{
+				"name": "super Fanta",
+				"product": "Fanta",
+				"pricePerProduct": 19,
+				"wastePerProduct": 1,
+				"baseBuyRateForProducts": 42
+			}
+		]
+	};
+
+/***/ },
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var UiInterface = __webpack_require__( 3 );
