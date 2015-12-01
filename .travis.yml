@@ -4,4 +4,5 @@ node_js:
   - "0.10"
 before_script:
   - npm install -g gulp
+  - cp src/settings.example.json src/settings.json
 script: gulp
