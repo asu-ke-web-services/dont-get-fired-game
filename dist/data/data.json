@@ -1,65 +1,71 @@
 {
    "Materials":[
       {
-         "name":"Alminum",
-         "wasterPerlb":0.3,
-         "costPerLb":20
+         "name":"Aluminum",
+         "wastePerPound":0.3,
+         "costPerPound":0.3
       },
       {
          "name":"Glass",
-         "wasterPerlb":0.1,
-         "costPerLb":21
+         "wastePerPound":0.6,
+         "costPerPound":0.35
       },
       {
          "name":"Plastic",
-         "wasterPerlb":0.4,
-         "costPerLb":32
+         "wastePerPound":0.3,
+         "costPerPound":0.4
       }
    ],
    "Products":[
       {
          "name":"Coke",
          "setupCost":2000,
-         "regMaterialTypes":"Alminum",
-         "totalMaterialNeeded":200,
-         "totalOutput":30
+	     "materialDependency":{
+				"name":"Aluminum",
+				"amount": 20
+				 },
+	"totalOutput":20
       },
       {
          "name":"Fanta",
          "setupCost":2000,
-         "regMaterialTypes":"Glass",
-         "totalMaterialNeeded":230,
-         "totalOutput":32
+         "materialDependency":{
+				"name":"Glass",
+				"amount": 30
+				 },
+         "totalOutput":30
       },
       {
          "name":"Pepsi",
          "setupCost":1900,
-         "regMaterialTypes":"Alminum",
-         "totalMaterialNeeded":210,
-         "totalOutput":20
+         "materialDependency":{
+				"name":"Plastic",
+				"amount": 25
+				 },
+         "totalOutput":25
       }
    ],
    "Stores":[
       {
          "name":"coke liker",
-         "product":"coke",
+         "product":"Coke",
          "pricePerProduct":20,
-         "wastePerProduct":1,
-         "baseBuyRateForProducts":0.01
+         "wastePerProduct":0.5,
+         "baseBuyRateForProducts":16
       },
       {
          "name":"health store",
          "product":"Pepsi",
          "pricePerProduct":21,
-         "wastePerProduct":2,
-         "baseBuyRateForProducts":0.02
+         "wastePerProduct":0.4,
+         "baseBuyRateForProducts":26
       },
       {
          "name":"super Fanta",
          "product":"Fanta",
          "pricePerProduct":19,
-         "wastePerProduct":2,
-         "baseBuyRateForProducts":0.05
+         "wastePerProduct":1,
+         "baseBuyRateForProducts":42
       }
    ]
 }

@@ -1,10 +1,10 @@
 /**
  * A product
  */
-var Product = function( name, setupCost, materialDependencies, totalOutput ) {
+var Product = function( name, setupCost, materialDependency, totalOutput ) {
   this.name = name;
   this.setupCost = setupCost;
-  this.materialDependencies = materialDependencies || [];
+  this.materialDependency = materialDependency;
   this.totalOutput = totalOutput;
 };
 
