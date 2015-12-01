@@ -1,4 +1,4 @@
-var settings = require('../../settings.json');
+var settings = require( '../../settings.json' );
 
 /**
  * Determine the perception for the given last quarter
@@ -9,7 +9,7 @@ var settings = require('../../settings.json');
  *
  * @param lastQuarterLog Object has the following: factoryWaste, itemsMade, storeWaste, itemsSold
  */
-var QuarterPerceptionStrategy = function (lastQuarterLog) {
+var QuarterPerceptionStrategy = function( lastQuarterLog ) {
   var _wasteRate = .5;
   var _factoryRate = 0;
   var _storeRate = 0;
@@ -19,7 +19,7 @@ var QuarterPerceptionStrategy = function (lastQuarterLog) {
     return wasteRate >= min && wasteRate <= max;
   };
 
-  var execute = function () {
+  var execute = function() {
     if ( lastQuarterLog.itemsMade != 0 ) {
       _factoryRate = ( lastQuarterLog.factoryWaste / lastQuarterLog.itemsMade );
       _totalRates++;
@@ -59,11 +59,11 @@ var QuarterPerceptionStrategy = function (lastQuarterLog) {
     } else {
       return 1;
     }
-  }
+  };
 
   return {
     execute: execute
-  }
-}
+  };
+};
 
 module.exports = QuarterPerceptionStrategy;

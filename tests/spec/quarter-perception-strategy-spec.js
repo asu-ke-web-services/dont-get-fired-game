@@ -13,7 +13,7 @@ describe( 'the quarter perception strategy', function() {
 
     var result = strategy.execute();
 
-    expect( result ).toBeLessThan(5);
+    expect( result ).toBeLessThan( 5 );
   } );
 
   it( 'produces a good perception given a low waste to items ratio', function() {

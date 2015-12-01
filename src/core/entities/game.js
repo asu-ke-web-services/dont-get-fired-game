@@ -8,7 +8,7 @@ var Factory = require( '../entities/factory' );
 var QuarterLog = require( '../entities/quarterLog' );
 var User = require( '../entities/user' );
 
-var QuarterPerceptionStrategy = require('../strategies/quarter-perception-strategy');
+var QuarterPerceptionStrategy = require( '../strategies/quarter-perception-strategy' );
 
 var productsData = require( '../../data/products.json' ).Products;
 var materialsData = require( '../../data/materials.json' ).Materials;
@@ -112,7 +112,7 @@ var Game = function( options ) {
       return 5;
     } else {
       var lastQuarterLog = this.user.quarterLog[ this.user.quarterLog.length - 1 ];
-      var strategy = new QuarterPerceptionStrategy(lastQuarterLog);
+      var strategy = new QuarterPerceptionStrategy( lastQuarterLog );
       var perception = strategy.execute();
 
       return perception;
