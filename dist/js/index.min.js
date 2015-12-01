@@ -56,7 +56,7 @@
 	}
 
 	var game  = __webpack_require__( 1 );
-	var setup = __webpack_require__( 13 );
+	var setup = __webpack_require__( 14 );
 
 	setup();
 	game();
@@ -91,9 +91,11 @@
 	var QuarterLog = __webpack_require__( 8 );
 	var User = __webpack_require__( 9 );
 
-	var productsData = __webpack_require__( 10 );
-	var materialsData = __webpack_require__( 11 );
-	var storesData = __webpack_require__( 12 );
+	var QuarterPerceptionStrategy = __webpack_require__(10);
+
+	var productsData = __webpack_require__( 11 ).Products;
+	var materialsData = __webpack_require__( 12 ).Materials;
+	var storesData = __webpack_require__( 13 ).Stores;
 
 	/**
 	 * A Game
@@ -181,11 +183,6 @@
 	    }
 	  };
 
-	  //Perception
-	  this.between = function( wasteRate, min, max ) {
-	    return wasteRate >= min && wasteRate <= max;
-	  };
-
 	  /**
 	   * Get the perception that society has on the user. Starts at 5.
 	   *
@@ -198,48 +195,10 @@
 	      return 5;
 	    } else {
 	      var lastQuarterLog = this.user.quarterLog[ this.user.quarterLog.length - 1 ];
-	      var wasteRate = .5;
-	      var factoryRate = 0;
-	      var storeRate = 0;
-	      var totalRates = 0;
-	      if ( lastQuarterLog.itemsMade != 0 ) {
-	        factoryRate = ( lastQuarterLog.factoryWaste /  lastQuarterLog.itemsMade );
-	        totalRates++;
-	      }
+	      var strategy = new QuarterPerceptionStrategy(lastQuarterLog);
+	      var perception = strategy.execute();
 
-	      if ( lastQuarterLog.itemsSold != 0 ) {
-	        storeRate = ( lastQuarterLog.storeWaste /  lastQuarterLog.itemsSold );
-	        totalRates++;
-	      }
-
-	      if ( totalRates != 0 ) {
-	        wasteRate = ( factoryRate + storeRate ) / 2;
-	      }
-
-	      console.log( 'Waste Rate:' +  wasteRate );
-
-	      if ( wasteRate === 0 )
-	      {
-	        return 10;
-	      } else if ( this.between( wasteRate, 0.00001, 0.1 ) ) {
-	        return 9;
-	      } else if ( this.between( wasteRate, 0.1, 0.2 ) ) {
-	        return 8;
-	      } else if ( this.between( wasteRate, 0.2, 0.3 ) ) {
-	        return 7;
-	      } else if ( this.between( wasteRate, 0.3, 0.4 ) ) {
-	        return 6;
-	      } else if ( this.between( wasteRate, 0.4, 0.5 ) ) {
-	        return 5;
-	      } else if ( this.between( wasteRate, 0.5, 0.6 ) ) {
-	        return 4;
-	      } else if ( this.between( wasteRate, 0.6, 0.8 ) ) {
-	        return 3;
-	      } else if ( this.between( wasteRate, 0.8, 1 ) ) {
-	        return 2;
-	      } else {
-	        return 1;
-	      }
+	      return perception;
 	    }
 	  };
 
@@ -964,6 +923,69 @@
 /* 10 */
 /***/ function(module, exports) {
 
+	var QuarterPerceptionStrategy = function (lastQuarterLog) {
+	  var _wasteRate = .5;
+	  var _factoryRate = 0;
+	  var _storeRate = 0;
+	  var _totalRates = 0;
+
+	  var _between = function( wasteRate, min, max ) {
+	    return wasteRate >= min && wasteRate <= max;
+	  };
+
+	  var execute = function () {
+	    
+	      if ( lastQuarterLog.itemsMade != 0 ) {
+	        _factoryRate = ( lastQuarterLog.factoryWaste /  lastQuarterLog.itemsMade );
+	        _totalRates++;
+	      }
+
+	      if ( lastQuarterLog.itemsSold != 0 ) {
+	        _storeRate = ( lastQuarterLog.storeWaste /  lastQuarterLog.itemsSold );
+	        _totalRates++;
+	      }
+
+	      if ( _totalRates != 0 ) {
+	        _wasteRate = ( _factoryRate + _storeRate ) / 2;
+	      }
+
+	      console.log( 'Waste Rate:' +  _wasteRate );
+
+	      if ( _wasteRate === 0 )
+	      {
+	        return 10;
+	      } else if ( _between( _wasteRate, 0.00001, 0.1 ) ) {
+	        return 9;
+	      } else if ( _between( _wasteRate, 0.1, 0.2 ) ) {
+	        return 8;
+	      } else if ( _between( _wasteRate, 0.2, 0.3 ) ) {
+	        return 7;
+	      } else if ( _between( _wasteRate, 0.3, 0.4 ) ) {
+	        return 6;
+	      } else if ( _between( _wasteRate, 0.4, 0.5 ) ) {
+	        return 5;
+	      } else if ( _between( _wasteRate, 0.5, 0.6 ) ) {
+	        return 4;
+	      } else if ( _between( _wasteRate, 0.6, 0.8 ) ) {
+	        return 3;
+	      } else if ( _between( _wasteRate, 0.8, 1 ) ) {
+	        return 2;
+	      } else {
+	        return 1;
+	      }
+	  }
+
+	  return {
+	    execute: execute
+	  }
+	}
+
+	module.exports = QuarterPerceptionStrategy;
+
+/***/ },
+/* 11 */
+/***/ function(module, exports) {
+
 	module.exports = {
 		"Products": [
 			{
@@ -997,7 +1019,7 @@
 	};
 
 /***/ },
-/* 11 */
+/* 12 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -1021,7 +1043,7 @@
 	};
 
 /***/ },
-/* 12 */
+/* 13 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -1051,7 +1073,7 @@
 	};
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var UiInterface = __webpack_require__( 3 );

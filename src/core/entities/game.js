@@ -8,9 +8,11 @@ var Factory = require( '../entities/factory' );
 var QuarterLog = require( '../entities/quarterLog' );
 var User = require( '../entities/user' );
 
-var productsData = require( '../../data/products.json' );
-var materialsData = require( '../../data/materials.json' );
-var storesData = require( '../../data/stores.json' );
+var QuarterPerceptionStrategy = require('../strategies/quarter-perception-strategy');
+
+var productsData = require( '../../data/products.json' ).Products;
+var materialsData = require( '../../data/materials.json' ).Materials;
+var storesData = require( '../../data/stores.json' ).Stores;
 
 /**
  * A Game
@@ -98,11 +100,6 @@ var Game = function( options ) {
     }
   };
 
-  //Perception
-  this.between = function( wasteRate, min, max ) {
-    return wasteRate >= min && wasteRate <= max;
-  };
-
   /**
    * Get the perception that society has on the user. Starts at 5.
    *
@@ -115,48 +112,10 @@ var Game = function( options ) {
       return 5;
     } else {
       var lastQuarterLog = this.user.quarterLog[ this.user.quarterLog.length - 1 ];
-      var wasteRate = .5;
-      var factoryRate = 0;
-      var storeRate = 0;
-      var totalRates = 0;
-      if ( lastQuarterLog.itemsMade != 0 ) {
-        factoryRate = ( lastQuarterLog.factoryWaste /  lastQuarterLog.itemsMade );
-        totalRates++;
-      }
+      var strategy = new QuarterPerceptionStrategy(lastQuarterLog);
+      var perception = strategy.execute();
 
-      if ( lastQuarterLog.itemsSold != 0 ) {
-        storeRate = ( lastQuarterLog.storeWaste /  lastQuarterLog.itemsSold );
-        totalRates++;
-      }
-
-      if ( totalRates != 0 ) {
-        wasteRate = ( factoryRate + storeRate ) / 2;
-      }
-
-      console.log( 'Waste Rate:' +  wasteRate );
-
-      if ( wasteRate === 0 )
-      {
-        return 10;
-      } else if ( this.between( wasteRate, 0.00001, 0.1 ) ) {
-        return 9;
-      } else if ( this.between( wasteRate, 0.1, 0.2 ) ) {
-        return 8;
-      } else if ( this.between( wasteRate, 0.2, 0.3 ) ) {
-        return 7;
-      } else if ( this.between( wasteRate, 0.3, 0.4 ) ) {
-        return 6;
-      } else if ( this.between( wasteRate, 0.4, 0.5 ) ) {
-        return 5;
-      } else if ( this.between( wasteRate, 0.5, 0.6 ) ) {
-        return 4;
-      } else if ( this.between( wasteRate, 0.6, 0.8 ) ) {
-        return 3;
-      } else if ( this.between( wasteRate, 0.8, 1 ) ) {
-        return 2;
-      } else {
-        return 1;
-      }
+      return perception;
     }
   };
 
