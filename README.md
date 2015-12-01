@@ -15,6 +15,12 @@ You will need:
 * Gulp
 * Browserify
 
+You will also need to create a settings file before attempting to run gulp:
+
+```sh
+cp src/settings.example.json src/settings.json
+```
+
 # Tests
 
 Run tests using Gulp:
