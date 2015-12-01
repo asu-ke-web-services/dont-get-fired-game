@@ -1,3 +1,14 @@
+var settings = require('../../settings.json');
+
+/**
+ * Determine the perception for the given last quarter
+ *
+ * The perception is based on the average of the factory and
+ * store waste to their respective number of items produced and
+ * consumed.
+ *
+ * @param lastQuarterLog Object has the following: factoryWaste, itemsMade, storeWaste, itemsSold
+ */
 var QuarterPerceptionStrategy = function (lastQuarterLog) {
   var _wasteRate = .5;
   var _factoryRate = 0;
@@ -10,12 +21,12 @@ var QuarterPerceptionStrategy = function (lastQuarterLog) {
 
   var execute = function () {
     if ( lastQuarterLog.itemsMade != 0 ) {
-      _factoryRate = ( lastQuarterLog.factoryWaste /  lastQuarterLog.itemsMade );
+      _factoryRate = ( lastQuarterLog.factoryWaste / lastQuarterLog.itemsMade );
       _totalRates++;
     }
 
     if ( lastQuarterLog.itemsSold != 0 ) {
-      _storeRate = ( lastQuarterLog.storeWaste /  lastQuarterLog.itemsSold );
+      _storeRate = ( lastQuarterLog.storeWaste / lastQuarterLog.itemsSold );
       _totalRates++;
     }
 
@@ -23,10 +34,11 @@ var QuarterPerceptionStrategy = function (lastQuarterLog) {
       _wasteRate = ( _factoryRate + _storeRate ) / 2;
     }
 
-    console.log( 'Waste Rate:' +  _wasteRate );
+    if ( settings.verbose ) {
+      console.log( 'Waste Rate:' +  _wasteRate );
+    }
 
-    if ( _wasteRate === 0 )
-    {
+    if ( _wasteRate === 0 ) {
       return 10;
     } else if ( _between( _wasteRate, 0.00001, 0.1 ) ) {
       return 9;
