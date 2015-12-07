@@ -17,4 +17,6 @@ src/settings.json
 
 # Dist
 dist/js/index.js
+dist/js/index.js.map
 dist/js/index.min.js
+dist/css/main.css
