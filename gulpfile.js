@@ -26,9 +26,11 @@ var qunit     = require( 'gulp-qunit' );
 var jscs = require( 'gulp-jscs' );
 
 // Build
-var webpack = require( 'webpack' );
-var stream  = require( 'webpack-stream' );
-var minify  = require( 'gulp-minify' );
+var sass       = require( 'gulp-sass' );
+var webpack    = require( 'webpack' );
+var stream     = require( 'webpack-stream' );
+var compressor = require( 'gulp-compressor' );
+var sourcemaps = require( 'gulp-sourcemaps' );
 
 /*
  |----------------------------------------------
@@ -115,11 +117,6 @@ gulp.task( 'serve', [ 'default' ], function() {
   gulp.watch( paths, [ 'build' ] );
 } );
 
-gulp.task( 'unit-test', function() {
-  return gulp.src( 'tests/unit/fixtures/test-runner.html' )
-    .pipe( qunit() );
-} );
-
 gulp.task( 'spec-test', function() {
   var src = [ 'tests/spec-loader.js' ]
     .concat( options.testPaths.spec )
@@ -144,8 +141,7 @@ gulp.task( 'spec-test', function() {
   return temp;
 } );
 
-// TODO merge coverage results of tests
-gulp.task( 'test', [ 'unit-test', 'spec-test' ] );
+gulp.task( 'test', [ 'spec-test' ] );
 
 gulp.task( 'lint', function() {
   return gulp.src( options.allPaths )
@@ -154,8 +150,15 @@ gulp.task( 'lint', function() {
     .pipe( jscs.reporter( 'fail' ) );
 } );
 
+gulp.task( 'sass', function() {
+  gulp.src( 'src/stylesheets/main.scss' )
+    .pipe( sass().on( 'error', sass.logError ) )
+    .pipe( gulp.dest( options.servePath + 'css/' ) );
+} );
+
 gulp.task( 'compile', function() {
   return gulp.src( options.entryPoint + '.js' )
+    .pipe( sourcemaps.init() )
     .pipe( stream( {
       entry: __dirname + '/' + options.entryPoint + '.js',
       output: {
@@ -172,21 +175,23 @@ gulp.task( 'compile', function() {
         loaders: [
             { test: /\.json$/, loader: 'json' }
         ]
-      }
+      },
+      devtool: 'source-map'
     } ) )
+    .pipe( sourcemaps.write( options.buildPath ) )
     .pipe( gulp.dest( options.buildPath ) )
     .pipe( browserSync.stream() );
 } );
 
 gulp.task( 'minify', function() {
   return gulp.src( options.buildPath + options.entryPoint + '.js' )
-    .pipe( minify( {} ) )
+    .pipe( compressor() )
     .pipe( rename( options.entryPoint + '.min.js' ) )
     .pipe( gulp.dest( options.buildPath ) );
 } );
 
 gulp.task( 'build', function( cb ) {
-  runSequence( 'compile', 'minify', cb );
+  runSequence( 'compile', 'sass', 'minify', cb );
 } );
 
 gulp.task( 'default', function( cb ) {

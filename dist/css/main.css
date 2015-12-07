@@ -1,0 +1,74 @@
+.factory_entity {
+  background-color: white;
+  color: Red;
+  text-align: center;
+  width: 200px;
+  font-size: 30px;
+  font-weight: bold;
+  vertical-align: middle;
+  /* display: table-cell; */
+  height: 200px;
+  cursor: pointer;
+  border: 10px solid red;
+  border-radius: 50%;
+  margin: 20px;
+  position: relative; }
+
+.factory_entity span {
+  color: black;
+  font-size: 12px;
+  font-weight: normal; }
+
+.factory_entity span:first-child {
+  display: block;
+  margin-top: 20%;
+  color: red;
+  font-size: 30px; }
+
+#menu {
+  position: absolute;
+  top: 30px;
+  left: 120%;
+  background-color: white;
+  border: 5px solid red;
+  border-radius: 10px;
+  color: black;
+  font-size: 15px;
+  z-index: 900;
+  text-align: left;
+  display: flex; }
+
+#menu button {
+  position: absolute;
+  top: -27px;
+  right: 0;
+  background: white;
+  border: 5px solid red; }
+
+#menu ul {
+  padding-left: 0;
+  margin: 0;
+  float: left; }
+
+#menu #redSquare {
+  height: 10px;
+  width: 40px;
+  position: absolute;
+  top: 50%;
+  left: -40px;
+  background: red; }
+
+#menu li {
+  list-style-type: none;
+  padding: 10px;
+  border: 2px solid red;
+  width: 170px; }
+
+#menu li:hover {
+  background: salmon; }
+
+#menu li.selected {
+  background-color: salmon; }
+
+.secondMenuItem {
+  margin-left: 20px; }
