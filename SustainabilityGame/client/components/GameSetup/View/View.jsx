@@ -13,6 +13,12 @@ Flint(function () {
       GameActions.create();
     },
 
+    handleStart(e) {
+      e.preventDefault();
+
+      // TODO change view state!
+    },
+
     bem_blocks: ['view'],
     bem_block_modifiers: ['game-setup'],
     bem_render() {
@@ -27,7 +33,7 @@ Flint(function () {
           <p>Board of Directors Satisfaction {this.state.game.companySatisfaction}</p>
           <p>Goal {this.state.game.goal.name}</p>
           <button onClick={this.handleRandomize}>Randomize</button>
-          <p>Start</p>
+          <button onClick={this.handleStart}>Start</button>
         </div>
       );
     }
