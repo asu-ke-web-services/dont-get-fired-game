@@ -1,0 +1,3 @@
+Builder = class Builder {
+  build() {}
+}

@@ -1,0 +1,3 @@
+Strategy = class Strategy {
+  execute() {}
+}
