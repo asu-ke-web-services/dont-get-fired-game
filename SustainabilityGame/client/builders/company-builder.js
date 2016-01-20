@@ -1,5 +1,5 @@
-import Builder from './definition/builder';
-import Company from '/client/models/company'
+import { default as Builder } from './definition/builder';
+import { default as Company } from '../models/company';
 
 /**
  * The Company Builder allows you to lazily build
@@ -43,7 +43,7 @@ export default class CompanyBuilder extends Builder {
   }
 
   setMarketPenetration( marketPenetration ) {
-    this.options.marketPenetration;
+    this.options.marketPenetration = marketPenetration;
   }
 
   setNumberOfFactories( numberOfFactories ) {
@@ -65,7 +65,7 @@ export default class CompanyBuilder extends Builder {
   setCustomerSatisfaction( customerSatisfaction ) {
     this.options.customerSatisfaction = customerSatisfaction;
   }
-  
+
   /**
    * @override
    * @return {Company}

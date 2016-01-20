@@ -2,12 +2,11 @@
  * GameSetup View
  */
 import React from 'react';
-import GameStore from '/client/stores/GameStore';
+import Reflux from 'reflux';
+import {GameStore, GameActions} from '../../../stores/game-store';
 
-GameSetup = typeof GameSetup === 'undefined' ? {} : GameSetup;
-
-GameSetup.View = React.createClass({
-  mixins: [Reflux.connect(GameStore, 'game')],
+export default React.createClass({
+  mixins: [ Reflux.connect(GameStore, 'game') ],
 
   handleRandomize(e) {
     e.preventDefault();

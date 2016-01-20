@@ -1,4 +1,11 @@
-Company = class Company {
+import ActionPointsRule from '../rules/action-points-rule';
+import ProductionCapRule from '../rules/production-cap-rule';
+import MaterialCostsRule from '../rules/material-costs-rule';
+import QuarterSalesRule from '../rules/quarter-sales-rule';
+import QuarterCostsRule from '../rules/quarter-costs-rule';
+import QuarterCashFlowRule from '../rules/quarter-cash-flow-rule';
+
+export default class Company {
   constructor(options) {
     this.name = options.name;
     this.capital = options.capital;
@@ -58,12 +65,6 @@ Company = class Company {
     );
     // TODO calculate waste
 
-    return {
-      actionPoints: actionPoints,
-      productionCap: productionCap,
-      sales: sales,
-      costs: costs,
-      cashFlow: cashFlow
-    }
+    return {actionPoints, productionCap, sales, costs, cashFlow};
   }
 }

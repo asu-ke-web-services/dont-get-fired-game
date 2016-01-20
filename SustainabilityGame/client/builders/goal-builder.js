@@ -1,5 +1,6 @@
 import Builder from './definition/builder';
-import Goal from '/client/models/goal';
+import Goal from '../models/goal';
+import _ from 'underscore';
 
 /**
  * The Goal Builder allows you to lazily build

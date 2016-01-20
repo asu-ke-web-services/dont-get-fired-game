@@ -1,3 +1,0 @@
-Rule = class Rule {
-  calculate() {}
-}

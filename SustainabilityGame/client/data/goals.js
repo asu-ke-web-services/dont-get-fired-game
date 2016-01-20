@@ -1,7 +1,7 @@
-export default goals = [
+export default [
   {
     name: 'Test Goal',
     description: 'Description',
-    hooks: [] 
+    hooks: []
   }
 ];

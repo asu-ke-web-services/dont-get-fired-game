@@ -207,5 +207,9 @@
     "wrap-regex": 0,
     "yoda": [2, "never", {"exceptRange": true}],
     "react/jsx-uses-react": 1
+  },
+
+  "globals": {
+    "Meteor": false
   }
 }

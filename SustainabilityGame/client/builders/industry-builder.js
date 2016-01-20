@@ -1,5 +1,6 @@
 import Builder from './definition/builder';
-import Industry from '/client/models/industry';
+import Industry from '../models/industry';
+import _ from 'underscore';
 
 /**
  * The Industry Builder allows you to lazily build

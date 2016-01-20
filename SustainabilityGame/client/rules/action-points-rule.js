@@ -1,4 +1,6 @@
-ActionPointsRule = class ActionPointsRule extends Rule {
+import Rule from './definition/rule';
+
+export default class ActionPointsRule extends Rule {
   constructor() {
     super();
 

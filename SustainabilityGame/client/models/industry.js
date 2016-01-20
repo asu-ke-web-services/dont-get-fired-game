@@ -1,4 +1,6 @@
-Industry = class Industry {
+import MarketSizeRule from '../rules/market-size-rule';
+
+export default class Industry {
   constructor(options) {
     this.name = options.name;
     this.potentialSalesPerQuarter = options.potentialSalesPerQuarter;
@@ -21,6 +23,6 @@ Industry = class Industry {
 
     return {
       marketSizeInDollars: marketSize
-    }
+    };
   }
 }

@@ -1,15 +1,14 @@
-/**
- * Game Home
- */
 import React from 'react';
+import Setup from '../setup/setup.jsx';
+import {SceneActions} from '../../../stores/scene-store.jsx';
 
 export default React.createClass({
-  //mixins: [ReactBEM],
+  // mixins: [ReactBEM],
 
   handlePlay(e) {
     e.preventDefault();
 
-    SceneStore.transition(<GameSetup.View />);
+    SceneActions.transition(<Setup />);
   },
 
   // bem_blocks: ['home'],

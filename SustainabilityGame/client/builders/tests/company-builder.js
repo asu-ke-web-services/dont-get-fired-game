@@ -1,4 +1,4 @@
-import {describe, it} from 'mocha';
+import {describe, it, beforeEach} from 'mocha';
 import {expect} from 'chai';
 
 import CompanyBuilder from '../company-builder';
@@ -13,6 +13,6 @@ describe('The company builder', function () {
   it('can make companies', function () {
     const company = builder.build();
 
-    expect(typeof company).toBe('Object');
+    expect(typeof company).to.be.equal('object');
   });
 });

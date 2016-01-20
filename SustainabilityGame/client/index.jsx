@@ -1,5 +1,7 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {default as Game} from './containers/game/game.jsx';
+
 Meteor.startup(function () {
-  Flint(function () {
-    ReactDOM.render( <GamePlay.Game />, document.getElementById("render-target"));
-  }, 'GamePlay.Home', 'GamePlay.Game', 'GameSetup.View');
+  ReactDOM.render( <Game />, document.getElementById('render-target'));
 });

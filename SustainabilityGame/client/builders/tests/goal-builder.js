@@ -1,4 +1,4 @@
-import {describe, it} from 'mocha';
+import {describe, it, beforeEach} from 'mocha';
 import {expect} from 'chai';
 
 import GoalBuilder from '../goal-builder';
@@ -13,10 +13,7 @@ describe('The goal builder', function () {
   it('can make goals', function () {
     const goal = builder.build();
 
-    expect(typeof goal).toBe('Object');
+    expect(typeof goal).to.be.equal('object');
   });
 
-  it('fails', function () {
-    expect(true).toBe(false);
-  })
 });
