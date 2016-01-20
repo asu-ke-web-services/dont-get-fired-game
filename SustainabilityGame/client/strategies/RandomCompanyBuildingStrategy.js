@@ -1,4 +1,10 @@
-RandomCompanyBuildingStrategy = class RandomCompanyBuildingStrategy extends Strategy {
+import Strategy from './definition/Strategy';
+import dataGoals from '/client/data/goals';
+import dataIndustries from '/client/data/industries';
+import dataCompanyNames from '/client/data/companyNames';
+import PointDistributionStrategy from './PointDistributionStrategy';
+
+export default RandomCompanyBuildingStrategy = class RandomCompanyBuildingStrategy extends Strategy {
   constructor(companyBuilder, industryBuilder, goalBuilder) {
     super();
 
@@ -6,9 +12,9 @@ RandomCompanyBuildingStrategy = class RandomCompanyBuildingStrategy extends Stra
     this.industryBuilder = industryBuilder;
     this.goalBuilder = goalBuilder;
 
-    this.goalData = data.goals;
-    this.industryData = data.industries;
-    this.companyNamesData = data.companyNames;
+    this.goalData = dataGoals;
+    this.industryData = dataIndustries;
+    this.companyNamesData = dataCompanyNames;
 
     this.numberOfPoints = 25.0;
     this.pointDistributionStrategy = new PointDistributionStrategy(5, this.numberOfPoints);

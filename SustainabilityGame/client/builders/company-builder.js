@@ -1,4 +1,13 @@
-CompanyBuilder = class CompanyBuilder extends Builder {
+import Builder from './definition/builder';
+import Company from '/client/models/company'
+
+/**
+ * The Company Builder allows you to lazily build
+ * companies.
+ *
+ * @type {Builder}
+ */
+export default class CompanyBuilder extends Builder {
   constructor() {
     super();
 
@@ -23,40 +32,44 @@ CompanyBuilder = class CompanyBuilder extends Builder {
     this.options.capital = capital;
   }
 
-  setIndustry(industry) {
+  setIndustry( industry ) {
     // TODO check typeof industry
     this.options.industry = industry;
   }
 
-  setGoal(goal) {
+  setGoal( goal ) {
     // TODO check typeof goal
     this.options.goal = goal;
   }
 
-  setMarketPenetration(marketPenetration) {
+  setMarketPenetration( marketPenetration ) {
     this.options.marketPenetration;
   }
 
-  setNumberOfFactories(numberOfFactories) {
+  setNumberOfFactories( numberOfFactories ) {
     this.options.numberOfFactories = numberOfFactories;
   }
 
-  setAverageFactoryEfficiency(averageFactoryEfficiency) {
+  setAverageFactoryEfficiency( averageFactoryEfficiency ) {
     this.options.averageFactoryEfficiency = averageFactoryEfficiency;
   }
 
-  setProgramCosts(programCosts) {
+  setProgramCosts( programCosts ) {
     this.options.programCosts = programCosts;
   }
 
-  setCompanySatisfaction(companySatisfaction) {
+  setCompanySatisfaction( companySatisfaction ) {
     this.options.companySatisfaction = companySatisfaction;
   }
 
-  setCustomerSatisfaction(customerSatisfaction) {
+  setCustomerSatisfaction( customerSatisfaction ) {
     this.options.customerSatisfaction = customerSatisfaction;
   }
   
+  /**
+   * @override
+   * @return {Company}
+   */
   build() {
     return new Company(this.options);
   }

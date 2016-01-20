@@ -1,4 +1,13 @@
-IndustryBuilder = class IndustryBuilder extends Builder {
+import Builder from './definition/builder';
+import Industry from '/client/models/industry';
+
+/**
+ * The Industry Builder allows you to lazily build
+ * industries.
+ *
+ * @type {Builder}
+ */
+export default class IndustryBuilder extends Builder {
   constructor() {
     super();
 
@@ -13,43 +22,47 @@ IndustryBuilder = class IndustryBuilder extends Builder {
     this.options.comments = '';
   }
 
-  setPotentialSalesPerQuarter(potential) {
+  setPotentialSalesPerQuarter( potential ) {
     this.options.potentialSalesPerQuarter = potential;
   }
 
-  setInitialRevenuePerSale(initial) {
+  setInitialRevenuePerSale( initial ) {
     this.options.initialRevenuePerSale = initial;
   }
 
-  setInitialCostPerFactory(initial) {
+  setInitialCostPerFactory( initial ) {
     this.options.initialCostPerFactory = initial;
   }
 
-  setQuarterCostPerFactory(cost) {
+  setQuarterCostPerFactory( cost ) {
     this.options.quarterCostPerFactory = cost;
   }
 
-  setMaximumOutputPerFactory(output) {
+  setMaximumOutputPerFactory( output ) {
     this.options.maximumOutputPerFactory = output;
   }
 
-  setMaterialCostsPerSale(costs) {
+  setMaterialCostsPerSale( costs ) {
     this.options.materialCostsPerSale = costs;
   }
 
-  setWastePerSale(wastePerSale) {
+  setWastePerSale( wastePerSale ) {
     this.options.wastePerSale = wastePerSale;
   }
 
-  setComment(comment) {
+  setComment( comment ) {
     this.options.comment = comment;
   }
 
-  setFromOptions(options) {
-    this.options = _.extend(this.options, options);
+  setFromOptions( options ) {
+    this.options = _.extend( this.options, options );
   }
 
+  /**
+   * @override
+   * @return {Industry}
+   */
   build() {
-    return new Industry(this.options);
+    return new Industry( this.options );
   }
 }

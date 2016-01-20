@@ -1,4 +1,9 @@
-Game = class Game {
+import { default as CompanyBuilder } from '/client/builders/CompanyBuilder';
+import { default as IndustryBuilder } from '/client/builders/IndustryBuilder';
+import { default as GoalBuilder } from '/client/builders/GoalBuilder';
+import { default as RandomCompanyBuildingStrategy } from '/client/strategies/RandomCompanyBuildingStrategy';
+
+export default Game = class Game {
   constructor() {
     this.company = null;
     this.companyBuilder = CompanyBuilder;

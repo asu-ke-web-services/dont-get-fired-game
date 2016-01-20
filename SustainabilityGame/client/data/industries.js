@@ -1,6 +1,4 @@
-data = typeof data === 'undefined' ? {} : data;
-
-data.industries = [
+export default industries = [
   {
     name: "Beverage",
     potentialSalesPerQuarter: 2242000000,

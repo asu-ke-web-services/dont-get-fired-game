@@ -1,3 +1,0 @@
-Command = class Command {
-  handle() {}
-}

@@ -1,10 +1,10 @@
 /**
  * Game Home
  */
-GamePlay = typeof GamePlay === 'undefined' ? {} : GamePlay;
+import React from 'react';
 
-GamePlay.Home = React.createClass({
-  mixins: [ReactBEM],
+export default React.createClass({
+  //mixins: [ReactBEM],
 
   handlePlay(e) {
     e.preventDefault();
@@ -12,9 +12,10 @@ GamePlay.Home = React.createClass({
     SceneStore.transition(<GameSetup.View />);
   },
 
-  bem_blocks: ['home'],
-  bem_block_modifiers: ['gameplay'],
-  bem_render() {
+  // bem_blocks: ['home'],
+  // bem_block_modifiers: ['gameplay'],
+  // bem_render() {
+  render() {
     return (
       <div bem_element="">
         <h1>Game Name Here</h1>

@@ -1,4 +1,4 @@
-PointDistributionStrategy = class PointDistributionStrategy extends Strategy {
+export default PointDistributionStrategy = class PointDistributionStrategy extends Strategy {
   constructor(numberOfBins, maxPoints) {
     super();
 

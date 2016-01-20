@@ -1,11 +1,12 @@
+import React from 'react';
+import SceneStore from '/client/stores/SceneStore.jsx';
+
 GamePlay = typeof GamePlay === 'undefined' ? {} : GamePlay;
 
-Flint(function () {
-  GamePlay.Game = React.createClass({
-    mixins: [Reflux.connect(SceneStore, 'scene')],
+GamePlay.Game = React.createClass({
+  mixins: [Reflux.connect(SceneStore, 'scene')],
 
-    render() {
-      return this.state.scene;
-    }
-  });
-}, 'SceneStore');
+  render() {
+    return this.state.scene;
+  }
+});

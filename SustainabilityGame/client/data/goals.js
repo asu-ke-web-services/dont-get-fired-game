@@ -1,6 +1,4 @@
-data = typeof data === 'undefined' ? {} : data;
-
-data.goals = [
+export default goals = [
   {
     name: 'Test Goal',
     description: 'Description',

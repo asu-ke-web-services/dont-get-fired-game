@@ -1,6 +1,4 @@
-data = typeof data === 'undefined' ? {} : data;
-
-data.companyNames = [
+export default companyNames = [
   'Benny\'s {{name}}',
   '{{name}} Co'
 ];
