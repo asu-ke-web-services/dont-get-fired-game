@@ -37,7 +37,7 @@
     "react-mounter": "1.x.x",
     "react-simple-di": "1.x.x",
     "reflux": "^0.3.0",
-    "underscore": "@1.8.3"
+    "underscore": "1.8.3"
   },
   "private": true
 }
