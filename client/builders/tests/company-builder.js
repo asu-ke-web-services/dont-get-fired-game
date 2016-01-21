@@ -14,5 +14,6 @@ describe('The company builder', function () {
     const company = builder.build();
 
     expect(typeof company).to.be.equal('object');
+    expect(company.constructor.name).to.be.equal('Company');
   });
 });

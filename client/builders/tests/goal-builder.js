@@ -14,6 +14,7 @@ describe('The goal builder', function () {
     const goal = builder.build();
 
     expect(typeof goal).to.be.equal('object');
+    expect(goal.constructor.name).to.be.equal('Goal');
   });
 
 });

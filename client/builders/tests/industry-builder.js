@@ -14,5 +14,6 @@ describe('The industry builder', function () {
     const industry = builder.build();
 
     expect(typeof industry).to.be.equal('object');
+    expect(industry.constructor.name).to.be.equal('Industry');
   });
 });

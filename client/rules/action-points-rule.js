@@ -1,4 +1,4 @@
-import Rule from './definition/rule';
+import {default as Rule} from './definition/rule';
 
 export default class ActionPointsRule extends Rule {
   constructor() {

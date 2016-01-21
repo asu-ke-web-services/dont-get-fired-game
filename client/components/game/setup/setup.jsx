@@ -20,12 +20,9 @@ export default React.createClass({
     // TODO change view state!
   },
 
-  // bem_blocks: ['view'],
-  // bem_block_modifiers: ['game-setup'],
-  // bem_render() {
   render() {
     return (
-      <div bem_element="">
+      <div>
         <h2>{this.state.game.name}</h2>
         <p>Starting Capital {this.state.game.capital}</p>
         <p>Cash Flow {this.state.game.cashFlow}</p>
