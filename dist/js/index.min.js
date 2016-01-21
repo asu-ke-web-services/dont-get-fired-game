@@ -546,7 +546,7 @@
 	  };
 
 	  var setIncomeValue = function( income ) {
-	    $( '#totalFundsValue' ).text( income );
+	    $( '#totalFundsValue' ).text( formatToMoney( income ) );
 	  };
 
 	  // Sets the Quarter value in the UI
@@ -686,7 +686,7 @@
 	    var doMaterialConfirmation = function( material, currentFactoryID ) {
 	      if ( confirm( 'Are you sure you would like to purchase ' +
 	              material.name + ' for your factory?' +
-	              '\n\n Cost Per Pound: $' + material.costPerPound +
+	              '\n\n Cost Per Pound: ' + formatToMoney( material.costPerPound ) +
 	              '\n\n Waste Per Pound: ' + material.wastePerPound
 	          ) ) {
 	        $( '#menu' ).remove();
@@ -700,7 +700,7 @@
 	      var mFactory = _game.user.factories[ currentFactoryID ];
 	      if ( confirm( 'Are you sure you would like to purchase ' +
 	              product.name + ' for your factory?' +
-	              '\n\n Setup Cost: $' + product.setupCost +
+	              '\n\n Setup Cost: ' + formatToMoney( product.setupCost ) +
 	              '\n\n Material Required: ' + product.materialDependency.name +
 	              '\n\n Output: ' + product.totalOutput + ' units'
 	          ) ) {
@@ -726,8 +726,8 @@
 	      if ( confirm( 'Are you sure you would like to purchase ' +
 	              store.name + ' for your factory?' +
 	              '\n\n Product Required: ' + store.product +
-	              '\n\n Price per Product: $' + store.pricePerProduct +
-	              '\n\n Base Buy Rate: $' + store.baseBuyRateForProducts +
+	              '\n\n Price per Product: ' + formatToMoney( store.pricePerProduct ) +
+	              '\n\n Base Buy Rate: ' + formatToMoney( store.baseBuyRateForProducts ) +
 	              '\n\n Waste per Product: ' + store.wastePerProduct
 	          ) ) {
 	        $( '#menu' ).remove();
@@ -753,6 +753,10 @@
 	    }
 	  };
 
+	  var formatToMoney = function( money ) {
+	    return '$' + parseFloat( Math.round( money * 100 ) / 100 ).toFixed( 2 );
+	  };
+
 	  return {
 	    getMenuItemList: getMenuItemList,
 	    rePaint: rePaint,
@@ -764,7 +768,8 @@
 	    nextTick: nextTick,
 	    nextQuarter: nextQuarter,
 	    setGame: setGame,
-	    addNewFactory: addNewFactory
+	    addNewFactory: addNewFactory,
+	    formatToMoney: formatToMoney
 	  };
 	} )();
 
@@ -958,7 +963,7 @@
 	  var $quarterYear = '<div>Quarter <span id="quarterValue">1</span> / ' +
 	      'Year <span id="yearValue">0</span> ';
 
-	  var $funds = '<div>Funds $<span id="totalFundsValue">000000</span></div>';
+	  var $funds = '<div>Funds <span id="totalFundsValue">000000</span></div>';
 
 	  var $waste = '<div>Waste: <span id="wasteValue">0</span></div>';
 

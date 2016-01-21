@@ -5,7 +5,7 @@ var setup = function() {
   var $quarterYear = '<div>Quarter <span id="quarterValue">1</span> / ' +
       'Year <span id="yearValue">0</span> ';
 
-  var $funds = '<div>Funds $<span id="totalFundsValue">000000</span></div>';
+  var $funds = '<div>Funds <span id="totalFundsValue">000000</span></div>';
 
   var $waste = '<div>Waste: <span id="wasteValue">0</span></div>';
 
