@@ -63,6 +63,11 @@ For more information on writing tests, read:
 * [AirBnB:Enzyme Documentation](https://github.com/airbnb/enzyme) - this is the **React testing library** we use
 * [Mantra Testing](https://kadirahq.github.io/mantra/#sec-Testing) - this is the **methodlogy** we follow
 
+
+## PRs and Code Reviews
+
+See [our code review guidelines](CODE_REVIEWS.md).
+
 # Documentation
 
 Please see the [Wiki](https://github.com/gios-asu/sustainability-game/wiki) for documentation on the development process, links to developer resources, and meeting notes.
