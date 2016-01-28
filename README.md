@@ -6,34 +6,24 @@ Sustainability Game
 [![Code Climate](https://codeclimate.com/github/gios-asu/sustainability-game/badges/gpa.svg)](https://codeclimate.com/github/gios-asu/sustainability-game)
 [![Stories in Ready](https://badge.waffle.io/gios-asu/sustainability-game.png?label=ready&title=Ready)](http://waffle.io/gios-asu/sustainability-game)
 
+# Development
 
-# Getting Started
+## Setting up your environment
 
 You will need:
 
-* NPM
-* Gulp
-* Browserify
+* [NPM - install NodeJS to get NPM](https://nodejs.org/en/)
+* [Meteor](https://www.meteor.com/install)
 
-You will also need to create a settings file before attempting to run gulp:
+After those have been installed, clone this repo:
 
 ```sh
-cp src/settings.example.json src/settings.json
-```
-
-# Tests
-
-Run tests using Gulp:
-
-```
-npm install -g gulp
+cd sustainability-game
 npm install
-gulp
+meteor
 ```
 
-Spec tests use [Jasmine](http://jasmine.github.io/), running on [Gulp-Jasmine](https://www.npmjs.com/package/gulp-jasmine).
-
-Unit tests use [Qunit](http://qunitjs.com), running on [PhantomJS](http://phantomjs.org/download.html). PhantomJS is automatically downloaded for you when you do `npm install`.
+You may have to run `sudo npm install` to get the NPM modules installed.
 
 # Documentation
 
