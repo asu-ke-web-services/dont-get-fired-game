@@ -1,54 +1,43 @@
 {
   "name": "sustainability-game",
   "version": "0.0.1",
-  "description": "Browser based game to teach sustainability concepts",
-  "main": "index.js",
-  "directories": {
-    "test": "tests"
+  "options": {
+    "mocha": "--require .scripts/mocha_runner client/**/tests/**/*.js"
   },
   "scripts": {
-    "test": "gulp"
+    "lint": "eslint ./libs ./client ./server --ext .js --ext .jsx",
+    "lintfix": "npm run lint -- --fix",
+    "testonly": "mocha $npm_package_options_mocha",
+    "test": "npm run lint && npm run testonly"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gios-asu/sustainability-game.git"
-  },
-  "keywords": [
-    "javascript",
-    "npm",
-    "sustainability"
-  ],
-  "author": "GIOS <giosweb@asu.edu> (https://github.com/gios-asu)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/gios-asu/sustainability-game/issues"
-  },
-  "homepage": "https://github.com/gios-asu/sustainability-game#readme",
   "devDependencies": {
-    "babel": "^6.3.13",
-    "babel-core": "^6.3.15",
-    "babel-loader": "^6.2.0",
-    "babel-preset-es2015": "^6.3.13",
-    "babel-preset-react": "^6.3.13",
-    "browser-sync": "^2.9.11",
-    "gulp": "^3.9.0",
-    "gulp-browserify": "^0.5.1",
-    "gulp-compressor": "^0.1.0",
-    "gulp-coverage": "^0.3.36",
-    "gulp-coveralls": "^0.1.4",
-    "gulp-jasmine": "^2.0.1",
-    "gulp-jscs": "^3.0.0",
-    "gulp-minify": "0.0.5",
-    "gulp-qunit": "^1.2.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.1.0",
-    "gulp-sourcemaps": "^1.6.0",
-    "jscs": "^2.1.1",
-    "json-loader": "^0.5.4",
-    "lodash": "^3.10.1",
-    "run-sequence": "^1.1.2",
-    "underscore": "^1.8.3",
-    "webpack": "^1.12.2",
-    "webpack-stream": "^2.1.1"
-  }
+    "eslint": "1.10.x",
+    "eslint-plugin-react": "3.15.x",
+    "babel-core": "6.x.x",
+    "babel-polyfill": "6.x.x",
+    "babel-preset-es2015": "6.x.x",
+    "babel-preset-stage-2": "6.x.x",
+    "babel-preset-react": "6.x.x",
+    "babel-plugin-react-require": "2.x.x",
+    "mocha": "2.x.x",
+    "chai": "3.x.x",
+    "react-addons-test-utils": ">=0.14.3 <=0.15.0",
+    "enzyme": "1.x.x",
+    "sinon": "1.17.x"
+  },
+  "dependencies": {
+    "classnames": "2.2.1",
+    "domready": "^1.0.8",
+    "formsy-react": "0.17.0",
+    "formsy-react-components": "0.6.6",
+    "lodash": "3.10.1",
+    "react": "0.14.x",
+    "react-dom": "0.14.x",
+    "react-komposer": "1.x.x",
+    "react-mounter": "1.x.x",
+    "react-simple-di": "1.x.x",
+    "reflux": "^0.3.0",
+    "underscore": "1.8.3"
+  },
+  "private": true
 }
