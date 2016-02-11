@@ -4,28 +4,69 @@ Sustainability Game
 [![Build Status](https://travis-ci.org/gios-asu/sustainability-game.svg?branch=develop)](https://travis-ci.org/gios-asu/sustainability-game)
 [![Coverage Status](https://coveralls.io/repos/gios-asu/sustainability-game/badge.svg?branch=develop&service=github)](https://coveralls.io/github/gios-asu/sustainability-game?branch=develop)
 [![Code Climate](https://codeclimate.com/github/gios-asu/sustainability-game/badges/gpa.svg)](https://codeclimate.com/github/gios-asu/sustainability-game)
+[![Stories in Ready](https://badge.waffle.io/gios-asu/sustainability-game.png?label=ready&title=Ready)](http://waffle.io/gios-asu/sustainability-game)
 
-# Getting Started
+# Development
+
+## Setting up your environment
 
 You will need:
 
-* NPM
-* Gulp
-* Browserify
+* [NPM - install NodeJS to get NPM](https://nodejs.org/en/)
+* [Meteor](https://www.meteor.com/install)
 
-# Tests
+After those have been installed, clone this repo:
 
-Run tests using Gulp:
-
-```
-npm install -g gulp
+```sh
+cd sustainability-game
 npm install
-gulp
+meteor
 ```
 
-Spec tests use [Jasmine](http://jasmine.github.io/), running on [Gulp-Jasmine](https://www.npmjs.com/package/gulp-jasmine).
+You may have to run `sudo npm install` to get the NPM modules installed.
 
-Unit tests use [Qunit](http://qunitjs.com), running on [PhantomJS](http://phantomjs.org/download.html). PhantomJS is automatically downloaded for you when you do `npm install`.
+## Running Tests
+
+Once you know meteor can run and launch without errors, you can run tests using:
+
+```sh
+npm test
+```
+
+## Writing Tests
+
+Writing and running tests is an important part of any project.
+
+Test files are "linked" to their source file. Say you are working on `client/components/home/title.jsx` and you want to write tests for it. Create a file: `client/components/home/tests/title.jsx`.
+
+That file would look something like this:
+
+```js
+const { describe, it } = global;
+import {expect} from 'chai';
+import {shallow} from 'enzyme';
+import Title from '../title.jsx';
+
+describe('Home title', () => {
+  it('should display the title', () => {
+    const title = {title: 'Sustainability Game'};
+    const el = shallow(<Title title={title} />);
+    expect(el.find('h2').text()).to.be.match(/Sustainability Game/);
+  });
+});
+```
+
+For more information on writing tests, read:
+
+* [MochaJS](http://mochajs.org/) - this is our **test runner**
+* [ChaiJS](http://chaijs.com/) - this is our **assertion library**
+* [AirBnB:Enzyme Documentation](https://github.com/airbnb/enzyme) - this is the **React testing library** we use
+* [Mantra Testing](https://kadirahq.github.io/mantra/#sec-Testing) - this is the **methodlogy** we follow
+
+
+## PRs and Code Reviews
+
+See [our code review guidelines](CODE_REVIEWS.md).
 
 # Documentation
 
