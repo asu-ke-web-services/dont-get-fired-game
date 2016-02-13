@@ -17,7 +17,7 @@ export default React.createClass({
   handleStart(e) {
     e.preventDefault();
 
-    // TODO change view state!
+    GameActions.create(); 
   },
 
   render() {
