@@ -1,14 +1,14 @@
 import React from 'react';
 
 
-var eventList = [{
-  advicer:"The production of soda can is decreasing by 5%"
+var eventList = [ {
+  advicer: 'The production of soda can is decreasing by 5%'
 },
   {
-    advicer:"Option 1: Increase soda can production"
-  }, 
+    advicer: 'Option 1: Increase soda can production'
+  },
   {
-    advicer:"Option 2: Ignore and continue"
+    advicer: 'Option 2: Ignore and continue'
   }
 ];
 export default React.createClass({
@@ -16,10 +16,10 @@ export default React.createClass({
   render() {
     return (
         <div>
-          <h1> Soda production need attention!</h1>
+          <h1>{this.props.eventName} needs attention!!</h1>
           <ul>
-            {this.eventList.map(function(listvalue){
-              return <li>{listvalue.advicer}</li>
+            {this.eventList.map(function (listvalue) {
+              return <li>{listvalue.advicer}</li>;
             })}
           </ul>
             <button>option 1</button>

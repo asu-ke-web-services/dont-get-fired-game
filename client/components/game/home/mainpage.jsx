@@ -1,17 +1,15 @@
 import React from 'react';
-
-
-var eventList = [{
-  advicer:"The person explain everything is one of your advisors"
+var eventList = [ {
+  advicer: 'The person explain everything is one of your advisors '
 },
   {
-    advicer:"You are the new CEO"
-  }, 
-  {
-    advicer:"The current company state"
+    advicer: 'You are the new CEO'
   },
   {
-    advicer:"End goal by the end of 4 years/16 quaters"
+    advicer: 'The current company state'
+  },
+  {
+    advicer: 'End goal by the end of 4 years/16 quaters'
   }
 ];
 export default React.createClass({
@@ -19,10 +17,10 @@ export default React.createClass({
   render() {
     return (
         <div>
-          <h1> Welcome to IDS inc</h1>
+          <h1> Welcome to {this.props.CompanyName}</h1>
           <ul>
-            {this.eventList.map(function(listvalue){
-              return <li>{listvalue.advicer}</li>
+            {this.eventList.map(function (listvalue) {
+              return <li>{listvalue.advicer}</li>;
             })}
           </ul>
             <button>Back</button>
