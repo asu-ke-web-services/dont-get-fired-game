@@ -1,0 +1,42 @@
+/* Imports for global scope */
+
+Mongo = Package.mongo.Mongo;
+Session = Package.session.Session;
+$ = Package.jquery.$;
+jQuery = Package.jquery.jQuery;
+Tracker = Package.tracker.Tracker;
+Deps = Package.tracker.Deps;
+_ = Package.underscore._;
+Date = Package['es5-shim'].Date;
+parseInt = Package['es5-shim'].parseInt;
+ECMAScript = Package.ecmascript.ECMAScript;
+Materialize = Package['poetic:materialize-scss'].Materialize;
+TAPi18next = Package['tap:i18n'].TAPi18next;
+TAPi18n = Package['tap:i18n'].TAPi18n;
+Collection2 = Package['aldeed:collection2'].Collection2;
+dispatch = Package['capsulecat:commands'].dispatch;
+dispatchAsync = Package['capsulecat:commands'].dispatchAsync;
+process = Package.meteor.process;
+Meteor = Package.meteor.Meteor;
+global = Package.meteor.global;
+WebApp = Package.webapp.WebApp;
+DDP = Package['ddp-client'].DDP;
+LaunchScreen = Package['launch-screen'].LaunchScreen;
+Blaze = Package.ui.Blaze;
+UI = Package.ui.UI;
+Handlebars = Package.ui.Handlebars;
+Spacebars = Package.spacebars.Spacebars;
+Template = Package.templating.Template;
+meteorInstall = Package.modules.meteorInstall;
+Symbol = Package['ecmascript-runtime'].Symbol;
+Map = Package['ecmascript-runtime'].Map;
+Set = Package['ecmascript-runtime'].Set;
+regeneratorRuntime = Package['ecmascript-runtime'].regeneratorRuntime;
+babelHelpers = Package['babel-runtime'].babelHelpers;
+Promise = Package.promise.Promise;
+SimpleSchema = Package['aldeed:simple-schema'].SimpleSchema;
+MongoObject = Package['aldeed:simple-schema'].MongoObject;
+Autoupdate = Package.autoupdate.Autoupdate;
+Reload = Package.reload.Reload;
+HTML = Package.htmljs.HTML;
+
