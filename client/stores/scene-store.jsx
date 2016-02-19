@@ -37,4 +37,4 @@ var SceneStore = Reflux.createStore({
   }
 });
 
-export default {SceneActions, SceneStore};
+export {SceneActions, SceneStore};
