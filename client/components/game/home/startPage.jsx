@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default React.createClass({
-    handleGame(e){     
+    handlePlay(e){
         e.preventDefault();
         //will add the button handler to new game later
     },

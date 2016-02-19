@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {default as Game} from './containers/game/game.jsx';
+import {default as Startpage} from './components/game/home/startPage.jsx';
 
 Meteor.startup(function () {
-ReactDOM.render( <Game />, document.getElementById('render-target'));
+ReactDOM.render( <Startpage />, document.getElementById('render-target'));
 });
