@@ -7,7 +7,7 @@ export default React.createClass({
     return (
       <div className="program-list">
         {this.props.programs.map((program, i) => {
-          return <ProgramListItem program={program} key={i} />
+          return <ProgramListItem program={program} key={i} />;
         })}
       </div>
     );

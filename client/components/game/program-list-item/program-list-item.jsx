@@ -1,12 +1,12 @@
-﻿import React from 'react';
+import React from 'react';
 
 export default React.createClass({
-  onClick(e) {
+  onClick() {
     // TODO
   },
 
   render() {
-    // TODO 
+    // TODO
     let isPurchased = false;
     let buttonImage = <div>AVAILABLE</div>;
 
@@ -18,11 +18,11 @@ export default React.createClass({
       <div className="program-list-item">
         <div className="program-list-item__wrapper">
           <img className="program-list-item__image" />
-           <span style={{border: "2px solid"}}>
-             {this.props.program.name}
-             <br/>
-             {this.props.program.shortDescription}
-           </span>
+          <span>
+            {this.props.program.name}
+            <br/>
+            {this.props.program.shortDescription}
+          </span>
           <button onClick={this.onClick}>
             {buttonImage}
           </button>

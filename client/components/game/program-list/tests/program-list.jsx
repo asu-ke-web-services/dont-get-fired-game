@@ -6,11 +6,11 @@ const {describe, it} = global;
 import { default as ProgramList } from '../program-list.jsx';
 
 describe('A Program List Component', () => {
-  const programs = [{
+  const programs = [ {
     name: 'Save the whales'
   }, {
     name: 'Pet all cats'
-  }];
+  } ];
 
   /**
    * Note, using render instead of shallow render
