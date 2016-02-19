@@ -1,11 +1,11 @@
 import React from 'react';
-import ProgramList from 'program_list';
+
+import {default as ProgramList} from '../program-list/program-list.jsx';
+
 export default React.createClass({
-    render() {
-        return (
-            <div>
-                <ProgramList  />
-            <div/>
-        );
-    }
+  render() {
+    return (
+      <ProgramList programs={this.props.programs} />
+    );
+  }
 });
