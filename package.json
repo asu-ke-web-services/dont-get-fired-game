@@ -1,13 +1,10 @@
 {
   "name": "sustainability-game",
   "version": "0.0.1",
-  "options": {
-    "mocha": "--require .scripts/mocha_runner client/**/tests/**/*.js"
-  },
   "scripts": {
     "lint": "eslint ./libs ./client ./server --ext .js --ext .jsx",
     "lintfix": "npm run lint -- --fix",
-    "testonly": "mocha $npm_package_options_mocha",
+    "testonly": "mocha --require .scripts/mocha_runner client/**/tests/**/*.js client/**/tests/**/*.jsx",
     "test": "npm run lint && npm run testonly",
     "build": "meteor-build-client ./.build"
   },
@@ -24,8 +21,10 @@
     "eslint-plugin-react": "3.15.x",
     "meteor-build-client": "^0.2.2",
     "mocha": "2.x.x",
-    "react-addons-test-utils": ">=0.14.3 <=0.15.0",
-    "sinon": "1.17.x"
+    "react-addons-test-utils": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "sinon": "1.17.x",
+    "underscore": "^1.8.3"
   },
   "dependencies": {
     "classnames": "2.2.1",
