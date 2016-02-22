@@ -10,9 +10,9 @@ export default React.createClass({
         <div className="eventPage">
           <h1 className="eventPage_headline_box">{this.props.event.name}</h1>
           <span className="eventPage__information">
-            {this.props.event.explaint}
+            {this.props.event.explain}
             <br/>
-            {this.progs.event.options}
+            {this.props.event.options}
             <button onClick={this.onClick}>option 1</button>
             <button onClick={this.onClick}>option 2</button>
           </span>
