@@ -1,26 +1,22 @@
-
 import React from 'react';
 
-var quaterList = [ {
-  items: 'Production: 20% increase'
-},
-  {
-    items: 'Wastes: 10% increase'
-  }
-];
 export default React.createClass({
-  quaterList,
+  nextQuater() {
+    //
+  },
+
   render() {
     return (
-        <div>
-          <h1>End Of Quater {this.props.quater}</h1>
-          <ul>
-            <p>The result of this quater:</p>
-            {this.quaterList.map(function (listvalue) {
-              return <li>{listvalue.items}</li>;
-            })}
-          </ul>
-            <button>Start Your Next Quater</button>
+        <div className="quaterReport">
+          <h1 className="quaterReport_headline">End Of Quater {this.props.quater.quaterNumber}</h1>
+          <span className="quaterReport_information">
+            {this.props.quater.quaterResult}
+            <br/>
+            {this.props.quater.quaterState}
+            <br/>
+            {this.props.quater.nextQuaterState}
+            <button onClick={this.nextQuater}>Start Your Next Quater</button>
+          </span>
         </div>
     );
   }
