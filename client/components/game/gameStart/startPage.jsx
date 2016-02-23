@@ -1,14 +1,13 @@
 import React from 'react';
-import Setup from '../setup/setup.jsx';
 
 export default React.createClass({
   handlePlay(e){
-    e.prevetDefault();
-    //will add the button handler to credits later
+    e.prevetDefault ();
+    // will add the button handler to credits later
   },
   handleCredit(e){
-    e.prevetDefault();
-    //will add the button handler to credits later
+    e.prevetDefault ();
+    // will add the button handler to credits later
   },
 
   render() {
