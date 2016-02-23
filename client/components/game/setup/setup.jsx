@@ -10,7 +10,7 @@ export default React.createClass({
 
   handleRandomize(e) {
     e.preventDefault();
-    
+
     // TODO change view state!
     GameActions.create();
   },
@@ -18,7 +18,7 @@ export default React.createClass({
   handleStart(e) {
     e.preventDefault();
 
-    GameActions.create(); 
+    GameActions.create();
   },
 
   render() {
