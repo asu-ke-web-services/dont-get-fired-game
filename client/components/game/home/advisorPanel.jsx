@@ -6,7 +6,7 @@ export default React.createClass({
         <div>
           <h2>Your Advisors</h2>
           <ul>
-            {this.props.advisorList.map(function(advisor){
+            {this.props.advisorList.map(function (advisor) {
               return <li>{advisor.name} - {advisor.dialog}</li>;
             })}
           </ul>
