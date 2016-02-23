@@ -11,13 +11,14 @@ export default React.createClass({
   handleRandomize(e) {
     e.preventDefault();
 
+    // TODO change view state!
     GameActions.create();
   },
 
   handleStart(e) {
     e.preventDefault();
 
-    // TODO change view state!
+    GameActions.create();
   },
 
   render() {
