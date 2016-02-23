@@ -12,7 +12,7 @@ export default React.createClass({
   render() {
     return (
       <div bem_element="">
-        <h1>Game Name Here</h1>
+        <h1>Game Start Here</h1>
         <button onClick={this.handlePlay}>Play</button>
       </div>
     );
