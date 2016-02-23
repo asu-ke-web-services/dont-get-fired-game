@@ -1,10 +1,13 @@
 {
   "name": "sustainability-game",
   "version": "0.0.1",
+  "options": {
+    "mocha": "--require .scripts/mocha_runner client/**/tests/**/*.js"
+  },
   "scripts": {
     "lint": "eslint ./libs ./client ./server --ext .js --ext .jsx",
     "lintfix": "npm run lint -- --fix",
-    "testonly": "mocha --require .scripts/mocha_runner client/**/tests/**/*.js client/**/tests/**/*.jsx",
+    "testonly": "mocha $npm_package_options_mocha",
     "test": "npm run lint && npm run testonly",
     "build": "meteor-build-client ./.build"
   },
