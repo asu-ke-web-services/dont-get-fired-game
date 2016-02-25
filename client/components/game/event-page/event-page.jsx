@@ -1,10 +1,11 @@
 import React from 'react';
 
 export default React.createClass({
-  onClick(option) {
+  onClick( /* option  */ ) {
     return (e) => {
+      e.preventDefault();
       // TODO
-    }
+    };
   },
   render() {
     return (

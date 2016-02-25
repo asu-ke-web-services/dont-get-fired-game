@@ -40,7 +40,7 @@ describe('Advisor Panel', () => {
     expect(wrapper.contains('Hey there')).to.equal(true);
   });
 
-  it ( 'has no advisors', () => {
+  it( 'has no advisors', () => {
     const wrapper = shallow(<AdvisorPanel />);
 
     expect(wrapper.contains('No advisors')).to.equal(true);

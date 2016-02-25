@@ -2,13 +2,18 @@ import React from 'react';
 
 export default React.createClass({
   renderAdvisorList() {
+    let advisorList = 'No advisors';
     if (this.props.advisors) {
-      return this.props.advisors.map(function (advisor) {
-        return <li className="advisor-panel__list-item">{advisor.name} - {advisor.dialog}</li>;
+      advisorList = this.props.advisors.map((advisor, i) => {
+        return (
+          <li key={i} className="advisor-panel__list-item">
+            {advisor.name} - {advisor.dialog}
+          </li>
+        );
       });
-    } else {
-      return 'No advisors';
     }
+
+    return advisorList;
   },
 
   render() {
