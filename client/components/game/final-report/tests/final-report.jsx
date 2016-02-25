@@ -3,7 +3,7 @@ import {expect} from 'chai';
 import {shallow} from 'enzyme';
 const {describe, it} = global;
 
-import { default as Report } from '../finalReport.jsx';
+import { default as Report } from '../final-report.jsx';
 
 describe('Final report page', () => {
   const report = {
@@ -16,10 +16,12 @@ describe('Final report page', () => {
     const wrapper = shallow(<Report report={report} />);
     expect(wrapper.contains('production')).to.equal(true);
   });
+
   it( 'has accomplishments', () => {
     const wrapper = shallow(<Report report={report} />);
     expect(wrapper.contains('20% increase in production')).to.equal(true);
   });
+
   it( 'has goal', () => {
     const wrapper = shallow(<Report report={report} />);
     expect(wrapper.contains('Win with in 5min')).to.equal(true);
