@@ -10,7 +10,10 @@ export default React.createClass({
   render() {
     return (
         <div>
-            <button className="main-side-bar-button" onClick={this.onClick}>Next Quater</button>
+          <span className="main-side-bar-button">
+            {this.props.main.actionPoint}
+            <button className="main-side-bar-button__button" onClick={this.onClick}>Next Quater</button>
+            </span>
         </div>
     );
   }
