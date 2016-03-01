@@ -17,4 +17,23 @@ describe('The goal builder', function () {
     expect(goal.constructor.name).to.be.equal('Goal');
   });
 
+  it('can make goals from options', function () {
+    builder.setFromOptions({
+      name: 'test'
+    });
+
+    const goal = builder.build();
+
+    expect(goal.name).to.be.equal('test');
+  });
+
+  it('can set the name and description', function () {
+    builder.setName( 'test' );
+    builder.setDescription( 'test description' );
+
+    const goal = builder.build();
+
+    expect(goal.name).to.be.equal('test');
+    expect(goal.description).to.be.equal('test description');
+  });
 });

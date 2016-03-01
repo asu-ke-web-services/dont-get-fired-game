@@ -16,4 +16,16 @@ describe('The industry builder', function () {
     expect(typeof industry).to.be.equal('object');
     expect(industry.constructor.name).to.be.equal('Industry');
   });
+
+  it('can make industries from options', function () {
+    builder.setComment('a');
+
+    builder.setFromOptions({
+      comments: 'b'
+    });
+
+    const industry = builder.build();
+
+    expect(industry.comments).to.be.equal('b');
+  });
 });
