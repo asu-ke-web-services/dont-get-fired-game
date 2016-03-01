@@ -1,8 +1,12 @@
 import React from 'react';
+import {SceneActions} from './next-scene/next-scene.jsx';
+import Event from '../event-page/event-page.jsx';
 
 export default React.createClass({
-  nextQuater() {
-    //
+  nextQuater(e) {
+    e.preventDefault();
+
+    SceneActions.transition(<Event />);
   },
 
   render() {
@@ -21,3 +25,4 @@ export default React.createClass({
     );
   }
 });
+
