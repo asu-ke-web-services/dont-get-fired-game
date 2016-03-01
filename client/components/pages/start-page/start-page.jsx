@@ -1,19 +1,19 @@
 import React from 'react';
 
-import { store } from '../../../stores/game-store';
-import { ACTION_ENUM } from '../../../enums/action-enum';
+import { dispatch } from '../../../stores/game-store';
+import { newGame, showCredits } from '../../../actions/actions';
 
 const StartPage = React.createClass({
   handlePlay( e ) {
     e.preventDefault();
 
-    store.dispatch({
-      type: ACTION_ENUM.NEW_GAME
-    });
+    dispatch( newGame() );
   },
 
-  handleCredit() {
-    // TODO
+  handleCredit( e ) {
+    e.preventDefault();
+
+    dispatch( showCredits() );
   },
 
   render() {

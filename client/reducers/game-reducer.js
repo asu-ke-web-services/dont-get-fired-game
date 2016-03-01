@@ -1,5 +1,4 @@
-import { ACTION_ENUM } from '../enums/action-enum';
-import { SCENE_ENUM } from '../enums/scene-enum';
+import { ACTION_ENUM, SCENE_ENUM } from '../actions/actions';
 
 import { default as Game } from '../models/game';
 
@@ -15,12 +14,18 @@ const gameReducer = ( state = null, action ) => {
   switch ( action.type ) {
     case ACTION_ENUM.NEW_GAME:
       return {
+        ...state,
         game: new Game(),
         scene: SCENE_ENUM.INTRO_SCENE
+      };
+    case ACTION_ENUM.SHOW_CREDITS:
+      return {
+        ...state,
+        scene: SCENE_ENUM.CREDITS_SCENE
       };
     default:
       return state;
   } 
 };
 
-export { gameReducer, SCENE_ENUM, ACTION_ENUM };
+export { gameReducer };
