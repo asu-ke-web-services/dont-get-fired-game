@@ -25,8 +25,13 @@ const StartPage = React.createClass({
           </h1>
 
           <div className="start-page__button-container">
-            <button 
-                className="start-page__button start-page__button--first button button--white button--block"
+            <button
+                className="
+                  start-page__button
+                  start-page__button--first
+                  button
+                  button--white
+                  button--block"
                 onClick={this.handlePlay}>
               new game
             </button>

@@ -1,5 +1,4 @@
 import React from 'react';
-import Event from '../event-page/event-page.jsx';
 
 export default React.createClass({
   nextQuater(e) {
