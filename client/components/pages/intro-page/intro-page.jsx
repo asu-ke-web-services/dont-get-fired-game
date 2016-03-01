@@ -1,4 +1,5 @@
 import React from 'react';
+
 var eventList = [ {
   advicer: 'The person explain everything is one of your advisors '
 },
@@ -12,7 +13,8 @@ var eventList = [ {
     advicer: 'End goal by the end of 4 years/16 quaters'
   }
 ];
-export default React.createClass({
+
+const IntroPage = React.createClass({
   eventList,
   render() {
     return (
@@ -29,3 +31,5 @@ export default React.createClass({
     );
   }
 });
+
+export { IntroPage };

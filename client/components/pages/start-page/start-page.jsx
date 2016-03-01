@@ -1,11 +1,19 @@
 import React from 'react';
 
-export default React.createClass({
-  handlePlay() {
-    // TODO
+import { dispatch } from '../../../stores/game-store';
+import { newGame, showCredits } from '../../../actions/actions';
+
+const StartPage = React.createClass({
+  handlePlay( e ) {
+    e.preventDefault();
+
+    dispatch( newGame() );
   },
-  handleCredit() {
-   // TODO
+
+  handleCredit( e ) {
+    e.preventDefault();
+
+    dispatch( showCredits() );
   },
 
   render() {
@@ -21,3 +29,4 @@ export default React.createClass({
   }
 });
 
+export { StartPage };
