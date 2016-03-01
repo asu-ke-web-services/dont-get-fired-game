@@ -37,7 +37,7 @@
     "react-komposer": "1.x.x",
     "react-mounter": "1.x.x",
     "react-simple-di": "1.x.x",
-    "reflux": "^0.3.0",
+    "redux": "^3.3.1",
     "underscore": "1.8.3"
   },
   "private": true

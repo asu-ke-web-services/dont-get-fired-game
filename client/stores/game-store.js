@@ -1,40 +1,8 @@
-import Reflux from 'reflux';
-import _ from 'underscore';
-import { default as Game } from '../models/game';
+import { createStore } from 'redux';
 
-var GameActions = Reflux.createActions([
-  'create'
-]);
+import { gameReducer } from '../reducers/game-reducer';
 
-var GameStore = Reflux.createStore({
-  listenables: [ GameActions ],
+// Create a store from our game reducer
+const store = createStore( gameReducer );
 
-  init() {
-    this._create();
-  },
-
-  _create() {
-    this._game = new Game();
-    this._game.init();
-  },
-
-  create() {
-    this._create();
-    this.trigger(this.getInitialState());
-  },
-
-  getInitialState() {
-    let game = this._game;
-
-    let state = _.extend(
-        {},
-        game.company,
-        game.company.getCalculatedMetrics()
-    );
-    // TODO wrap in a debug utility
-    // console.log(state);
-    return state;
-  }
-});
-
-export {GameActions, GameStore};
+export { store };

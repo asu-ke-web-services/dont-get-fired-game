@@ -1,11 +1,19 @@
 import React from 'react';
 
-export default React.createClass({
-  handlePlay() {
-    // TODO
+import { store } from '../../../stores/game-store';
+import { ACTION_ENUM } from '../../../enums/action-enum';
+
+const StartPage = React.createClass({
+  handlePlay( e ) {
+    e.preventDefault();
+
+    store.dispatch({
+      type: ACTION_ENUM.NEW_GAME
+    });
   },
+
   handleCredit() {
-   // TODO
+    // TODO
   },
 
   render() {
@@ -21,3 +29,4 @@ export default React.createClass({
   }
 });
 
+export { StartPage };
