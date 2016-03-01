@@ -17,7 +17,7 @@ const render = () => {
     <Game state={store.getState()} />,
     document.getElementById( 'render-target' )
   );
-}
+};
 
 /**
  * On start up, we will bind changes

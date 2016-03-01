@@ -4,28 +4,32 @@ import { default as Game } from '../models/game';
 
 const gameReducer = ( state = null, action ) => {
   // Initialize the state
+  let oldState;
+
   if ( state === null ) {
-    state = {
+    oldState = {
       game: null,
       scene: SCENE_ENUM.SPLASH_SCENE
     };
+  } else {
+    oldState = state;
   }
 
   switch ( action.type ) {
     case ACTION_ENUM.NEW_GAME:
       return {
-        ...state,
+        ...oldState,
         game: new Game(),
         scene: SCENE_ENUM.INTRO_SCENE
       };
     case ACTION_ENUM.SHOW_CREDITS:
       return {
-        ...state,
+        ...oldState,
         scene: SCENE_ENUM.CREDITS_SCENE
       };
     default:
-      return state;
-  } 
+      return oldState;
+  }
 };
 
 export { gameReducer };
