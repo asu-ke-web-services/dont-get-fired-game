@@ -1,5 +1,3 @@
-aldeed:collection2@2.7.0
-aldeed:simple-schema@1.3.3
 allow-deny@1.0.1-beta.12
 autoupdate@1.2.5-beta.12
 babel-compiler@6.5.0-beta.12
@@ -13,10 +11,7 @@ boilerplate-generator@1.0.5-beta.12
 caching-compiler@1.0.1-beta.12
 caching-html-compiler@1.0.3-beta.12
 callback-hook@1.0.5-beta.12
-capsulecat:commands@1.0.2
-cfs:http-methods@0.0.30
 check@1.1.1-beta.12
-coffeescript@1.0.12-beta.12
 ddp@1.2.2
 ddp-client@1.2.2-beta.12
 ddp-common@1.2.2
@@ -29,7 +24,6 @@ ejson@1.0.8-beta.12
 es5-shim@4.3.2-beta.12
 fastclick@1.0.8-beta.12
 fortawesome:fontawesome@4.5.0
-fourseven:scss@3.4.1
 geojson-utils@1.0.5-beta.12
 hot-code-push@1.0.1-beta.12
 html-tools@1.0.6-beta.12
@@ -44,7 +38,6 @@ meteor@1.1.11-beta.12
 meteor-base@1.0.1
 meteor-env-dev@0.0.2-beta.12
 meteor-env-prod@0.0.2-beta.12
-meteorspark:util@0.2.0
 minifier-css@1.1.8-beta.12
 minifier-js@1.1.8-beta.12
 minimongo@1.0.11-beta.12
@@ -57,9 +50,7 @@ mongo-id@1.0.1
 npm-mongo@1.4.40-beta.12
 observe-sequence@1.0.8-beta.12
 ordered-dict@1.0.4
-poetic:materialize-scss@1.3.5
 promise@0.5.2-beta.12
-raix:eventemitter@0.1.3
 random@1.0.6-beta.12
 reactive-dict@1.1.4-beta.12
 reactive-var@1.0.6
@@ -72,7 +63,6 @@ spacebars-compiler@1.0.8-beta.12
 standard-minifier-css@1.0.3-beta.12
 standard-minifier-js@1.0.3-beta.12
 standard-minifiers@1.0.3-beta.12
-tap:i18n@1.7.0
 templating@1.1.6-beta.12
 templating-tools@1.0.1-beta.12
 tracker@1.0.10-beta.12
