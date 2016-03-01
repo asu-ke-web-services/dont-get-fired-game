@@ -20,9 +20,29 @@ const StartPage = React.createClass({
     return (
       <div className="start-page">
         <div className="start-page__wrapper">
-          <h1>Dont Get Fired</h1>
-          <button onClick={this.handlePlay}>new game</button>
-          <button onClick={this.handleCredit}>credits</button>
+          <h1 className="start-page__header">
+            Dont Get Fired
+          </h1>
+
+          <div className="start-page__button-container">
+            <button
+                className="
+                  start-page__button
+                  start-page__button--first
+                  button
+                  button--white
+                  button--block"
+                onClick={this.handlePlay}>
+              new game
+            </button>
+            <br/>
+            <button
+                className="start-page__button button button--white button--block"
+                onClick={this.handleCredit}>
+              credits
+            </button>
+          </div>
+
        </div>
       </div>
     );
