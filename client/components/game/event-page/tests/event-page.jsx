@@ -3,7 +3,7 @@ import {expect} from 'chai';
 import {shallow} from 'enzyme';
 const {describe, it} = global;
 
-import { default as Event } from '../eventPage.jsx';
+import { default as Event } from '../event-page.jsx';
 
 describe('Event Page', () => {
   const event = {
