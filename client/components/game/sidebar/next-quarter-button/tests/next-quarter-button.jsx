@@ -3,15 +3,13 @@ import {expect} from 'chai';
 import {shallow} from 'enzyme';
 const {describe, it} = global;
 
-import { default as Main } from '../main-side-bar-button.jsx';
+import { default as NextQuarterButton } from '../next-quarter-button.jsx';
 
 describe('main side bar button', () => {
-  const main = {
-    actionPoint: 1,
-  };
+  const actionPoints = 1;
 
   it( 'has a action point', () => {
-    const wrapper = shallow(<Main main={main} />);
+    const wrapper = shallow(<NextQuarterButton actionPoints={actionPoints} />);
     expect(wrapper.contains(1)).to.equal(true);
   });
 });
