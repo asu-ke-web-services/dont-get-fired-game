@@ -21,7 +21,7 @@ export default React.createClass({
             Tweet
           </button>
           <button className="final-report__button" onClick={this.handleCongratulations}>
-            Congratulation
+            Congratulations
           </button>
         </span>
       </div>

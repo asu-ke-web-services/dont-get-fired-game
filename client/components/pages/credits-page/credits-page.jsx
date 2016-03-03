@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CreditsPage = () => (
-  <div className="credis">
+  <div className="credits">
     TODO
   </div>
 );

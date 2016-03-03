@@ -28,3 +28,8 @@
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
   background-color: #fcfcfc;
 }
+
+.button--action {
+  background-color: gold;
+  color: black;
+}

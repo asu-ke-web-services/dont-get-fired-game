@@ -17,15 +17,24 @@ const gameReducer = ( state = null, action ) => {
 
   switch ( action.type ) {
     case ACTION_ENUM.NEW_GAME:
+      let game = new Game();
+      game.init();
+
       return {
         ...oldState,
-        game: new Game(),
+        game,
         scene: SCENE_ENUM.INTRO_SCENE
       };
     case ACTION_ENUM.SHOW_CREDITS:
       return {
         ...oldState,
         scene: SCENE_ENUM.CREDITS_SCENE
+      };
+    case ACTION_ENUM.GO_HOME:
+      return {
+        ...oldState,
+        game: null,
+        scene: SCENE_ENUM.SPLASH_SCENE
       };
     default:
       return oldState;

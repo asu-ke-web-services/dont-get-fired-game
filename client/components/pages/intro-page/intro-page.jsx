@@ -1,33 +1,56 @@
 import React from 'react';
 
-var eventList = [ {
-  advicer: 'The person explain everything is one of your advisors '
-},
-  {
-    advicer: 'You are the new CEO'
-  },
-  {
-    advicer: 'The current company state'
-  },
-  {
-    advicer: 'End goal by the end of 4 years/16 quaters'
-  }
-];
+import { dispatch } from '../../../stores/game-store';
+import { goHome } from '../../../actions/actions';
 
 const IntroPage = React.createClass({
-  eventList,
+  handleBack( e ) {
+    e.preventDefault();
+
+    dispatch( goHome() );
+  },
+
+  handleStart( e ) {
+    e.preventDefault();
+
+    // TODO
+  },
+
   render() {
     return (
-        <div>
-          <h1> Welcome to {this.props.CompanyName}</h1>
-          <ul>
-            {this.eventList.map(function (listvalue) {
-              return <li>{listvalue.advicer}</li>;
-            })}
-          </ul>
-            <button>Back</button>
-            <button>Start Your First Quater</button>
+      <div className="intro-page">
+        <div className="intro-page__wrapper">
+          <div className="intro-page__panel paper">
+            <h1 className="intro-page__heading">
+              Welcome to {this.props.state.game.company.name}
+            </h1>
+            <p>
+              TODO
+            </p>
+          </div>
+
+          <div className="intro-page__buttons">
+            <button
+                className="
+                  intro-page__button
+                  intro-page__button--left
+                  button
+                  button--white"
+                onClick={this.handleBack}>
+              « Back
+            </button>
+            <button
+                className="
+                  intro-page__button
+                  intro-page__button--right
+                  button
+                  button--action"
+                onClick={this.handleStart}>
+              Start Your First Quater
+            </button>
+          </div>
         </div>
+      </div>
     );
   }
 });
