@@ -14,8 +14,8 @@ export default class CompanyBuilder extends Builder {
     this.options = {};
     this.options.name = 'Default Name';
     this.options.capital = 10000000;
-    this.options.industry = {}; // TODO a real default
-    this.options.goal = {}; // TODO a real default
+    this.options.industry = {};
+    this.options.goal = {};
     this.options.marketPenetration = 0.001;
     this.options.numberOfFactories = 1;
     this.options.averageFactoryEfficiency = 0.8;
@@ -33,12 +33,10 @@ export default class CompanyBuilder extends Builder {
   }
 
   setIndustry( industry ) {
-    // TODO check typeof industry
     this.options.industry = industry;
   }
 
   setGoal( goal ) {
-    // TODO check typeof goal
     this.options.goal = goal;
   }
 

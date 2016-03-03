@@ -3,7 +3,7 @@ import {expect} from 'chai';
 import {shallow} from 'enzyme';
 const {describe, it} = global;
 
-import { default as Report } from '../final-report.jsx';
+import { default as Report } from '../final-report-page.jsx';
 
 describe('Final report page', () => {
   const report = {

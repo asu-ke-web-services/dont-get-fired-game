@@ -30,7 +30,7 @@ const StartPage = React.createClass({
                   start-page__button
                   start-page__button--first
                   button
-                  button--white
+                  button--action
                   button--block"
                 onClick={this.handlePlay}>
               new game
