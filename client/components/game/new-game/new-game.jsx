@@ -3,7 +3,11 @@ import React from 'react';
 export default React.createClass({
     onClick (option)
     {
-        return (e)
+        if (option == 1)
+        {
+
+        }
+        else if (option == 2)
         {
 
         }
