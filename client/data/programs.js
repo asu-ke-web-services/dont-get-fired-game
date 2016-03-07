@@ -2,7 +2,7 @@ export default [
   {
     name: 'Quality Control',
     description: `Add quality control checking to your business via Six Sigma.`,
-    programImage: '',
+    programImage: '/icons/quality-control-icon.png',
     initialCost(game) {
       return game.company.numberOfFactories * 10000;
     },
@@ -20,7 +20,7 @@ export default [
   {
     name: 'Recycling',
     description: '',
-    programImage: '',
+    programImage: '/icons/recycling-icon.png',
     initialCost(game) {
       return game.company.numberOfFactories * 5000;
     },
@@ -42,7 +42,7 @@ export default [
   {
     name: 'Use Clean Energy',
     description: 'Get the energy to power your factories from clean energy sources only',
-    programImage: '',
+    programImage: '/icons/clean-energy-icon.png',
     initialCost(game) {
       return game.company.numberOfFactories * 50000;
     },
@@ -65,7 +65,7 @@ export default [
   {
     name: 'Catered Lunches',
     description: '',
-    programImage: '',
+    programImage: '/icons/catering-icon.png',
     initialCost(game) {
       return game.company.numberOfFactories * 10000;
     },
@@ -87,7 +87,7 @@ export default [
   {
     name: 'Add A Factory',
     description: '',
-    programImage: '',
+    programImage: '/icons/factory-icon.png',
     allowMultiple: true,
     initialCost(game) {
       return game.industry.initialCostPerFactory;
