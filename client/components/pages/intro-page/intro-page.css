@@ -20,6 +20,14 @@
   padding: 10px;
 }
 
+.intro-page__panel p {
+  font-family: 'Khula', sans-serif;
+  line-height: 1.4rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 2rem;
+}
+
 .intro-page__heading {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 25px;
