@@ -32,6 +32,10 @@ export default class Company {
     // TODO add a factory
   }
 
+  removeFactory() {
+    // TODO remove a factory
+  }
+
   getCalculatedMetrics() {
     let actionPoints = this.actionPointsRule.calculate(
         this.companySatisfaction
