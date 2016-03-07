@@ -4,23 +4,26 @@ export default [
     description: 'Customer Satisfaction Adviser',
     advice(game) {
       let satisfaction = game.company.customerSatisfaction;
+      let sentiment;
 
       if (satisfaction > 0.6) {
-        return {
+        sentiment = {
           statement: 'Customers are saying they love your company!',
           feeling: 'GOOD',
         };
       } else if (satisfaction > 0.3) {
-        return {
+        sentiment = {
           statement: 'Customer sentiment is currently like warm.',
           feeling: 'OKAY',
         };
       } else {
-        return {
+        sentiment = {
           statement: 'Customers are running away from your products as fast as possible!',
           feeling: 'BAD',
         };
       }
+
+      return sentiment;
     }
   },
   {
@@ -28,23 +31,26 @@ export default [
     description: 'Company Satisfaction Adviser',
     advice(game) {
       let satisfaction = game.company.companySatisfaction;
+      let sentiment;
 
       if (satisfaction > 0.6) {
-        return {
+        sentiment = {
           statement: 'Your employees are saying they love working at your company!',
           feeling: 'GOOD',
         };
       } else if (satisfaction > 0.3) {
-        return {
+        sentiment = {
           statement: 'Rumor has it that employees are okay with your managerial style.',
           feeling: 'OKAY',
         };
       } else {
-        return {
+        sentiment = {
           statement: 'Employees are actively seeking other jobs and quiting!',
           feeling: 'BAD',
         };
       }
+
+      return sentiment;
     }
   },
   {
@@ -52,23 +58,26 @@ export default [
     description: 'Factory Adviser',
     advice(game) {
       let efficiency = game.company.averageFactoryEfficiency;
+      let sentiment;
 
       if (efficiency > 0.6) {
-        return {
+        sentiment = {
           statement: 'Everything seems to be in order!',
           feeling: 'GOOD',
         };
       } else if (efficiency > 0.3) {
-        return {
+        sentiment = {
           statement: 'The company\'s factories could use some improvement.',
           feeling: 'OKAY',
         };
       } else {
-        return {
+        sentiment = {
           statement: 'Our factories might as well be closed down with how ineffecient they are!',
           feeling: 'BAD',
         };
       }
+
+      return sentiment;
     }
-  },
+  }
 ];
