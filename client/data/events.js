@@ -10,10 +10,10 @@ export default [
       game.company.removeFactory();
 
       return {
-        averageFactoryEfficiency: -0.05
+        averageFactoryEfficiency: -0.05,
         companySatisfaction: -0.2,
         customerSatisfaction: -0.1
-      }
+      };
     },
     optionBLabel: 'Increase wages',
     optionB(game) {
@@ -34,14 +34,14 @@ export default [
     You can fire the management team responsible, or
     you can ignore the problem and claim ignorance.`,
     optionALabel: 'Ignore the problem',
-    optionA(game) {
+    optionA() {
       return {
         companySatisfaction: -0.3,
         customerSatisfaction: -0.2
-      }
+      };
     },
     optionBLabel: 'Fire management',
-    optionB(game) {
+    optionB() {
       return {
         averageFactoryEfficiency: -0.1,
         companySatisfaction: 0.1,
