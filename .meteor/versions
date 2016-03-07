@@ -25,6 +25,10 @@ ejson@1.0.8-beta.12
 es5-shim@4.3.2-beta.12
 fastclick@1.0.8-beta.12
 fortawesome:fontawesome@4.5.0
+gadicc:babel-compiler-hot@0.0.5-beta.12
+gadicc:ecmascript-hot@0.0.5-beta.12
+gadicc:hot@0.0.6
+gadicc:modules-runtime-hot@0.0.3-beta.12
 geojson-utils@1.0.5-beta.12
 hot-code-push@1.0.1-beta.12
 html-tools@1.0.6-beta.12
