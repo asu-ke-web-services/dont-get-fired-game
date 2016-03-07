@@ -33,7 +33,7 @@ const CreditsPage = React.createClass({
             </ul>
 
             <div className="credits-page__github">
-              Visit our 
+              Visit our
               <a
                 className="button button--link"
                 href="http://www.github.com/gios-asu/dont-get-fired-game"
