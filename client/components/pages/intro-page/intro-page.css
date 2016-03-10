@@ -1,0 +1,48 @@
+.intro-page {
+  background-color: #5d9732;
+  height: 100%;
+  height: 100vh;
+  width: 100%;
+  width: 100vw;
+}
+
+.intro-page__wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+  padding-top: 10vh;
+  width: 80vw;
+}
+
+.intro-page__panel {
+  background-color: #fefefe;
+  min-height: 40vh;
+  padding: 10px;
+}
+
+.intro-page__panel p {
+  font-family: 'Khula', sans-serif;
+  line-height: 1.4rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 2rem;
+}
+
+.intro-page__heading {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.intro-page__buttons {
+  margin-top: 10px;
+}
+
+.intro-page__button--left {
+  float: left;
+}
+
+.intro-page__button--right {
+  float: right;
+}
