@@ -1,10 +1,17 @@
 import React from 'react';
 
+import { dispatch } from '../../../stores/game-store';
+import { selectProgram } from '../../../actions/actions';
+
 export default React.createClass({
   onClick( e ) {
     e.preventDefault();
+<<<<<<< HEAD
     dispatch( selectProgram(this.props.programName, this.props.credits));
     // TODO
+=======
+    dispatch( selectProgram(this.props.program.name) );
+>>>>>>> 9226c438d10ecbdb5383384912b3518c173f9189
   },
 
   render() {
