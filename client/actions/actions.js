@@ -24,14 +24,14 @@ export function purchaseProgram(programName,credit){
 }
 =======
 export function selectProgram( programName ) {
-  return { type: ACTION_ENUM.SELECT_PROGRAM, pgmName: programName };
+  return { type: ACTION_ENUM.SELECT_PROGRAM, programName };
 }
 export function unselectProgram() {
   return { type: ACTION_ENUM.UNSELECT_PROGRAM };
 }
 
 export function addProgram( programName ) {
-  return { type: ACTION_ENUM.ADD_PROGRAM, pgmName: programName };
+  return { type: ACTION_ENUM.ADD_PROGRAM, programName };
 }
 
 >>>>>>> 9226c438d10ecbdb5383384912b3518c173f9189
