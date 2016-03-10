@@ -5,6 +5,10 @@ import { SCENE_ENUM } from '../../actions/actions';
 import { StartPage } from '../../components/pages/start-page/start-page.jsx';
 import { IntroPage } from '../../components/pages/intro-page/intro-page.jsx';
 import { CreditsPage } from '../../components/pages/credits-page/credits-page.jsx';
+import { MainPage } from '../../components/pages/main-page/main-page.jsx';
+import { EventPage } from '../../components/pages/event-page/event-page.jsx';
+import { QuaterReportPage } from '../../components/pages/quater-report-page/quater-report-page.jsx';
+import { FinalReportPage } from '../../components/pages/final-report-page/final-report-page.jsx';
 
 const determineScene = ( state ) => {
   let scene;
@@ -15,6 +19,18 @@ const determineScene = ( state ) => {
       break;
     case SCENE_ENUM.CREDITS_SCENE:
       scene = <CreditsPage state={state} />;
+      break;
+    case SCENE_ENUM.START_FIRST_QUARTER_SCENE:
+      scene = <MainPage state={state} />;
+      break;
+    case SCENE_ENUM.QUATER_REPORT_SCENE:
+      scene = <QuaterReportPage state={state} />;
+      break;
+    case SCENE_ENUM.EVENT_SCENE:
+      scene = <EventPage state={state} />;
+      break;
+    case SCENE_ENUM.FINAL_REPORT_SCENE:
+      scene = <FinalReportPage state={state} />;
       break;
     default:
       scene = <StartPage state={state} />;

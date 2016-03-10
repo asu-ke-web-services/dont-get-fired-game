@@ -5,19 +5,14 @@ import { pickEventChoice } from '../../../actions/actions';
 
 
 const EventPage = React.createClass({
-  onClick( 1 ) {
-    return (e) => {
-      e.preventDefault();
-      
-       dispatch( pickEventChoice() );
-    };
+  handleOptionOne( e ) {
+    e.preventDefault();
+    dispatch( pickEventChoice() );
+
   },
-  onClick( 2 ) {
-    return (e) => {
-      e.preventDefault();
-      
-       dispatch( pickEventChoice() );
-    };
+  handleOptionTwo( e ) {
+    e.preventDefault();
+    dispatch( pickEventChoice() );
   },
   render() {
     return (
@@ -29,8 +24,8 @@ const EventPage = React.createClass({
             {this.props.event.explain}
             <br/>
             {this.props.event.options}
-            <button className="event-page__button" onClick={this.onClick(1)}>option 1</button>
-            <button className="event-page__button" onClick={this.onClick(2)}>option 2</button>
+            <button className="event-page__button" onClick={this.handleOptionOne}>option 1</button>
+            <button className="event-page__button" onClick={this.handleOptionTwo}>option 2</button>
           </span>
         </div>
     );

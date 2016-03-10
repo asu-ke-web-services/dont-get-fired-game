@@ -36,26 +36,29 @@ const gameReducer = ( state = null, action ) => {
         game: null,
         scene: SCENE_ENUM.SPLASH_SCENE
       };
-    case ACTION_ENUM.SHOW_EVENT:
-      let event = showEvent(); 
-      
-      return {
-        ...oldState,
-        event
-      };
     case ACTION_ENUM.PICK_EVENT_CHOICE:
-      let pickeventchoice = pickEventChoice();
-      
       return {
-        ...oldState,
-        pickeventchoice
+        ...oldState
       };
     case ACTION_ENUM.START_FIRST_QUARTER:
-      let startFirstQuater = startFirstQuater();
-      
       return {
         ...oldState,
-        startFirstQuater
+        scene: SCENE_ENUM.START_FIRST_QUARTER_SCENE
+      };
+    case ACTION_ENUM.SHOW_QUATER_REPORT:
+      return {
+        ...oldState,
+        scene: SCENE_ENUM.QUATER_REPORT_SCENE
+      };
+    case ACTION_ENUM.SHOW_EVENT:
+      return {
+        ...oldState,
+        scene: SCENE_ENUM.EVENT_SCENE
+      };
+    case ACTION_ENUM.SHOW_FINAL_REPORT:
+      return {
+        ...oldState,
+        scene: SCENE_ENUM.FINAL_REPORT_SCENE
       };
     default:
       return oldState;
