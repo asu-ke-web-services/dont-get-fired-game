@@ -3,7 +3,7 @@ import React from 'react';
 export default React.createClass({
   onClick( e ) {
     e.preventDefault();
-
+    dispatch( selectProgram(this.props.programName, this.props.credits));
     // TODO
   },
 
