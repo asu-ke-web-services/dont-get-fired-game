@@ -1,7 +1,9 @@
 import React from 'react';
 
 export default React.createClass({
-  onClick() {
+  onClick( e ) {
+    e.preventDefault();
+
     // TODO
   },
 
