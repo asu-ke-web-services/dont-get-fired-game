@@ -17,11 +17,11 @@ export function newGame() {
 }
 
 export function selectProgram( programName ) {
-  return { type: ACTION_ENUM.SELECT_PROGRAM, pgmName: programName };
+  return { type: ACTION_ENUM.SELECT_PROGRAM, programName };
 }
 
 export function addProgram( programName ) {
-  return { type: ACTION_ENUM.ADD_PROGRAM, pgmName: programName };
+  return { type: ACTION_ENUM.ADD_PROGRAM, programName };
 }
 
 export function showCredits() {
