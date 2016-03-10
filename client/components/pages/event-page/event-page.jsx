@@ -4,7 +4,7 @@ import { dispatch } from '../../../stores/game-store';
 import { pickEventChoice } from '../../../actions/actions';
 
 
-const EventPage = React.createClass({
+export default React.createClass({
   handleOptionOne( e ) {
     e.preventDefault();
     dispatch( pickEventChoice() );
@@ -24,12 +24,11 @@ const EventPage = React.createClass({
             {this.props.event.explain}
             <br/>
             {this.props.event.options}
-            <button className="event-page__button" onClick={this.handleOptionOne}>option 1</button>
-            <button className="event-page__button" onClick={this.handleOptionTwo}>option 2</button>
+            <button className="event-page__button" onClick={this.handleOptionOne}>option1</button>
+            <button className="event-page__button" onClick={this.handleOptionTwo}>option2</button>
           </span>
         </div>
     );
   }
 });
 
-export { EventPage };

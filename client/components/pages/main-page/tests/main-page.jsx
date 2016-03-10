@@ -1,11 +1,13 @@
+
 // import React from 'react';
 // import {expect} from 'chai';
 // import {shallow} from 'enzyme';
-const {describe /* , it */ } = global;
+// const {describe /* , it */
+// } = global;
 
 // import { default as Main } from '../main-page.jsx';
 
-describe('Main Page', () => {
+// describe('Main Page', () => {
   // const main = {
   //   name: 'RedFox inc',
   //   introduction: 'Hi im the CEO of RedFox inc',
@@ -29,4 +31,4 @@ describe('Main Page', () => {
   //   const wrapper = shallow(<Main main={main} />);
   //   expect(wrapper.contains('Win with in 5min')).to.equal(true);
   // });
-});
+// });
