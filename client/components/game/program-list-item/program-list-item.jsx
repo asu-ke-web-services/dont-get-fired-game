@@ -6,10 +6,7 @@ import { selectProgram } from '../../../actions/actions';
 export default React.createClass({
   onClick( e ) {
     e.preventDefault();
-    dispatch( selectProgram(this.props.programName, this.props.credits));
-    // TODO
-    dispatch( selectProgram(this.props.program.name) );
-
+    dispatch( selectProgram(this.props.programName));
   },
 
   render() {
