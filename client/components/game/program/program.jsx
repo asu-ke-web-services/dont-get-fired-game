@@ -2,11 +2,13 @@ import React from 'react';
 
 import { dispatch } from '../../../stores/game-store';
 import { addProgram } from '../../../actions/actions';
+import { unselectProgram } from '../../../actions/actions';
 
 export default React.createClass({
   onClick() {
     dispatch( addProgram(this.props.program.name) );
-  onClick() {
+  },
+  onClickBack() {
     dispatch( unselectProgram() );
   },
 
