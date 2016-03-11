@@ -1,4 +1,3 @@
-/*
 import React from 'react';
 import {expect} from 'chai';
 import {shallow} from 'enzyme';
@@ -14,5 +13,5 @@ describe('main side bar button', () => {
     expect(wrapper.contains(1)).to.equal(true);
   });
 });
-*/
+
 

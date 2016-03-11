@@ -9,6 +9,10 @@
   transition: box-shadow .1s, background-color .1s;
 }
 
+.button--link {
+  display: inline-block;
+}
+
 .button--block {
   width: 100%;
 }

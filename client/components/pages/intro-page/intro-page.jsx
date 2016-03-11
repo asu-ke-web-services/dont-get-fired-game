@@ -25,7 +25,14 @@ const IntroPage = React.createClass({
               Welcome to {this.props.state.game.company.name}
             </h1>
             <p>
-              TODO
+              {this.props.state.game.company.name} needs your help!
+            </p>
+            <p>
+              The previous CEO was fired for driving the company into the ground!
+            </p>
+            <p>
+              It's up to you to help improve the company, decide which programs
+              to implement, and respond to any events that come up!
             </p>
           </div>
 

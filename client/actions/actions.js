@@ -7,6 +7,8 @@ export const ACTION_ENUM = {
   SHOW_QUATER_REPORT: 'SHOW_QUATER_REPORT',
   SHOW_EVENT: 'SHOW_EVENT',
   SHOW_FINAL_REPORT: 'SHOW_FINAL_REPORT'
+  SELECT_PROGRAM: 'SELECT_PROGRAM',
+  ADD_PROGRAM: 'ADD_PROGRAM'
 };
 
 export const SCENE_ENUM = {
@@ -21,6 +23,14 @@ export const SCENE_ENUM = {
 
 export function newGame() {
   return { type: ACTION_ENUM.NEW_GAME };
+}
+
+export function selectProgram( programName ) {
+  return { type: ACTION_ENUM.SELECT_PROGRAM, programName };
+}
+
+export function addProgram( programName ) {
+  return { type: ACTION_ENUM.ADD_PROGRAM, programName };
 }
 
 export function showCredits() {
