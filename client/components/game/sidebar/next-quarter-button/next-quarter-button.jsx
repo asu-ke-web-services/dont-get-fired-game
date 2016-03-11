@@ -2,7 +2,7 @@ import React from 'react';
 
 export default React.createClass({
   onClick( ) {
-    return (e) => {
+    return ( e ) => {
       e.preventDefault();
       // TODO
     };
@@ -11,7 +11,7 @@ export default React.createClass({
     return (
         <div>
           <span className="main-side-bar-button">
-            {this.props.main.actionPoint}
+            {this.props.main.actionPoints}
             <button className="button" onClick={this.onClick}>Next Quater</button>
             </span>
         </div>
