@@ -18,10 +18,6 @@ export function newGame() {
   return { type: ACTION_ENUM.NEW_GAME };
 }
 
-export function purchaseProgram(programName,credit){
-  return {type: ACTION_ENUM.PURCHASE_PROGRAM,programName:programName,credit:credit}
-}
-=======
 export function selectProgram( programName ) {
   return { type: ACTION_ENUM.SELECT_PROGRAM, programName };
 }
