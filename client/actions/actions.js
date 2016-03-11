@@ -18,7 +18,6 @@ export function newGame() {
   return { type: ACTION_ENUM.NEW_GAME };
 }
 
-<<<<<<< HEAD
 export function purchaseProgram(programName,credit){
   return {type: ACTION_ENUM.PURCHASE_PROGRAM,programName:programName,credit:credit}
 }
@@ -34,7 +33,6 @@ export function addProgram( programName ) {
   return { type: ACTION_ENUM.ADD_PROGRAM, programName };
 }
 
->>>>>>> 9226c438d10ecbdb5383384912b3518c173f9189
 export function showCredits() {
   return { type: ACTION_ENUM.SHOW_CREDITS };
 }
