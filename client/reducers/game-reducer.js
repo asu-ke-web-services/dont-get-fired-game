@@ -9,7 +9,7 @@ const gameReducer = ( state = null, action ) => {
   if ( state === null ) {
     oldState = {
       game: null,
-      scene: SCENE_ENUM.SPLASH_SCENE
+      scene: SCENE_ENUM.SPLASH_SCENE,
     };
   } else {
     oldState = state;
