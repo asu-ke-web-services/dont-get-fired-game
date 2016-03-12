@@ -1,30 +1,28 @@
 import React from 'react';
 
-export default React.createClass({
-  handleTweet() {
-    //
-  },
-  handleCongratulations() {
-    //
+import { dispatch } from '../../../stores/game-store';
+import { showTweetPage } from '../../../actions/actions';
+
+const FinalReportPage = React.createClass({
+  handleTweet( e ) {
+    e.preventDefault();
+
+    dispatch( showTweetPage() );
   },
   render() {
     return (
       <div className="final-report">
-        <h1 className="final-report__headline">
-          {this.props.report.name}
-        </h1>
+        <h1 className="final-report__headline"> {this.props.quater.name} </h1>
         <span className="final-report__information">
-          {this.props.report.accomplishments}
+          {this.props.accomplishments}
           <br/>
-          {this.props.report.goal}
+          {this.props.goal}
           <button className="final-report__button" onClick={this.handleTweet}>
             Tweet
-          </button>
-          <button className="final-report__button" onClick={this.handleCongratulations}>
-            Congratulations
           </button>
         </span>
       </div>
     );
   }
 });
+export { FinalReportPage };

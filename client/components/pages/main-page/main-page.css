@@ -11,7 +11,8 @@
 }
 
 .main-page__button {
-
+float: right;
+margin-top: 10px;
 }
 
 .main-page__information {

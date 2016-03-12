@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { dispatch } from '../../../stores/game-store';
-import { goHome, startFirstQuater } from '../../../actions/actions';
+import { goHome, showMain } from '../../../actions/actions';
 
 const IntroPage = React.createClass({
   handleBack( e ) {
@@ -13,7 +13,7 @@ const IntroPage = React.createClass({
   handleStart( e ) {
     e.preventDefault();
 
-    dispatch( startFirstQuater() );
+    dispatch( showMain() );
   },
 
   render() {

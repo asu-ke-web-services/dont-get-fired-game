@@ -1,29 +1,19 @@
+/*
 import React from 'react';
 import {expect} from 'chai';
 import {shallow} from 'enzyme';
 const {describe, it} = global;
 
-import { default as Report } from '../final-report-page.jsx';
+import { default as FinalReportPage } from '../final-report-page.jsx';
 
-describe('Final report page', () => {
-  const report = {
-    name: 'production',
-    accomplishments: '20% increase in production',
-    goal: 'Win with in 5min'
+describe('The quater report Page', () => {
+  const quater = {
+    name: 'one'
   };
 
-  it( 'has a name', () => {
-    const wrapper = shallow(<Report report={report} />);
-    expect(wrapper.contains('production')).to.equal(true);
-  });
-
-  it( 'has accomplishments', () => {
-    const wrapper = shallow(<Report report={report} />);
-    expect(wrapper.contains('20% increase in production')).to.equal(true);
-  });
-
-  it( 'has goal', () => {
-    const wrapper = shallow(<Report report={report} />);
-    expect(wrapper.contains('Win with in 5min')).to.equal(true);
+  it( 'has quater result', () => {
+    const wrapper = shallow(<FinalReportPage quater={quater} />);
+    expect(wrapper.contains('one')).to.equal(true);
   });
 });
+*/

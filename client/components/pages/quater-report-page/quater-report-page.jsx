@@ -1,26 +1,29 @@
 import React from 'react';
 
-export default React.createClass({
+import { dispatch } from '../../../stores/game-store';
+import { showEvent } from '../../../actions/actions';
+
+const QuaterReportPage = React.createClass({
   nextQuater(e) {
     e.preventDefault();
 
-    // TODO
+    dispatch( showEvent() );
   },
 
   render() {
     return (
-        <div className="quaterReport">
-          <h1 className="quaterReport_headline">End Of Quater {this.props.quater.quaterNumber}</h1>
+        <div className="quater-report-page">
+          <h1 className="quaterReport_headline">End Of Quater {this.props.quaterNumber}</h1>
           <span className="quaterReport_information">
-            {this.props.quater.quaterResult}
+            {this.props.quaterResult}
             <br/>
-            {this.props.quater.quaterState}
+            {this.props.quaterState}
             <br/>
-            {this.props.quater.nextQuaterState}
-            <button onClick={this.nextQuater}>Start Your Next Quater</button>
+            {this.props.nextQuaterState}
+            <button onClick={this.nextQuater}>Next</button>
           </span>
         </div>
     );
   }
 });
-
+export { QuaterReportPage };

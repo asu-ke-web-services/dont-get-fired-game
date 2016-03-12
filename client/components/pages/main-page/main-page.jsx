@@ -1,18 +1,18 @@
 import React from 'react';
 
 import { dispatch } from '../../../stores/game-store';
-import { quaterReport } from '../../../actions/actions';
+import { showQuaterReport } from '../../../actions/actions';
 
 
 const MainPage = React.createClass({
   handleClick( e ) {
     e.preventDefault();
-    dispatch( quaterReport() );
 
+    dispatch( showQuaterReport() );
   },
   render() {
     return (
-      <div>
+      <div className="main-page__button">
         <button onClick={this.handleClick}>Next Quater</button>
       </div>
     );

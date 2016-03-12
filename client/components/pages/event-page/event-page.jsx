@@ -1,29 +1,29 @@
 import React from 'react';
 
 import { dispatch } from '../../../stores/game-store';
-import { pickEventChoice } from '../../../actions/actions';
+import { showMain } from '../../../actions/actions';
 
 
-export default React.createClass({
+const EventPage = React.createClass({
   handleOptionOne( e ) {
     e.preventDefault();
-    dispatch( pickEventChoice() );
+    dispatch( showMain() );
 
   },
   handleOptionTwo( e ) {
     e.preventDefault();
-    dispatch( pickEventChoice() );
+    dispatch( showMain() );
   },
   render() {
     return (
         <div className="event-page">
           <h1 className="event-page__headline">
-            {this.props.event.name}
+          {this.props.name}
           </h1>
           <span className="event-page__information">
-            {this.props.event.explain}
+            {this.props.explain}
             <br/>
-            {this.props.event.options}
+            {this.props.options}
             <button className="event-page__button" onClick={this.handleOptionOne}>option1</button>
             <button className="event-page__button" onClick={this.handleOptionTwo}>option2</button>
           </span>
@@ -31,4 +31,4 @@ export default React.createClass({
     );
   }
 });
-
+export { EventPage };
