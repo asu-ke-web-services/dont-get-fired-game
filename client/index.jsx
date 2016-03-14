@@ -16,7 +16,7 @@ const render = () => {
   ReactDOM.render(
     <Game state={store.getState()} />,
     document.getElementById( 'render-target' )
-  );
+    );
 };
 
 /**
@@ -27,3 +27,4 @@ Meteor.startup(function () {
   store.subscribe( render );
   render();
 });
+
