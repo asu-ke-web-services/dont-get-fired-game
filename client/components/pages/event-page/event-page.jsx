@@ -1,27 +1,34 @@
 import React from 'react';
 
-export default React.createClass({
-  onClick( /* option  */ ) {
-    return (e) => {
-      e.preventDefault();
-      // TODO
-    };
+import { dispatch } from '../../../stores/game-store';
+import { showMain } from '../../../actions/actions';
+
+
+const EventPage = React.createClass({
+  handleOptionOne( e ) {
+    e.preventDefault();
+    dispatch( showMain() );
+
+  },
+  handleOptionTwo( e ) {
+    e.preventDefault();
+    dispatch( showMain() );
   },
   render() {
     return (
         <div className="event-page">
           <h1 className="event-page__headline">
-            {this.props.event.name}
+          {this.props.name}
           </h1>
           <span className="event-page__information">
-            {this.props.event.explain}
+            {this.props.explain}
             <br/>
-            {this.props.event.options}
-            <button className="event-page__button" onClick={this.onClick(1)}>option 1</button>
-            <button className="event-page__button" onClick={this.onClick(2)}>option 2</button>
+            {this.props.options}
+            <button className="event-page__button" onClick={this.handleOptionOne}>option1</button>
+            <button className="event-page__button" onClick={this.handleOptionTwo}>option2</button>
           </span>
         </div>
     );
   }
 });
-
+export { EventPage };

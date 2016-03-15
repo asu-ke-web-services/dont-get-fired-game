@@ -36,6 +36,31 @@ const gameReducer = ( state = null, action ) => {
         game: null,
         scene: SCENE_ENUM.SPLASH_SCENE
       };
+    case ACTION_ENUM.SHOW_MAIN:
+      return {
+        ...oldState,
+        scene: SCENE_ENUM.MAIN_SCENE
+      };
+    case ACTION_ENUM.SHOW_QUATER_REPORT:
+      return {
+        ...oldState,
+        scene: SCENE_ENUM.QUATER_REPORT_SCENE
+      };
+    case ACTION_ENUM.SHOW_EVENT:
+      return {
+        ...oldState,
+        scene: SCENE_ENUM.EVENT_SCENE
+      };
+    case ACTION_ENUM.SHOW_FINAL_REPORT:
+      return {
+        ...oldState,
+        scene: SCENE_ENUM.FINAL_REPORT_SCENE
+      };
+    case ACTION_ENUM.SHOW_TWEET:
+      return {
+        ...oldState,
+        scene: SCENE_ENUM.TWEET_SCENE
+      };
     default:
       return oldState;
   }

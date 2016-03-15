@@ -3,27 +3,23 @@ import {expect} from 'chai';
 import {shallow} from 'enzyme';
 const {describe, it} = global;
 
-import { default as Report } from '../final-report-page.jsx';
+import { FinalReportPage } from '../final-report-page.jsx';
 
-describe('Final report page', () => {
-  const report = {
-    name: 'production',
-    accomplishments: '20% increase in production',
-    goal: 'Win with in 5min'
-  };
-
-  it( 'has a name', () => {
-    const wrapper = shallow(<Report report={report} />);
-    expect(wrapper.contains('production')).to.equal(true);
+describe('The final quater report Page', () => {
+  const name = 'one';
+  const accomplishments = 'two';
+  const goal = 'three';
+  it( 'has name', () => {
+    const wrapper = shallow(<FinalReportPage name={name} />);
+    expect(wrapper.contains('one')).to.equal(true);
   });
-
   it( 'has accomplishments', () => {
-    const wrapper = shallow(<Report report={report} />);
-    expect(wrapper.contains('20% increase in production')).to.equal(true);
+    const wrapper = shallow(<FinalReportPage accomplishments={accomplishments} />);
+    expect(wrapper.contains('two')).to.equal(true);
   });
-
   it( 'has goal', () => {
-    const wrapper = shallow(<Report report={report} />);
-    expect(wrapper.contains('Win with in 5min')).to.equal(true);
+    const wrapper = shallow(<FinalReportPage goal={goal} />);
+    expect(wrapper.contains('three')).to.equal(true);
   });
 });
+
