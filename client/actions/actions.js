@@ -9,7 +9,8 @@ export const ACTION_ENUM = {
   SHOW_FINAL_REPORT: 'SHOW_FINAL_REPORT',
   SHOW_TWEET: 'SHOW_TWEET',
   SELECT_PROGRAM: 'SELECT_PROGRAM',
-  ADD_PROGRAM: 'ADD_PROGRAM'
+  ADD_PROGRAM: 'ADD_PROGRAM',
+  UNSELECT_PROGRAM: 'UNSELECT_PROGRAM'
 };
 
 export const SCENE_ENUM = {
@@ -30,6 +31,9 @@ export function newGame() {
 export function selectProgram( programName ) {
   return { type: ACTION_ENUM.SELECT_PROGRAM, programName };
 }
+export function unselectProgram() {
+  return { type: ACTION_ENUM.UNSELECT_PROGRAM };
+}
 
 export function addProgram( programName ) {
   return { type: ACTION_ENUM.ADD_PROGRAM, programName };
@@ -46,9 +50,6 @@ export function showQuaterReport() {
 }
 export function showEvent() {
   return { type: ACTION_ENUM.SHOW_EVENT };
-}
-export function pickEventChoice() {
-  return { type: ACTION_ENUM.PICK_EVENT_CHOICE };
 }
 export function showFinalReport() {
   return { type: ACTION_ENUM.SHOW_FINAL_REPORT };
