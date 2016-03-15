@@ -12,7 +12,7 @@ const FinalReportPage = React.createClass({
   render() {
     return (
       <div className="final-report">
-        <h1 className="final-report__headline"> {this.props.quater.name} </h1>
+        <h1 className="final-report__headline"> {this.props.name} </h1>
         <span className="final-report__information">
           {this.props.accomplishments}
           <br/>

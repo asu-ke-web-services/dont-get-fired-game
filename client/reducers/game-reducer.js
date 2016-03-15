@@ -51,10 +51,6 @@ const gameReducer = ( state = null, action ) => {
         ...oldState,
         scene: SCENE_ENUM.EVENT_SCENE
       };
-    case ACTION_ENUM.PICK_EVENT_CHOICE:
-      return {
-        ...oldState
-      };
     case ACTION_ENUM.SHOW_FINAL_REPORT:
       return {
         ...oldState,

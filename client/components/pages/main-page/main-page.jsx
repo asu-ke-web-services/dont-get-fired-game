@@ -12,7 +12,7 @@ const MainPage = React.createClass({
   },
   render() {
     return (
-      <div className="main-page__button">
+      <div className="main-page">
         <button onClick={this.handleClick}>Next Quater</button>
       </div>
     );
