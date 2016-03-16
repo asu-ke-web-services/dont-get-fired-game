@@ -13,4 +13,3 @@ describe('main side bar button', () => {
     expect(wrapper.contains(1)).to.equal(true);
   });
 });
-

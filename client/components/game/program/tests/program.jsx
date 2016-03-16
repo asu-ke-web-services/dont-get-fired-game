@@ -15,3 +15,4 @@ describe('A Program Component', () => {
     expect(wrapper.contains('Save the whales')).to.equal(true);
   });
 });
+
