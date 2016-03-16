@@ -17,7 +17,6 @@ export default React.createClass({
       <div className="program">
         <div className="program__wrapper">
           <img className="program__image" src={this.props.program.image} />
-            <span>TESTABC</span>
           <span className="program__information">
              {this.props.program.name}
              <br/>
