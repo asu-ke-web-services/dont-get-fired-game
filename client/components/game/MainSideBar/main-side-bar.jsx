@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { mainSideBarButton} from '../../../sidebar/next-quarter-button/next-quarter-button';
-import { advisorPanel } from '../../../advisor-panel/advisor-panel';
-import {companyName} from '../../../company-name/company-name';
+import { mainSideBarButton} from '../sidebar/next-quarter-button/next-quarter-button.jsx';
+import { advisorPanel } from '../advisor-panel/advisor-panel.jsx';
+import {companyName} from '../company-name/company-name.jsx';
 
 export default React.createClass({
   render() {
