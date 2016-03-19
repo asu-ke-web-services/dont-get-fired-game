@@ -19,10 +19,9 @@ const gameReducer = ( state = null, action ) => {
     case ACTION_ENUM.NEW_GAME:
       let game = new Game();
       game.init();
-
+      throw "TEST";
       return {
         ...oldState,
-       companyName: 'Demo Name',
         game,
         scene: SCENE_ENUM.INTRO_SCENE
       };
