@@ -4,9 +4,10 @@ import { default as ProgramList } from '../program-list/program-list.jsx';
 import { default as Program } from '../program/program.jsx';
 export default React.createClass({
   renderProgramGroup() {
+
     if (this.props.programs === null) {
       return (
-        <h4>No Programs Exist</h4>
+       <h4>No Programs Exist</h4>
       );
     }
     if (this.props.selectedProgram !== null) {
@@ -23,7 +24,7 @@ export default React.createClass({
   render() {
     return (
       <div className="main-action-area-window">
-        {this.renderProgramGroup()}
+       egf {this.renderProgramGroup()}
       </div>
      );
   }

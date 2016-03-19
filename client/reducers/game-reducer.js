@@ -22,6 +22,7 @@ const gameReducer = ( state = null, action ) => {
 
       return {
         ...oldState,
+       companyName: 'Demo Name',
         game,
         scene: SCENE_ENUM.INTRO_SCENE
       };

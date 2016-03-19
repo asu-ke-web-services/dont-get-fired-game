@@ -13,8 +13,10 @@ describe('Company has a name', () => {
   } ];
 
   it( 'has name', () => {
-    const wrapper = render(<CompanyName companyName={companyName} />);
+    let wrapper = render(<CompanyName companyName={companyName[0].name} />);
     expect(wrapper.text()).to.contain('Best Company');
+
+    wrapper = render(<CompanyName companyName={companyName[1].name} />);
     expect(wrapper.text()).to.contain('Worst Company');
   });
 });
