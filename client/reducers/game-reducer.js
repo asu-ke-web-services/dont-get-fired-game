@@ -19,7 +19,7 @@ const gameReducer = ( state = null, action ) => {
     case ACTION_ENUM.NEW_GAME:
       let game = new Game();
       game.init();
-      throw "TEST";
+
       return {
         ...oldState,
         game,

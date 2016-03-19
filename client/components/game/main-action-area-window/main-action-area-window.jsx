@@ -5,7 +5,7 @@ import { default as Program } from '../program/program.jsx';
 export default React.createClass({
   renderProgramGroup() {
 
-    if (this.props.programs === null) {
+    if (this.props.programs === undefined) {
       return (
        <h4>No Programs Exist</h4>
       );
