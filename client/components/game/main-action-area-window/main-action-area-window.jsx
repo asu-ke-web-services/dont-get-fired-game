@@ -5,7 +5,7 @@ import { default as Program } from '../program/program.jsx';
 export default React.createClass({
   renderProgramGroup() {
 
-    if (this.props.programs === undefined) {
+    if (this.props.programs === undefined || this.props.programs === null ) {
       return (
        <h4>No Programs Exist</h4>
       );
@@ -24,7 +24,7 @@ export default React.createClass({
   render() {
     return (
       <div className="main-action-area-window">
-       egf {this.renderProgramGroup()}
+        {this.renderProgramGroup()}
       </div>
      );
   }
