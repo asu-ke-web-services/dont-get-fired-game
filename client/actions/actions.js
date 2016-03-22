@@ -28,15 +28,15 @@ export function newGame() {
   return { type: ACTION_ENUM.NEW_GAME };
 }
 
-export function selectProgram( programName ) {
-  return { type: ACTION_ENUM.SELECT_PROGRAM, programName };
+export function selectProgram( program ) {
+  return { type: ACTION_ENUM.SELECT_PROGRAM, program };
 }
 export function unselectProgram() {
   return { type: ACTION_ENUM.UNSELECT_PROGRAM };
 }
 
-export function addProgram( programName ) {
-  return { type: ACTION_ENUM.ADD_PROGRAM, programName };
+export function addProgram( program ) {
+  return { type: ACTION_ENUM.ADD_PROGRAM, program };
 }
 
 export function showCredits() {

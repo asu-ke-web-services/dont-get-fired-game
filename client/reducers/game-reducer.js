@@ -1,7 +1,5 @@
 import { ACTION_ENUM, SCENE_ENUM } from '../actions/actions';
-
-import { default as Game } from '../models/game';
-
+import { default as CSGame } from '../models/cs-game';
 const gameReducer = ( state = null, action ) => {
   // Initialize the state
   let oldState;
@@ -17,7 +15,7 @@ const gameReducer = ( state = null, action ) => {
 
   switch ( action.type ) {
     case ACTION_ENUM.NEW_GAME:
-      let game = new Game();
+      let game = new CSGame();
       game.init();
 
       return {
@@ -39,6 +37,26 @@ const gameReducer = ( state = null, action ) => {
     case ACTION_ENUM.SHOW_MAIN:
       return {
         ...oldState,
+        scene: SCENE_ENUM.MAIN_SCENE
+      };
+
+    case ACTION_ENUM.SELECT_PROGRAM:
+      return {
+        ...oldState,
+        selectedProgram: action.program,
+        scene: SCENE_ENUM.MAIN_SCENE
+      };
+    case ACTION_ENUM.UNSELECT_PROGRAM:
+      return {
+        ...oldState,
+        selectedProgram: null,
+        scene: SCENE_ENUM.MAIN_SCENE
+      };
+    case ACTION_ENUM.ADD_PROGRAM:
+      oldState.game.BuyProgram(action.program);
+      return {
+        ...oldState,
+        selectedProgram: null,
         scene: SCENE_ENUM.MAIN_SCENE
       };
     case ACTION_ENUM.SHOW_QUATER_REPORT:

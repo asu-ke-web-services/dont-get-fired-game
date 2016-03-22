@@ -10,12 +10,12 @@ export default React.createClass({
        <h4>No Programs Exist</h4>
       );
     }
-    if (this.props.selectedProgram !== null) {
+    if (this.props.selectedProgram !== undefined && this.props.selectedProgram !== null) {
       return (
         <Program program={this.props.selectedProgram} />
       );
     }
-    if (this.props.selectedProgram === null) {
+    if (this.props.selectedProgram === undefined || this.props.selectedProgram === null) {
       return (
         <ProgramList programs={this.props.programs}/>
       );

@@ -10,15 +10,18 @@ const MainPage = React.createClass({
     return (
       <div className="main-page">
         <div className="left">
-          <MainSideBar state={this} />
-
+          <MainSideBar state={this.props.state} />
         </div>
         <div className="right">
           <div className="top">
-            <MainHeaderBar state={this} />
+            <MainHeaderBar capital={this.props.state.game.capital}
+                           capitalPerQuarter={this.props.state.game.capitalPerQuarter}
+                           currentQuarter={this.props.state.game.currentQuarter}
+                           totalQuarters={this.props.state.game.totalQuarters} />
           </div>
           <div className="mainarea">
-           <MainActionAreaWindow state={this} />
+           <MainActionAreaWindow programs={this.props.state.game.programs}
+                                 selectedProgram={this.props.state.selectedProgram} />
           </div>
         </div>
       </div>

@@ -8,10 +8,10 @@ export default React.createClass({
           Capital: {this.props.capital}
         </div>
         <div className="main-header__bar-cash-flow">
-          Cash Flow: {this.props.cashFlow}
+          Cash Flow: {this.props.capitalPerQuarter}
         </div>
         <div className="main-header__bar-quarter">
-          Quarter: {this.props.quarter} of {this.props.totalQuarterCount}
+          Quarter: {this.props.currentQuarter} of {this.props.totalQuarters}
         </div>
       </div>
     );

@@ -22,10 +22,10 @@ const IntroPage = React.createClass({
         <div className="intro-page__wrapper">
           <div className="intro-page__panel paper">
             <h1 className="intro-page__heading">
-              Welcome to {this.props.state.game.company.name}
+              Welcome to {this.props.state.game.companyName}
             </h1>
             <p>
-              {this.props.state.game.company.name} needs your help!
+              {this.props.state.game.companyName} needs your help!
             </p>
             <p>
               The previous CEO was fired for driving the company into the ground!
