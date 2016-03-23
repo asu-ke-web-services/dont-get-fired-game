@@ -1,6 +1,7 @@
 [{
      "name":"open new branch",
-     "description":"new branch company in Los Angeles",
+     "description":"new branch company in Los Angeles. May or may not make profit. Risk Decision!",
+     "shortDescription":"have a new office",
      "onBuyActionPoints":2,
      "onBuyCaptial ":3,
      "onBuySatisfaction":4,
@@ -12,7 +13,8 @@
  },
  {
      "name":"Sell a branch company",
-     "description":"Sell a non-profit branch company",
+     "description":"Sell a non-profit branch company. may make profit in the future, 20 people could lose their job",
+     "shortDescription":"sell a branch",
      "onBuyActionPoints":2,
      "onBuyCaptial ":3,
      "onBuySatisfaction":4,
@@ -24,7 +26,8 @@
  },
  {
      "name":"Hire new employee",
-     "description":"hire more people to work in company",
+     "description":"hire more people to work in company. need more people to build up new product. Might make less profit",
+     "shortDescription":"hire people",
      "onBuyActionPoints":2,
      "onBuyCaptial ":3,
      "onBuySatisfaction":4,
@@ -36,7 +39,8 @@
  },
  {
      "name":"fire employee",
-     "description":"fire some employee to have maximum profit ",
+     "description":"fire some employee to have maximum profit. Company is too big to operate. Profit is decreasing ",
+     "shortDescription":"fire some people who is not that important to the department",
      "onBuyActionPoints":2,
      "onBuyCaptial ":3,
      "onBuySatisfaction":3,
@@ -48,7 +52,8 @@
  },
 {
      "name":"promote a CIO",
-     "description":"Promote a new CIO ",
+     "description":"Promote a new CIO. To make better decision, and let team work better",
+     "shortDescription":"promote a CIO",
      "onBuyActionPoints":2,
      "onBuyCaptial ":3,
      "onBuySatisfaction":1,
@@ -60,7 +65,8 @@
  },
 {
      "name":"New develop team",
-     "description":"open a new develop team to have better product",
+     "description":"open a new develop team to have better product, might decrease the effiency by dividing teams",
+     "shortDescription":"new develop team ",
      "onBuyActionPoints":2,
      "onBuyCaptial ":2,
      "onBuySatisfaction":4,
@@ -72,7 +78,8 @@
  },
 {
      "name":"rise salary",
-     "description":"rise employee's salary",
+     "description":"rise employee's salary. Let team work better, and be more efficient",
+     "shortDescription":"rise employee's salary!Yay! ",
      "onBuyActionPoints":2,
      "onBuyCaptial ":3,
      "onBuySatisfaction":4,
@@ -84,7 +91,8 @@
  },
 {
      "name":"reduce wages",
-     "description":"reduce wages to have more profit",
+     "description":"reduce wages to have more profit. may have better profit, but may have less efficient team",
+     "shortDescription":"reduce wages  ",
      "onBuyActionPoints":2,
      "onBuyCaptial ":2,
      "onBuySatisfaction":4,
