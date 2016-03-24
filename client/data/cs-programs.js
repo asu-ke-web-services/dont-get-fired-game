@@ -9,17 +9,15 @@ export default [
   },
   {
     name: 'Sell a branch company',
-    description: 'Sell a non-profit branch company',
-    description: 'Sell a non-profit branch company. may make profit in the future, 20 people could lose their job',
+    description: 'Sell a non-profit branch company. may make profit in the future',
     shortDescription: 'sell a branch',
-    shortDescription: 'Sell a non-profit branch company,'
-    onBuyActionPoints:2,
+    onBuyActionPoints: 2,
     onBuyCaptial: 3,
     onBuySatisfaction: 4,
   },
   {
     name: 'Hire new employee',
-    description: 'hire more people to work in company. need more people to build up new product. Might make less profit',
+    description: 'hire more people to work in company. need more people to build up new product.',
     shortDescription: 'hire people',
     onBuyActionPoints: 2,
     onBuyCaptial: 3,
@@ -27,7 +25,7 @@ export default [
   },
   {
     name: 'fire employee',
-    description: 'fire some employee to have maximum profit. Company is too big to operate. Profit is decreasing',
+    description: 'fire some employee to have maximum profit. Company is too big to operate',
     shortDescription: 'fire some people who is not that important to the department',
     onBuyActionPoints: 2,
     onBuyCaptial: 3,
@@ -38,12 +36,12 @@ export default [
     description: 'Promote a new CIO. To make better decision, and let team work better',
     shortDescription: 'promote a CIO',
     onBuyActionPoints: 2,
-    onBuyCaptial : 3,
+    onBuyCaptial: 3,
     onBuySatisfaction: 1,
   },
   {
     name: 'New develop team',
-    description: 'open a new develop team to have better product, might decrease the effiency by dividing teams',
+    description: 'open a new develop team to have better product, might decrease the effiency',
     shortDescription: 'new develop team',
     onBuyActionPoints: 2,
     onBuyCaptial: 2,
@@ -59,10 +57,10 @@ export default [
   },
   {
     name: 'reduce wages',
-    description: 'reduce wages to have more profit. may have better profit, but may have less efficient team',
+    description: 'reduce wages to have more profit. may have better profit',
     shortDescription: 'reduce wages',
     onBuyActionPoints: 2,
-    onBuyCaptial : 2,
+    onBuyCaptial: 2,
     onBuySatisfaction: 4,
   }
 ];
