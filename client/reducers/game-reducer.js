@@ -53,16 +53,31 @@ const gameReducer = ( state = null, action ) => {
         scene: SCENE_ENUM.MAIN_SCENE
       };
     case ACTION_ENUM.ADD_PROGRAM:
-      oldState.game.BuyProgram(action.program);
+      oldState.game.buyProgram(action.program);
+
       return {
         ...oldState,
         selectedProgram: null,
         scene: SCENE_ENUM.MAIN_SCENE
       };
     case ACTION_ENUM.SHOW_QUATER_REPORT:
+
+
       return {
         ...oldState,
         scene: SCENE_ENUM.QUATER_REPORT_SCENE
+      };
+    case ACTION_ENUM.CLOSE_QUARTER_REPORT:
+
+      oldState.game.nextQuarter();
+      var currentScene = SCENE_ENUM.MAIN_SCENE;
+      if ( oldState.game.gameOver === true || oldState.game.goalsMeet === true ) {
+        currentScene = SCENE_ENUM.FINAL_REPORT_SCENE;
+      }
+
+      return {
+        ...oldState,
+        scene: currentScene
       };
     case ACTION_ENUM.SHOW_EVENT:
       return {

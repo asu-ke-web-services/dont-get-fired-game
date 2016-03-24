@@ -10,7 +10,8 @@ export const ACTION_ENUM = {
   SHOW_TWEET: 'SHOW_TWEET',
   SELECT_PROGRAM: 'SELECT_PROGRAM',
   ADD_PROGRAM: 'ADD_PROGRAM',
-  UNSELECT_PROGRAM: 'UNSELECT_PROGRAM'
+  UNSELECT_PROGRAM: 'UNSELECT_PROGRAM',
+  CLOSE_QUARTER_REPORT: 'CLOSE_QUARTER_REPORT'
 };
 
 export const SCENE_ENUM = {
@@ -26,6 +27,10 @@ export const SCENE_ENUM = {
 
 export function newGame() {
   return { type: ACTION_ENUM.NEW_GAME };
+}
+
+export function closeQuarterReport() {
+  return { type: ACTION_ENUM.CLOSE_QUARTER_REPORT };
 }
 
 export function selectProgram( program ) {
