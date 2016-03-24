@@ -1,8 +1,8 @@
 export default class CSGoal {
-  constructor( name, description, minCapital, minSatisfaction ) {
+  constructor( name, description, capital, satisfaction ) {
     this.name = name;
     this.description = description;
-    this.minCapital = minCapital;
-    this.minSatisfaction = minSatisfaction;
+    this.capital = capital;
+    this.satisfaction = satisfaction;
   }
 }

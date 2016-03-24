@@ -3,11 +3,15 @@ import React from 'react';
 export default React.createClass({
   renderAdvisorList() {
     let advisorList = 'No advisors';
-    if (this.props.advisors) {
-      advisorList = this.props.advisors.map((advisor, i) => {
+    if (this.props.state.game.advisors) {
+      advisorList = this.props.state.game.advisors.map((advisor, i) => {
+        let advice = advisor.advice(this.props.state.game);
         return (
           <li key={i} className="advisor-panel__list-item">
-            {advisor.name} - {advisor.dialog}
+
+          {advisor.name} - {advice.statement} - {advice.feeling}
+          <br/>
+          <br/>
           </li>
         );
       });
@@ -20,6 +24,7 @@ export default React.createClass({
     return (
       <div className="advisor-panel">
         <h2>Your Advisors</h2>
+        <br/>
         <ul className="advisor-panel__list">
           {this.renderAdvisorList()}
         </ul>
