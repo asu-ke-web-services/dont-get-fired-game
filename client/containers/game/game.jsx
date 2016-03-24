@@ -7,7 +7,7 @@ import { IntroPage } from '../../components/pages/intro-page/intro-page.jsx';
 import { CreditsPage } from '../../components/pages/credits-page/credits-page.jsx';
 import { MainPage } from '../../components/pages/main-page/main-page.jsx';
 import { EventPage } from '../../components/pages/event-page/event-page.jsx';
-import { QuaterReportPage } from '../../components/pages/quater-report-page/quater-report-page.jsx';
+import { QuaterReportPage } from '../../components/pages/quarter-report-page/quater-report-page.jsx';
 import { FinalReportPage } from '../../components/pages/final-report-page/final-report-page.jsx';
 import { ShowTweetPage } from '../../components/pages/tweet-page/tweet-page.jsx';
 

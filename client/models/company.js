@@ -28,8 +28,9 @@ export default class Company {
 
   addFactory() {
     // Special case of a program purchase
-    // TODO descrease cash
+    // TODO decrease cash
     // TODO add a factory
+
   }
 
   removeFactory() {

@@ -3,7 +3,7 @@ import {expect} from 'chai';
 import {shallow} from 'enzyme';
 const {describe, it} = global;
 
-import { QuaterReportPage } from '../quater-report-page.jsx';
+import { QuaterReportPage } from '.../quater-report-page.jsx';
 
 describe('The quater report Page', () => {
   const quaterNumber = 1;

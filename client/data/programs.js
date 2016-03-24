@@ -67,7 +67,7 @@ export default [
   },
   {
     name: 'Catered Lunches',
-    description: '',
+    description: 'Increase worker efficiency by providing lunch for them at work via a reputable catering business',
     programImage: '/icons/catering-icon.png',
     actionPoints: 3,
     initialCost(game) {
@@ -90,7 +90,7 @@ export default [
   },
   {
     name: 'Add A Factory',
-    description: '',
+    description: 'Build an additional factory to increase output',
     programImage: '/icons/factory-icon.png',
     allowMultiple: true,
     actionPoints: 20,
