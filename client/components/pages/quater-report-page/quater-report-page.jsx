@@ -1,26 +1,28 @@
 import React from 'react';
 
 import { dispatch } from '../../../stores/game-store';
-import { showEvent } from '../../../actions/actions';
+import { closeQuarterReport } from '../../../actions/actions';
 
 const QuaterReportPage = React.createClass({
-  nextQuater(e) {
+  nextQuarter(e) {
     e.preventDefault();
-
-    dispatch( showEvent() );
+    dispatch( closeQuarterReport() );
   },
 
   render() {
     return (
         <div className="quater-report-page">
-          <h1 className="quaterReport_headline">End Of Quater {this.props.quaterNumber}</h1>
+          <h1 className="quaterReport_headline">End Of Quater
+              {this.props.state.game.currentQuarter}</h1>
           <span className="quaterReport_information">
-            {this.props.quaterResult}
+            <span>You got a captial change is
+                {this.props.state.game.capitalChangeInCurrentQuarter}</span>
             <br/>
-            {this.props.quaterState}
+            <span>You got {this.props.state.game.satisfactionCurrentQuarter}
+                satisfaction points</span>
             <br/>
-            {this.props.nextQuaterState}
-            <button onClick={this.nextQuater}>Next</button>
+            <br/>
+            <button onClick={this.nextQuarter}>Next</button>
           </span>
         </div>
     );

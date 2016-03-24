@@ -3,7 +3,7 @@ export default [
     name: 'Quincy Satsoshi',
     description: 'Customer Satisfaction Adviser',
     advice(game) {
-      let satisfaction = game.company.customerSatisfaction;
+      let satisfaction = (game.totalSatisfaction / (game.currentQuarter * 5));
       let sentiment;
 
       if (satisfaction > 0.6) {
@@ -30,7 +30,7 @@ export default [
     name: 'Colleen Sanders',
     description: 'Company Satisfaction Adviser',
     advice(game) {
-      let satisfaction = game.company.companySatisfaction;
+      let satisfaction = game.actionsPerQuarter / 10;
       let sentiment;
 
       if (satisfaction > 0.6) {
@@ -57,15 +57,15 @@ export default [
     name: 'Phillis Felix',
     description: 'Factory Adviser',
     advice(game) {
-      let efficiency = game.company.averageFactoryEfficiency;
+      let satisfaction = (game.capitalPerQuarter / 5);
       let sentiment;
 
-      if (efficiency > 0.6) {
+      if (satisfaction > 0.6) {
         sentiment = {
           statement: 'Everything seems to be in order!',
           feeling: 'GOOD',
         };
-      } else if (efficiency > 0.3) {
+      } else if (satisfaction > 0.3) {
         sentiment = {
           statement: 'The company\'s factories could use some improvement.',
           feeling: 'OKAY',
