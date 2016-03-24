@@ -1,24 +1,24 @@
 import React from 'react';
-
-import { mainSideBarButton} from '../sidebar/next-quarter-button/next-quarter-button.jsx';
-import { advisorPanel } from '../advisor-panel/advisor-panel.jsx';
-import {companyName} from '../company-name/company-name.jsx';
+import { default as NextQuarterButton } from
+    '../../game/sidebar/next-quarter-button/next-quarter-button.jsx';
+import { default as AdvisorPanel } from '../advisor-panel/advisor-panel.jsx';
+import { default as CompanyName} from '../company-name/company-name.jsx';
 
 export default React.createClass({
   render() {
     return (
       <div className="main-side-bar">
         <div className="company-name">
-          <companyName/>
+          <CompanyName companyName={this.props.state.companyName} />
         </div>
         <div className="advisor-panel">
-          <advisorPanel/>
+          <AdvisorPanel state={this.props.state} />
         </div>
         <div className="next-quarter-button">
-          <mainSideBarButton/>
+          <NextQuarterButton actions={this.props.state.game.actions}/>
         </div>
       </div>
 
-    );
+      );
   }
 });

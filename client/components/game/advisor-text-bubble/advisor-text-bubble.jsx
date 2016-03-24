@@ -5,7 +5,7 @@ export default React.createClass({
     return (
         <div>
           <span className="advisor-text-bubble">
-            {this.props.main.text}
+            y {this.props.main.text}
           </span>
         </div>
     );
