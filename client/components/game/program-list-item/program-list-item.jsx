@@ -1,8 +1,12 @@
 import React from 'react';
 
+import { dispatch } from '../../../stores/game-store';
+import { selectProgram } from '../../../actions/actions';
+
 export default React.createClass({
-  onClick() {
-    // TODO
+  onClick( e ) {
+    e.preventDefault();
+    dispatch( selectProgram(this.props.program.name));
   },
 
   render() {

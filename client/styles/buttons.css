@@ -1,0 +1,39 @@
+.button {
+  border: 0;
+  border-radius: 1px;
+  cursor: pointer;
+  font-family: 'Khula', sans-serif;
+  font-size: 20px;
+  padding: 10px 15px 5px;
+
+  transition: box-shadow .1s, background-color .1s;
+}
+
+.button--link {
+  display: inline-block;
+}
+
+.button--block {
+  width: 100%;
+}
+
+.button--white {
+  background-color: #fff;
+  color: black;
+}
+
+.button--white:hover {
+  box-shadow: 0 0 5px rgba(200, 200, 200, 0.7);
+  background-color: #fefefe;
+}
+
+.button--white:active,
+.button--white:focus {
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  background-color: #fcfcfc;
+}
+
+.button--action {
+  background-color: gold;
+  color: black;
+}

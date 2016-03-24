@@ -1,6 +1,5 @@
 import Builder from './definition/builder';
 import Industry from '../models/industry';
-import _ from 'underscore';
 
 /**
  * The Industry Builder allows you to lazily build
@@ -56,7 +55,10 @@ export default class IndustryBuilder extends Builder {
   }
 
   setFromOptions( options ) {
-    this.options = _.extend( this.options, options );
+    this.options = {
+      ...this.options,
+      ...options
+    };
   }
 
   /**

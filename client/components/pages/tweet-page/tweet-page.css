@@ -1,0 +1,36 @@
+.tweet-page {
+  background-color: #5d9732;
+  height: 100%;
+  height: 100vh;
+  width: 100%;
+  width: 100vw;
+}
+
+.tweet-page__wrapper {
+  padding-top: 10vh;
+}
+
+.tweet-page__header {
+  color: white;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.tweet-page__button-container {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5vh;
+  max-width: 800px;
+  width: 90vw;
+}
+
+.tweet-page__button {
+  margin-bottom: 1vh;
+  text-align: center;
+}
+
+.start-page__button--first {
+  
+}
