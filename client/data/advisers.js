@@ -3,15 +3,17 @@ export default [
     name: 'Quincy Satsoshi',
     description: 'Customer Satisfaction Adviser',
     advice(game) {
-      let satisfaction = game.company.customerSatisfaction;
+
+      let satisfaction = (game.totalSatisfaction / (game.goals.satisfaction *
+      (game.currentQuarter / game.totalQuarters)));
       let sentiment;
 
-      if (satisfaction > 0.6) {
+      if (satisfaction > 1) {
         sentiment = {
           statement: 'Customers are saying they love your company!',
           feeling: 'GOOD',
         };
-      } else if (satisfaction > 0.3) {
+      } else if (satisfaction > 0.5) {
         sentiment = {
           statement: 'Customer sentiment is currently like warm.',
           feeling: 'OKAY',
@@ -28,17 +30,17 @@ export default [
   },
   {
     name: 'Colleen Sanders',
-    description: 'Company Satisfaction Adviser',
+    description: 'Company Actions Satisfaction Adviser',
     advice(game) {
-      let satisfaction = game.company.companySatisfaction;
+      let satisfaction = ( game.actionsPerQuarter / 10);
       let sentiment;
 
-      if (satisfaction > 0.6) {
+      if (satisfaction > 1) {
         sentiment = {
           statement: 'Your employees are saying they love working at your company!',
           feeling: 'GOOD',
         };
-      } else if (satisfaction > 0.3) {
+      } else if (satisfaction > 0.5) {
         sentiment = {
           statement: 'Rumor has it that employees are okay with your managerial style.',
           feeling: 'OKAY',
@@ -55,24 +57,26 @@ export default [
   },
   {
     name: 'Phillis Felix',
-    description: 'Factory Adviser',
+    description: 'Company Bank Satisfaction Adviser',
     advice(game) {
-      let efficiency = game.company.averageFactoryEfficiency;
+
+      let satisfaction = (game.totalCapital / (game.goals.captial *
+      (game.currentQuarter / game.totalQuarters)));
       let sentiment;
 
-      if (efficiency > 0.6) {
+      if (satisfaction > 1) {
         sentiment = {
           statement: 'Everything seems to be in order!',
           feeling: 'GOOD',
         };
-      } else if (efficiency > 0.3) {
+      } else if (satisfaction > 0.5) {
         sentiment = {
-          statement: 'The company\'s factories could use some improvement.',
+          statement: 'We could use more capital.',
           feeling: 'OKAY',
         };
       } else {
         sentiment = {
-          statement: 'Our factories might as well be closed down with how ineffecient they are!',
+          statement: 'We have barely any capital!',
           feeling: 'BAD',
         };
       }

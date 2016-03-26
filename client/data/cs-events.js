@@ -1,0 +1,122 @@
+export default [
+  {
+    name: 'Employees training',
+    description: 'Training employees for company to make better product',
+    optionALabel: 'accept',
+    optionAActionPoints: 2,
+    optionACaptial: 300,
+    optionASatisfaction: 40,
+    optionBLabel: 'deny',
+    optionBActionPoints: 1,
+    optionBCaptial: 100,
+    optionBSatisfaction: 30
+  },
+  {
+    name: 'Diluted stocks',
+    description: 'diluted stocks. Share it to employees and encourage employees',
+    optionALabel: 'diluted',
+    optionAActionPoints: 3,
+    optionACaptial: 400,
+    optionASatisfaction: 60,
+    optionBLabel: 'Dont dilute',
+    optionBActionPoints: 2,
+    optionBCaptial: 200,
+    optionBSatisfaction: 5
+  },
+  {
+    name: 'buyback stocks ',
+    description: 'buyback stocks from stockholders',
+    optionALabel: 'buyback',
+    optionAActionPoints: 2,
+    optionACaptial: 300,
+    optionASatisfaction: 55,
+    optionBLabel: 'keep cash flow',
+    optionBActionPoints: 1,
+    optionBCaptial: 100,
+    optionBSatisfaction: 25
+  },
+  {
+    name: 'Buy machine from Bob Inc or Sam Inc',
+    description: 'Company has to buy automated machine to make production line more efficent',
+    optionALabel: 'buy machine from Bob',
+    optionAActionPoints: 2,
+    optionACaptial: 200,
+    optionASatisfaction: 30,
+    optionBLabel: 'buy machine from Sam',
+    optionBActionPoints: 2,
+    optionBCaptial: 300,
+    optionBSatisfaction: 40
+  },
+  {
+    name: 'Year-End celebration',
+    description: 'Company needs to celebrate for current year and finish goal',
+    optionALabel: 'Celebrate at Hotel',
+    optionAActionPoints: 1,
+    optionACaptial: 150,
+    optionASatisfaction: 50,
+    optionBLabel: 'Celebrate inside Company',
+    optionBActionPoints: 1,
+    optionBCaptial: 50,
+    optionBSatisfaction: 30
+  },
+  {
+    name: 'Company project tender',
+    description: 'Two companies wants project, company A gives low cost',
+    optionALabel: 'Company A',
+    optionAActionPoints: 2,
+    optionACaptial: 400,
+    optionASatisfaction: 40,
+    optionBLabel: 'Company B',
+    optionBActionPoints: 2,
+    optionBCaptial: 600,
+    optionBSatisfaction: 35
+  },
+  {
+    name: 'Assign new project',
+    description: 'Decide to assign new project to Team A or Team B',
+    optionALabel: 'Team A',
+    optionAActionPoints: 2,
+    optionACaptial: 100,
+    optionASatisfaction: 35,
+    optionBLabel: 'Team B',
+    optionBActionPoints: 2,
+    optionBCaptial: 110,
+    optionBSatisfaction: 30
+  },
+  {
+    name: 'buy Working Supplies',
+    description: 'buy it from office Max or Office Depot',
+    optionALabel: 'office Max',
+    optionAActionPoints: 1,
+    optionACaptial: 30,
+    optionASatisfaction: 10,
+    optionBLabel: 'Office Depot',
+    optionBActionPoints: 1,
+    optionBCaptial: 35,
+    optionBSatisfaction: 12
+  },
+  {
+    name: 'New Construction',
+    description: 'Build by Construction team John or Construction team Ray',
+    optionALabel: 'Team john',
+    optionAActionPoints: 2,
+    optionACaptial: 250,
+    optionASatisfaction: 30,
+    optionBLabel: 'Team Ray',
+    optionBActionPoints: 2,
+    optionBCaptial: 300,
+    optionBSatisfaction: 25
+  },
+  {
+    name: 'Merge develop team',
+    description: 'Merge team A,B,C to two teams to develop 2 products',
+    optionALabel: 'Merge team A and C',
+    optionAActionPoints: 2,
+    optionACaptial: 100,
+    optionASatisfaction: 30,
+    optionBLabel: 'Merge Team A and B',
+    optionBActionPoints: 2,
+    optionBCaptial: 150,
+    optionBSatisfaction: 40
+  }
+];

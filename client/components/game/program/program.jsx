@@ -5,32 +5,59 @@ import { addProgram } from '../../../actions/actions';
 import { unselectProgram } from '../../../actions/actions';
 
 export default React.createClass({
+
   onClick() {
-    dispatch( addProgram(this.props.program.name) );
+    dispatch( addProgram(this.props.program) );
   },
   onClickBack() {
     dispatch( unselectProgram() );
   },
 
   render() {
+
+    let buttonArea = <div>NULL</div>;
+    let message = <span></span>;
+
+    if (this.props.program.isPurchased === false) {
+      if (this.props.program.onBuyActionPoints <= this.props.actionPoints &&
+          this.props.program.onBuyCaptial <= this.props.program.captial) {
+        buttonArea = <button onClick={this.onClick}>
+          Setup Program ({this.props.program.onBuyActionPoints} Action Points ,
+          {this.props.program.onBuyCaptial} Captial Cost)
+        </button>;
+      } else {
+        buttonArea = <button disabled onClick={this.onClick}>
+          Setup Program ({this.props.program.onBuyActionPoints} Action Points ,
+          {this.props.program.onBuyCaptial} Captial Cost)
+        </button>;
+      }
+
+
+    }
+    if (this.props.program.isPurchased === true) {
+      buttonArea = <div>PURCHASED</div>;
+    }
+    if (this.props.message !== null && this.props.message !== undefined ) {
+      message = <div>this.props.message</div>;
+    }
+
     return (
       <div className="program">
         <div className="program__wrapper">
           <img className="program__image" src={this.props.program.image} />
+            <br/> <br/>
           <span className="program__information">
              {this.props.program.name}
-             <br/>
-             {this.props.program.shortDescription}
-             <br/>
-             {this.props.program.cost}
-             <br/>
-             {this.props.program.additional}
+             <br/> <br/>
+             {this.props.program.description}
+             <br/> <br/>
           </span>
-          <button onClick={this.onClick}>
-            Setup Program ({this.props.program.actionPointValue} Action Points)
-          </button>
+            {buttonArea}
+            <br/>
+            {message}
+           <br/> <br/>
           <button onClick={this.onClickBack}>
-          Back ({this.props.program.actionPointValue} Action Points)
+          Back
           </button>
         </div>
       </div>

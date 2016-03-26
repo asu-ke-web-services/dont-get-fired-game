@@ -6,30 +6,34 @@ import { selectProgram } from '../../../actions/actions';
 export default React.createClass({
   onClick( e ) {
     e.preventDefault();
-    dispatch( selectProgram(this.props.program.name));
+    dispatch( selectProgram(this.props.program));
   },
 
   render() {
-    // TODO
-    let isPurchased = false;
-    let buttonImage = <div>AVAILABLE</div>;
+    let buttonImage = <div>NULL</div>;
 
-    if (isPurchased) {
-      buttonImage = <div>PURCHASED</div>;
+    if (this.props.program.isPurchased === false) {
+      buttonImage = <button onClick={this.onClick}>
+                      <div>AVAILABLE</div>
+                     </button>;
+    }
+    if (this.props.program.isPurchased === true) {
+      buttonImage = <button onClick={this.onClick}>
+      <div>PURCHASED</div>
+      </button>;
     }
 
     return (
       <div className="program-list-item">
         <div className="program-list-item__wrapper">
-          <img className="program-list-item__image" />
+          <img className="program-list-item__image" src={this.props.program.image} />
+          <br/><br/>
           <span>
             {this.props.program.name}
             <br/>
-            {this.props.program.shortDescription}
-          </span>
-          <button onClick={this.onClick}>
+            {this.props.program.description}
+          </span> <br/> <br/>
             {buttonImage}
-          </button>
         </div>
       </div>
     );
