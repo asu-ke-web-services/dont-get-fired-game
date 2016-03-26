@@ -1,19 +1,18 @@
 import { default as Advisers } from '../data/advisers';
 import { default as CSGoal } from '../models/cs-goal';
-import { default as CSProgram } from '../models/cs-program';
+import { default as CSPrograms } from '../data/cs-programs';
 export default class CSGame {
   constructor() {
     this.companyName = null;
     this.goals = null;
-    this.programs = [];
+    this.programs = CSPrograms;
     this.totalQuarters = null;
-    this.currentQuarter = null;
+    this.currentQuarter = 0;
     this.advisors = Advisers;
     this.capital = null;
     this.capitalPerQuarter = null;
     this.actions = null;
     this.actionsPerQuarter = null;
-    this.satisfactionPerQuarter = [];
     this.SampleGame();
 
   }
@@ -28,31 +27,64 @@ export default class CSGame {
       new CSGoal('Oh-So Satisfying!','Have 100 Satisfaction to win.',0, 100),
       new CSGoal('Jack Of All Trades','Have $1000 and 100 Satisfaction to win.',1000, 100)
     ]);
-    this.programs = [];
-    this.programs.push(
-      new CSProgram( 'Program Sample', 'A Great Deal',
-      10, 10, 10,
-      2, 5, 3)
-    );
-    this.programs.push(
-        new CSProgram( 'Program Sample Two', 'A Bad Deal',
-            10, 10, 0,
-            1, 1, 1)
-    );
-    this.advisors = Advisers;
     this.totalQuarters = this.getRandomOption([ 8,10,15 ]);
-    this.currentQuarter = 0;
     this.capital = this.getRandomOption([ 50,100,200 ]);
     this.capitalPerQuarter = this.getRandomOption([ 15,25,30 ]);
     this.actions = this.getRandomOption([ 1,2,3 ]);
     this.actionsPerQuarter = this.getRandomOption([ 1,2,3 ]);
-    this.satisfactionPerQuarter = [];
   }
 
-  BuyProgram(program) {
-    program.isPurchased = true;
-    this.capital -= program.onBuyCaptial;
-    this.actions -= program.onBuyActionPoints;
+   buyProgram(program) {
+    let boughtProgram = false;
+    if ( this.capital >= program.onBuyCaptial && this.actions >= program.onBuyActionPoints ) {
+      program.isPurchased = true;
+      this.capital -= program.onBuyCaptial;
+      this.actions -= program.onBuyActionPoints;
+      this.satisfactionCurrentQuarter += program.onBuySatisfaction;
+      this.capitalChangeInCurrentQuarter -= program.onBuyCaptial;
+      boughtProgram = true;
+    } else {
+      boughtProgram = false;
+    }
+    return boughtProgram;
+  }
+
+  nextQuarter() {
+    // Add Satisfaction Points
+    this.totalSatisfaction += this.satisfactionCurrentQuarter;
+
+    // Check Goals
+    if ( this.capital >= this.goals.capital && this.totalSatisfaction >= this.goals.satisfaction ) {
+      this.goalsMeet = true;
+      return;
+    }
+
+    // Check Last Turn
+    if ( this.currentQuarter === this.totalQuarters ) {
+      this.gameOver = true;
+      return;
+    }
+
+    // Clear Change In Current Quarter
+    this.satisfactionCurrentQuarter = 0;
+    this.capitalChangeInCurrentQuarter = 0;
+
+    // Base Pre Quarter
+    this.capital += this.capitalPerQuarter;
+    this.capitalChangeInCurrentQuarter += this.capitalPerQuarter;
+    this.actions = this.actionsPerQuarter;
+
+    // Programs
+    for ( var i = 0; i < this.programs.length; i++ ) {
+      if ( this.programs[i].isPurchased ) {
+        this.actions += this.programs[i].onQuarterActionPoints;
+        this.capital += this.programs[i].onQuarterCaptial;
+        this.capitalChangeInCurrentQuarter += this.programs[i].onQuarterCaptial;
+        this.satisfactionCurrentQuarter += this.programs[i].onQuarterSatisfaction;
+      }
+    }
+
+    this.currentQuarter++;
   }
 
   // pass in an array and return 1 object from that array randomly
