@@ -4,7 +4,8 @@ export default [
     description: 'Customer Satisfaction Adviser',
     advice(game) {
 
-      let satisfaction = (game.totalSatisfaction / (game.goals.satisfaction * (game.currentQuarter / game.totalQuarters)));
+      let satisfaction = (game.totalSatisfaction / (game.goals.satisfaction *
+      (game.currentQuarter / game.totalQuarters)));
       let sentiment;
 
       if (satisfaction > 1) {
@@ -12,7 +13,7 @@ export default [
           statement: 'Customers are saying they love your company!',
           feeling: 'GOOD',
         };
-      } else if (satisfaction > .5) {
+      } else if (satisfaction > 0.5) {
         sentiment = {
           statement: 'Customer sentiment is currently like warm.',
           feeling: 'OKAY',
@@ -59,7 +60,8 @@ export default [
     description: 'Company Bank Satisfaction Adviser',
     advice(game) {
 
-      let satisfaction = (game.totalCapital / (game.goals.captial * (game.currentQuarter / game.totalQuarters)));
+      let satisfaction = (game.totalCapital / (game.goals.captial *
+      (game.currentQuarter / game.totalQuarters)));
       let sentiment;
 
       if (satisfaction > 1) {
