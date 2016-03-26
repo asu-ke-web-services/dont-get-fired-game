@@ -9,7 +9,7 @@ export default [
     onQuarterActionPoints: 2,
     onQuarterCaptial: 2,
     onQuarterSatisfaction: 2,
-    isPurchased:false
+    isPurchased: false
   },
   {
     name: 'Sell a branch company',
@@ -21,7 +21,7 @@ export default [
     onQuarterActionPoints: 2,
     onQuarterCaptial: 2,
     onQuarterSatisfaction: 2,
-    isPurchased:false
+    isPurchased: false
   },
   {
     name: 'Hire new employee',
@@ -33,7 +33,7 @@ export default [
     onQuarterActionPoints: 2,
     onQuarterCaptial: 2,
     onQuarterSatisfaction: 2,
-    isPurchased:false
+    isPurchased: false
   },
   {
     name: 'fire employee',
@@ -45,7 +45,7 @@ export default [
     onQuarterActionPoints: 2,
     onQuarterCaptial: 2,
     onQuarterSatisfaction: 2,
-    isPurchased:false
+    isPurchased: false
   },
   {
     name: 'promote a CIO',
@@ -57,7 +57,7 @@ export default [
     onQuarterActionPoints: 2,
     onQuarterCaptial: 2,
     onQuarterSatisfaction: 2,
-    isPurchased:false
+    isPurchased: false
   },
   {
     name: 'New develop team',
@@ -69,7 +69,7 @@ export default [
     onQuarterActionPoints: 2,
     onQuarterCaptial: 2,
     onQuarterSatisfaction: 2,
-    isPurchased:false
+    isPurchased: false
   },
   {
     name: 'rise salary',
@@ -81,7 +81,7 @@ export default [
     onQuarterActionPoints: 2,
     onQuarterCaptial: 2,
     onQuarterSatisfaction: 2,
-    isPurchased:false
+    isPurchased: false
   },
   {
     name: 'reduce wages',
@@ -93,6 +93,6 @@ export default [
     onQuarterActionPoints: 2,
     onQuarterCaptial: 2,
     onQuarterSatisfaction: 2,
-    isPurchased:false
+    isPurchased: false
   }
 ];

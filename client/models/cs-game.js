@@ -1,11 +1,14 @@
 import { default as Advisers } from '../data/advisers';
 import { default as CSGoal } from '../models/cs-goal';
 import { default as CSPrograms } from '../data/cs-programs';
+import { default as CSEvents } from '../data/cs-events';
 export default class CSGame {
   constructor() {
     this.companyName = null;
     this.goals = null;
     this.programs = CSPrograms;
+    this.events = CSEvents;
+    this.currentEvent = null;
     this.totalQuarters = null;
     this.currentQuarter = 0;
     this.advisors = Advisers;
@@ -35,19 +38,19 @@ export default class CSGame {
   }
 
    buyProgram(program) {
-    let boughtProgram = false;
-    if ( this.capital >= program.onBuyCaptial && this.actions >= program.onBuyActionPoints ) {
-      program.isPurchased = true;
-      this.capital -= program.onBuyCaptial;
-      this.actions -= program.onBuyActionPoints;
-      this.satisfactionCurrentQuarter += program.onBuySatisfaction;
-      this.capitalChangeInCurrentQuarter -= program.onBuyCaptial;
-      boughtProgram = true;
-    } else {
-      boughtProgram = false;
-    }
-    return boughtProgram;
-  }
+     let boughtProgram = false;
+     if ( this.capital >= program.onBuyCaptial && this.actions >= program.onBuyActionPoints ) {
+       program.isPurchased = true;
+       this.capital -= program.onBuyCaptial;
+       this.actions -= program.onBuyActionPoints;
+       this.satisfactionCurrentQuarter += program.onBuySatisfaction;
+       this.capitalChangeInCurrentQuarter -= program.onBuyCaptial;
+       boughtProgram = true;
+     } else {
+       boughtProgram = false;
+     }
+     return boughtProgram;
+   }
 
   nextQuarter() {
     // Add Satisfaction Points
@@ -91,6 +94,24 @@ export default class CSGame {
   getRandomOption(list) {
     var randomIndex = Math.floor(Math.random() * list.length);
     return list[randomIndex];
+  }
+
+  getRandomEvent() {
+    this.currentEvent = this.events[Math.floor(Math.random() * this.events.length)];
+  }
+
+  processEvent(choose) {
+    if (choose === 'A') {
+      this.capital += this.currentEvent.optionACaptial;
+      this.actions += this.currentEvent.optionAActionPoints;
+      this.satisfactionCurrentQuarter += this.currentEvent.optionASatisfaction;
+      this.capitalChangeInCurrentQuarter += this.currentEvent.optionACapital;
+    } else if (choose === 'B') {
+      this.capital += this.currentEvent.optionBCapital;
+      this.actions += this.currentEvent.optionBActionPoints;
+      this.satisfactionCurrentQuarter += this.currentEvent.optionBSatisfaction;
+      this.capitalChangeInCurrentQuarter += this.currentEvent.optionBCapital;
+    }
   }
 
 }

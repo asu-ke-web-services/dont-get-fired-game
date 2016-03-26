@@ -21,7 +21,9 @@ const MainPage = React.createClass({
           </div>
           <div className="mainarea">
            <MainActionAreaWindow programs={this.props.state.game.programs}
-                                 selectedProgram={this.props.state.selectedProgram} />
+                                 selectedProgram={this.props.state.selectedProgram}
+                                 capital={this.props.state.game.capital}
+                                 actions={this.props.state.game.actions} />
           </div>
         </div>
       </div>

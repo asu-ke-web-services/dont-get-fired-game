@@ -19,10 +19,20 @@ export default React.createClass({
     let message = <span></span>;
 
     if (this.props.program.isPurchased === false) {
-      buttonArea = <button onClick={this.onClick}>
-      Setup Program ({this.props.program.onBuyActionPoints} Action Points ,
-      {this.props.program.onBuyCaptial} Captial Cost);
-      </button>;
+      if (this.props.program.onBuyActionPoints <= this.props.actionPoints &&
+          this.props.program.onBuyCaptial <= this.props.program.captial) {
+        buttonArea = <button onClick={this.onClick}>
+          Setup Program ({this.props.program.onBuyActionPoints} Action Points ,
+          {this.props.program.onBuyCaptial} Captial Cost)
+        </button>;
+      } else {
+        buttonArea = <button disabled onClick={this.onClick}>
+          Setup Program ({this.props.program.onBuyActionPoints} Action Points ,
+          {this.props.program.onBuyCaptial} Captial Cost)
+        </button>;
+      }
+
+
     }
     if (this.props.program.isPurchased === true) {
       buttonArea = <div>PURCHASED</div>;
