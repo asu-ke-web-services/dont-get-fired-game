@@ -3,7 +3,7 @@ import React from 'react';
 import { dispatch } from '../../../stores/game-store';
 import { closeQuarterReport } from '../../../actions/actions';
 
-const QuaterReportPage = React.createClass({
+const QuarterReportPage = React.createClass({
   nextQuarter(e) {
     e.preventDefault();
     dispatch( closeQuarterReport() );
@@ -11,15 +11,16 @@ const QuaterReportPage = React.createClass({
 
   render() {
     return (
-        <div className="quater-report-page">
-          <h1 className="quaterReport_headline">End Of Quater
+        <div className="quarter-report-page">
+          <h1 className="quarterReport_headline">End Of Quarter
               {this.props.state.game.currentQuarter}</h1>
-          <span className="quaterReport_information">
-            <span>You got a captial change is
+          <span className="quarterReport_information">
+            <span>You have changed your capital by $
                 {this.props.state.game.capitalChangeInCurrentQuarter}</span>
             <br/>
-            <span>You got {this.props.state.game.satisfactionCurrentQuarter}
-                satisfaction points</span>
+            <span>People's satisfaction with your company has increased by
+                {this.props.state.game.satisfactionCurrentQuarter}
+            </span>
             <br/>
             <br/>
             <button onClick={this.nextQuarter}>Next</button>
@@ -28,4 +29,4 @@ const QuaterReportPage = React.createClass({
     );
   }
 });
-export { QuaterReportPage };
+export { QuarterReportPage };
