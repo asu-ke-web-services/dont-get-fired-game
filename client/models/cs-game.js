@@ -16,6 +16,7 @@ export default class CSGame {
     this.capitalPerQuarter = null;
     this.actions = null;
     this.actionsPerQuarter = null;
+    this.totalSatisfaction = 0;
     this.SampleGame();
 
   }
