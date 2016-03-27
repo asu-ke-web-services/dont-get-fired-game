@@ -12,14 +12,20 @@ const QuaterReportPage = React.createClass({
   render() {
     return (
         <div className="quater-report-page">
-          <h1 className="quaterReport_headline">End Of Quater
-              {this.props.state.game.currentQuarter}</h1>
+          <h1 className="quaterReport_headline">
+           Quater {this.props.state.game.currentQuarter}  Report</h1>
+          <br/>
+          <br/>
           <span className="quaterReport_information">
-            <span>You got a captial change is
-                {this.props.state.game.capitalChangeInCurrentQuarter}.</span>
+            <span>You got a captial change is {this.props.state.game.capitalChangeInCurrentQuarter}
+            .</span>
             <br/>
             <span>You got {this.props.state.game.satisfactionCurrentQuarter}.
                 satisfaction points</span>
+            <br/>
+            <br/>
+            <br/>
+            <span> Keep up the good work!</span>
             <br/>
             <br/>
             <button onClick={this.nextQuarter}>Next</button>
