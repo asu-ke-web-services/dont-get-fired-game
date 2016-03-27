@@ -16,18 +16,18 @@ const FinalReportPage = React.createClass({
   },
 
   render() {
+    let goal = <div>Your goal was {this.props.state.game.goal.name}.</div>;
     let Win = <div>-</div>;
     if (this.props.state.game.goalsMeet === true) {
-      Win = <div>
-        Your goal was {this.props.state.game.goal}.</div>;
+      Win = <div>You achieved your goal!</div>;
     }
     if (this.props.state.game.goalsMeet === false) {
-      Win = <div>You Lose... :(</div>;
+      Win = <div>You failed to achieve your goal...</div>;
     }
 
     return (
       <div className="final-report">
-        <h1 className="final-report__headline"> {Win} </h1>
+        <h1 className="final-report__headline"> {goal}\n {Win} </h1>
         <span className="final-report__information">
            <span>Play again? {this.props.state.game.gameOver}</span>
           <br/>

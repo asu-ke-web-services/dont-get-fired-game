@@ -14,7 +14,7 @@ export default React.createClass({
           Quarter: {this.props.currentQuarter} of {this.props.totalQuarters}
         </div>
         <div className="main-header__bar-goal">
-          goal: {this.props.goal}
+          goal: {this.props.goal.description}
         </div>
 
       </div>

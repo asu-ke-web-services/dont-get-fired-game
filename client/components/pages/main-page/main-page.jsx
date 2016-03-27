@@ -20,7 +20,7 @@ const MainPage = React.createClass({
                            totalQuarters={this.props.state.game.totalQuarters}
                            goal={this.props.state.game.goal} />
           </div>
-          <div className="mainarea">
+          <div className="main-area">
            <MainActionAreaWindow programs={this.props.state.game.programs}
                                  selectedProgram={this.props.state.selectedProgram}
                                  capital={this.props.state.game.capital}
