@@ -18,7 +18,7 @@ const MainPage = React.createClass({
                            capitalPerQuarter={this.props.state.game.capitalPerQuarter}
                            currentQuarter={this.props.state.game.currentQuarter}
                            totalQuarters={this.props.state.game.totalQuarters}
-                           Goal={this.props.state.game.goal} />
+                           goal={this.props.state.game.goal} />
           </div>
           <div className="mainarea">
            <MainActionAreaWindow programs={this.props.state.game.programs}
