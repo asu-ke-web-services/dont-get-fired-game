@@ -19,8 +19,8 @@ export default React.createClass({
     let message = <span></span>;
 
     if (this.props.program.isPurchased === false) {
-      if (this.props.program.onBuyActionPoints <= this.props.actionPoints &&
-          this.props.program.onBuyCaptial <= this.props.program.captial) {
+      if (this.props.program.onBuyActionPoints <= this.props.actions &&
+          this.props.program.onBuyCaptial <= this.props.capital) {
         buttonArea = <button onClick={this.onClick}>
           Setup Program ({this.props.program.onBuyActionPoints} Action Points ,
           {this.props.program.onBuyCaptial} Captial Cost)

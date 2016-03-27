@@ -30,7 +30,7 @@ export default [
   },
   {
     name: 'Colleen Sanders',
-    description: 'Company Actions Satisfaction Adviser',
+    description: 'Company Invester Adviser',
     advice(game) {
       let satisfaction = ( game.actionsPerQuarter / 10);
       let sentiment;
@@ -57,7 +57,7 @@ export default [
   },
   {
     name: 'Phillis Felix',
-    description: 'Company Bank Satisfaction Adviser',
+    description: 'Company Bank Adviser',
     advice(game) {
 
       let satisfaction = (game.totalCapital / (game.goals.captial *
