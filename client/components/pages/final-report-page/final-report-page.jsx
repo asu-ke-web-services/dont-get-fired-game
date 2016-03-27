@@ -20,7 +20,8 @@ const FinalReportPage = React.createClass({
     if (this.props.state.game.goalsMeet === true) {
       Win = <div><p>Congrats!</p>
       <p>You achieved company's goal!</p>
-      <p>{this.props.state.game.companyName} achieved ${this.props.state.game.goals.capital} cashflow!</p>
+      <p>{this.props.state.game.companyName} achieved
+      ${this.props.state.game.goals.capital} cashflow!</p>
       <p>{this.props.state.game.companyName} had satisfaction:
       {this.props.state.game.goals.satisfaction}!</p>
       <p>You did so well! Company wants you be next CEO again.</p>
