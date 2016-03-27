@@ -35,11 +35,11 @@ const IntroPage = React.createClass({
               to implement, and respond to any events that come up!
             </p>
             <p>
-              your company has this goal [ {this.props.state.game.goals.name}  ]!
-              For your company success,you need to make at least
+              your company has a goal of {this.props.state.game.goals.name} !
+              For your company success, you need to make at least
               ${this.props.state.game.goals.capital} captial! have a satisfaction
               score at least {this.props.state.game.goals.satisfaction}!
-              Company believes you!
+              The company believes in you!
             </p>
           </div>
 
