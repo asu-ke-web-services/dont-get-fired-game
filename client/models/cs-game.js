@@ -10,7 +10,7 @@ export default class CSGame {
     this.events = CSEvents;
     this.currentEvent = null;
     this.totalQuarters = null;
-    this.currentQuarter = 0;
+    this.currentQuarter = 1;
     this.advisors = Advisers;
     this.capital = 0;
     this.capitalPerQuarter = 0;
