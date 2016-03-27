@@ -8,14 +8,20 @@ export default class PointDistributionStrategy extends Strategy {
     this.maxPoints = maxPoints;
   }
 
-  // TODO actually implement a good algorithm here
   execute() {
     let bins = [];
+    let temp = this.getRandom(1, this.maxPoints);
 
     for ( let i = 0; i < this.numberOfBins; i++ ) {
-      bins[i] = this.maxPoints / Number( this.numberOfBins );
+      bins[i] = temp;
+      let localMax = this.maxPoints-temp;
+      temp = this.getRandom(1, localMax);
     }
 
     return bins;
+  }
+
+  getRandom(min, max) {
+    return Math.floor(Math.random() * ( max - min ) + min);
   }
 }
