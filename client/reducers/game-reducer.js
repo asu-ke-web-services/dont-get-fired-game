@@ -70,7 +70,8 @@ const gameReducer = ( state = null, action ) => {
     case ACTION_ENUM.CLOSE_QUARTER_REPORT:
 
       oldState.game.nextQuarter();
-      var currentScene = SCENE_ENUM.MAIN_SCENE;
+      oldState.game.getRandomEvent();
+      var currentScene = SCENE_ENUM.EVENT_SCENE;
       if ( oldState.game.gameOver === true || oldState.game.goalsMeet === true ) {
         currentScene = SCENE_ENUM.FINAL_REPORT_SCENE;
       }
@@ -84,6 +85,14 @@ const gameReducer = ( state = null, action ) => {
         ...oldState,
         scene: SCENE_ENUM.EVENT_SCENE
       };
+
+    case ACTION_ENUM.SELECT_EVENT:
+      oldState.game.processEvent(action.choice);
+      return {
+        ...oldState,
+        scene: SCENE_ENUM.MAIN_SCENE
+      };
+
     case ACTION_ENUM.SHOW_FINAL_REPORT:
       return {
         ...oldState,

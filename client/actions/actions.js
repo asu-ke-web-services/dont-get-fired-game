@@ -11,7 +11,8 @@ export const ACTION_ENUM = {
   SELECT_PROGRAM: 'SELECT_PROGRAM',
   ADD_PROGRAM: 'ADD_PROGRAM',
   UNSELECT_PROGRAM: 'UNSELECT_PROGRAM',
-  CLOSE_QUARTER_REPORT: 'CLOSE_QUARTER_REPORT'
+  CLOSE_QUARTER_REPORT: 'CLOSE_QUARTER_REPORT',
+  SELECT_EVENT: 'SELECT_EVENT'
 };
 
 export const SCENE_ENUM = {
@@ -36,6 +37,10 @@ export function closeQuarterReport() {
 export function selectProgram( program ) {
   return { type: ACTION_ENUM.SELECT_PROGRAM, program };
 }
+export function selectEvent( choice ) {
+  return { type: ACTION_ENUM.SELECT_EVENT, choice };
+}
+
 export function unselectProgram() {
   return { type: ACTION_ENUM.UNSELECT_PROGRAM };
 }

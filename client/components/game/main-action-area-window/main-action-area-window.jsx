@@ -12,7 +12,8 @@ export default React.createClass({
     }
     if (this.props.selectedProgram !== undefined && this.props.selectedProgram !== null) {
       return (
-        <Program program={this.props.selectedProgram} />
+        <Program capital={this.props.capital}
+                 actions={this.props.actions} program={this.props.selectedProgram} />
       );
     }
     if (this.props.selectedProgram === undefined || this.props.selectedProgram === null) {
