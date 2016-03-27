@@ -16,9 +16,9 @@ const QuaterReportPage = React.createClass({
               {this.props.state.game.currentQuarter}</h1>
           <span className="quaterReport_information">
             <span>You got a captial change is
-                {this.props.state.game.capitalChangeInCurrentQuarter}</span>
+                {this.props.state.game.capitalChangeInCurrentQuarter}.</span>
             <br/>
-            <span>You got {this.props.state.game.satisfactionCurrentQuarter}
+            <span>You got {this.props.state.game.satisfactionCurrentQuarter}.
                 satisfaction points</span>
             <br/>
             <br/>
