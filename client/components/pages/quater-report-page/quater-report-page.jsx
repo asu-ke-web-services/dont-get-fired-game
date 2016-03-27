@@ -12,7 +12,7 @@ const QuaterReportPage = React.createClass({
   render() {
     return (
         <div className="quater-report-page">
-          <h1 className="quaterReport_headline">End Of Quater
+          <h1 className="quaterReport_headline">Quater Report
               {this.props.state.game.currentQuarter}</h1>
           <span className="quaterReport_information">
             <span>You got a captial change is

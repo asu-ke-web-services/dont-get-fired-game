@@ -34,6 +34,11 @@ const IntroPage = React.createClass({
               It's up to you to help improve the company, decide which programs
               to implement, and respond to any events that come up!
             </p>
+            <p>
+              your company has this goal [ {this.props.state.game.goals.name}  ]!For your company success,
+              you need to make at least ${this.props.state.game.goals.capital} captial! have a satisfaction
+              score at least {this.props.state.game.goals.satisfaction}! Company believes you!
+            </p>
           </div>
 
           <div className="intro-page__buttons">
