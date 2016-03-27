@@ -10,13 +10,21 @@ describe('Main header bar', () => {
   const capitalPerQuarter = 10000;
   const currentQuarter = 1;
   const totalQuarters = 10;
+
+  const goals = {
+    description: 'A Great Goal',
+    capital: 100,
+    satisfaction: 100
+  };
+
   it( 'has captial, cashflow, and quarter', () => {
     const wrapper = shallow(
         <MainHeaderBar
             capital={capital}
             capitalPerQuarter={capitalPerQuarter}
             currentQuarter={currentQuarter}
-            totalQuarters={totalQuarters}/>
+            totalQuarters={totalQuarters}
+            goals={goals}/>
     );
     expect(wrapper.contains(capital)).to.equal(true);
     expect(wrapper.contains(capitalPerQuarter)).to.equal(true);
