@@ -1,7 +1,5 @@
 import { ACTION_ENUM, SCENE_ENUM } from '../actions/actions';
-
-import { default as Game } from '../models/game';
-
+import { default as CSGame } from '../models/cs-game';
 const gameReducer = ( state = null, action ) => {
   // Initialize the state
   let oldState;
@@ -17,7 +15,7 @@ const gameReducer = ( state = null, action ) => {
 
   switch ( action.type ) {
     case ACTION_ENUM.NEW_GAME:
-      let game = new Game();
+      let game = new CSGame();
       game.init();
 
       return {
@@ -41,16 +39,60 @@ const gameReducer = ( state = null, action ) => {
         ...oldState,
         scene: SCENE_ENUM.MAIN_SCENE
       };
+
+    case ACTION_ENUM.SELECT_PROGRAM:
+      return {
+        ...oldState,
+        selectedProgram: action.program,
+        scene: SCENE_ENUM.MAIN_SCENE
+      };
+    case ACTION_ENUM.UNSELECT_PROGRAM:
+      return {
+        ...oldState,
+        selectedProgram: null,
+        scene: SCENE_ENUM.MAIN_SCENE
+      };
+    case ACTION_ENUM.ADD_PROGRAM:
+      oldState.game.buyProgram(action.program);
+
+      return {
+        ...oldState,
+        selectedProgram: null,
+        scene: SCENE_ENUM.MAIN_SCENE
+      };
     case ACTION_ENUM.SHOW_QUATER_REPORT:
+
+
       return {
         ...oldState,
         scene: SCENE_ENUM.QUATER_REPORT_SCENE
+      };
+    case ACTION_ENUM.CLOSE_QUARTER_REPORT:
+
+      oldState.game.nextQuarter();
+      oldState.game.getRandomEvent();
+      var currentScene = SCENE_ENUM.EVENT_SCENE;
+      if ( oldState.game.gameOver === true || oldState.game.goalsMeet === true ) {
+        currentScene = SCENE_ENUM.FINAL_REPORT_SCENE;
+      }
+
+      return {
+        ...oldState,
+        scene: currentScene
       };
     case ACTION_ENUM.SHOW_EVENT:
       return {
         ...oldState,
         scene: SCENE_ENUM.EVENT_SCENE
       };
+
+    case ACTION_ENUM.SELECT_EVENT:
+      oldState.game.processEvent(action.choice);
+      return {
+        ...oldState,
+        scene: SCENE_ENUM.MAIN_SCENE
+      };
+
     case ACTION_ENUM.SHOW_FINAL_REPORT:
       return {
         ...oldState,

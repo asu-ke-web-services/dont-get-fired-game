@@ -21,3 +21,27 @@
 .main-page__information {
 
 }
+
+.left {
+  display: table-cell;
+  min-width: 160px;
+ border: 2px solid;
+}
+.right {
+  display: table-cell;
+  width: 100%;
+  vertical-align: top;
+
+}
+
+.top {
+  height: 100px;
+  vertical-align: top;
+ border-bottom: 2px solid
+}
+
+.mainarea {
+  width: 100%;
+  vertical-align: top;
+
+}
