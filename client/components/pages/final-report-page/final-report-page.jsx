@@ -18,7 +18,8 @@ const FinalReportPage = React.createClass({
   render() {
     let Win = <div>-</div>;
     if (this.props.state.game.goalsMeet === true) {
-      Win = <div>You WIN!</div>;
+      Win = <div>
+        Your goal was {this.props.state.game.goal}.</div>;
     }
     if (this.props.state.game.goalsMeet === false) {
       Win = <div>You Lose... :(</div>;
@@ -28,7 +29,7 @@ const FinalReportPage = React.createClass({
       <div className="final-report">
         <h1 className="final-report__headline"> {Win} </h1>
         <span className="final-report__information">
-           <span>Did you win? {this.props.state.game.gameOver}</span>
+           <span>Play again? {this.props.state.game.gameOver}</span>
           <br/>
           <button className="final-report__button" onClick={this.handleTweet}>
             Tweet

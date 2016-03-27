@@ -12,11 +12,13 @@ export default class CSGame {
     this.totalQuarters = null;
     this.currentQuarter = 0;
     this.advisors = Advisers;
-    this.capital = null;
-    this.capitalPerQuarter = null;
-    this.actions = null;
-    this.actionsPerQuarter = null;
+    this.capital = 0;
+    this.capitalPerQuarter = 0;
+    this.actions = 0;
+    this.actionsPerQuarter = 0;
     this.totalSatisfaction = 0;
+    this.capitalChangeInCurrentQuarter = 0;
+    this.satisfactionCurrentQuarter = 0;
     this.SampleGame();
 
   }
@@ -106,12 +108,12 @@ export default class CSGame {
       this.capital += this.currentEvent.optionACaptial;
       this.actions += this.currentEvent.optionAActionPoints;
       this.satisfactionCurrentQuarter += this.currentEvent.optionASatisfaction;
-      this.capitalChangeInCurrentQuarter += this.currentEvent.optionACapital;
+      this.capitalChangeInCurrentQuarter += this.currentEvent.optionACaptial;
     } else if (choose === 'B') {
-      this.capital += this.currentEvent.optionBCapital;
+      this.capital += this.currentEvent.optionBCaptial;
       this.actions += this.currentEvent.optionBActionPoints;
       this.satisfactionCurrentQuarter += this.currentEvent.optionBSatisfaction;
-      this.capitalChangeInCurrentQuarter += this.currentEvent.optionBCapital;
+      this.capitalChangeInCurrentQuarter += this.currentEvent.optionBCaptial;
     }
   }
 
