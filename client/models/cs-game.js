@@ -19,6 +19,7 @@ export default class CSGame {
     this.totalSatisfaction = 0;
     this.capitalChangeInCurrentQuarter = 0;
     this.satisfactionCurrentQuarter = 0;
+    this.goalsMeet = false;
     this.SampleGame();
 
   }
