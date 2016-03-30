@@ -25,6 +25,7 @@ export default React.createClass({
   render() {
     return (
       <div className="main-action-area-window">
+        <h1>Programs</h1>
         {this.renderProgramGroup()}
       </div>
      );
