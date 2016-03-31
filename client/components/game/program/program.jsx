@@ -21,12 +21,12 @@ export default React.createClass({
     if (this.props.program.isPurchased === false) {
       if (this.props.program.onBuyActionPoints <= this.props.actions &&
           this.props.program.onBuyCaptial <= this.props.capital) {
-        buttonArea = <button onClick={this.onClick}>
+        buttonArea = <button className="button" onClick={this.onClick}>
           Setup Program ({this.props.program.onBuyActionPoints} Action Points ,
           {this.props.program.onBuyCaptial} Captial Cost)
         </button>;
       } else {
-        buttonArea = <button disabled onClick={this.onClick}>
+        buttonArea = <button className="button" disabled onClick={this.onClick}>
           Setup Program ({this.props.program.onBuyActionPoints} Action Points ,
           {this.props.program.onBuyCaptial} Captial Cost)
         </button>;
@@ -55,8 +55,8 @@ export default React.createClass({
             {buttonArea}
             <br/>
             {message}
-           <br/> <br/>
-          <button onClick={this.onClickBack}>
+           <br/><br/>
+          <button className="button" onClick={this.onClickBack}>
           Back
           </button>
         </div>

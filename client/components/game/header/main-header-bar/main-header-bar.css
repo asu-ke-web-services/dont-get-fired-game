@@ -1,4 +1,9 @@
 .main-header__bar {
+  background:white;
+}
+
+.main-header__wrapper{
+  padding:8px;
 }
 
 .main-header__bar-capital {

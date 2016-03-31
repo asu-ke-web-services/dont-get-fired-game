@@ -1,5 +1,5 @@
 .quater-report-page  {
-  background-color: #5d9732;
+  background-color: #a20046;
   height: 100%;
   height: 100vh;
   width: 100%;
@@ -19,5 +19,13 @@
 }
 
 .quaterReport_information {
+  background-color:white;
+  padding:8px;
+}
 
+.quarter-report-page__popup {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 50px;
 }
