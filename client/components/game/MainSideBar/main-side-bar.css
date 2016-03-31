@@ -1,6 +1,11 @@
 .main-side-bar {
+    border:2px solid #f9be16;
+    background-color:white;
 
+}
 
+.main-side-bar__wrapper{
+    padding:8px;
 }
 
 .company-name {

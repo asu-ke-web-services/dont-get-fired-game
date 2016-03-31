@@ -8,14 +8,17 @@ export default React.createClass({
   render() {
     return (
       <div className="main-side-bar">
-        <div className="company-name">
-          <CompanyName companyName={this.props.state.companyName} />
-        </div>
-        <div className="advisor-panel">
-          <AdvisorPanel state={this.props.state} />
-        </div>
-        <div className="next-quarter-button">
-          <NextQuarterButton actions={this.props.state.game.actions}/>
+        <h1>Your Advisers</h1>
+        <div className="main-side-bar__wrapper">
+          <div className="company-name">
+            <CompanyName companyName={this.props.state.companyName} />
+          </div>
+          <div className="advisor-panel">
+            <AdvisorPanel state={this.props.state} />
+          </div>
+          <div className="next-quarter-button">
+            <NextQuarterButton actions={this.props.state.game.actions}/>
+          </div>
         </div>
       </div>
 

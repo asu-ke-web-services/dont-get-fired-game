@@ -1,5 +1,5 @@
 .event-page  {
- background-color: #5d9732;
+ background-color: #a20046;
   height: 100%;
   height: 100vh;
   width: 100%;
@@ -14,14 +14,29 @@
 
 }
 
-.event-page__button {
 
-}
 
 .event-page__information {
-
+ background: white;
+ min-height: 50px;
+ padding: 8px;
 }
 
-.event-page__button {
+.event-page__buttonLeft {
+ margin-top:10px;
+ width:200px;
+}
 
+.event-page__buttonRight {
+ float:right;
+ margin-top:10px;
+ width:200px;
+}
+
+
+.event-page__popup {
+ width: 500px;
+ margin-left: auto;
+ margin-right: auto;
+ padding-top: 50px;
 }

@@ -1,5 +1,5 @@
 .intro-page {
-  background-color: #5d9732;
+  background-color: #a20046;
   height: 100%;
   height: 100vh;
   width: 100%;
@@ -17,7 +17,7 @@
 .intro-page__panel {
   background-color: #fefefe;
   min-height: 40vh;
-  padding: 10px;
+
 }
 
 .intro-page__panel p {
@@ -31,8 +31,7 @@
 .intro-page__heading {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 25px;
-  font-weight: 400;
-  text-align: center;
+
 }
 
 .intro-page__buttons {

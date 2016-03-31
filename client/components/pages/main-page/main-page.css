@@ -1,9 +1,10 @@
 .main-page  {
- background-color: #5d9732;
+ background-color: #a20046;
   height: 100%;
-  height: 100vh;
+
   width: 100%;
-  width: 100vw;
+
+  font-family: Khula;
 }
 
 .main-page__headline {
@@ -24,20 +25,24 @@
 
 .left {
   display: table-cell;
-  min-width: 160px;
- border: 2px solid;
+  min-width: 300px;
+    padding-left:25px;
+    padding-top:25px;
+
 }
 .right {
   display: table-cell;
   width: 100%;
   vertical-align: top;
+    padding-left:25px;
+    padding-top:25px;
+    padding-right:25px;
 
 }
 
 .top {
-  height: 70px;
   vertical-align: top;
- border-bottom: 2px solid
+  border: 2px solid #f8bd16
 }
 
 .mainarea {

@@ -11,9 +11,11 @@ export default React.createClass({
     return (
         <div>
           <span className="main-side-bar-button">
-            Actions: {this.props.actions} <br/> <br/>
+
+
             <button className="button" onClick={this.onClick}>Next Quater</button>
-            </span>
+            <div className="remainingActions">Actions: {this.props.actions}</div>
+          </span>
         </div>
     );
   }

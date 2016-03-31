@@ -1,5 +1,5 @@
 .credits-page {
-  background-color: #5d9732;
+  background-color: #a20046;
   height: 100%;
   height: 100vh;
   width: 100%;
@@ -17,7 +17,6 @@
 .credits-page__panel {
   background-color: #fefefe;
   min-height: 40vh;
-  padding: 10px;
   text-align: center;
 }
 
@@ -37,7 +36,7 @@
   line-height: 1.4rem;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .credits-page__panel ul {
@@ -54,8 +53,7 @@
 .credits-page__heading {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 25px;
-  font-weight: 400;
-  text-align: center;
+
 }
 
 .credits-page__github,

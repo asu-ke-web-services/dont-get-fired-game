@@ -13,7 +13,7 @@ export default React.createClass({
     let buttonImage = <div>NULL</div>;
 
     if (this.props.program.isPurchased === false) {
-      buttonImage = <button onClick={this.onClick}>
+      buttonImage = <button className="button" onClick={this.onClick}>
                       <div>AVAILABLE</div>
                      </button>;
     }
