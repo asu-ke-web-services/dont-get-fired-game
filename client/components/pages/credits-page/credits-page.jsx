@@ -33,7 +33,9 @@ const CreditsPage = React.createClass({
             </ul>
 
             <h3>Icons</h3><br/>
-            <a href='http://www.freepik.com/free-vector/male-and-female-avatars_766955.htm'>Designed by Freepik</a>
+            <a href='http://www.freepik.com/free-vector/male-and-female-avatars_766955.htm'>
+              Designed by Freepik
+            </a>
             <div className="credits-page__github">
               Visit our
               <a

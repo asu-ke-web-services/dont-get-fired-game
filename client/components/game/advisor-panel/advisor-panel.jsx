@@ -8,7 +8,7 @@ export default React.createClass({
         let advice = advisor.advice(this.props.state.game);
         return (
           <li key={i} className="advisor-panel__list-item">
-          <p><img width="100" src={"icons/adviser"+(i+1)+".jpg"}/>
+          <p><img width="100" src={'icons/adviser' + (i + 1) + '.jpg'}/>
           {advisor.name}</p>
           <div>
             {advice.statement} - {advice.feeling}
