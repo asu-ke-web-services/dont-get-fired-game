@@ -34,7 +34,7 @@ export default class CSGame {
       new CSGoal('Oh-So Satisfying!','Have 100 Satisfaction to win.',0, 100),
       new CSGoal('Jack Of All Trades','Have $1000 and 100 Satisfaction to win.',1000, 100)
     ]);
-    this.totalQuarters = this.getRandomOption([ 8,10,15 ]);
+    this.totalQuarters = this.getRandomOption([ 8,10 ]);
     this.capital = this.getRandomOption([ 50,100,200 ]);
     this.capitalPerQuarter = this.getRandomOption([ 15,25,30 ]);
     this.actions = this.getRandomOption([ 1,2,3 ]);

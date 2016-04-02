@@ -32,7 +32,7 @@ const FinalReportPage = React.createClass({
       <p> You are fired </p>
       <p>The Company should achieve ${this.props.state.game.goals.captial}!</p>
       <p>Satisfaction should be {this.props.state.game.goals.satisfaction}!</p>
-      <p>You only got ${this.props.state.game.capital} capital and
+      <p>You only got ${this.props.state.game.capital} capital and 
         {this.props.state.game.totalSatisfaction} satisfaction points!</p>
       <p>Sorry, you lost the game!</p>
       <p>you can do better next time </p></div>;

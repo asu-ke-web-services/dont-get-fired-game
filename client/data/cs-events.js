@@ -4,84 +4,84 @@ export default [
     description: 'Training employees for company to make better product',
     optionALabel: 'accept',
     optionAActionPoints: 2,
-    optionACaptial: 300,
-    optionASatisfaction: 40,
+    optionACaptial: 110,
+    optionASatisfaction: 19,
     optionBLabel: 'deny',
     optionBActionPoints: 1,
-    optionBCaptial: 100,
-    optionBSatisfaction: 30
+    optionBCaptial: 50,
+    optionBSatisfaction: 17
   },
   {
     name: 'Diluted stocks',
     description: 'diluted stocks. Share it to employees and encourage employees',
     optionALabel: 'diluted',
     optionAActionPoints: 3,
-    optionACaptial: 400,
-    optionASatisfaction: 60,
+    optionACaptial: -50,
+    optionASatisfaction: 17,
     optionBLabel: 'Dont dilute',
     optionBActionPoints: 2,
-    optionBCaptial: 200,
-    optionBSatisfaction: 5
+    optionBCaptial: 80,
+    optionBSatisfaction: -5
   },
   {
     name: 'buyback stocks ',
     description: 'buyback stocks from stockholders',
     optionALabel: 'buyback',
     optionAActionPoints: 2,
-    optionACaptial: 300,
-    optionASatisfaction: 55,
+    optionACaptial: -100,
+    optionASatisfaction: 20,
     optionBLabel: 'keep cash flow',
     optionBActionPoints: 1,
-    optionBCaptial: 100,
-    optionBSatisfaction: 25
+    optionBCaptial: 50,
+    optionBSatisfaction: 15
   },
   {
     name: 'Buy machine from Bob Inc or Sam Inc',
     description: 'Company has to buy automated machine to make production line more efficent',
     optionALabel: 'buy machine from Bob',
     optionAActionPoints: 2,
-    optionACaptial: 200,
-    optionASatisfaction: 30,
+    optionACaptial: 100,
+    optionASatisfaction: 12,
     optionBLabel: 'buy machine from Sam',
     optionBActionPoints: 2,
-    optionBCaptial: 300,
-    optionBSatisfaction: 40
+    optionBCaptial: 125,
+    optionBSatisfaction: 17
   },
   {
     name: 'Year-End celebration',
     description: 'Company needs to celebrate for current year and finish goal',
     optionALabel: 'Celebrate at Hotel',
     optionAActionPoints: 1,
-    optionACaptial: 150,
-    optionASatisfaction: 50,
+    optionACaptial: 50,
+    optionASatisfaction: 16,
     optionBLabel: 'Celebrate inside Company',
     optionBActionPoints: 1,
-    optionBCaptial: 50,
-    optionBSatisfaction: 30
+    optionBCaptial: 170,
+    optionBSatisfaction: 18
   },
   {
     name: 'Company project tender',
     description: 'Two companies wants project, company A gives low cost',
     optionALabel: 'Company A',
     optionAActionPoints: 2,
-    optionACaptial: 400,
-    optionASatisfaction: 40,
+    optionACaptial: 150,
+    optionASatisfaction: -5,
     optionBLabel: 'Company B',
     optionBActionPoints: 2,
-    optionBCaptial: 600,
-    optionBSatisfaction: 35
+    optionBCaptial: 60,
+    optionBSatisfaction: 16
   },
   {
     name: 'Assign new project',
     description: 'Decide to assign new project to Team A or Team B',
     optionALabel: 'Team A',
     optionAActionPoints: 2,
-    optionACaptial: 100,
-    optionASatisfaction: 35,
+    optionACaptial: 90,
+    optionASatisfaction: 20,
     optionBLabel: 'Team B',
     optionBActionPoints: 2,
     optionBCaptial: 110,
-    optionBSatisfaction: 30
+    optionBSatisfaction: 11
   },
   {
     name: 'buy Working Supplies',
@@ -89,23 +89,23 @@ export default [
     optionALabel: 'office Max',
     optionAActionPoints: 1,
     optionACaptial: 30,
-    optionASatisfaction: 10,
+    optionASatisfaction: 12,
     optionBLabel: 'Office Depot',
     optionBActionPoints: 1,
     optionBCaptial: 35,
-    optionBSatisfaction: 12
+    optionBSatisfaction: 15
   },
   {
     name: 'New Construction',
     description: 'Build by Construction team John or Construction team Ray',
     optionALabel: 'Team john',
     optionAActionPoints: 2,
-    optionACaptial: 250,
-    optionASatisfaction: 30,
+    optionACaptial: 90,
+    optionASatisfaction: -5,
     optionBLabel: 'Team Ray',
     optionBActionPoints: 2,
-    optionBCaptial: 300,
-    optionBSatisfaction: 25
+    optionBCaptial: 75,
+    optionBSatisfaction: 19
   },
   {
     name: 'Merge develop team',
@@ -113,10 +113,10 @@ export default [
     optionALabel: 'Merge team A and C',
     optionAActionPoints: 2,
     optionACaptial: 100,
-    optionASatisfaction: 30,
+    optionASatisfaction: 12,
     optionBLabel: 'Merge Team A and B',
     optionBActionPoints: 2,
     optionBCaptial: 150,
-    optionBSatisfaction: 40
+    optionBSatisfaction: 18
   }
 ];
