@@ -39,7 +39,7 @@ const IntroPage = React.createClass({
               For your company success, you need to make at least
               ${this.props.state.game.goals.capital} captial! have a satisfaction
               score at least {this.props.state.game.goals.satisfaction}!
-              The company believes in you !
+              The company believes in you!
             </p>
           </div>
 
