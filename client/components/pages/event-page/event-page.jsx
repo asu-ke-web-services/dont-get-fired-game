@@ -17,17 +17,20 @@ const EventPage = React.createClass({
   render() {
     return (
         <div className="event-page">
+          <div className="event-page__popup">
           <h1 className="event-page__headline">
           {this.props.state.game.currentEvent.name}
           </h1>
-          <span className="event-page__information">
+
+          <div className="event-page__information">
             {this.props.state.game.currentEvent.description}
             <br/>
-            <button className="event-page__button" onClick={this.handleOptionOne}>
-                {this.props.state.game.currentEvent.optionALabel}</button>
-            <button className="event-page__button" onClick={this.handleOptionTwo}>
-                {this.props.state.game.currentEvent.optionBLabel}</button>
-          </span>
+          </div>
+            <button className="button event-page__buttonLeft" onClick={this.handleOptionOne}>
+              {this.props.state.game.currentEvent.optionALabel}</button>
+            <button className="button event-page__buttonRight" onClick={this.handleOptionTwo}>
+              {this.props.state.game.currentEvent.optionBLabel}</button>
+            </div>
         </div>
     );
   }

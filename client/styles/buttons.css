@@ -5,7 +5,6 @@
   font-family: 'Khula', sans-serif;
   font-size: 20px;
   padding: 10px 15px 5px;
-
   transition: box-shadow .1s, background-color .1s;
 }
 
@@ -34,6 +33,6 @@
 }
 
 .button--action {
-  background-color: gold;
+  background-color: #f9be16;
   color: black;
 }

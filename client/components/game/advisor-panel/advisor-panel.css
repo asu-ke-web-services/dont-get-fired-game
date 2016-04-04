@@ -2,10 +2,34 @@
 
 }
 
+.advisor-panel h2{
+    font-size:25px;
+}
+
 .advisor-panel__list {
 
 }
 
 .advisor-panel__list-item {
+    background-color: #a10046;
+    border:2px solid gold;
+    margin:8px;
+}
 
+.advisor-panel__list-item p img {
+    vertical-align: top;
+    margin-right:5px;
+
+}
+
+.advisor-panel__list-item p{
+    padding:5px;
+    color:gold;
+    font-size:20px;
+    text-align:left;
+}
+
+.advisor-panel__list-item div{
+    color:white;
+    padding:5px;
 }

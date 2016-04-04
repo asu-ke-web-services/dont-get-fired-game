@@ -1,9 +1,14 @@
-/*
+
 .main-side-bar-button  {
-// 
+  margin-left:5px;
 }
 
 .button {
- //
+
 }
-*/
+
+.remainingActions {
+  margin-left:25px;
+  font-size:18px;
+  display:inline;
+}
