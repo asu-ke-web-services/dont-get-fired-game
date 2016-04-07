@@ -88,9 +88,15 @@ const gameReducer = ( state = null, action ) => {
 
     case ACTION_ENUM.SELECT_EVENT:
       oldState.game.processEvent(action.choice);
+
+      currentScene = SCENE_ENUM.MAIN_SCENE;
+      if ( oldState.game.gameOver === true || oldState.game.goalsMeet === true ) {
+        currentScene = SCENE_ENUM.FINAL_REPORT_SCENE;
+      }
+
       return {
         ...oldState,
-        scene: SCENE_ENUM.MAIN_SCENE
+        scene: currentScene
       };
 
     case ACTION_ENUM.SHOW_FINAL_REPORT:

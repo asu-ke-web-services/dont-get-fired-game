@@ -16,7 +16,8 @@ const MainPage = React.createClass({
           <div className="top">
             <MainHeaderBar capital={this.props.state.game.capital}
                            name = {this.props.state.game.companyName}
-                           capitalPerQuarter={this.props.state.game.capitalPerQuarter}
+                           totalSatisfaction={this.props.state.game.totalSatisfaction +
+                            this.props.state.game.satisfactionCurrentQuarter}
                            currentQuarter={this.props.state.game.currentQuarter}
                            totalQuarters={this.props.state.game.totalQuarters}
                            goals={this.props.state.game.goals} />
