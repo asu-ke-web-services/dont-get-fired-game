@@ -24,7 +24,7 @@ const FinalReportPage = React.createClass({
       ${this.props.state.game.capital} capital!</p>
       <p>{this.props.state.game.companyName} had satisfaction:
       {this.props.state.game.totalSatisfaction}!</p>
-      <p>You did so well! Company wants you be next CEO again.</p>
+      <p>You did so well! In fact, the company wants you be CEO again.</p>
       <p>Come back to us!</p></div>;
     }
     if (this.props.state.game.goalsMeet === false) {
@@ -35,26 +35,25 @@ const FinalReportPage = React.createClass({
       <p>You only got ${this.props.state.game.capital} capital
          and {this.props.state.game.totalSatisfaction} satisfaction points!</p>
       <p>Sorry, you lost the game!</p>
-      <p>you can do better next time </p></div>;
+      <p>You can do better next time </p></div>;
     }
 
     return (
       <div className="final-report">
         <h1 className="final-report__headline"> {Win} </h1>
-        <span className="final-report__information">
-           <br/>
-           <br/>
-           <br/>
-           <span>Play Again? {this.props.state.game.gameOver}</span>
-          <br/>
-          <button className="final-report__button" onClick={this.handleTweet}>
-            Tweet
-          </button>
-          <br/><br/>
-          <button className="final-report__button" onClick={this.handleGoHome}>
-            New Game
-          </button>
-        </span>
+        <div className="final-report__information">
+          <div className="playAgainWrapper">
+            <h2>Play Again? {this.props.state.game.gameOver}</h2>
+            <br/>
+            <button className="button" onClick={this.handleTweet}>
+              Tweet
+            </button>
+            <br/><br/>
+            <button className="button" onClick={this.handleGoHome}>
+              New Game
+            </button>
+            </div>
+        </div>
       </div>
     );
   }

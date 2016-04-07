@@ -1,0 +1,8 @@
+html,body{
+    height:100%;
+}
+
+body{
+    background-color: #a00046;
+    background-image: url("vines.png");
+}
