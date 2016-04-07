@@ -97,7 +97,7 @@ export default [
   },
   {
     name: 'New Building',
-    description: 'Should the new building be built by construction team John or construction team Ray?',
+    description: 'Should the new building be built by construction team John or Ray?',
     optionALabel: 'Team John',
     optionAActionPoints: 2,
     optionACaptial: 90,
