@@ -3,7 +3,7 @@ import {expect} from 'chai';
 import {shallow} from 'enzyme';
 const {describe, it} = global;
 
-import { default as AdviserPanel } from '../adviser-list.jsx';
+import { default as AdviserList } from '../adviser-list.jsx';
 
 describe('Adviser Panel', () => {
   const advisers1 = [

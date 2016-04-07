@@ -37,7 +37,7 @@ export default [
   },
   {
     name: 'Buy a Machine From Bob Inc or Sam Inc',
-    description: 'The company has to buy an automated machine to make the production line more efficient.',
+    description: 'The company has to buy a new machine to make production more efficient.',
     optionALabel: 'Buy From Bob',
     optionAActionPoints: 2,
     optionACaptial: 100,
@@ -61,7 +61,7 @@ export default [
   },
   {
     name: 'Company Project Tender',
-    description: 'Two companies want to work with you on a project, Company A seems to offer a low cost.',
+    description: 'Two companies want to work with you. Company A seems to offer a low cost.',
     optionALabel: 'Company A',
     optionAActionPoints: 2,
     optionACaptial: 150,
@@ -85,8 +85,8 @@ export default [
   },
   {
     name: 'Buy New Office Supplies',
-    description: 'buy it from office Max or Office Depot',
-    optionALabel: 'Cffice Max',
+    description: 'Buy the new supplies from office Max or Office Depot?',
+    optionALabel: 'Office Max',
     optionAActionPoints: 1,
     optionACaptial: 30,
     optionASatisfaction: 12,
@@ -97,7 +97,7 @@ export default [
   },
   {
     name: 'New Building',
-    description: 'A new building is being created. Should it be built by construction team John or construction team Ray',
+    description: 'Should the new building be built by construction team John or construction team Ray?',
     optionALabel: 'Team John',
     optionAActionPoints: 2,
     optionACaptial: 90,

@@ -1,7 +1,7 @@
 export default [
   {
     name: 'Open a New Branch',
-    description: 'Open a new branch company in Los Angeles. The branch may or may not make profit. Quite a risky decision!',
+    description: 'Open a new branch company in Los Angeles. It may or may not make profit.',
     shortDescription: 'have a new office',
     onBuyActionPoints: 2,
     onBuyCaptial: 5,
@@ -27,7 +27,7 @@ export default [
   },
   {
     name: 'Hire a New Employee',
-    description: 'Hire more people to work for the company. You may need more people to build up a new product.',
+    description: 'Hire more people. You may need more people to build up a new product.',
     shortDescription: 'hire people',
     onBuyActionPoints: 2,
     onBuyCaptial: 30,
@@ -40,7 +40,7 @@ export default [
   },
   {
     name: 'Fire an Employee',
-    description: 'Fire an employee to have maximum profit. The company is too big to operate at this moment.',
+    description: 'Fire employees for maximum profit. The company may be too big at this moment.',
     shortDescription: 'fire some people who is not that important to the department',
     onBuyActionPoints: 2,
     onBuyCaptial: 30,
@@ -66,7 +66,7 @@ export default [
   },
   {
     name: 'Add a New Development Team',
-    description: 'Open a new development team to create a better product, though it may decrease overall efficiency.',
+    description: 'Open a new development team for a new product. It may decrease efficiency.',
     shortDescription: 'new develop team',
     onBuyActionPoints: 1,
     onBuyCaptial: 80,

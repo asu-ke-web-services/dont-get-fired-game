@@ -26,7 +26,7 @@ export default React.createClass({
 
     return (
       <div className='program-list-item '>
-        <div className={"program-list-item__wrapper "+ purchased}>
+        <div className={'program-list-item__wrapper ' + purchased}>
           <img className="program-list-item__image" src={this.props.program.programImage} />
           <br/>
             <h3>{this.props.program.name}</h3>
