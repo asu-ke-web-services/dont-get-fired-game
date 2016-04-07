@@ -1,7 +1,7 @@
 export default [
   {
-    name: 'open new branch',
-    description: 'new branch company in Los Angeles. May or may not make profit. Risk Decision!',
+    name: 'Open a New Branch',
+    description: 'Open a new branch company in Los Angeles. The branch may or may not make profit. Quite a risky decision!',
     shortDescription: 'have a new office',
     onBuyActionPoints: 2,
     onBuyCaptial: 5,
@@ -9,11 +9,12 @@ export default [
     onQuarterActionPoints: 2,
     onQuarterCaptial: 2,
     onQuarterSatisfaction: 2,
+    programImage: 'icons/building.png',
     isPurchased: false
   },
   {
-    name: 'Sell a branch company',
-    description: 'Sell a non-profit branch company. may make profit in the future',
+    name: 'Sell a Branch Company',
+    description: 'Sell a non-profit branch company. May result in profit in the future.',
     shortDescription: 'sell a branch',
     onBuyActionPoints: 2,
     onBuyCaptial: 6,
@@ -21,11 +22,12 @@ export default [
     onQuarterActionPoints: 2,
     onQuarterCaptial: 2,
     onQuarterSatisfaction: 2,
+    programImage: 'icons/building.png',
     isPurchased: false
   },
   {
-    name: 'Hire new employee',
-    description: 'hire more people to work in company. need more people to build up new product.',
+    name: 'Hire a New Employee',
+    description: 'Hire more people to work for the company. You may need more people to build up a new product.',
     shortDescription: 'hire people',
     onBuyActionPoints: 2,
     onBuyCaptial: 30,
@@ -33,11 +35,12 @@ export default [
     onQuarterActionPoints: 2,
     onQuarterCaptial: 2,
     onQuarterSatisfaction: 2,
+    programImage: 'icons/person.png',
     isPurchased: false
   },
   {
-    name: 'fire employee',
-    description: 'fire some employee to have maximum profit. Company is too big to operate',
+    name: 'Fire an Employee',
+    description: 'Fire an employee to have maximum profit. The company is too big to operate at this moment.',
     shortDescription: 'fire some people who is not that important to the department',
     onBuyActionPoints: 2,
     onBuyCaptial: 30,
@@ -45,11 +48,12 @@ export default [
     onQuarterActionPoints: 2,
     onQuarterCaptial: 2,
     onQuarterSatisfaction: 2,
+    programImage: 'icons/person.png',
     isPurchased: false
   },
   {
-    name: 'promote a CIO',
-    description: 'Promote a new CIO. To make better decision, and let team work better',
+    name: 'Promote an Employee to CIO',
+    description: 'Promote a new CIO to make better decisions and have your team work better.',
     shortDescription: 'promote a CIO',
     onBuyActionPoints: 3,
     onBuyCaptial: 10,
@@ -57,11 +61,12 @@ export default [
     onQuarterActionPoints: 2,
     onQuarterCaptial: 2,
     onQuarterSatisfaction: 2,
+    programImage: 'icons/person.png',
     isPurchased: false
   },
   {
-    name: 'New develop team',
-    description: 'open a new develop team to have better product, might decrease the effiency',
+    name: 'Add a New Development Team',
+    description: 'Open a new development team to create a better product, though it may decrease overall efficiency.',
     shortDescription: 'new develop team',
     onBuyActionPoints: 1,
     onBuyCaptial: 80,
@@ -69,11 +74,12 @@ export default [
     onQuarterActionPoints: 2,
     onQuarterCaptial: 2,
     onQuarterSatisfaction: 2,
+    programImage: 'icons/person.png',
     isPurchased: false
   },
   {
-    name: 'rise salary',
-    description: 'rise employee salary. Let team work better, and be more efficient',
+    name: 'Raise the Salary of All Employees',
+    description: 'Raise employee salary. May allow the team to work better, and be more efficient.',
     shortDescription: 'rise employee salary!Yay!',
     onBuyActionPoints: 2,
     onBuyCaptial: 30,
@@ -81,11 +87,12 @@ export default [
     onQuarterActionPoints: 2,
     onQuarterCaptial: 2,
     onQuarterSatisfaction: 2,
+    programImage: 'icons/money.png',
     isPurchased: false
   },
   {
-    name: 'reduce wages',
-    description: 'reduce wages to have more profit. may have better profit',
+    name: 'Reduce Wages',
+    description: 'Reduce the wages of your workers to possibly generate better profit.',
     shortDescription: 'reduce wages',
     onBuyActionPoints: 2,
     onBuyCaptial: 40,
@@ -93,6 +100,7 @@ export default [
     onQuarterActionPoints: 2,
     onQuarterCaptial: 2,
     onQuarterSatisfaction: 2,
+    programImage: 'icons/money.png',
     isPurchased: false
   }
 ];

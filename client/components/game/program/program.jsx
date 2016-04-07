@@ -44,21 +44,16 @@ export default React.createClass({
     return (
       <div className="program">
         <div className="program__wrapper">
-          <img className="program__image" src={this.props.program.image} />
-            <br/> <br/>
-          <span className="program__information">
-             {this.props.program.name}
-             <br/> <br/>
-             {this.props.program.description}
-             <br/> <br/>
-          </span>
-            {buttonArea}
-            <br/>
-            {message}
-           <br/><br/>
-          <button className="button" onClick={this.onClickBack}>
-          Back
-          </button>
+          <img className="program__image" src={this.props.program.programImage} />
+          <br/> <br/>
+          <h3>{this.props.program.name}</h3>
+          {this.props.program.description}
+          <br/> <br/>
+          {buttonArea}
+          <br/>
+          {message}
+          <br/><br/>
+          <button className="button" onClick={this.onClickBack}>Back</button>
         </div>
       </div>
     );

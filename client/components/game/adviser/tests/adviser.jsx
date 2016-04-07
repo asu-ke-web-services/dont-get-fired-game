@@ -3,9 +3,9 @@ import {expect} from 'chai';
 import {shallow} from 'enzyme';
 const {describe, it} = global;
 
-import { default as Main } from '../advisor-text-bubble.jsx';
+import { default as Main } from '../adviser.jsx';
 
-describe('advisor text bubble', () => {
+describe('adviser text bubble', () => {
   const main = {
     text: 'RedFox inc',
   };

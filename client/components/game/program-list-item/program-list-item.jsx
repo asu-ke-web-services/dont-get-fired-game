@@ -11,28 +11,28 @@ export default React.createClass({
 
   render() {
     let buttonImage = <div>NULL</div>;
-
+    let purchased = '';
     if (this.props.program.isPurchased === false) {
       buttonImage = <button className="button" onClick={this.onClick}>
                       <div>AVAILABLE</div>
                      </button>;
     }
     if (this.props.program.isPurchased === true) {
-      buttonImage = <button onClick={this.onClick}>
+      purchased = 'purchased';
+      buttonImage = <div>
       <div>PURCHASED</div>
-      </button>;
+      </div>;
     }
 
     return (
-      <div className="program-list-item">
-        <div className="program-list-item__wrapper">
-          <img className="program-list-item__image" src={this.props.program.image} />
-          <br/><br/>
-          <span>
-            {this.props.program.name}
-            <br/>
+      <div className='program-list-item '>
+        <div className={"program-list-item__wrapper "+ purchased}>
+          <img className="program-list-item__image" src={this.props.program.programImage} />
+          <br/>
+            <h3>{this.props.program.name}</h3>
+
             {this.props.program.description}
-          </span> <br/> <br/>
+           <br/> <br/>
             {buttonImage}
         </div>
       </div>
