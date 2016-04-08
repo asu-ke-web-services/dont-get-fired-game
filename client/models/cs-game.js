@@ -6,8 +6,8 @@ export default class CSGame {
   constructor() {
     this.companyName = null;
     this.goals = null;
-    this.programs = CSPrograms;
-    this.events = CSEvents;
+    this.programs = JSON.parse(JSON.stringify(CSPrograms));
+    this.events = JSON.parse(JSON.stringify(CSEvents));
     this.currentEvent = null;
     this.totalQuarters = null;
     this.currentQuarter = 0;
@@ -115,6 +115,12 @@ export default class CSGame {
       this.actions += this.currentEvent.optionBActionPoints;
       this.satisfactionCurrentQuarter += this.currentEvent.optionBSatisfaction;
       this.capitalChangeInCurrentQuarter += this.currentEvent.optionBCaptial;
+    }
+
+    if ( this.capital >= this.goals.capital && (this.totalSatisfaction +
+        this.satisfactionCurrentQuarter) >= (this.goals.satisfaction) ) {
+      this.goalsMeet = true;
+      return;
     }
   }
 

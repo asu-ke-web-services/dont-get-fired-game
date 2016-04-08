@@ -1,26 +1,37 @@
-// import React from 'react';
-// import {expect} from 'chai';
-// import {shallow} from 'enzyme';
-// const {describe, it} = global;
+import React from 'react';
+import {expect} from 'chai';
+import {shallow} from 'enzyme';
+const {describe, it} = global;
 
-// import { EventPage } from '../event-page.jsx';
+import { EventPage } from '../event-page.jsx';
 
-// describe('Event Page', () => {
-//  const name = 'production';
-//  const explain = 'Food is bad';
-//  const options = 'Options';
+describe('Event Page', () => {
 
-//  it( 'has a name', () => {
-//    const wrapper = shallow(<EventPage name={name} />);
-//    expect(wrapper.contains('production')).to.equal(true);
-//  });
-//  it( 'has options', () => {
-//    const wrapper = shallow(<EventPage explain={explain} />);
-//    expect(wrapper.contains('Food is bad')).to.equal(true);
-//  });
-//  it( 'has explanation', () => {
-//    const wrapper = shallow(<EventPage options={options} />);
-//    expect(wrapper.contains('Options')).to.equal(true);
-//  });
-// });
+  var gameData = { game: {
+    currentEvent: {
+      name: 'name',
+      description: 'description',
+      optionALabel: 'optionALabel',
+      optionBLabel: 'optionBLabel'
+    }
+  }
+  };
+  // if (gameData === undefined) {
+  //  gameData = 1;
+  // }
 
+  const wrapper = shallow(<EventPage state={gameData} />);
+
+  it( 'has a name', () => {
+    expect(wrapper.contains('name')).to.equal(true);
+  });
+  it( 'has description', () => {
+    expect(wrapper.contains('description')).to.equal(true);
+  });
+  it( 'has optionALabel', () => {
+    expect(wrapper.contains('optionALabel')).to.equal(true);
+  });
+  it( 'has optionBLabel', () => {
+    expect(wrapper.contains('optionBLabel')).to.equal(true);
+  });
+});

@@ -2,19 +2,19 @@ export default [
   {
     name: 'Employees training',
     description: 'Training employees for company to make better product',
-    optionALabel: 'accept',
+    optionALabel: 'Accept',
     optionAActionPoints: 2,
     optionACaptial: 110,
     optionASatisfaction: 19,
-    optionBLabel: 'deny',
+    optionBLabel: 'Deny',
     optionBActionPoints: 1,
     optionBCaptial: 50,
     optionBSatisfaction: 17
   },
   {
     name: 'Diluted stocks',
-    description: 'diluted stocks. Share it to employees and encourage employees',
-    optionALabel: 'diluted',
+    description: 'Diluted stocks. Share it to employees and encourage employees',
+    optionALabel: 'Diluted',
     optionAActionPoints: 3,
     optionACaptial: -50,
     optionASatisfaction: 17,
@@ -24,13 +24,13 @@ export default [
     optionBSatisfaction: -5
   },
   {
-    name: 'buyback stocks ',
-    description: 'buyback stocks from stockholders',
-    optionALabel: 'buyback',
+    name: 'Buyback stocks ',
+    description: 'Buyback stocks from stockholders',
+    optionALabel: 'Buyback',
     optionAActionPoints: 2,
     optionACaptial: -100,
     optionASatisfaction: 20,
-    optionBLabel: 'keep cash flow',
+    optionBLabel: 'Keep cash flow',
     optionBActionPoints: 1,
     optionBCaptial: 50,
     optionBSatisfaction: 15
@@ -38,11 +38,11 @@ export default [
   {
     name: 'Buy machine from Bob Inc or Sam Inc',
     description: 'Company has to buy automated machine to make production line more efficent',
-    optionALabel: 'buy machine from Bob',
+    optionALabel: 'Buy machine from Bob',
     optionAActionPoints: 2,
     optionACaptial: 100,
     optionASatisfaction: 12,
-    optionBLabel: 'buy machine from Sam',
+    optionBLabel: 'Buy machine from Sam',
     optionBActionPoints: 2,
     optionBCaptial: 125,
     optionBSatisfaction: 17
@@ -84,9 +84,9 @@ export default [
     optionBSatisfaction: 11
   },
   {
-    name: 'buy Working Supplies',
-    description: 'buy it from office Max or Office Depot',
-    optionALabel: 'office Max',
+    name: 'Buy Working Supplies',
+    description: 'Buy it from office Max or Office Depot',
+    optionALabel: 'Office Max',
     optionAActionPoints: 1,
     optionACaptial: 30,
     optionASatisfaction: 12,
