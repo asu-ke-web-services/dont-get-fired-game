@@ -30,9 +30,9 @@ export default class CSGame {
     this.companyName = this.getRandomOption([ 'Solar Tech','Freddy and Friend\'s Discount Cars',
       'David\'s Bucket O\' Chicken', 'Dane and Ash Guitars', 'Gary\'s General Store' ]);
     this.goals = this.getRandomOption([
-      new CSGoal('Get Rich','Have $1000 to win.',1000, 0),
-      new CSGoal('Oh-So Satisfying!','Have 100 Satisfaction to win.',0, 100),
-      new CSGoal('Jack Of All Trades','Have $1000 and 100 Satisfaction to win.',1000, 100)
+      new CSGoal('Get Rich','Have $1000 to win.',1500, 0),
+      new CSGoal('Oh-So Satisfying!','Have 100 Satisfaction to win.',0, 140),
+      new CSGoal('Jack Of All Trades','Have $1000 and 100 Satisfaction to win.',1500, 140)
     ]);
     this.totalQuarters = this.getRandomOption([ 8,10 ]);
     this.capital = this.getRandomOption([ 150,200,300 ]);
