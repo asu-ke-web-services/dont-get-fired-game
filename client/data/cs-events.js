@@ -1,7 +1,7 @@
 export default [
   {
     name: 'Employees training',
-    description: 'Training employees for company to make better product.Deny:saving money. Accept:high satisfaction',
+    description: 'Training employees for company to make better product.(Training costs money)',
     optionALabel: 'Accept',
     optionAActionPoints: 2,
     optionACaptial: 50,
@@ -13,7 +13,7 @@ export default [
   },
   {
     name: 'Diluted stocks',
-    description: 'Diluted stocks. Share it to employees and encourage employees',
+    description: 'Diluted stocks. Share it to employees if not people wont be happy',
     optionALabel: 'Diluted',
     optionAActionPoints: 3,
     optionACaptial: 50,
@@ -25,7 +25,7 @@ export default [
   },
   {
     name: 'Buyback stocks ',
-    description: 'Buyback stocks from stockholders.BuyBack: cost more money->make you company happy',
+    description: 'Buyback stocks from stockholders.',
     optionALabel: 'Buyback',
     optionAActionPoints: 2,
     optionACaptial: 100,
@@ -37,19 +37,19 @@ export default [
   },
   {
     name: 'Buy machine from Bob Inc or Sam Inc',
-    description: 'Company has to buy automated machine to make production line more efficent, Sam product costs more',
+    description: 'Sam Inc has better reputation',
     optionALabel: 'Buy machine from Bob',
     optionAActionPoints: 2,
-    optionACaptial: -100,
+    optionACaptial: 100,
     optionASatisfaction: 12,
     optionBLabel: 'Buy machine from Sam',
     optionBActionPoints: 2,
-    optionBCaptial: -125,
+    optionBCaptial: 125,
     optionBSatisfaction: 17
   },
   {
     name: 'Year-End celebration',
-    description: 'Company needs to celebrate for current year and finish goal',
+    description: 'Company needs to celebrate for finishing goal(Big Party or Small One?)',
     optionALabel: 'Celebrate at Hotel',
     optionAActionPoints: 1,
     optionACaptial: 50,
@@ -61,7 +61,7 @@ export default [
   },
   {
     name: 'Company project tender',
-    description: 'Two companies wants project, company A gives low cost, but low satisfaction',
+    description: 'Two companies want project(Small Company A gave better offer)',
     optionALabel: 'Company A',
     optionAActionPoints: 2,
     optionACaptial: 120,
@@ -73,7 +73,7 @@ export default [
   },
   {
     name: 'Assign new project',
-    description: 'Decide to assign new project to Team A or Team B. Team A can make more profit, high satisfaction points',
+    description: 'Decide to assign new project(Team A costs more, did better job)',
     optionALabel: 'Team A',
     optionAActionPoints: 2,
     optionACaptial: 90,
@@ -97,7 +97,7 @@ export default [
   },
   {
     name: 'New Construction',
-    description: 'Build by Construction team John or Construction team Ray. John has low satisfaction',
+    description: 'Ray is more sustainable, but it costs money',
     optionALabel: 'Team john',
     optionAActionPoints: 2,
     optionACaptial: 110,
@@ -109,14 +109,14 @@ export default [
   },
   {
     name: 'Merge develop team',
-    description: 'Merge team A,B,C to two teams to develop 2 products. Merge A and B could be more efficent',
+    description: 'MMerge A and B could make people happy, cant make much profit',
     optionALabel: 'Merge team A and C',
     optionAActionPoints: 2,
     optionACaptial: 120,
     optionASatisfaction: 12,
     optionBLabel: 'Merge Team A and B',
     optionBActionPoints: 2,
-    optionBCaptial: 150,
+    optionBCaptial: 100,
     optionBSatisfaction: 18
   }
 ];
