@@ -6,8 +6,8 @@ export default class CSGame {
   constructor() {
     this.companyName = null;
     this.goals = null;
-    this.programs = CSPrograms;
-    this.events = CSEvents;
+    this.programs = JSON.parse(JSON.stringify(CSPrograms));
+    this.events = JSON.parse(JSON.stringify(CSEvents));
     this.currentEvent = null;
     this.totalQuarters = null;
     this.currentQuarter = 0;
@@ -30,9 +30,9 @@ export default class CSGame {
     this.companyName = this.getRandomOption([ 'Solar Tech','Freddy and Friend\'s Discount Cars',
       'David\'s Bucket O\' Chicken', 'Dane and Ash Guitars', 'Gary\'s General Store' ]);
     this.goals = this.getRandomOption([
-      new CSGoal('Get Rich','Have $1000 to win.',1000, 0),
-      new CSGoal('Oh-So Satisfying!','Have 100 Satisfaction to win.',0, 100),
-      new CSGoal('Jack Of All Trades','Have $1000 and 100 Satisfaction to win.',1000, 100)
+      new CSGoal('Get Rich','Have $1500 to win.',1500, 0),
+      new CSGoal('Oh-So Satisfying!','Have 150 Satisfaction to win.',0, 150),
+      new CSGoal('Jack Of All Trades','Have $1500 and 150 Satisfaction to win.',1500, 150)
     ]);
     this.totalQuarters = this.getRandomOption([ 8,10 ]);
     this.capital = this.getRandomOption([ 150,200,300 ]);
@@ -115,6 +115,12 @@ export default class CSGame {
       this.actions += this.currentEvent.optionBActionPoints;
       this.satisfactionCurrentQuarter += this.currentEvent.optionBSatisfaction;
       this.capitalChangeInCurrentQuarter += this.currentEvent.optionBCaptial;
+    }
+
+    if ( this.capital >= this.goals.capital && (this.totalSatisfaction +
+        this.satisfactionCurrentQuarter) >= (this.goals.satisfaction) ) {
+      this.goalsMeet = true;
+      return;
     }
   }
 

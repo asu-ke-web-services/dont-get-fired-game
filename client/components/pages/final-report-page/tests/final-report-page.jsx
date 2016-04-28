@@ -1,25 +1,43 @@
-// import React from 'react';
-// import {expect} from 'chai';
-// import {shallow} from 'enzyme';
-// const {describe, it} = global;
+import React from 'react';
+import {expect} from 'chai';
+import {shallow} from 'enzyme';
+const {describe, it} = global;
 
-// import { FinalReportPage } from '../final-report-page.jsx';
+import { FinalReportPage } from '../final-report-page.jsx';
 
-// describe('The final quater report Page', () => {
-//  const name = 'one';
-//  const accomplishments = 'two';
-//  const goal = 'three';
-//  it( 'has name', () => {
-//    const wrapper = shallow(<FinalReportPage name={name} />);
-//    expect(wrapper.contains('one')).to.equal(true);
-//  });
-//  it( 'has accomplishments', () => {
-//    const wrapper = shallow(<FinalReportPage accomplishments={accomplishments} />);
-//    expect(wrapper.contains('two')).to.equal(true);
-//  });
-//  it( 'has goal', () => {
-//    const wrapper = shallow(<FinalReportPage goal={goal} />);
-//    expect(wrapper.contains('three')).to.equal(true);
-//  });
-// });
+describe('The final quater report Page', () => {
 
+  var gameWin = { game: {
+    goalsMeet: true,
+    companyName: 'companyName',
+    capital: 105,
+    totalSatisfaction: 121,
+    goals: {
+      satisfaction: 100,
+      capital: 100
+    }
+  }
+  };
+  var gameLose = { game: {
+    goalsMeet: false,
+    companyName: 'companyName',
+    capital: 50,
+    totalSatisfaction: 73,
+    goals: {
+      satisfaction: 100,
+      capital: 100
+    }
+  }
+  };
+
+  it( 'has Win State', () => {
+    const wrapper = shallow(<FinalReportPage state={gameWin} />);
+    // console.log(wrapper.text());
+    expect(wrapper.contains('Congrats!')).to.equal(true);
+  });
+  it( 'has Lose State', () => {
+    const wrapper = shallow(<FinalReportPage state={gameLose} />);
+    expect(wrapper.contains('Sorry, you lost the game!')).to.equal(true);
+  });
+
+});
