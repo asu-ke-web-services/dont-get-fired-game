@@ -9,6 +9,6 @@ describe('The Start Page', () => {
 
   it( 'has new game button', () => {
     const wrapper = shallow(<StartPage />);
-    expect(wrapper.contains('new game')).to.equal(true);
+    expect(wrapper.contains('New Game')).to.equal(true);
   });
 });
