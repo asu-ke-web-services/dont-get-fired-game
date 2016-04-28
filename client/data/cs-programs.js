@@ -10,7 +10,6 @@ export default [
     onQuarterActionPoints: 1,
     onQuarterCaptial: 40,
     onQuarterSatisfaction: 5,
-    programImage: 'icons/building.png',
     isPurchased: false
   },
   {
