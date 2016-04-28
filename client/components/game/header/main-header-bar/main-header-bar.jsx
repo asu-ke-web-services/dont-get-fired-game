@@ -19,8 +19,8 @@ export default React.createClass({
           </div>
           <div className="main-header__bar-goal">
             <div className="main-header__bar-goal">
-                Goal Capital: {this.props.goals.capital} <br/>
-                Goal Satisfaction Points: {this.props.goals.satisfaction}
+                Goal Minimum Required Capital: {this.props.goals.capital} <br/>
+                Goal Minimum Required Satisfaction Points: {this.props.goals.satisfaction}
             </div>
 
         </div>
