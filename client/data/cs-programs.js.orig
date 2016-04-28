@@ -3,39 +3,66 @@ export default [
     name: 'Open a New Branch',
     description: 'Open a new branch company in Los Angeles. It may or may not make profit.',
     shortDescription: 'have a new office',
+<<<<<<< HEAD
+    onBuyActionPoints: 2,
+    onBuyCaptial: 5,
+    onBuySatisfaction: 10,
+    onQuarterActionPoints: 2,
+    onQuarterCaptial: 2,
+    onQuarterSatisfaction: 2,
     programImage: 'icons/building.png',
+=======
     onBuyActionPoints: 4,
     onBuyCaptial: 200,
     onBuySatisfaction: 8,
     onQuarterActionPoints: 1,
     onQuarterCaptial: 40,
     onQuarterSatisfaction: 5,
+>>>>>>> 0bc7dc6dcb2703ca655578aff2d0d061cfff6892
     isPurchased: false
   },
   {
     name: 'Sell a Branch Company',
     description: 'Sell a non-profit branch company. May result in profit in the future.',
     shortDescription: 'sell a branch',
+<<<<<<< HEAD
+    onBuyActionPoints: 2,
+    onBuyCaptial: 6,
+    onBuySatisfaction: 15,
+    onQuarterActionPoints: 2,
+    onQuarterCaptial: 2,
+    onQuarterSatisfaction: 2,
     programImage: 'icons/building.png',
+=======
     onBuyActionPoints: 6,
     onBuyCaptial: 240,
     onBuySatisfaction: 10,
     onQuarterActionPoints: 4,
     onQuarterCaptial: 30,
     onQuarterSatisfaction: 5,
+>>>>>>> 0bc7dc6dcb2703ca655578aff2d0d061cfff6892
     isPurchased: false
   },
   {
     name: 'Hire a New Employee',
     description: 'Hire more people. You may need more people to build up a new product.',
     shortDescription: 'hire people',
+<<<<<<< HEAD
+    onBuyActionPoints: 2,
+    onBuyCaptial: 30,
+    onBuySatisfaction: 12,
+    onQuarterActionPoints: 2,
+    onQuarterCaptial: 2,
+    onQuarterSatisfaction: 2,
+    programImage: 'icons/person.png',
+=======
     onBuyActionPoints: 5,
     onBuyCaptial: 100,
     onBuySatisfaction: 5,
     onQuarterActionPoints: 3,
     onQuarterCaptial: 27,
     onQuarterSatisfaction: 6,
-    programImage: 'icons/person.png',
+>>>>>>> 0bc7dc6dcb2703ca655578aff2d0d061cfff6892
     isPurchased: false
   },
   {
@@ -43,12 +70,20 @@ export default [
     description: 'Fire employees for maximum profit. The company may be too big at this moment.',
     shortDescription: 'fire some people who is not that important to the department',
     onBuyActionPoints: 2,
+<<<<<<< HEAD
+    onBuyCaptial: 30,
+    onBuySatisfaction: 6,
+    onQuarterActionPoints: 2,
+    onQuarterCaptial: 2,
+    onQuarterSatisfaction: 2,
     programImage: 'icons/person.png',
+=======
     onBuyCaptial: 130,
     onBuySatisfaction: 9,
     onQuarterActionPoints: 3,
     onQuarterCaptial: 31,
     onQuarterSatisfaction: 4,
+>>>>>>> 0bc7dc6dcb2703ca655578aff2d0d061cfff6892
     isPurchased: false
   },
   {
@@ -56,12 +91,20 @@ export default [
     description: 'Promote a new CIO to make better decisions and have your team work better.',
     shortDescription: 'promote a CIO',
     onBuyActionPoints: 3,
+<<<<<<< HEAD
+    onBuyCaptial: 10,
+    onBuySatisfaction: 14,
+    onQuarterActionPoints: 2,
+    onQuarterCaptial: 2,
+    onQuarterSatisfaction: 2,
     programImage: 'icons/person.png',
+=======
     onBuyCaptial: 100,
     onBuySatisfaction: 9,
     onQuarterActionPoints: 5,
     onQuarterCaptial: 14,
     onQuarterSatisfaction: 4,
+>>>>>>> 0bc7dc6dcb2703ca655578aff2d0d061cfff6892
     isPurchased: false
   },
   {
@@ -69,38 +112,64 @@ export default [
     description: 'Open a new development team for a new product. It may decrease efficiency.',
     shortDescription: 'new develop team',
     onBuyActionPoints: 1,
+<<<<<<< HEAD
+    onBuyCaptial: 80,
+    onBuySatisfaction: 19,
+    onQuarterActionPoints: 2,
+    onQuarterCaptial: 2,
+    onQuarterSatisfaction: 2,
     programImage: 'icons/person.png',
+=======
     onBuyCaptial: 800,
     onBuySatisfaction: 12,
     onQuarterActionPoints: 50,
     onQuarterCaptial: 120,
     onQuarterSatisfaction: 4,
+>>>>>>> 0bc7dc6dcb2703ca655578aff2d0d061cfff6892
     isPurchased: false
   },
   {
     name: 'Raise the Salary of All Employees',
     description: 'Raise employee salary. May allow the team to work better, and be more efficient.',
     shortDescription: 'rise employee salary!Yay!',
+<<<<<<< HEAD
+    onBuyActionPoints: 2,
+    onBuyCaptial: 30,
+    onBuySatisfaction: 5,
+    onQuarterActionPoints: 2,
+    onQuarterCaptial: 2,
+    onQuarterSatisfaction: 2,
     programImage: 'icons/money.png',
+=======
     onBuyActionPoints: 6,
     onBuyCaptial: 130,
     onBuySatisfaction: 4,
     onQuarterActionPoints: 5,
     onQuarterCaptial: 28,
     onQuarterSatisfaction: 5,
+>>>>>>> 0bc7dc6dcb2703ca655578aff2d0d061cfff6892
     isPurchased: false
   },
   {
     name: 'Reduce Wages',
     description: 'Reduce the wages of your workers to possibly generate better profit.',
     shortDescription: 'reduce wages',
+<<<<<<< HEAD
+    onBuyActionPoints: 2,
+    onBuyCaptial: 40,
+    onBuySatisfaction: 6,
+    onQuarterActionPoints: 2,
+    onQuarterCaptial: 2,
+    onQuarterSatisfaction: 2,
     programImage: 'icons/money.png',
+=======
     onBuyActionPoints: 9,
     onBuyCaptial: 400,
     onBuySatisfaction: -90,
     onQuarterActionPoints: 7,
     onQuarterCaptial: 90,
     onQuarterSatisfaction: 30,
+>>>>>>> 0bc7dc6dcb2703ca655578aff2d0d061cfff6892
     isPurchased: false
   }
 ];

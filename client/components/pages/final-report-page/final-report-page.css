@@ -1,5 +1,6 @@
 .final-report  {
-
+    background-color: #a10046;
+    background-image: url("vines.png");
 }
 
 .final-report__headline {
@@ -20,4 +21,14 @@
 
 .final-report__button {
 
+}
+
+.playAgainWrapper{
+    padding:10px;
+}
+
+.playAgainWrapper h2{
+    font-size: 30px;
+    color: #F9BE16;
+    font-weight: bold;
 }

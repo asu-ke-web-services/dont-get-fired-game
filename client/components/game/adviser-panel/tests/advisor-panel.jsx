@@ -2,12 +2,12 @@ import React from 'react';
 import {expect} from 'chai';
 const {describe, it} = global;
 import {shallow} from 'enzyme';
-import { default as AdvisorPanel } from '../advisor-panel.jsx';
+import { default as AdviserPanel } from '../adviser-panel.jsx';
 
-describe('Advisor Panel', () => {
+describe('Adviser Panel', () => {
 
   var gameData = { game: {
-    advisors: [
+    advisers: [
       {
         name: 'Ivan',
         advice() {
@@ -36,8 +36,8 @@ describe('Advisor Panel', () => {
     gameData.game = 0;
   }
 
-  it( 'has one advisor', () => {
-    const wrapper = shallow(<AdvisorPanel state={gameData} />);
+  it( 'has one adviser', () => {
+    const wrapper = shallow(<AdviserPanel state={gameData} />);
     expect(wrapper.contains('GOOD')).to.equal(true);
   });
 });

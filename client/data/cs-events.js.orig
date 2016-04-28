@@ -1,7 +1,12 @@
 export default [
   {
+<<<<<<< HEAD
+    name: 'Employee Training',
+    description: 'Train employees for your company to make better products.',
+=======
     name: 'Employees training',
     description: 'Training employees for company to make better product.(Training costs money)',
+>>>>>>> 0bc7dc6dcb2703ca655578aff2d0d061cfff6892
     optionALabel: 'Accept',
     optionAActionPoints: 2,
     optionACaptial: 50,
@@ -12,9 +17,15 @@ export default [
     optionBSatisfaction: 17
   },
   {
+<<<<<<< HEAD
+    name: 'Diluted Stocks',
+    description: 'Share diluted stocks with employees inr order to encourage them.',
+    optionALabel: 'Dilute Them',
+=======
     name: 'Diluted stocks',
     description: 'Diluted stocks. Share it to employees if not people wont be happy',
     optionALabel: 'Diluted',
+>>>>>>> 0bc7dc6dcb2703ca655578aff2d0d061cfff6892
     optionAActionPoints: 3,
     optionACaptial: 50,
     optionASatisfaction: 17,
@@ -24,18 +35,29 @@ export default [
     optionBSatisfaction: 5
   },
   {
+<<<<<<< HEAD
     name: 'Buy Back Stocks ',
     description: 'Buy back your stocks from stockholders.',
     optionALabel: 'Buy Back',
+=======
+    name: 'Buyback stocks ',
+    description: 'Buyback stocks from stockholders.',
+    optionALabel: 'Buyback',
+>>>>>>> 0bc7dc6dcb2703ca655578aff2d0d061cfff6892
     optionAActionPoints: 2,
     optionACaptial: 100,
     optionASatisfaction: 20,
+<<<<<<< HEAD
+    optionBLabel: 'Keep Cash Flow',
+=======
     optionBLabel: 'Keep cash flow',
+>>>>>>> 0bc7dc6dcb2703ca655578aff2d0d061cfff6892
     optionBActionPoints: 1,
     optionBCaptial: 80,
     optionBSatisfaction: 15
   },
   {
+<<<<<<< HEAD
     name: 'Buy a Machine From Bob Inc or Sam Inc',
     description: 'The company has to buy a new machine to make production more efficient.',
     optionALabel: 'Buy From Bob',
@@ -43,13 +65,27 @@ export default [
     optionACaptial: 100,
     optionASatisfaction: 12,
     optionBLabel: 'Buy From Sam',
+=======
+    name: 'Buy machine from Bob Inc or Sam Inc',
+    description: 'Sam Inc has better reputation',
+    optionALabel: 'Buy machine from Bob',
+    optionAActionPoints: 2,
+    optionACaptial: 100,
+    optionASatisfaction: 12,
+    optionBLabel: 'Buy machine from Sam',
+>>>>>>> 0bc7dc6dcb2703ca655578aff2d0d061cfff6892
     optionBActionPoints: 2,
     optionBCaptial: 125,
     optionBSatisfaction: 17
   },
   {
+<<<<<<< HEAD
     name: 'Year-End Celebration',
     description: 'Company needs to celebrate for the current year and finish goal.',
+=======
+    name: 'Year-End celebration',
+    description: 'Company needs to celebrate for finishing goal(Big Party or Small One?)',
+>>>>>>> 0bc7dc6dcb2703ca655578aff2d0d061cfff6892
     optionALabel: 'Celebrate at Hotel',
     optionAActionPoints: 1,
     optionACaptial: 50,
@@ -60,8 +96,13 @@ export default [
     optionBSatisfaction: 18
   },
   {
+<<<<<<< HEAD
     name: 'Company Project Tender',
     description: 'Two companies want to work with you. Company A seems to offer a low cost.',
+=======
+    name: 'Company project tender',
+    description: 'Two companies want project(Small Company A gave better offer)',
+>>>>>>> 0bc7dc6dcb2703ca655578aff2d0d061cfff6892
     optionALabel: 'Company A',
     optionAActionPoints: 2,
     optionACaptial: 120,
@@ -72,8 +113,13 @@ export default [
     optionBSatisfaction: 16
   },
   {
+<<<<<<< HEAD
     name: 'Assign New Project',
     description: 'Decide to assign a new project to either Team A or Team B',
+=======
+    name: 'Assign new project',
+    description: 'Decide to assign new project(Team A costs more, did better job)',
+>>>>>>> 0bc7dc6dcb2703ca655578aff2d0d061cfff6892
     optionALabel: 'Team A',
     optionAActionPoints: 2,
     optionACaptial: 90,
@@ -84,8 +130,13 @@ export default [
     optionBSatisfaction: 11
   },
   {
+<<<<<<< HEAD
     name: 'Buy New Office Supplies',
     description: 'Buy the new supplies from office Max or Office Depot?',
+=======
+    name: 'Buy Working Supplies',
+    description: 'Buy it from office Max or Office Depot',
+>>>>>>> 0bc7dc6dcb2703ca655578aff2d0d061cfff6892
     optionALabel: 'Office Max',
     optionAActionPoints: 1,
     optionACaptial: 110,
@@ -96,9 +147,15 @@ export default [
     optionBSatisfaction: 15
   },
   {
+<<<<<<< HEAD
     name: 'New Building',
     description: 'Should the new building be built by construction team John or Ray?',
     optionALabel: 'Team John',
+=======
+    name: 'New Construction',
+    description: 'Ray is more sustainable, but it costs money',
+    optionALabel: 'Team john',
+>>>>>>> 0bc7dc6dcb2703ca655578aff2d0d061cfff6892
     optionAActionPoints: 2,
     optionACaptial: 110,
     optionASatisfaction: 5,
@@ -108,8 +165,13 @@ export default [
     optionBSatisfaction: 19
   },
   {
+<<<<<<< HEAD
     name: 'Merge Development Team',
     description: 'Merge 2 of the teams A,B,C together to develop 2 products.',
+=======
+    name: 'Merge develop team',
+    description: 'MMerge A and B could make people happy, cant make much profit',
+>>>>>>> 0bc7dc6dcb2703ca655578aff2d0d061cfff6892
     optionALabel: 'Merge team A and C',
     optionAActionPoints: 2,
     optionACaptial: 120,

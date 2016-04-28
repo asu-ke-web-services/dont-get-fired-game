@@ -33,13 +33,13 @@ const StartPage = React.createClass({
                   button--action
                   button--block"
                 onClick={this.handlePlay}>
-              new game
+              New Game
             </button>
             <br/>
             <button
                 className="start-page__button button button--white button--block"
                 onClick={this.handleCredit}>
-              credits
+              Credits
             </button>
           </div>
 
